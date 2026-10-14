@@ -70,7 +70,8 @@ Output, per shape: `ok` or `CHANGED`, with
 - `! source not found: …` — a file the rule reads was moved or deleted (fix the rule),
 - `· used by production, not served by the demo` — information only.
 
-Exit code **0** = no difference, **1** = a difference (or a missing source), **2** = wrong usage.
+Exit code **0** = no difference, **1** = a difference (or a missing source), **2** = wrong usage
+(`tests/check-contracts.test.js` proves all three against a synthetic «production» folder).
 `--json` prints the same as JSON for a pipeline.
 
 ### Optional automation (described here, deliberately not added)
