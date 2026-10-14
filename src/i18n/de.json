@@ -549,9 +549,9 @@
       },
       "search": {
         "title": "Suchen, wie Ägypter tippen",
-        "problem": "Kunden mischen Alif- und Hamza-Formen, ⁨ة⁩ und ⁨ه⁩, ⁨ى⁩ und ⁨ي⁩, arabisch-indische Ziffern, Fachjargon und halb getippte Wörter. Exakte Treffer fanden nichts: «بان» lieferte keine Ergebnisse statt Badewannen.",
+        "problem": "Kunden mischen Alif- und Hamza-Formen, ⁨ة⁩ und ⁨ه⁩, ⁨ى⁩ und ⁨ي⁩, arabisch-indische Ziffern, Fachjargon und halb getippte Wörter. Exakte Treffer fanden nichts: ⁨«بان»⁩ lieferte keine Ergebnisse statt Badewannen.",
         "s1": "Eine Faltfunktion ist zweimal geschrieben, in C# und als PostgreSQL-Funktion, damit Datenbank und App sich bei jedem Buchstaben einig sind. Produkte tragen einen gefalteten Suchtext, den Trigger aktuell halten.",
-        "s2": "Ein kurzes Wort, das im Katalog nie ganz vorkommt, mit dem aber einige seiner Wörter beginnen, gilt als Wort, das noch getippt wird: «بان» findet بانيو, nie ein Wort mit «بان» in der Mitte.",
+        "s2": "Ein kurzes Wort, das im Katalog nie ganz vorkommt, mit dem aber einige seiner Wörter beginnen, gilt als Wort, das noch getippt wird: ⁨«بان»⁩ findet ⁨بانيو⁩, nie ein Wort mit ⁨«بان»⁩ in der Mitte.",
         "s3": "Die Suche lernt. Jede Anfrage wird gezählt, Suchen ohne Treffer zeigen dem Laden, was Kunden wollen und er nicht führt, ein angenommenes „Meinten Sie\" wird ein Synonym, und der Inhaber kann Wortpaare beibringen.",
         "proof": "Tests prüfen, dass die C#-Regel und der reguläre Ausdruck der Datenbank dieselbe Antwort geben. Ein Messwerkzeug führt vor jedem Release die echten Suchen des Ladens aus."
       },
@@ -607,7 +607,7 @@
       "items": {
         "wordStart": {
           "title": "Ein kurzes Wort findet die Wörter, die es beginnt",
-          "text": "Wer «بان» tippt, findet jetzt بانيو, und «حو» findet حوض; ein kurzes Wort trifft nie mitten in einem anderen Wort."
+          "text": "Wer ⁨«بان»⁩ tippt, findet jetzt ⁨بانيو⁩, und ⁨«حو»⁩ findet ⁨حوض⁩; ein kurzes Wort trifft nie mitten in einem anderen Wort."
         },
         "supplierCheques": {
           "title": "Schecks an Lieferanten und ihre Eröffnungssalden",

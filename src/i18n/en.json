@@ -549,9 +549,9 @@
       },
       "search": {
         "title": "Search the way Egyptians type",
-        "problem": "Shoppers mix alef and hamza forms, ⁨ة⁩ and ⁨ه⁩, ⁨ى⁩ and ⁨ي⁩, Arabic-Indic digits, trade slang and half-typed words. Exact matching found nothing: «بان» returned no results instead of bathtubs.",
+        "problem": "Shoppers mix alef and hamza forms, ⁨ة⁩ and ⁨ه⁩, ⁨ى⁩ and ⁨ي⁩, Arabic-Indic digits, trade slang and half-typed words. Exact matching found nothing: ⁨«بان»⁩ returned no results instead of bathtubs.",
         "s1": "One fold function is written twice, in C# and as a PostgreSQL function, so the database and the app agree on every letter. Products carry a folded search text that triggers keep current.",
-        "s2": "A short word that the catalogue never holds whole, but that starts some of its words, is read as a word still being typed: «بان» finds بانيو, never a word with «بان» in the middle.",
+        "s2": "A short word that the catalogue never holds whole, but that starts some of its words, is read as a word still being typed: ⁨«بان»⁩ finds ⁨بانيو⁩, never a word with ⁨«بان»⁩ in the middle.",
         "s3": "The search learns. Every query is counted, searches with no result show the shop what customers ask for and it does not stock, an accepted \"did you mean\" becomes a synonym, and the owner can teach word pairs.",
         "proof": "Tests check that the C# rule and the database's own regular expression give the same answer. A measuring tool runs the shop's real searches before every release."
       },
@@ -607,7 +607,7 @@
       "items": {
         "wordStart": {
           "title": "A short word finds the words it begins",
-          "text": "Typing «بان» now finds بانيو and «حو» finds حوض, while a short word never matches inside another word."
+          "text": "Typing ⁨«بان»⁩ now finds ⁨بانيو⁩ and ⁨«حو»⁩ finds ⁨حوض⁩, while a short word never matches inside another word."
         },
         "supplierCheques": {
           "title": "Cheques to suppliers, and suppliers' opening balances",
