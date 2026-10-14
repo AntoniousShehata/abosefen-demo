@@ -91,11 +91,14 @@
     "sortPriceDesc": "Price: high to low",
     "sortName": "Name",
     "brand": "Brand",
-    "allBrands": "All brands",
     "empty": "No products here yet.",
     "notFound": "This category does not exist.",
     "allTitle": "All categories",
-    "allText": "From rough-in (pipes, fittings, valves) to finishing (mixers, showers, ceramics, sinks, accessories)."
+    "allText": "From rough-in (pipes, fittings, valves) to finishing (mixers, showers, ceramics, sinks, accessories).",
+    "sizes": "Size",
+    "finishes": "Colour / finish",
+    "clearFilters": "Clear filters",
+    "results": "Results: {count}"
   },
   "product": {
     "sku": "Code",
@@ -609,6 +612,10 @@
       "tryIt": "Try it in the demo →",
       "onlyThere": "In production only",
       "items": {
+        "categoryFilters": {
+          "title": "Category filters that keep their word",
+          "text": "Filters live in the page's address, so «back» from a product keeps them and another category starts clean. Every maker, size and finish of the whole category is counted on the server, and a filter is offered only when its data is real."
+        },
         "wordStart": {
           "title": "A short word finds the words it begins",
           "text": "Typing ⁨«بان»⁩ now finds ⁨بانيو⁩ and ⁨«حو»⁩ finds ⁨حوض⁩, while a short word never matches inside another word."

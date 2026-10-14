@@ -637,16 +637,72 @@ export function createApi({ storage = browserStorage(), latency = [150, 450], no
         return { category: { ...categoryOut(c), subCategories: children }, path: pathOut(c.id), children };
       }),
     listBrands: () => respond(() => db.brands.map((b) => brandOut(b.code))),
-    listProducts: ({ categoryId = null, brandCode = null, sort = 'featured', lang = 'en' } = {}) =>
+    // Production's UX-20: several makers, a size and a finish (answered by ONE option the customer can see), and a
+    // panel counted over the WHOLE list — each facet with the OTHER facets' choices applied, so a ticked maker never
+    // empties the makers beside it.
+    listProducts: ({ categoryId = null, brandCode = null, brandCodes = [], sizes = [], finishes = [], sort = 'featured', lang = 'en' } = {}) =>
       respond(() => {
         const branch = categoryId ? new Set(branchOf(categoryId)) : null;
-        let list = activeProducts().filter((p) => !branch || branch.has(p.categoryId));
-        const brandCodes = [...new Set(list.map((p) => p.brandCode))];
-        if (brandCode) list = list.filter((p) => p.brandCode === brandCode);
+        const all = activeProducts().filter((p) => !branch || branch.has(p.categoryId));
+        const makers = brandCode ? [brandCode, ...brandCodes] : brandCodes;
+        const byMaker = (p) => makers.length === 0 || makers.includes(p.brandCode);
+        const seenOptions = (p) => (p.variants || []).filter((v) => v.isActive && !v.isHidden);
+        const optionFits = (v, sizeList, finishList) =>
+          (sizeList.length === 0 || sizeList.includes(v.sizeCode)) && (finishList.length === 0 || finishList.includes(v.colorCode));
+        const byOption = (sizeList, finishList) => (p) =>
+          (sizeList.length === 0 && finishList.length === 0) || seenOptions(p).some((v) => optionFits(v, sizeList, finishList));
+
+        const list = all.filter((p) => byMaker(p) && byOption(sizes, finishes)(p));
+
+        // [key, productId] rows → how many different products each key holds
+        const tally = (rows) => {
+          const counts = new Map();
+          for (const [key, productId] of rows) {
+            if (!counts.has(key)) counts.set(key, { ids: new Set() });
+            counts.get(key).ids.add(productId);
+          }
+          return counts;
+        };
+        const makerCounts = tally(all.filter(byOption(sizes, finishes)).map((p) => [p.brandCode, p.id]));
+        const ofMakers = all.filter(byMaker);
+        const sizeRows = [];
+        const finishRows = [];
+        const sizeLabels = new Map();
+        const finishInfo = new Map();
+        for (const p of ofMakers) {
+          for (const v of seenOptions(p)) {
+            if (v.sizeCode && optionFits(v, [], finishes)) {
+              sizeRows.push([v.sizeCode, p.id]);
+              sizeLabels.set(v.sizeCode, v.sizeLabel);
+            }
+            if (v.colorCode && optionFits(v, sizes, [])) {
+              finishRows.push([v.colorCode, p.id]);
+              finishInfo.set(v.colorCode, { name: v.colorName, hex: v.colorHex });
+            }
+          }
+        }
+        const sizeOrder = (code) => {
+          const n = parseFloat(String(code).replace(/[^\d.]/g, ''));
+          return Number.isFinite(n) ? n : Number.MAX_VALUE;
+        };
+        const facets = {
+          brands: [...makerCounts.entries()]
+            .map(([code, c]) => ({ ...brandOut(code), count: c.ids.size }))
+            .filter((b) => b.code)
+            .sort((a, b) => b.count - a.count || a.name.en.localeCompare(b.name.en)),
+          sizes: [...tally(sizeRows).entries()]
+            .map(([key, c]) => ({ key, label: sizeLabels.get(key), count: c.ids.size }))
+            .sort((a, b) => sizeOrder(a.key) - sizeOrder(b.key) || a.key.localeCompare(b.key)),
+          finishes: [...tally(finishRows).entries()]
+            .map(([code, c]) => ({ code, name: finishInfo.get(code).name, hex: finishInfo.get(code).hex, count: c.ids.size }))
+            .sort((a, b) => b.count - a.count || a.code.localeCompare(b.code)),
+        };
+
         return {
           items: sortProducts(list, sort, lang).map((p) => productOut(p)),
           total: list.length,
-          brands: brandCodes.map(brandOut).filter(Boolean),
+          brands: [...new Set(all.map((p) => p.brandCode))].map(brandOut).filter(Boolean),
+          facets,
         };
       }),
     getProduct: (slug) =>

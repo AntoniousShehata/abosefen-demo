@@ -188,8 +188,7 @@ describe('«Latest in production»', () => {
     renderAt('/engineering');
     const list = await screen.findByTestId('latest-in-production');
     expect(within(list).getAllByRole('listitem').length).toBeGreaterThanOrEqual(6);
-    const tryIt = within(list).getByText('Try it in the demo →');
-    expect(decodeURIComponent(tryIt.getAttribute('href'))).toBe('/search?q=بان');
+    expect(within(list).getAllByText('Try it in the demo →').map((a) => decodeURIComponent(a.getAttribute('href')))).toContain('/search?q=بان');
   });
 
   it('every item has its words in the three languages', async () => {
@@ -208,5 +207,17 @@ describe('the author and the tools', () => {
     renderAt('/engineering');
     expect(await screen.findByText(/Designed, directed and shipped by Antonious Shehata/)).toBeTruthy();
     expect(within(screen.getByTestId('practice-ai')).getByText('How AI is used')).toBeTruthy();
+  });
+});
+
+describe('category filters in the address (production\'s UX-20)', () => {
+  it('reads the choices from the address, shows them as chips and clears them', async () => {
+    renderAt('/c/basin-mixers?finish=BLK');
+    const chips = await screen.findByTestId('filter-chips');
+    expect(chips.textContent).toContain('Matte black');
+    const panel = screen.getByTestId('filter-panel');
+    expect(within(panel).getByRole('button', { name: /Matte black/, pressed: true })).toBeTruthy();
+    fireEvent.click(within(chips).getByText('Clear filters'));
+    await waitFor(() => expect(screen.queryByTestId('filter-chips')).toBeNull());
   });
 });

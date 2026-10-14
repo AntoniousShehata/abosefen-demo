@@ -324,3 +324,34 @@ describe('persistence', () => {
     expect((await again.listProducts({})).total).toBeGreaterThan(60);
   });
 });
+
+describe('a category\'s filters (production\'s UX-20)', () => {
+  it('counts every maker, size and finish of the whole category', async () => {
+    const { facets, total } = await api.listProducts({ categoryId: 'c-basin-mixers' });
+    expect(facets.brands.reduce((n, b) => n + b.count, 0)).toBe(total);
+    expect(facets.finishes.map((f) => f.code).sort()).toEqual(['BLK', 'CHR', 'GLD']);
+    for (const f of facets.finishes) expect(f.count).toBeGreaterThan(0);
+  });
+
+  it('several makers at once; a ticked maker keeps the other makers countable', async () => {
+    const all = await api.listProducts({ categoryId: 'c-basin-mixers' });
+    const [a, b] = all.facets.brands;
+    const one = await api.listProducts({ categoryId: 'c-basin-mixers', brandCodes: [a.code] });
+    expect(one.total).toBe(a.count);
+    expect(one.facets.brands).toHaveLength(all.facets.brands.length);
+    const two = await api.listProducts({ categoryId: 'c-basin-mixers', brandCodes: [a.code, b.code] });
+    expect(two.total).toBe(a.count + b.count);
+  });
+
+  it('a size and a finish are answered by the same option', async () => {
+    const sized = await api.listProducts({ categoryId: 'c-ppr-fittings' });
+    const size = sized.facets.sizes[0];
+    expect(sized.facets.sizes.map((s) => s.key)).toContain('20');
+    const bySize = await api.listProducts({ categoryId: 'c-ppr-fittings', sizes: [size.key] });
+    expect(bySize.total).toBe(size.count);
+    const black = await api.listProducts({ categoryId: 'c-basin-mixers', finishes: ['BLK'] });
+    for (const p of black.items) expect(p.variants.some((v) => v.colorCode === 'BLK')).toBe(true);
+    const none = await api.listProducts({ categoryId: 'c-basin-mixers', finishes: ['BLK'], sizes: ['20'] });
+    expect(none.total).toBe(0);
+  });
+});

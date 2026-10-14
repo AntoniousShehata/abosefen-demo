@@ -91,11 +91,14 @@
     "sortPriceDesc": "Preis: absteigend",
     "sortName": "Name",
     "brand": "Marke",
-    "allBrands": "Alle Marken",
     "empty": "Hier gibt es noch keine Produkte.",
     "notFound": "Diese Kategorie gibt es nicht.",
     "allTitle": "Alle Kategorien",
-    "allText": "Von der Rohinstallation (Rohre, Fittings, Ventile) bis zum Ausbau (Armaturen, Duschen, Keramik, Spülen, Accessoires)."
+    "allText": "Von der Rohinstallation (Rohre, Fittings, Ventile) bis zum Ausbau (Armaturen, Duschen, Keramik, Spülen, Accessoires).",
+    "sizes": "Größe",
+    "finishes": "Farbe / Oberfläche",
+    "clearFilters": "Filter löschen",
+    "results": "Ergebnisse: {count}"
   },
   "product": {
     "sku": "Code",
@@ -609,6 +612,10 @@
       "tryIt": "In der Demo ausprobieren →",
       "onlyThere": "Nur im Produktivsystem",
       "items": {
+        "categoryFilters": {
+          "title": "Kategoriefilter, die halten, was sie zeigen",
+          "text": "Filter stehen in der Adresse der Seite: «zurück» von einem Produkt behält sie, eine andere Kategorie beginnt leer. Jede Marke, Größe und Oberfläche der ganzen Kategorie wird auf dem Server gezählt, und ein Filter erscheint nur, wenn seine Daten echt sind."
+        },
         "wordStart": {
           "title": "Ein kurzes Wort findet die Wörter, die es beginnt",
           "text": "Wer ⁨«بان»⁩ tippt, findet jetzt ⁨بانيو⁩, und ⁨«حو»⁩ findet ⁨حوض⁩; ein kurzes Wort trifft nie mitten in einem anderen Wort."
