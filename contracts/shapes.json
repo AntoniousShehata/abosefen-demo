@@ -1,0 +1,614 @@
+{
+  "contractVersion": "1.0.0",
+  "about": "The data shapes this demo mirrors from the production Abosefen frontend. For each shape: how the production usage is extracted (read-only, grep-based), what production used at the snapshot, what the demo's fake API serves, and the gaps the demo leaves on purpose. Checked by scripts/check-contracts.mjs; served shapes are checked by tests/contracts.test.js. See docs/SYNC.md.",
+  "snapshot": {
+    "repository": "production (AbosefenWeb)",
+    "commit": "0751f44f",
+    "takenAt": "2026-10-14"
+  },
+  "shapes": {
+    "product": {
+      "kind": "fields",
+      "meaning": "A product as the storefront components read it (after the frontend's own normalisation).",
+      "extract": {
+        "type": "fields",
+        "nested": [
+          "pricing",
+          "inventory",
+          "rating",
+          "bundle",
+          "category",
+          "brand",
+          "name",
+          "images"
+        ],
+        "sources": [
+          {
+            "file": "components/ProductCard.jsx",
+            "identifiers": [
+              "product"
+            ]
+          },
+          {
+            "file": "pages/ProductDetails.jsx",
+            "identifiers": [
+              "product"
+            ]
+          }
+        ]
+      },
+      "demoProvides": [
+        "id",
+        "_id",
+        "sku",
+        "slug",
+        "modelCode",
+        "name",
+        "name.ar",
+        "name.en",
+        "name.de",
+        "brand",
+        "brand.name",
+        "brand.code",
+        "countryOfOrigin",
+        "category",
+        "category.id",
+        "category.name",
+        "categoryId",
+        "productType",
+        "images",
+        "pricing",
+        "pricing.salePrice",
+        "pricing.originalPrice",
+        "pricing.isOnSale",
+        "pricing.discountPercentage",
+        "pricing.currency",
+        "inventory",
+        "inventory.inStock",
+        "inventory.stockQuantity",
+        "inventory.quantity",
+        "inventory.lowStockThreshold",
+        "variants",
+        "variantCount",
+        "bundle",
+        "bundle.availableAsBundle",
+        "bundle.components",
+        "description",
+        "specifications",
+        "moreFromBrand"
+      ],
+      "knownGaps": [
+        "rating",
+        "rating.average",
+        "rating.totalReviews",
+        "averageRating",
+        "reviewCount",
+        "previewHiddenNoAdd",
+        "previewHiddenTitle",
+        "previewHiddenBody",
+        "longDescription",
+        "features",
+        "options",
+        "compareAtPrice",
+        "pricing.price",
+        "pricing.compareAtPrice",
+        "images.length"
+      ],
+      "productionUses": [
+        "_id",
+        "averageRating",
+        "bundle.availableAsBundle",
+        "bundle.components",
+        "category",
+        "category.name",
+        "compareAtPrice",
+        "countryOfOrigin",
+        "description",
+        "features",
+        "id",
+        "images",
+        "inventory.inStock",
+        "inventory.lowStockThreshold",
+        "inventory.quantity",
+        "longDescription",
+        "modelCode",
+        "name",
+        "options",
+        "previewHiddenBody",
+        "previewHiddenNoAdd",
+        "previewHiddenTitle",
+        "pricing.compareAtPrice",
+        "pricing.discountPercentage",
+        "pricing.isOnSale",
+        "pricing.originalPrice",
+        "pricing.salePrice",
+        "productType",
+        "rating",
+        "rating.average",
+        "rating.totalReviews",
+        "reviewCount",
+        "sku",
+        "slug",
+        "specifications",
+        "variantCount",
+        "variants"
+      ]
+    },
+    "productDto": {
+      "kind": "fields",
+      "meaning": "The raw product the production API sends, as the frontend's normalizeProduct reads it. The demo serves the normalised shape directly, so this is watched for change only.",
+      "extract": {
+        "type": "fields",
+        "nested": [],
+        "sources": [
+          {
+            "file": "utils/entityLocalization.js",
+            "identifiers": [
+              "prod"
+            ]
+          }
+        ]
+      },
+      "productionUses": [
+        "BrandCode",
+        "BrandName",
+        "BrandNameAr",
+        "CategoryCode",
+        "CategoryName",
+        "CategoryNameAr",
+        "CategoryNameDe",
+        "ModelCode",
+        "Name",
+        "NameAr",
+        "NameDe",
+        "Sku",
+        "_id",
+        "brand",
+        "brandCode",
+        "brandName",
+        "brandNameAr",
+        "categoryCode",
+        "categoryName",
+        "categoryNameAr",
+        "categoryNameDe",
+        "compareAtPrice",
+        "id",
+        "images",
+        "inventory",
+        "isActive",
+        "modelCode",
+        "name",
+        "nameAr",
+        "nameDe",
+        "price",
+        "pricing",
+        "primaryImageUrl",
+        "sku",
+        "subCategoryCode"
+      ]
+    },
+    "variant": {
+      "kind": "fields",
+      "meaning": "One option of a product (finish / size) as the product page reads it.",
+      "extract": {
+        "type": "fields",
+        "nested": [],
+        "sources": [
+          {
+            "file": "pages/ProductDetails.jsx",
+            "identifiers": [
+              "v",
+              "variant",
+              "selectedVariant"
+            ]
+          }
+        ]
+      },
+      "demoProvides": [
+        "id",
+        "sku",
+        "colorCode",
+        "colorName",
+        "colorHex",
+        "sizeCode",
+        "sizeLabel",
+        "priceOverride",
+        "isActive",
+        "isHidden",
+        "stockQuantity",
+        "inStock",
+        "label",
+        "pricing"
+      ],
+      "knownGaps": [
+        "imageUrl",
+        "barcode",
+        "manufacturerCode",
+        "diameter",
+        "icon",
+        "price",
+        "priceShown",
+        "color",
+        "size",
+        "name",
+        "key"
+      ],
+      "productionUses": [
+        "color",
+        "colorCode",
+        "colorName",
+        "diameter",
+        "id",
+        "imageUrl",
+        "isActive",
+        "isHidden",
+        "price",
+        "priceOverride",
+        "priceShown",
+        "size",
+        "sizeCode",
+        "sizeLabel",
+        "sku",
+        "stockQuantity"
+      ]
+    },
+    "category": {
+      "kind": "fields",
+      "meaning": "A category as the category pages and the tree helpers read it.",
+      "extract": {
+        "type": "fields",
+        "nested": [],
+        "sources": [
+          {
+            "file": "pages/AllCategories.jsx",
+            "identifiers": [
+              "category",
+              "cat",
+              "c"
+            ]
+          },
+          {
+            "file": "pages/CategoryProducts.jsx",
+            "identifiers": [
+              "category",
+              "sub",
+              "c"
+            ]
+          },
+          {
+            "file": "utils/categoryTree.js",
+            "identifiers": [
+              "c"
+            ]
+          },
+          {
+            "file": "utils/categoryShape.js",
+            "identifiers": [
+              "c"
+            ]
+          }
+        ]
+      },
+      "demoProvides": [
+        "id",
+        "_id",
+        "code",
+        "slug",
+        "name",
+        "parentCategoryId",
+        "displayOrder",
+        "productCount",
+        "subCategories",
+        "childCount",
+        "isLeaf"
+      ],
+      "knownGaps": [
+        "imageUrl",
+        "description",
+        "parentId",
+        "ParentCategoryId",
+        "Slug",
+        "Id"
+      ],
+      "productionUses": [
+        "Id",
+        "ParentCategoryId",
+        "Slug",
+        "_id",
+        "description",
+        "id",
+        "imageUrl",
+        "name",
+        "parentCategoryId",
+        "parentId",
+        "productCount",
+        "slug",
+        "subCategories"
+      ]
+    },
+    "cartLine": {
+      "kind": "fields",
+      "meaning": "One cart line as the cart and checkout pages read it.",
+      "extract": {
+        "type": "fields",
+        "nested": [],
+        "sources": [
+          {
+            "file": "pages/Cart.jsx",
+            "identifiers": [
+              "item"
+            ]
+          },
+          {
+            "file": "pages/Checkout.jsx",
+            "identifiers": [
+              "item",
+              "line"
+            ]
+          }
+        ]
+      },
+      "demoProvides": [
+        "id",
+        "lineKey",
+        "variantId",
+        "name",
+        "slug",
+        "sku",
+        "price",
+        "originalPrice",
+        "isOnSale",
+        "quantity",
+        "lineTotal",
+        "inStock",
+        "stockQuantity"
+      ],
+      "knownGaps": [
+        "image",
+        "carryClass"
+      ],
+      "productionUses": [
+        "id",
+        "image",
+        "inStock",
+        "isOnSale",
+        "lineKey",
+        "originalPrice",
+        "price",
+        "quantity",
+        "slug"
+      ]
+    },
+    "cartItemDto": {
+      "kind": "fields",
+      "meaning": "The raw cart item the production Cart service sends (CartContext maps it). Watched for change only.",
+      "extract": {
+        "type": "fields",
+        "nested": [],
+        "sources": [
+          {
+            "file": "context/CartContext.jsx",
+            "identifiers": [
+              "item"
+            ]
+          }
+        ]
+      },
+      "productionUses": [
+        "_id",
+        "carryClass",
+        "cartItemId",
+        "compareAtPrice",
+        "id",
+        "lineKey",
+        "originalPrice",
+        "price",
+        "productId",
+        "productName",
+        "productSlug",
+        "quantity",
+        "thumbnailUrl",
+        "unitPrice",
+        "variantId"
+      ]
+    },
+    "order": {
+      "kind": "fields",
+      "meaning": "An order as «My orders», the order tracker and the back-office order list read it.",
+      "extract": {
+        "type": "fields",
+        "nested": [],
+        "sources": [
+          {
+            "file": "pages/MyOrders.jsx",
+            "identifiers": [
+              "order",
+              "o"
+            ]
+          },
+          {
+            "file": "components/OrderProgress.jsx",
+            "identifiers": [
+              "order"
+            ]
+          },
+          {
+            "file": "pages/admin/AdminOrders.jsx",
+            "identifiers": [
+              "order",
+              "o"
+            ]
+          }
+        ]
+      },
+      "demoProvides": [
+        "id",
+        "orderNumber",
+        "status",
+        "paymentStatus",
+        "totalAmount",
+        "itemCount",
+        "createdAt",
+        "customerName",
+        "phone",
+        "items",
+        "history"
+      ],
+      "knownGaps": [
+        "documentType",
+        "invoiceNumber",
+        "etaSubmissionStatus",
+        "issuedByEmployeeName",
+        "awaiting",
+        "awaitingNext",
+        "reasons",
+        "lift",
+        "floor"
+      ],
+      "productionUses": [
+        "createdAt",
+        "customerName",
+        "documentType",
+        "etaSubmissionStatus",
+        "floor",
+        "id",
+        "invoiceNumber",
+        "issuedByEmployeeName",
+        "itemCount",
+        "lift",
+        "orderNumber",
+        "paymentStatus",
+        "phone",
+        "reasons",
+        "status",
+        "totalAmount"
+      ]
+    },
+    "orderStatus": {
+      "kind": "enum",
+      "meaning": "The order statuses the customer tracker knows (keys of STATUS_STAGE).",
+      "extract": {
+        "type": "objectKeys",
+        "file": "components/OrderProgress.jsx",
+        "name": "STATUS_STAGE"
+      },
+      "demoProvides": [
+        "Pending",
+        "Confirmed",
+        "Preparing",
+        "Packed",
+        "Shipped",
+        "Delivered",
+        "Completed"
+      ],
+      "knownGaps": [
+        "Processing",
+        "InvoiceGenerated"
+      ],
+      "productionUses": [
+        "Completed",
+        "Confirmed",
+        "Delivered",
+        "InvoiceGenerated",
+        "Packed",
+        "Pending",
+        "Preparing",
+        "Processing",
+        "Shipped"
+      ]
+    },
+    "orderStages": {
+      "kind": "enum",
+      "meaning": "The four stages the customer sees.",
+      "extract": {
+        "type": "arrayStrings",
+        "file": "components/OrderProgress.jsx",
+        "name": "STAGES"
+      },
+      "demoProvides": [
+        "confirmed",
+        "preparing",
+        "shipped",
+        "delivered"
+      ],
+      "productionUses": [
+        "confirmed",
+        "delivered",
+        "preparing",
+        "shipped"
+      ]
+    },
+    "orderStageLabels": {
+      "kind": "enum",
+      "meaning": "The tracker's words in the production English locale (myOrders.track.*).",
+      "extract": {
+        "type": "localeKeys",
+        "file": "i18n/locales/en.json",
+        "path": "myOrders.track"
+      },
+      "productionUses": [
+        "cancelledNotice",
+        "confirmed",
+        "delivered",
+        "preparing",
+        "returnedNotice",
+        "shipped",
+        "title"
+      ]
+    },
+    "taxonomy": {
+      "kind": "list",
+      "meaning": "The market's top-level department names (generic, public knowledge) on the production «All categories» page.",
+      "extract": {
+        "type": "regex",
+        "file": "data/categoriesCatalog.js",
+        "pattern": "^ {4}title: \\{ ar: '[^']+', en: '([^']+)' \\}",
+        "group": 1
+      },
+      "productionUses": [
+        "Accessories",
+        "Bathtubs",
+        "Essential Supplies",
+        "Floors & Walls",
+        "Home Appliances",
+        "Home Furniture",
+        "Kitchen Sinks",
+        "Pipes & Installation Fittings",
+        "Sanitary Ware",
+        "Shower Systems",
+        "Water Mixers"
+      ]
+    },
+    "designTokens": {
+      "kind": "list",
+      "meaning": "The brand colour channels written once in production's index.css; the demo's src/index.css must carry the same.",
+      "extract": {
+        "type": "regex",
+        "file": "index.css",
+        "pattern": "--c-[a-z-]+:\\s*[0-9]+ [0-9]+ [0-9]+",
+        "group": 0
+      },
+      "productionUses": [
+        "--c-primary-dark: 54 47 86",
+        "--c-primary-tint: 99 92 132",
+        "--c-primary: 72 63 110",
+        "--c-secondary: 196 98 63"
+      ]
+    },
+    "fonts": {
+      "kind": "list",
+      "meaning": "The Google Fonts families production loads.",
+      "extract": {
+        "type": "regex",
+        "file": "../index.html",
+        "pattern": "family=([A-Za-z+]+)",
+        "group": 1
+      },
+      "productionUses": [
+        "Cairo",
+        "Inter",
+        "Plus+Jakarta+Sans"
+      ]
+    }
+  }
+}
