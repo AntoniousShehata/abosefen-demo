@@ -57,6 +57,28 @@ describe('search normalisation', () => {
   });
 });
 
+describe('the trade\'s own words (production SRCH-5)', () => {
+  it('«نيبل» finds what is written «نبل», never nickel', () => {
+    expect(matchesQuery('نيبل', 'نبل داخلى PPR بسن نحاس')).toBe(true);
+    expect(matchesQuery('نيبل', 'حنفية نيكل لامع')).toBe(false);
+  });
+
+  it('«اطقم» finds a set, in Arabic or in English', () => {
+    expect(matchesQuery('اطقم', 'طقم حمام كامل نوفا')).toBe(true);
+    expect(matchesQuery('اطقم', 'Nilora hand shower set with rail')).toBe(true);
+  });
+
+  it('«بي بي ار», however its letters are written, is PPR', () => {
+    expect(queryWords('كوع بى بى آر')).toEqual(['كوع', 'ppr']);
+    expect(matchesQuery('بي بي ار', 'كوع 90° PPR')).toBe(true);
+    expect(matchesQuery('كوع بي بي ار', 'تيه PPR متساوى')).toBe(false);
+  });
+
+  it('«كرسي» is the trade\'s word for a toilet', () => {
+    expect(matchesQuery('كرسي', 'قاعدة كيراسترا نوفا')).toBe(true);
+  });
+});
+
 describe('a short word is the beginning of a word (production SRCH-4)', () => {
   it('«بان» finds بانيو and بالبانيو, never a word with بان inside it', () => {
     expect(matchesQuery('بان', 'خلاط بانيو')).toBe(true);

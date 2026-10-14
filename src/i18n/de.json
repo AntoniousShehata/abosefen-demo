@@ -612,6 +612,10 @@
       "tryIt": "In der Demo ausprobieren →",
       "onlyThere": "Nur im Produktivsystem",
       "items": {
+        "marketWords": {
+          "title": "Die Suche versteht die Wörter des Handels",
+          "text": "⁨«كرسي»⁩ findet WCs, ⁨«نيبل»⁩ findet, was ⁨«نبل»⁩ geschrieben ist, ⁨«بي بي ار»⁩ findet PPR und ⁨«اطقم»⁩ findet Sets. Im Produktivsystem außerdem: ein allein getipptes Wort wird gesucht, auch wenn es sonst nur beschreibt, eine sortierte Suche zählt alles Gefundene, und eine von Kunden angenommene Korrektur wartet auf den Inhaber, bevor sie die Bedeutung eines Wortes ändert."
+        },
         "categoryFilters": {
           "title": "Kategoriefilter, die halten, was sie zeigen",
           "text": "Filter stehen in der Adresse der Seite: «zurück» von einem Produkt behält sie, eine andere Kategorie beginnt leer. Jede Marke, Größe und Oberfläche der ganzen Kategorie wird auf dem Server gezählt, und ein Filter erscheint nur, wenn seine Daten echt sind."

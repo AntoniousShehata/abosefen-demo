@@ -47,7 +47,13 @@ const SYNONYM_GROUPS = [
   ['شطاف', 'شطافات', 'bidet'],
   ['استانلس', 'ستانلس', 'stainless', 'edelstahl'],
   ['كوع', 'اكواع', 'elbow', 'winkel'],
+  // the trade's own spellings (production SRCH-5, the owner's words of 14 Oct 2026)
+  ['نبل', 'نيبل', 'نبلات', 'نيبلات', 'nipple'],
+  ['طقم', 'اطقم', 'set', 'sets'],
 ].map((group) => group.map(fold));
+
+// A thing the trade names in more than one spoken word is read as the one word the catalogue writes («بي بي ار» = PPR).
+const PHRASES = [['بي بي ار', 'ppr']].map(([spoken, word]) => [fold(spoken), word]);
 
 const synonymsOf = new Map();
 for (const group of SYNONYM_GROUPS) {
@@ -71,7 +77,10 @@ export function wordForms(word) {
 
 /** The words of a query, folded; single letters (not digits) are ignored. */
 export function queryWords(query) {
-  return fold(query)
+  let text = ` ${fold(query)} `;
+  for (const [spoken, word] of PHRASES) text = text.split(` ${spoken} `).join(` ${word} `);
+  return text
+    .trim()
     .split(' ')
     .filter((w) => w && !(w.length === 1 && !/[0-9]/.test(w)));
 }

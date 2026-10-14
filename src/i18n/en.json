@@ -612,6 +612,10 @@
       "tryIt": "Try it in the demo →",
       "onlyThere": "In production only",
       "items": {
+        "marketWords": {
+          "title": "Search reads the trade's own words",
+          "text": "⁨«كرسي»⁩ finds toilets, ⁨«نيبل»⁩ finds what is written ⁨«نبل»⁩, ⁨«بي بي ار»⁩ finds PPR and ⁨«اطقم»⁩ finds sets. In production too: a word typed alone is looked for even when it usually only describes, a sorted search counts everything it found, and a correction shoppers accepted waits for the owner before it changes what any word means."
+        },
         "categoryFilters": {
           "title": "Category filters that keep their word",
           "text": "Filters live in the page's address, so «back» from a product keeps them and another category starts clean. Every maker, size and finish of the whole category is counted on the server, and a filter is offered only when its data is real."
