@@ -25,9 +25,8 @@ export default defineConfig({
     sourcemap: false,
   },
   test: {
-    // Pages render in jsdom; the API, data and tooling tests run in plain node (much faster).
+    // The API, data and tooling tests run in plain node (fast); the page tests ask for jsdom in their first line.
     environment: 'node',
-    environmentMatchGlobs: [['tests/**/*.test.jsx', 'jsdom']],
     setupFiles: ['./tests/setup.js'],
     include: ['tests/**/*.test.{js,jsx}'],
     testTimeout: 15000,

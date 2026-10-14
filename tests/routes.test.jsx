@@ -1,13 +1,14 @@
+/** @vitest-environment jsdom */
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import { cleanup, fireEvent, render, screen, waitFor, within } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import { AppRoutes, Providers, ROUTER_FUTURE } from '../src/App.jsx';
+import { AppRoutes, Providers } from '../src/App.jsx';
 import { api } from '../src/api/index.js';
 import { PRODUCTS } from '../src/data/catalog.js';
 
 const renderAt = (path, lang = 'en') =>
   render(
-    <MemoryRouter initialEntries={[path]} future={ROUTER_FUTURE}>
+    <MemoryRouter initialEntries={[path]}>
       <Providers initialLanguage={lang}>
         <AppRoutes />
       </Providers>

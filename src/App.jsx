@@ -22,8 +22,6 @@ import AdminCategories from './pages/admin/AdminCategories.jsx';
 import AdminStock from './pages/admin/AdminStock.jsx';
 import AdminOrders from './pages/admin/AdminOrders.jsx';
 
-export const ROUTER_FUTURE = { v7_startTransition: true, v7_relativeSplatPath: true };
-
 const guarded = (permission, element) => <RequirePermission permission={permission}>{element}</RequirePermission>;
 
 export function AppRoutes() {
@@ -67,7 +65,7 @@ export function Providers({ children, initialLanguage }) {
 // HashRouter: the published site is a set of static files (GitHub Pages) — no server to answer deep links.
 export default function App() {
   return (
-    <HashRouter future={ROUTER_FUTURE}>
+    <HashRouter>
       <Providers>
         <AppRoutes />
       </Providers>
