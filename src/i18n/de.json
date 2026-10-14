@@ -598,6 +598,38 @@
       "workers": "Worker",
       "quality": "Qualität"
     },
-    "note": "Die Codeauszüge sind aus dem privaten Repository gekürzt; Daten des Ladens oder seiner Kunden erscheinen hier nicht. Diese Demo ist eine eigenständige App, die keinen Code mit dem Produktivsystem teilt."
+    "note": "Die Codeauszüge sind aus dem privaten Repository gekürzt; Daten des Ladens oder seiner Kunden erscheinen hier nicht. Diese Demo ist eine eigenständige App, die keinen Code mit dem Produktivsystem teilt.",
+    "latest": {
+      "title": "Neu im Produktivsystem",
+      "lead": "Was sich zuletzt im echten System geändert hat. Lässt sich eine Änderung mit erfundenen Daten zeigen, bekommt die Demo noch am selben Tag ihre eigene Version davon.",
+      "tryIt": "In der Demo ausprobieren →",
+      "onlyThere": "Nur im Produktivsystem",
+      "items": {
+        "wordStart": {
+          "title": "Ein kurzes Wort findet die Wörter, die es beginnt",
+          "text": "Wer «بان» tippt, findet jetzt بانيو, und «حو» findet حوض; ein kurzes Wort trifft nie mitten in einem anderen Wort."
+        },
+        "supplierCheques": {
+          "title": "Schecks an Lieferanten und ihre Eröffnungssalden",
+          "text": "Ein Scheck trägt Nummer und Fälligkeit und wird einmal eingelöst; ein Scheck, der im Moment der Einlösung storniert wird, ist nie beides. Eröffnungssalden der Lieferanten, und jeder Lieferant wird nur einmal angelegt."
+        },
+        "categoryPictures": {
+          "title": "Jede Kategorie hat ein Bild",
+          "text": "Einunddreißig leere Kategorien haben ein Bild ihrer eigenen Art bekommen, jedes von Auge geprüft; das Web ist jetzt eine der Quellen."
+        },
+        "productReading": {
+          "title": "Das Programm liest ein Produkt wie ein Händler",
+          "text": "Es liest den Namen eines Produkts als Art, Material, Farbe und Anschluss, schlägt seine Kategorie vor und lernt aus dem, was der Inhaber ihm beibringt. Nichts wird ohne seine Zustimmung verschoben."
+        },
+        "reviews": {
+          "title": "Bewertungen warten auf den Laden",
+          "text": "Eine Bewertung erscheint erst, nachdem der Laden sie gelesen hat, und wartet erneut, wenn ihr Verfasser sie ändert; „verifizierter Kauf\" wird aus den Büchern der Bestellungen gelesen."
+        },
+        "siteNumbers": {
+          "title": "Die Seite zählt ihre Besuche selbst",
+          "text": "Besuche und Käufe zählt der Laden selbst, ohne Cookie und ohne etwas über die Person zu behalten; der Inhaber entscheidet, was Kunden sehen."
+        }
+      }
+    }
   }
 }

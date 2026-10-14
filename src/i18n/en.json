@@ -598,6 +598,38 @@
       "workers": "Workers",
       "quality": "Quality"
     },
-    "note": "Code excerpts are shortened from the private repository; no data of the shop or its customers appears here. This demo is a separate, standalone app that shares no code with production."
+    "note": "Code excerpts are shortened from the private repository; no data of the shop or its customers appears here. This demo is a separate, standalone app that shares no code with production.",
+    "latest": {
+      "title": "Latest in production",
+      "lead": "What changed in the real system most recently. When a change can be shown with invented data, the demo gets its own version of it the same day.",
+      "tryIt": "Try it in the demo →",
+      "onlyThere": "In production only",
+      "items": {
+        "wordStart": {
+          "title": "A short word finds the words it begins",
+          "text": "Typing «بان» now finds بانيو and «حو» finds حوض, while a short word never matches inside another word."
+        },
+        "supplierCheques": {
+          "title": "Cheques to suppliers, and suppliers' opening balances",
+          "text": "A cheque carries its number and due date and is cashed once; a cheque cancelled at the moment it is cashed is never both. Opening balances of suppliers, and each supplier entered once."
+        },
+        "categoryPictures": {
+          "title": "Every category has a picture",
+          "text": "Thirty-one empty categories took a picture of their own type, each one checked by eye; the web is now one of the sources."
+        },
+        "productReading": {
+          "title": "The program reads a product like a merchant",
+          "text": "It reads a product's name as kind, material, colour and joint, proposes its category, and learns from what the owner teaches it. Nothing moves without his say."
+        },
+        "reviews": {
+          "title": "Reviews wait for the shop",
+          "text": "A review is published only after the shop reads it, and waits again when its writer changes it; «verified purchase» is read from the orders' books."
+        },
+        "siteNumbers": {
+          "title": "The site counts its own visits",
+          "text": "Visits and purchases counted by the shop itself, with no cookie and nothing kept about the person; the owner decides what customers see."
+        }
+      }
+    }
   }
 }

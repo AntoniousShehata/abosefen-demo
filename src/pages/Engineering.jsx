@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useI18n } from '../i18n/I18nProvider.jsx';
 import ArchitectureDiagram from '../components/ArchitectureDiagram.jsx';
-import { CASES, PRACTICES, REPO_URL, STACK, STATS } from '../data/engineering.js';
+import { CASES, LATEST, PRACTICES, REPO_URL, STACK, STATS } from '../data/engineering.js';
 
 // «How it's built»: the production system behind this demo — its shape, the hard problems it solves and how each
 // solution is proved. Every figure and excerpt comes from the private repository (see src/data/engineering.js).
@@ -60,7 +60,7 @@ function CaseStudy({ id, code, index }) {
 }
 
 export default function Engineering() {
-  const { t } = useI18n();
+  const { t, date } = useI18n();
   return (
     <article className="mx-auto max-w-6xl space-y-14" data-testid="engineering-page">
       <header className="rounded-3xl bg-gradient-to-br from-primary-dark to-primary p-8 text-white sm:p-10">
@@ -120,6 +120,33 @@ export default function Engineering() {
             <CaseStudy key={c.id} id={c.id} code={c.code} index={i} />
           ))}
         </div>
+      </section>
+
+      <section aria-labelledby="eng-latest" className="space-y-4" data-testid="latest-in-production">
+        <h2 id="eng-latest" className="text-2xl font-bold">
+          {t('engineering.latest.title')}
+        </h2>
+        <p className="max-w-3xl text-gray-700">{t('engineering.latest.lead')}</p>
+        <ol className="divide-y divide-gray-100 rounded-2xl border border-gray-200 bg-white">
+          {LATEST.map((c) => (
+            <li key={c.id} className="flex flex-col gap-2 p-4 sm:flex-row sm:items-start sm:gap-5">
+              <time dateTime={c.date} className="w-28 shrink-0 text-sm font-semibold text-gray-500">
+                {date(c.date)}
+              </time>
+              <div className="flex-1">
+                <p className="font-bold text-gray-900">{t(`engineering.latest.items.${c.id}.title`)}</p>
+                <p className="mt-1 text-gray-700">{t(`engineering.latest.items.${c.id}.text`)}</p>
+              </div>
+              {c.tryIt ? (
+                <Link to={c.tryIt} className="shrink-0 rounded-lg bg-primary px-3 py-1.5 text-sm font-semibold text-white hover:bg-primary-dark">
+                  {t('engineering.latest.tryIt')}
+                </Link>
+              ) : (
+                <span className="shrink-0 rounded-full bg-gray-100 px-3 py-1 text-xs font-semibold text-gray-500">{t('engineering.latest.onlyThere')}</span>
+              )}
+            </li>
+          ))}
+        </ol>
       </section>
 
       <section aria-labelledby="eng-practices" className="space-y-4">

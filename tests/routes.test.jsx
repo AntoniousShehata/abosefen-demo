@@ -182,3 +182,23 @@ describe('«How it\'s built»', () => {
     expect(link.getAttribute('href')).toBe('/engineering');
   });
 });
+
+describe('«Latest in production»', () => {
+  it('lists the newest changes; one the demo can show links to its own version', async () => {
+    renderAt('/engineering');
+    const list = await screen.findByTestId('latest-in-production');
+    expect(within(list).getAllByRole('listitem').length).toBeGreaterThanOrEqual(6);
+    const tryIt = within(list).getByText('Try it in the demo →');
+    expect(decodeURIComponent(tryIt.getAttribute('href'))).toBe('/search?q=بان');
+  });
+
+  it('every item has its words in the three languages', async () => {
+    const { LATEST } = await import('../src/data/engineering.js');
+    const { translate } = await import('../src/i18n/I18nProvider.jsx');
+    for (const lang of ['ar', 'en', 'de'])
+      for (const c of LATEST) {
+        expect(translate(lang, `engineering.latest.items.${c.id}.title`)).not.toContain('engineering.');
+        expect(/^\d{4}-\d{2}-\d{2}$/.test(c.date)).toBe(true);
+      }
+  });
+});

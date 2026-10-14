@@ -21,7 +21,9 @@ what a person has to look at.
 - real product names, model codes, prices, stock figures, suppliers;
 - customers, orders, invoices, employees, any personal data;
 - `.env` files, API keys, tokens, connection strings, e-invoicing or payment settings;
-- server code, and in particular any code that touches money, stock or the books;
+- server code, and in particular any code that touches money, stock or the books — with one deliberate exception:
+  the short, read-only **excerpts** in [ENGINEERING.md](ENGINEERING.md) and on the *How it's built* page, chosen to
+  explain how a problem was solved (never a runnable file, a configuration, a key or a figure of the shop);
 - production URLs or API endpoints (the demo calls no server at all).
 
 All brands in the demo are invented; any resemblance to a real maker is coincidental (`tests/catalog.test.js`
@@ -165,7 +167,27 @@ npm test && npm run build
 
 ---
 
-## 6. Release routine (short checklist)
+## 6. Every production change reaches the demo
+
+The rule (the owner, 14 Oct 2026: «اى تعديل يتعمل جديد نتاكد انه فيه منه على الموقع التجربة علشان يبقي دايما uptodate»):
+when a change goes live in production, the same session gives the demo its share of it.
+
+1. **The demo shows that area** (storefront, catalogue and search, cart and the simulated checkout, orders, the back
+   office's products, categories and stock): the demo gets **its own version** — written for the demo, on invented
+   data, with its tests and its words in Arabic, English and German. Production code is never copied in.
+2. **The demo does not show that area** (the books, payroll, suppliers, delivery, e-invoicing, …): one item in
+   **«Latest in production»** on *How it's built* — what it does for the shop, in the three languages, with no figure
+   or name of the shop.
+3. Either way: the item goes into `LATEST` in `src/data/engineering.js` (newest first; `tryIt` when the demo has its
+   own version), the numbers on *How it's built* are updated when they moved, and the release routine below is run.
+
+Example: production's SRCH-4 (a short word is the beginning of a word — «بان» finds بانيو, never صبانة) is the demo's
+`matchesQuery` rule in `src/lib/text.js` and an item with *Try it in the demo*; the supplier cheques of the same day
+are an item only.
+
+---
+
+## 7. Release routine (short checklist)
 
 - [ ] `node scripts/check-contracts.mjs <production>` → exit 0, or the differences reviewed and handled.
 - [ ] `npm test` green, `npm run build` green.

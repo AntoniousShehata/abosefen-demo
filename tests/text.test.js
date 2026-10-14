@@ -56,3 +56,23 @@ describe('search normalisation', () => {
     expect(scoreMatch('toilet', { codes: ['X'], names: ['Nilora Mira basin mixer'] })).toBe(0);
   });
 });
+
+describe('a short word is the beginning of a word (production SRCH-4)', () => {
+  it('«بان» finds بانيو and بالبانيو, never a word with بان inside it', () => {
+    expect(matchesQuery('بان', 'خلاط بانيو')).toBe(true);
+    expect(matchesQuery('بان', 'تركيب بالبانيو')).toBe(true);
+    expect(matchesQuery('بان', 'صبانة سيفارو')).toBe(false);
+  });
+
+  it('«حو» finds حوض, and a longer word is still found anywhere', () => {
+    expect(matchesQuery('حو', 'خلاط حوض')).toBe(true);
+    expect(matchesQuery('بانيو', 'صبانة بانيو')).toBe(true);
+    expect(matchesQuery('لاط', 'خلاط')).toBe(false);
+    expect(matchesQuery('خلاط', 'وصلة لخلاط')).toBe(true);
+  });
+
+  it('codes, sizes and numbers are still found inside a longer text', () => {
+    expect(matchesQuery('12', 'ORD-2026-0012')).toBe(true);
+    expect(matchesQuery('1/2', 'محبس 1/2 بوصة')).toBe(true);
+  });
+});

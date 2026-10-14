@@ -76,12 +76,24 @@ export function queryWords(query) {
     .filter((w) => w && !(w.length === 1 && !/[0-9]/.test(w)));
 }
 
+// A short word is the beginning of a word being typed (production's SRCH-4, 14 Oct 2026): «بان» finds بانيو and
+// بالبانيو, never صبانة; «حو» finds حوض. It may follow the article or a joined و / ب. Longer words, and anything with a
+// digit (codes, sizes, order numbers, phones), are still found anywhere.
+const SHORT_WORD = 3;
+const JOINED = ['بال', 'وال', 'فال', 'كال', 'لل', 'ال', 'و', 'ب'];
+
+function foundIn(haystack, haystackWords, form) {
+  if (form.length > SHORT_WORD || /[0-9]/.test(form)) return haystack.includes(form);
+  return haystackWords.some((w) => w.startsWith(form) || JOINED.some((j) => w.startsWith(j) && w.slice(j.length).startsWith(form)));
+}
+
 /** True when every word of the query (or one of its forms) is found in the text of the fields. */
 export function matchesQuery(query, ...fields) {
   const words = queryWords(query);
   if (words.length === 0) return false;
   const haystack = fields.flat().map(fold).join(' | ');
-  return words.every((w) => wordForms(w).some((form) => haystack.includes(form)));
+  const haystackWords = haystack.split(/[\s|]+/).filter(Boolean);
+  return words.every((w) => wordForms(w).some((form) => foundIn(haystack, haystackWords, form)));
 }
 
 /**

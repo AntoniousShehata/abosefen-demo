@@ -26,6 +26,17 @@ export const STACK = [
 
 export const PRACTICES = ['tests', 'security', 'arabic', 'oneShop'];
 
+// «Latest in production» — newest first. A change the demo can show with invented data carries tryIt: the demo's
+// own page where its version of it can be tried (docs/SYNC.md, «Every production change reaches the demo»).
+export const LATEST = [
+  { id: 'wordStart', date: '2026-10-14', tryIt: '/search?q=' + encodeURIComponent('بان') },
+  { id: 'supplierCheques', date: '2026-10-14' },
+  { id: 'categoryPictures', date: '2026-10-14' },
+  { id: 'productReading', date: '2026-10-14' },
+  { id: 'reviews', date: '2026-10-14' },
+  { id: 'siteNumbers', date: '2026-10-14' },
+];
+
 export const CASES = [
   {
     id: 'money',
