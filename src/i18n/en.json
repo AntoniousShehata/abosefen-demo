@@ -451,7 +451,7 @@
     "kicker": "How it's built",
     "title": "The production system behind this demo",
     "lead": "Abosefen runs a real sanitaryware shop in Cairo: the online store, the counter, the warehouse and the books. This demo shows the storefront and part of the back office. This page shows what runs behind them, the hard problems it solves, and how each solution is proved.",
-    "by": "Designed and built by Antonious Shehata, 2026.",
+    "by": "Designed, directed and shipped by Antonious Shehata, 2026 — built with AI-assisted development.",
     "toCases": "Read the case studies",
     "readOnGithub": "Full write-up on GitHub",
     "tryDemo": "Try the demo",
@@ -574,6 +574,10 @@
     },
     "practicesTitle": "How the work is done",
     "practices": {
+      "ai": {
+        "title": "How AI is used",
+        "text": "I own the product: the requirements, the 200 business rules, the priorities, the reviews on screen and every release decision. AI pair-programming (Claude Code) writes and checks code under that direction, the way modern teams work — and the guardrails on this page (written rules, guard tests, six gates, rehearsals on a copy of the data) are how its work is held to the standard before anything reaches the shop."
+      },
       "tests": {
         "title": "Tests at three levels",
         "text": "About 2,000 unit test methods (xUnit) that run to 5,098 cases; integration tests on real PostgreSQL and RabbitMQ in containers (Testcontainers); and rehearsals on a copy of the production data for anything that touches money."

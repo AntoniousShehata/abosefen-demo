@@ -202,3 +202,11 @@ describe('«Latest in production»', () => {
       }
   });
 });
+
+describe('the author and the tools', () => {
+  it('says who owns the work and how AI is used, in every language', async () => {
+    renderAt('/engineering');
+    expect(await screen.findByText(/Designed, directed and shipped by Antonious Shehata/)).toBeTruthy();
+    expect(within(screen.getByTestId('practice-ai')).getByText('How AI is used')).toBeTruthy();
+  });
+});

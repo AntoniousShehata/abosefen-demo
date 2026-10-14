@@ -451,7 +451,7 @@
     "kicker": "Wie es gebaut ist",
     "title": "Das Produktivsystem hinter dieser Demo",
     "lead": "Abosefen betreibt ein echtes Sanitärgeschäft in Kairo: Onlineshop, Ladenkasse, Lager und Buchhaltung. Diese Demo zeigt den Shop und einen Teil des Backoffice. Diese Seite zeigt, was dahinter läuft, welche schwierigen Probleme es löst und wie jede Lösung belegt ist.",
-    "by": "Entworfen und gebaut von Antonious Shehata, 2026.",
+    "by": "Entworfen, gesteuert und ausgeliefert von Antonious Shehata, 2026 — mit KI-gestützter Entwicklung gebaut.",
     "toCases": "Zu den Fallstudien",
     "readOnGithub": "Ausführlich auf GitHub",
     "tryDemo": "Demo ausprobieren",
@@ -574,6 +574,10 @@
     },
     "practicesTitle": "Wie gearbeitet wird",
     "practices": {
+      "ai": {
+        "title": "Wie KI eingesetzt wird",
+        "text": "Ich verantworte das Produkt: die Anforderungen, die 200 Geschäftsregeln, die Prioritäten, die Prüfung am Bildschirm und jede Release-Entscheidung. KI-Pair-Programming (Claude Code) schreibt und prüft Code unter dieser Führung, so wie moderne Teams arbeiten — und die Leitplanken auf dieser Seite (schriftliche Regeln, Wächtertests, sechs Tore, Proben auf einer Kopie der Daten) halten diese Arbeit auf dem Standard, bevor etwas den Laden erreicht."
+      },
       "tests": {
         "title": "Tests auf drei Ebenen",
         "text": "Rund 2.000 Unit-Test-Methoden (xUnit), die 5.098 Fälle ergeben; Integrationstests auf echtem PostgreSQL und RabbitMQ in Containern (Testcontainers); und Proben auf einer Kopie der Produktivdaten für alles, was Geld berührt."

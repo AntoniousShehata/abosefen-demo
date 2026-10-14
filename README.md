@@ -211,4 +211,6 @@ read-only and reports fields added or removed since the snapshot. Details, limit
 
 ---
 
+Designed, directed and shipped by Antonious Shehata, built with AI-assisted development (how: [docs/ENGINEERING.md](docs/ENGINEERING.md#how-the-work-is-done)).
+
 © 2026 Antonious Shehata. All rights reserved — the code is published to be read and tried, not reused.

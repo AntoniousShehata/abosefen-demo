@@ -155,7 +155,7 @@ export default function Engineering() {
         </h2>
         <div className="grid gap-4 md:grid-cols-2">
           {PRACTICES.map((p) => (
-            <div key={p} className="card p-5">
+            <div key={p} className={`card p-5 ${p === 'ai' ? 'border-primary/30 bg-primary/5 md:col-span-2' : ''}`} data-testid={`practice-${p}`}>
               <p className="font-bold text-gray-900">{t(`engineering.practices.${p}.title`)}</p>
               <p className="mt-2 text-gray-700">{t(`engineering.practices.${p}.text`)}</p>
             </div>

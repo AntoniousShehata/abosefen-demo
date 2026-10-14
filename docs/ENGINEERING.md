@@ -430,6 +430,10 @@ Both were fixed, each with a test, before release.
 
 ## How the work is done
 
+- **How AI is used.** I own the product: the requirements, the 200 business rules, the priorities, the reviews on
+  screen and every release decision. AI pair-programming (Claude Code) writes and checks code under that direction,
+  the way modern teams work — and the guardrails described above (written rules, guard tests, six gates, rehearsals on
+  a copy of the data) are how its work is held to the standard before anything reaches the shop.
 - **Tests at three levels.** Unit tests (xUnit, FluentAssertions, Moq, EF Core in-memory), integration tests on real
   PostgreSQL and RabbitMQ in containers (Testcontainers), and rehearsals on a copy of production data for anything
   that touches money.
@@ -452,4 +456,4 @@ Both were fixed, each with a test, before release.
 
 ---
 
-© 2026 Antonious Shehata.
+Designed, directed and shipped by Antonious Shehata — built with AI-assisted development. © 2026.
