@@ -11,7 +11,8 @@
     "resetTitle": "Demo zurücksetzen?",
     "resetBody": "Produkte, Bestand, Bestellungen und Kategorien kehren in den Ausgangszustand zurück, der Warenkorb wird geleert und Sie werden abgemeldet.",
     "resetConfirm": "Ja, zurücksetzen",
-    "resetDone": "Die Demo wurde zurückgesetzt."
+    "resetDone": "Die Demo wurde zurückgesetzt.",
+    "how": "Wie es gebaut ist →"
   },
   "nav": {
     "home": "Start",
@@ -439,10 +440,164 @@
   "footer": {
     "about": "Eine eigenständige Demo des Abosefen-Systems für einen Sanitärhandel. Jedes Produkt, jede Marke, jeder Preis, jeder Bestand, jede Bestellung und jede Person darin ist erfunden.",
     "noNetwork": "Die Demo läuft vollständig in Ihrem Browser: Sie sendet keine Daten.",
-    "builtWith": "React · Vite · Tailwind CSS — ohne Backend"
+    "builtWith": "React · Vite · Tailwind CSS — ohne Backend",
+    "how": "Wie es gebaut ist"
   },
   "notFound": {
     "title": "Seite nicht gefunden",
     "text": "Die angeforderte Seite gibt es in der Demo nicht."
+  },
+  "engineering": {
+    "kicker": "Wie es gebaut ist",
+    "title": "Das Produktivsystem hinter dieser Demo",
+    "lead": "Abosefen betreibt ein echtes Sanitärgeschäft in Kairo: Onlineshop, Ladenkasse, Lager und Buchhaltung. Diese Demo zeigt den Shop und einen Teil des Backoffice. Diese Seite zeigt, was dahinter läuft, welche schwierigen Probleme es löst und wie jede Lösung belegt ist.",
+    "by": "Entworfen und gebaut von Antonious Shehata, 2026.",
+    "toCases": "Zu den Fallstudien",
+    "readOnGithub": "Ausführlich auf GitHub",
+    "tryDemo": "Demo ausprobieren",
+    "numbersTitle": "Das System in Zahlen",
+    "numbersNote": "Gezählt im privaten Repository im Oktober 2026. C#-Zeilen ohne generierte Datenbankmigrationen; Tests sind die Fälle eines vollständigen Laufs.",
+    "stats": {
+      "services": "Backend-Dienste hinter einem Gateway",
+      "csharp": "Zeilen C#",
+      "react": "Zeilen React",
+      "tests": "automatisierte Tests pro Lauf",
+      "rules": "schriftliche Geschäftsregeln, 180 davon im Code erzwungen",
+      "commits": "Commits seit Februar 2026"
+    },
+    "archTitle": "Architektur",
+    "archLead": "Zehn Dienste hinter einem Gateway. Jeder Dienst besitzt seine Daten, und sie sprechen über Ereignisse miteinander, damit eine langsame E-Mail nie einen Verkauf aufhält.",
+    "arch": {
+      "label": "Architektur des Produktivsystems",
+      "browser": "Browser",
+      "browserSub": "React 19 · ar / en / de",
+      "web": "Webserver",
+      "webSub": "nginx · statische Seite",
+      "gateway": "API-Gateway",
+      "gatewaySub": "YARP · JWT · Limits",
+      "servicesTitle": "Dienste — .NET 10, je eine eigene Datenbank",
+      "svc": {
+        "identity": "Identität",
+        "catalog": "Katalog",
+        "cart": "Warenkorb",
+        "orders": "Bestellungen",
+        "inventory": "Lager",
+        "payment": "Zahlung",
+        "shipping": "Versand",
+        "books": "Buchhaltung",
+        "notification": "Benachricht.",
+        "jobs": "Jobs"
+      },
+      "ownDb": "PostgreSQL",
+      "jobsSub": "Node · ohne Datenbank",
+      "bus": "Nachrichtenbus",
+      "busSub": "RabbitMQ · Outbox · Dead Letters",
+      "workers": "Python-Worker",
+      "workersSub": "OCR · Bildvektoren (ONNX)",
+      "legend": "Durchgezogen: HTTP-Anfragen · gestrichelt: Ereignisse und interne Aufrufe"
+    },
+    "archPoints": {
+      "p1": "Jeder Dienst hat seine eigene PostgreSQL-Datenbank und eigene Migrationen. Berichte im Backoffice lesen die anderen Datenbanken nur lesend; sie schreiben nie hinein.",
+      "p2": "Das Gateway ist die einzige Tür. Es prüft Token und Berechtigungen, begrenzt die Anfragen pro Besucher, setzt die Startphase des Geschäfts durch (geschlossen → stöbern → Bestellanfragen → voller Shop) und antwortet mit 404 auf jede interne Route.",
+      "p3": "Dienste veröffentlichen Ereignisse über eine Outbox an einen RabbitMQ-Topic-Exchange, sodass eine Änderung und ihr Ereignis zusammen gespeichert werden. Fehlgeschlagene Nachrichten warten in einer Dead-Letter-Queue, die das Backoffice erneut senden kann.",
+      "p4": "Zwei Python-Worker erledigen die schwere Lesearbeit auf demselben kleinen Server: OCR für Preislisten der Lieferanten und Bildvektoren für die Fotosuche. Kein kostenpflichtiger KI-Dienst ist beteiligt."
+    },
+    "casesTitle": "Acht schwierige Probleme und wie jedes gelöst ist",
+    "casesLead": "Jedes ist eine echte Situation aus dem Geschäft. Die Codeauszüge sind aus dem privaten Repository gekürzt.",
+    "howLabel": "Wie es funktioniert",
+    "proofLabel": "Wie es belegt ist",
+    "cases": {
+      "money": {
+        "title": "Geld wird nie doppelt gebucht",
+        "problem": "Zwei Kassen können im selben Moment denselben Lieferanten bezahlen, dieselbe Schecknummer schreiben oder einen Scheck einlösen, während jemand anderes ihn storniert. Prüfungen vor dem Speichern können beide bestehen.",
+        "s1": "Jede Speicherung, die einen Lieferanten oder Mitarbeiter nennt, nimmt zuerst eine PostgreSQL-Advisory-Lock auf diese Person, gehalten bis zum Ende der Transaktion. Speicherungen für eine Person laufen nacheinander.",
+        "s2": "Unter der Sperre werden die Fakten erneut gelesen: was dem Lieferanten noch zusteht und ob der Scheck noch gilt und noch nicht eingelöst ist. Hat sich etwas geändert, wird nichts gespeichert.",
+        "s3": "Partielle eindeutige Indizes sind die letzte Mauer: eine Schecknummer, solange sie gilt, eine Einlösung pro Scheck, eine Rechnungsnummer pro Lieferant und Jahr. Belegnummern kommen lückenlos aus einem Zähler in der Datenbank.",
+        "proof": "Unit-Tests decken jede Regel ab. Ein Probe-Skript feuert die Wettläufe gegen eine Kopie der echten PostgreSQL-Datenbank: ein Scheck, der im selben Moment storniert und eingelöst wird, dreimal, und nie beides. Die Unit-Tests laufen auf einer In-Memory-Datenbank, in der Sperren nichts bewirken; deshalb werden die Wettläufe auf PostgreSQL geprobt."
+      },
+      "month": {
+        "title": "Einen Monat abschließen, ohne den Laden anzuhalten",
+        "problem": "Ist die Umsatzsteuererklärung eines Monats abgegeben, darf nichts mehr in diesen Monat datiert werden. Doch ein Monat könnte schließen, zwischen dem Lesen des Kalenders und dem Speichern, und verspätete Ereignisse brauchen trotzdem einen Platz.",
+        "s1": "Es gibt einen Kalenderschlüssel. Jede Buchung hält ihn geteilt; Abschließen oder Wiederöffnen hält ihn allein. Kein Monat schließt zwischen dem Lesen und dem Speichern einer Buchung.",
+        "s2": "Eine von Hand in einen geschlossenen Monat getippte Buchung wird abgelehnt. Eine Buchung, die ein Dienst verspätet meldet, wird mittags am ersten offenen Tag gebucht, denn Mitternacht in Kairo ist in UTC noch der Vortag, und sie behält das Datum ihres Belegs.",
+        "s3": "Monate schließen lückenlos nacheinander. Nur der letzte kann mit Begründung wieder geöffnet werden, und beides steht im Audit-Log.",
+        "proof": "Tests: ein Monat schließt erst nach seinem Ende und der Reihe nach; in einen geschlossenen Monat wird nichts getippt; eine verspätete Systembuchung wandert auf den ersten offenen Tag und behält ihr Datum; Schulden altern nach dem Datum des Belegs."
+      },
+      "oneDoor": {
+        "title": "Ein Leser, eine Tür",
+        "problem": "Ein Lieferant hatte einmal drei verschiedene Salden (den des Katalogs, den der Verbindlichkeiten-Seite und den der Bücher) und zwei Stellen, an denen eine Zahlung erfasst werden konnte. Eine Rate konnte doppelt erfasst werden.",
+        "s1": "Saldo, Kontoauszug und Altersstruktur der Verbindlichkeiten werden aus einer Stelle gelesen: den Buchungszeilen auf dem Lieferantenkonto mit diesem Lieferanten. Ein stornierter Beleg und seine Gegenbuchung fallen gemeinsam heraus.",
+        "s2": "Der alte Zahlungs-Endpunkt des Katalogdienstes antwortet jetzt mit 410 Gone und sagt, wohin. Das Tagebuch ist die einzige Tür.",
+        "s3": "Der Bestand folgt derselben Idee: Ware verlässt das Regal erst, wenn die Reservierung einer Bestellung bestätigt ist. Jeder Verkaufsweg führt dort hindurch, und doppelte Anfragen buchen einmal ab.",
+        "proof": "Ein Wächtertest bricht den Build, wenn der Katalog wieder eine Zahlungsmethode bekommt, wenn seine alte Route nicht mehr 410 antwortet oder wenn ein Bildschirm wieder den Katalogsaldo liest. Bestandstests prüfen, dass eine wiederholte Bestätigung einmal abbucht."
+      },
+      "revision": {
+        "title": "Eine Entscheidung gilt dem, was gelesen wurde",
+        "problem": "Ein Kunde kann eine Bewertung ändern, während der Laden gerade „Veröffentlichen\" drückt. Ohne Schutz gingen Worte online, die niemand im Laden gelesen hat.",
+        "s1": "Jede Bewertung trägt eine Revisionsnummer, die mit jeder Änderung und jeder Entscheidung steigt. EF Core nutzt sie als Concurrency-Token; die Datenbank lehnt eine Speicherung auf einem älteren Lesestand ab.",
+        "s2": "Die Veröffentlichung muss die Revision mitschicken, die der Bildschirm zeigte. Eine andere wird mit 409 beantwortet: „geändert, seit Sie es gelesen haben\".",
+        "s3": "Eine Änderung des Verfassers, die sich mit einer Entscheidung kreuzt, wird darauf angewendet und wartet erneut. Nichts wird veröffentlicht, was nicht gelesen wurde.",
+        "proof": "Tests schieben während des Speicherns einen zweiten Datenbankkontext ein: Ungelesenes zu veröffentlichen wird abgelehnt, und zwei gleichzeitige Entscheidungen werden zu einer; die zweite wird gebeten, erneut zu lesen."
+      },
+      "audit": {
+        "title": "Ein Audit-Log, das keine abgelehnte Änderung veröffentlichen kann",
+        "problem": "Der Audit-Eintrag wurde früher über den Datenbankkontext der Anfrage gespeichert, der noch eine vom Endpunkt abgelehnte Änderung halten konnte. Das Speichern des Eintrags hätte diese Änderung mitgespeichert. Ein Code-Review hat es gefunden.",
+        "s1": "Der Audit-Eintrag wird jetzt in einem eigenen Datenbank-Scope über die Outbox geschrieben, nie über den der Anfrage.",
+        "s2": "Nur Änderungen werden erfasst. Eine per POST gestellte Frage (eine Zählung, eine Vorschau, eine Fotosuche) ist als nicht auditiert markiert, und ein Probelauf sagt, dass er nur gefragt hat.",
+        "s3": "Eine Massenänderung hinterlässt eine Notiz nur aus Zahlen und IDs. Ein Satz oder ein getippter Name wird verworfen, damit das Log nie persönliche Daten wiederholt.",
+        "proof": "Ein Architekturtest ruft einen Endpunkt auf, der eine Zeile hinzufügt und mit 400 antwortet: die Zeile wird nicht gespeichert, das Audit-Ereignis schon. Ein zweiter Test liest den Quellcode und bricht den Build, wenn einer Middleware der Datenbankkontext oder die Outbox der Anfrage übergeben wird."
+      },
+      "search": {
+        "title": "Suchen, wie Ägypter tippen",
+        "problem": "Kunden mischen Alif- und Hamza-Formen, ⁨ة⁩ und ⁨ه⁩, ⁨ى⁩ und ⁨ي⁩, arabisch-indische Ziffern, Fachjargon und halb getippte Wörter. Exakte Treffer fanden nichts: «بان» lieferte keine Ergebnisse statt Badewannen.",
+        "s1": "Eine Faltfunktion ist zweimal geschrieben, in C# und als PostgreSQL-Funktion, damit Datenbank und App sich bei jedem Buchstaben einig sind. Produkte tragen einen gefalteten Suchtext, den Trigger aktuell halten.",
+        "s2": "Ein kurzes Wort, das im Katalog nie ganz vorkommt, mit dem aber einige seiner Wörter beginnen, gilt als Wort, das noch getippt wird: «بان» findet بانيو, nie ein Wort mit «بان» in der Mitte.",
+        "s3": "Die Suche lernt. Jede Anfrage wird gezählt, Suchen ohne Treffer zeigen dem Laden, was Kunden wollen und er nicht führt, ein angenommenes „Meinten Sie\" wird ein Synonym, und der Inhaber kann Wortpaare beibringen.",
+        "proof": "Tests prüfen, dass die C#-Regel und der reguläre Ausdruck der Datenbank dieselbe Antwort geben. Ein Messwerkzeug führt vor jedem Release die echten Suchen des Ladens aus."
+      },
+      "photo": {
+        "title": "Suche per Foto ohne bezahlte KI",
+        "problem": "Kunden wollten ein Teil fotografieren und finden, ohne Cloud-KI-Rechnung, ohne API-Schlüssel, ohne dass ihre Fotos gespeichert werden, und auf demselben kleinen Server, der den Laden betreibt.",
+        "s1": "Ein Python-Worker führt DINOv2-small als ONNX auf der CPU aus und macht aus jedem Katalogbild einen Vektor aus 384 Zahlen. Ein Hintergrundjob hält den Index aktuell.",
+        "s2": "Eine Suche vergleicht das Foto mit der ganzen Bibliothek im Speicher (SIMD-Skalarprodukte, keine Vektordatenbank), entfernt ausgeblendete Produkte vor dem Ranking und behält nur nahe Treffer.",
+        "s3": "Das Foto kommt nur aus Kamera oder Galerie. Es wird nie auf die Platte geschrieben, sein Typ wird an den Bytes erkannt, nicht am Namen, und das Gateway begrenzt, wie oft ein Besucher suchen darf.",
+        "proof": "Tests: ausgeblendete Produkte erscheinen nie, Vektoren eines anderen Modells finden nichts, eine Datei wird an ihren Magic Bytes erkannt. Ein Integrationstest betreibt die Bibliothek auf echtem PostgreSQL. Das Modell wurde gewählt, indem es auf den eigenen Fotos des Ladens gegen CLIP gemessen wurde."
+      },
+      "rules": {
+        "title": "Regeln, die der Code erzwingt, und Änderungen, die vor dem Release geprobt werden",
+        "problem": "Die Geschäftsregeln des Inhabers lebten in Gesprächen. Eine Regel, die nur in einem Kopf lebt, bricht die nächste Änderung, und einen Geldfehler nach dem Release findet ein Kunde.",
+        "s1": "200 Regeln sind aufgeschrieben, jede mit der Klasse oder dem Test, der einen Verstoß ablehnt. Wächtertests lesen den Code selbst: zum Beispiel darf nur ein Dienst Lagerbewegungen schreiben, und jede Nachricht des Servers gibt es auf Arabisch, Englisch und Deutsch.",
+        "s2": "Eine Änderung an Geld, Bestand oder Büchern durchläuft sechs Tore: zuerst abgestimmt, zuerst ein fehlschlagender Test, ein unabhängiges Review in den Akten, eine Probe auf einer Kopie der Daten, ein Gang durch die Bildschirme auf Arabisch an Handy und Desktop und eine Prüfung der Bücher nach dem Deployment.",
+        "s3": "Deployments werden aus einem sauberen Archiv eines einzelnen Commits gebaut. Jedes Image trägt seinen Commit, und eine Prüfung listet jeden Dienst, der noch älteren Code ausführt.",
+        "proof": "Die Tore finden echte Fehler. Am 14. Oktober 2026 fand das Review einen Scheck, der eingelöst werden konnte, während er storniert wurde, und die Prüfung der Bücher auf der Probekopie fand einen falsch gezählten Eröffnungssaldo eines Lieferanten. Beides wurde vor dem Release behoben, mit Tests."
+      }
+    },
+    "practicesTitle": "Wie gearbeitet wird",
+    "practices": {
+      "tests": {
+        "title": "Tests auf drei Ebenen",
+        "text": "Rund 2.000 Unit-Test-Methoden (xUnit), die 5.098 Fälle ergeben; Integrationstests auf echtem PostgreSQL und RabbitMQ in Containern (Testcontainers); und Proben auf einer Kopie der Produktivdaten für alles, was Geld berührt."
+      },
+      "security": {
+        "title": "Sicher von Grund auf",
+        "text": "Kurzlebige JWTs mit rotierendem Refresh-Token pro Gerät, gehasht gespeichert; BCrypt-Passwörter; Berechtigungen je Bereich und Aktion; Ratenbegrenzung am Gateway; interne Routen verborgen. Die CI prüft auf Geheimnisse, Abhängigkeiten und Schwachstellen."
+      },
+      "arabic": {
+        "title": "Arabisch zuerst",
+        "text": "Standardmäßig von rechts nach links, in drei Sprachen aus Übersetzungsdateien. Prüfungen brechen den Build bei Text, der außerhalb davon steht. Der Inhaber tippt nur Arabisch; das Programm schreibt Englisch und Deutsch, und er kann es korrigieren."
+      },
+      "oneShop": {
+        "title": "Mit einem echten Laden gebaut",
+        "text": "Die Worte des Inhabers wurden zum Kategorienbaum, zu den Regeln und zum Suchvokabular. Das Programm schlägt vor, er entscheidet: Im Katalog wird nichts ohne seine Zustimmung verschoben."
+      }
+    },
+    "stackTitle": "Technologie",
+    "stack": {
+      "backend": "Backend",
+      "frontend": "Frontend",
+      "workers": "Worker",
+      "quality": "Qualität"
+    },
+    "note": "Die Codeauszüge sind aus dem privaten Repository gekürzt; Daten des Ladens oder seiner Kunden erscheinen hier nicht. Diese Demo ist eine eigenständige App, die keinen Code mit dem Produktivsystem teilt."
   }
 }

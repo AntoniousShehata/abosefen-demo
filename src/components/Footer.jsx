@@ -36,6 +36,11 @@ export default function Footer() {
                 {t('nav.admin')}
               </Link>
             </li>
+            <li>
+              <Link to="/engineering" className="font-semibold text-white hover:underline">
+                {t('footer.how')}
+              </Link>
+            </li>
           </ul>
           <p className="mt-4 text-xs text-white/60">{t('footer.builtWith')}</p>
         </div>

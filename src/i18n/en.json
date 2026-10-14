@@ -11,7 +11,8 @@
     "resetTitle": "Reset the demo?",
     "resetBody": "The products, stock, orders and categories go back to their starting state, the cart is emptied and you are signed out.",
     "resetConfirm": "Yes, reset",
-    "resetDone": "The demo was reset."
+    "resetDone": "The demo was reset.",
+    "how": "How it's built →"
   },
   "nav": {
     "home": "Home",
@@ -439,10 +440,164 @@
   "footer": {
     "about": "A standalone demo of the Abosefen sanitaryware shop system. Every product, brand, price, stock figure, order and person in it is invented.",
     "noNetwork": "The demo runs entirely in your browser: it sends no data anywhere.",
-    "builtWith": "React · Vite · Tailwind CSS — no backend"
+    "builtWith": "React · Vite · Tailwind CSS — no backend",
+    "how": "How it's built"
   },
   "notFound": {
     "title": "Page not found",
     "text": "The page you asked for does not exist in the demo."
+  },
+  "engineering": {
+    "kicker": "How it's built",
+    "title": "The production system behind this demo",
+    "lead": "Abosefen runs a real sanitaryware shop in Cairo: the online store, the counter, the warehouse and the books. This demo shows the storefront and part of the back office. This page shows what runs behind them, the hard problems it solves, and how each solution is proved.",
+    "by": "Designed and built by Antonious Shehata, 2026.",
+    "toCases": "Read the case studies",
+    "readOnGithub": "Full write-up on GitHub",
+    "tryDemo": "Try the demo",
+    "numbersTitle": "The system in numbers",
+    "numbersNote": "Counted in the private repository in October 2026. C# lines leave out generated database migrations; tests are the cases of one full run.",
+    "stats": {
+      "services": "back-end services behind one gateway",
+      "csharp": "lines of C#",
+      "react": "lines of React",
+      "tests": "automated tests in one run",
+      "rules": "business rules written down, 180 enforced in code",
+      "commits": "commits since February 2026"
+    },
+    "archTitle": "Architecture",
+    "archLead": "Ten services behind one gateway. Each service owns its data, and they talk through events, so a slow e-mail never holds up a sale.",
+    "arch": {
+      "label": "Architecture of the production system",
+      "browser": "Browser",
+      "browserSub": "React 19 · ar / en / de",
+      "web": "Web server",
+      "webSub": "nginx · static site",
+      "gateway": "API gateway",
+      "gatewaySub": "YARP · JWT · limits",
+      "servicesTitle": "Services — .NET 10, one database each",
+      "svc": {
+        "identity": "Identity",
+        "catalog": "Catalogue",
+        "cart": "Cart",
+        "orders": "Orders",
+        "inventory": "Inventory",
+        "payment": "Payment",
+        "shipping": "Shipping",
+        "books": "Books",
+        "notification": "Notifications",
+        "jobs": "Jobs"
+      },
+      "ownDb": "PostgreSQL",
+      "jobsSub": "Node · no database",
+      "bus": "Message bus",
+      "busSub": "RabbitMQ · outbox · dead letters",
+      "workers": "Python workers",
+      "workersSub": "OCR · photo vectors (ONNX)",
+      "legend": "Solid lines: HTTP requests · dashed lines: events and internal calls"
+    },
+    "archPoints": {
+      "p1": "Every service has its own PostgreSQL database and its own migrations. Reports in the back office read the other databases read-only; they never write to them.",
+      "p2": "The gateway is the only door. It checks the token and the permissions, limits the rate per visitor, enforces the shop's launch stage (closed → browse → order requests → full shop), and answers 404 for every internal route.",
+      "p3": "Services publish events to one RabbitMQ topic exchange through an outbox, so a change and its event are saved together. Failed messages wait in a dead-letter queue that the back office can replay.",
+      "p4": "Two Python workers do the heavy reading on the same small server: OCR for suppliers' price lists, and image vectors for search by photo. No paid AI service is involved."
+    },
+    "casesTitle": "Eight hard problems, and how each is solved",
+    "casesLead": "Each one is a real situation from the shop. The code excerpts are shortened from the private repository.",
+    "howLabel": "How it works",
+    "proofLabel": "How it is proved",
+    "cases": {
+      "money": {
+        "title": "Money can't be booked twice",
+        "problem": "Two tills can pay the same supplier at the same instant, write the same cheque number, or cash a cheque while someone else cancels it. Checks made before saving can both pass.",
+        "s1": "Every save that names a supplier or a worker first takes a PostgreSQL advisory lock on that person, held until the transaction ends. Saves for one person run one after another.",
+        "s2": "Under the lock the facts are read again: what the supplier is still owed, and whether the cheque still stands and is not yet cashed. If anything changed, nothing is saved.",
+        "s3": "Partial unique indexes are the last wall: one cheque number while it stands, one cashing per cheque, one supplier invoice number a year. Voucher numbers come from a database counter with no gaps.",
+        "proof": "Unit tests cover each rule. A rehearsal script fires the races at a copy of the real PostgreSQL database: a cheque cancelled and cashed at the same instant, three times, and never both. The unit tests run on an in-memory database, where locks do nothing; that is why the races are rehearsed on PostgreSQL."
+      },
+      "month": {
+        "title": "Closing a month without stopping the shop",
+        "problem": "Once a month's VAT return is filed, nothing may be dated into it. But a month could close between a save reading the calendar and committing, and events that arrive late still need a home.",
+        "s1": "There is one calendar key. Every posting holds it shared; closing or reopening a month holds it alone. No month closes between a save's read and its commit.",
+        "s2": "An entry typed by hand into a closed month is refused. An entry a service reports late is booked at noon of the first open day, because midnight in Cairo is still the day before in UTC, and it keeps its document's own date.",
+        "s3": "Months close in an unbroken run. Only the last one can be reopened, with a reason, and both actions are written to the audit log.",
+        "proof": "Tests: a month closes only after it ends and in order; nothing is typed into a closed month; a late system entry moves to the first open day and keeps its date; debts are aged by the paper's own date."
+      },
+      "oneDoor": {
+        "title": "One reader, one door",
+        "problem": "A supplier once had three different balances (the catalogue's, the payables page's and the books') and two places where a payment could be typed, so one instalment could be recorded twice.",
+        "s1": "Balance, statement and payables ageing are all read from one place: the ledger lines on Accounts Payable tagged with that supplier. A cancelled voucher and its mirror entry drop out together.",
+        "s2": "The old payment endpoint of the catalogue service now answers 410 Gone and says where to go. The day-book is the only door.",
+        "s3": "Stock follows the same idea: goods leave the shelf only when an order's reservation is confirmed. Every sale path goes through it, and asking twice deducts once.",
+        "proof": "A guard test fails the build if the catalogue gets a payment method back, if its old route stops answering 410, or if any screen reads the catalogue's own balance again. Stock tests check that a repeated confirmation deducts once."
+      },
+      "revision": {
+        "title": "A decision is tied to what was read",
+        "problem": "A customer can edit a review while the shop is pressing \"Publish\". Without a guard, words nobody in the shop had read would go live.",
+        "s1": "Every review carries a revision number that goes up with every edit and every decision. EF Core uses it as a concurrency token, so the database refuses a save made on an older read.",
+        "s2": "The publish request must carry the revision the screen showed. A different one is answered 409, \"changed since you read it\".",
+        "s3": "A writer's edit that crosses a decision is applied on top of it and goes back to waiting. Nothing is published that was not read.",
+        "proof": "Tests slip a second database context in during the save: publishing unread words is refused, and two decisions at the same time become one, with the second asked to read again."
+      },
+      "audit": {
+        "title": "An audit log that can't publish a refused change",
+        "problem": "The audit record used to be saved through the request's own database context, which could still hold a change the endpoint had refused. Saving the audit row would have saved that change too. A code review caught it.",
+        "s1": "The audit record is now written in a database scope of its own, through the outbox, never through the request's.",
+        "s2": "Only changes are recorded. A question asked with POST (a count, a preview, a photo search) is marked as not audited, and a dry run says it only asked.",
+        "s3": "A bulk change leaves a note made only of numbers and ids. A sentence or a typed name is dropped, so the log never repeats personal data.",
+        "proof": "An architecture test calls an endpoint that adds a row and answers 400: the row is not saved, the audit event is. A second test reads the source and fails the build if any middleware is handed the request's database context or outbox."
+      },
+      "search": {
+        "title": "Search the way Egyptians type",
+        "problem": "Shoppers mix alef and hamza forms, ⁨ة⁩ and ⁨ه⁩, ⁨ى⁩ and ⁨ي⁩, Arabic-Indic digits, trade slang and half-typed words. Exact matching found nothing: «بان» returned no results instead of bathtubs.",
+        "s1": "One fold function is written twice, in C# and as a PostgreSQL function, so the database and the app agree on every letter. Products carry a folded search text that triggers keep current.",
+        "s2": "A short word that the catalogue never holds whole, but that starts some of its words, is read as a word still being typed: «بان» finds بانيو, never a word with «بان» in the middle.",
+        "s3": "The search learns. Every query is counted, searches with no result show the shop what customers ask for and it does not stock, an accepted \"did you mean\" becomes a synonym, and the owner can teach word pairs.",
+        "proof": "Tests check that the C# rule and the database's own regular expression give the same answer. A measuring tool runs the shop's real searches before every release."
+      },
+      "photo": {
+        "title": "Search by photo with no paid AI",
+        "problem": "Customers wanted to photograph a part and find it, without a cloud AI bill, without API keys, without storing their photos, and on the same small server that runs the shop.",
+        "s1": "A Python worker runs DINOv2-small as ONNX on the CPU and turns every catalogue picture into a vector of 384 numbers. A background job keeps the index current.",
+        "s2": "A search compares the photo with the whole library in memory (SIMD dot products, no vector database), removes hidden products before ranking, and keeps only close matches.",
+        "s3": "The photo comes from the camera or the gallery only. It is never written to disk, its type is judged by its bytes and not its name, and the gateway limits how often a visitor can search.",
+        "proof": "Tests: hidden products never appear, vectors from another model find nothing, a file is judged by its magic bytes. An integration test runs the library on real PostgreSQL. The model was chosen by measuring it against CLIP on the shop's own photos."
+      },
+      "rules": {
+        "title": "Rules the code enforces, and changes rehearsed before they ship",
+        "problem": "The owner's business rules lived in conversations. A rule that lives only in someone's head is broken by the next change, and a money bug found after release is found by a customer.",
+        "s1": "200 rules are written down, each naming the class or test that refuses a violation. Guard tests read the code itself: for example, only one service may write stock movements, and every message the server sends exists in Arabic, English and German.",
+        "s2": "A change to money, stock or the books passes six gates: agreed first, a failing test first, an independent review on file, a rehearsal on a copy of the data, a walk through the screens in Arabic on phone and desktop, and a books check after the deploy.",
+        "s3": "Deploys are built from a clean archive of one commit. Every image carries its commit, and a check lists any service still running older code.",
+        "proof": "The gates catch real faults. On 14 October 2026 the review found a cheque that could be cashed while it was being cancelled, and the books check on the rehearsal copy found a supplier's opening balance counted wrongly. Both were fixed, with tests, before release."
+      }
+    },
+    "practicesTitle": "How the work is done",
+    "practices": {
+      "tests": {
+        "title": "Tests at three levels",
+        "text": "About 2,000 unit test methods (xUnit) that run to 5,098 cases; integration tests on real PostgreSQL and RabbitMQ in containers (Testcontainers); and rehearsals on a copy of the production data for anything that touches money."
+      },
+      "security": {
+        "title": "Secure by default",
+        "text": "Short-lived JWTs with a rotating refresh token per device, stored hashed; BCrypt passwords; permissions checked per section and action; rate limits at the gateway; internal routes hidden. CI runs secret scanning, dependency review and vulnerability checks."
+      },
+      "arabic": {
+        "title": "Arabic first",
+        "text": "Right to left by default, in three languages from translation files. Audits fail the build on text written outside them. The owner types Arabic only; the program writes the English and German and he can correct them."
+      },
+      "oneShop": {
+        "title": "Built with one real shop",
+        "text": "The owner's words became the category tree, the rules and the search vocabulary. The program proposes and he decides: nothing in the catalogue is moved without his say."
+      }
+    },
+    "stackTitle": "Technology",
+    "stack": {
+      "backend": "Back end",
+      "frontend": "Front end",
+      "workers": "Workers",
+      "quality": "Quality"
+    },
+    "note": "Code excerpts are shortened from the private repository; no data of the shop or its customers appears here. This demo is a separate, standalone app that shares no code with production."
   }
 }

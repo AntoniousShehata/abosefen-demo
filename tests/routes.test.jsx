@@ -155,3 +155,30 @@ describe('back-office routes', () => {
     expect(await screen.findByText('This screen is not open to your role.')).toBeTruthy();
   });
 });
+
+describe('«How it\'s built»', () => {
+  it('shows the numbers, the architecture and the eight case studies, each with its code', async () => {
+    renderAt('/engineering');
+    expect(await screen.findByText('The production system behind this demo')).toBeTruthy();
+    expect(screen.getByText('5,098')).toBeTruthy();
+    expect(screen.getByTestId('architecture-diagram')).toBeTruthy();
+    const cases = screen.getAllByTestId('case-study');
+    expect(cases).toHaveLength(8);
+    for (const c of cases) expect(c.querySelector('pre code').textContent.length).toBeGreaterThan(200);
+    expect(screen.getByText("Money can't be booked twice")).toBeTruthy();
+  });
+
+  it('in Arabic: right to left, while the code and the diagram read left to right', async () => {
+    renderAt('/engineering', 'ar');
+    expect(await screen.findByText('النظام الحقيقي اللي ورا نسخة العرض دي')).toBeTruthy();
+    expect(document.documentElement.dir).toBe('rtl');
+    expect(screen.getAllByTestId('case-study')[0].querySelector('pre').getAttribute('dir')).toBe('ltr');
+    expect(screen.getByTestId('architecture-diagram').closest('[dir]').getAttribute('dir')).toBe('ltr');
+  });
+
+  it('is linked from the demo banner on every page', async () => {
+    renderAt('/');
+    const link = await screen.findByTestId('how-built-link');
+    expect(link.getAttribute('href')).toBe('/engineering');
+  });
+});

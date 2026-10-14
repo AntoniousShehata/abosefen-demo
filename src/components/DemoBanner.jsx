@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { api } from '../api/index.js';
 import { useI18n } from '../i18n/I18nProvider.jsx';
 import { useToast } from '../context/ToastContext.jsx';
@@ -28,7 +28,10 @@ export default function DemoBanner() {
         <span className="badge bg-amber-950 text-amber-50">{t('common.demoLabel')}</span>
         <strong className="font-semibold">{t('banner.text')}</strong>
         <span className="hidden text-amber-900/80 md:inline">{t('banner.note')}</span>
-        <button type="button" onClick={() => setAsking(true)} className="ms-auto rounded-md border border-amber-900/30 px-2 py-0.5 font-semibold hover:bg-amber-200">
+        <Link to="/engineering" className="ms-auto font-semibold text-amber-950 underline decoration-amber-900/40 underline-offset-2 hover:decoration-amber-950" data-testid="how-built-link">
+          {t('banner.how')}
+        </Link>
+        <button type="button" onClick={() => setAsking(true)} className="rounded-md border border-amber-900/30 px-2 py-0.5 font-semibold hover:bg-amber-200">
           {t('banner.reset')}
         </button>
       </div>

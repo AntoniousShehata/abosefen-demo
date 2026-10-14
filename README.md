@@ -16,6 +16,23 @@ is sent, and every change stays in your own browser until you press **Reset demo
 The production system it is based on is a separate, private repository (.NET microservices + React). This repository
 contains no production code, data, photo or secret; see [docs/SYNC.md](docs/SYNC.md) for what is shared and how.
 
+## The production system behind it
+
+The demo is the visible tip. The system it is based on runs a real shop every day:
+
+| | |
+|---|---|
+| **10 back-end services** behind one YARP gateway | .NET 10, EF Core, PostgreSQL per service, RabbitMQ with an outbox |
+| **≈ 103k lines of C#** · **≈ 68k lines of React** | storefront, back office, drivers — Arabic first, three languages |
+| **5,098 automated tests** in one run | xUnit, Testcontainers, rehearsals on a copy of the real data |
+| **200 business rules** written down | 180 enforced in code, each naming what enforces it |
+
+Eight hard problems it solves — money that can't be booked twice, closing a month while the shop keeps selling, an
+audit log that can't publish a refused change, Arabic search the way people really type, search by photo with no paid
+AI, and more — each with its code and how it is proved:
+**[docs/ENGINEERING.md](docs/ENGINEERING.md)** · or on the demo itself:
+**[How it's built](https://antoniousshehata.github.io/abosefen-demo/#/engineering)** (Arabic, English, German).
+
 | Storefront | Product with finishes |
 |---|---|
 | ![The storefront's home page](docs/screenshots/home.png) | ![A product page: the finish changes the code, the price and the stock](docs/screenshots/product.png) |
@@ -121,7 +138,8 @@ flowchart LR
 - **Languages:** Arabic (default, right-to-left), English and German. Every visible word comes from
   `src/i18n/{ar,en,de}.json`; the Cairo font is used for Arabic, Inter / Plus Jakarta Sans for Latin text.
 - **No network:** the built page carries a Content-Security-Policy that only allows itself and Google Fonts;
-  `tests/no-network.test.js` guards the code.
+  `tests/no-network.test.js` guards the code. The one outward link (to this repository, on *How it's built*) is read
+  from `package.json` at build time — a page the visitor opens, not a request.
 
 ```
 src/
@@ -158,7 +176,8 @@ read-only and reports fields added or removed since the snapshot. Details, limit
 - `check-contracts.test.js` — the drift check against a synthetic «production» folder: exit 0 when equal, exit 1
   naming a newly used field or a missing source, exit 2 without a path;
 - `no-network.test.js` — no fetch/XHR/WebSocket and no remote URL in the code; CSP allows only the fonts;
-- `routes.test.jsx` — smoke renders of every storefront and back-office route, plus a full simulated checkout.
+- `routes.test.jsx` — smoke renders of every storefront and back-office route, plus a full simulated checkout, and
+  *How it's built* in English and Arabic (eight case studies, each with its code; code and diagram left to right).
 
 ## Deployment
 
@@ -185,6 +204,10 @@ read-only and reports fields added or removed since the snapshot. Details, limit
 اللغات: العربية (الافتراضية، من اليمين لليسار)، الإنجليزية، الألمانية.
 التشغيل: `npm ci` ثم `npm run dev`. الاختبارات: `npm test`.
 المزامنة مع النظام الأصلى: [docs/SYNC.md](docs/SYNC.md).
+
+**النظام الحقيقى اللى وراها:** عشر خدمات ‎.NET وراء بوابة واحدة، و5,098 اختبار آلى، و200 قاعدة شغل مكتوبة. تمن مشاكل صعبة
+وإزاى اتحلّت، كل واحدة بالكود بتاعها: صفحة [«إزاى اتبنى»](https://antoniousshehata.github.io/abosefen-demo/#/engineering)
+فى نسخة العرض، أو [docs/ENGINEERING.md](docs/ENGINEERING.md).
 
 ---
 
