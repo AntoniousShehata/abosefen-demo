@@ -612,6 +612,14 @@
       "tryIt": "In der Demo ausprobieren →",
       "onlyThere": "Nur im Produktivsystem",
       "items": {
+        "searchWatch": {
+          "title": "Die Suche wird am echten Katalog überwacht",
+          "text": "Nach jedem Deployment und alle sechs Stunden durchsucht das Programm den eigenen Shop als Kunde: die Wörter des Handels mit der kleinsten und größten erlaubten Trefferzahl, jede Kundensuche, die etwas fand, die sortierte Liste und die Kategorien gegen die Suche, Codes und ausgeblendete Produkte. Ein Fehler steht sofort beim Inhaber, und ein Deployment wartet auf die erste Runde."
+        },
+        "listKit": {
+          "title": "Ein Weg, wie jede Liste sucht, blättert und datiert",
+          "text": "Jede Liste — auf dem Server und in den Masken — sucht, blättert und filtert nach Datum auf einem Weg: jedes Wort in beliebiger Reihenfolge, ein Code ohne Bindestriche, ein ganzer Tag in Kairo, die neueste Frage gewinnt. Tests brechen den Build ab, wenn eine neue Maske ihren eigenen Weg schreibt."
+        },
         "marketWords": {
           "title": "Die Suche versteht die Wörter des Handels",
           "text": "⁨«كرسي»⁩ findet WCs, ⁨«نيبل»⁩ findet, was ⁨«نبل»⁩ geschrieben ist, ⁨«بي بي ار»⁩ findet PPR und ⁨«اطقم»⁩ findet Sets. Im Produktivsystem außerdem: ein allein getipptes Wort wird gesucht, auch wenn es sonst nur beschreibt, eine sortierte Suche zählt alles Gefundene, und eine von Kunden angenommene Korrektur wartet auf den Inhaber, bevor sie die Bedeutung eines Wortes ändert."

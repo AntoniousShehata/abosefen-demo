@@ -612,6 +612,14 @@
       "tryIt": "Try it in the demo →",
       "onlyThere": "In production only",
       "items": {
+        "searchWatch": {
+          "title": "The search is watched on the real catalogue",
+          "text": "After every deploy and every six hours the program searches its own shop as a customer: the trade’s words with the fewest and the most results they may bring, every search a customer made that found products, the sorted list and the categories against the search, codes and hidden products. A failure is on the owner’s screen at once, and a deploy waits for the first round."
+        },
+        "listKit": {
+          "title": "One way every list searches, pages and dates",
+          "text": "Every list — on the server and on the screens — now searches, pages and filters by date one way: every word in any order, a code without its dashes, a whole Cairo day, the newest question wins. Tests fail the build when a new screen writes its own."
+        },
         "marketWords": {
           "title": "Search reads the trade's own words",
           "text": "⁨«كرسي»⁩ finds toilets, ⁨«نيبل»⁩ finds what is written ⁨«نبل»⁩, ⁨«بي بي ار»⁩ finds PPR and ⁨«اطقم»⁩ finds sets. In production too: a word typed alone is looked for even when it usually only describes, a sorted search counts everything it found, and a correction shoppers accepted waits for the owner before it changes what any word means."
