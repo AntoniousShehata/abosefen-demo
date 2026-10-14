@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* The shop's palette, written once (mirrors the production frontend's tokens; see docs/SYNC.md).
+     primary       bars, buttons, links       #483F6E
+     primary-dark  pressed buttons, dark ends  #362F56
+     primary-tint  light end of a gradient     #635C84
+     secondary     clay: offers and badges     #C4623F */
+:root {
+  --c-primary: 72 63 110;
+  --c-primary-dark: 54 47 86;
+  --c-primary-tint: 99 92 132;
+  --c-secondary: 196 98 63;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply bg-gray-50 text-sm text-gray-700 sm:text-base;
+    font-family: theme('fontFamily.sans');
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: theme('fontFamily.display');
+    @apply font-bold text-gray-900;
+    letter-spacing: -0.015em;
+  }
+
+  /* Arabic reads with its own face and no extra tracking. */
+  html[lang='ar'] body,
+  html[lang='ar'] h1,
+  html[lang='ar'] h2,
+  html[lang='ar'] h3,
+  html[lang='ar'] h4 {
+    font-family: theme('fontFamily.arabic');
+    letter-spacing: 0;
+  }
+
+  /* Codes, phone numbers and SKUs always read left to right, even inside Arabic text. */
+  .num-ltr {
+    direction: ltr;
+    unicode-bidi: isolate;
+  }
+
+  :focus-visible {
+    outline: 2px solid rgb(var(--c-primary));
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-primary {
+    @apply btn bg-primary text-white hover:bg-primary-dark;
+  }
+  .btn-secondary {
+    @apply btn bg-secondary text-white hover:brightness-95;
+  }
+  .btn-ghost {
+    @apply btn border border-gray-300 bg-white text-gray-700 hover:bg-gray-50;
+  }
+  .btn-danger {
+    @apply btn bg-red-600 text-white hover:bg-red-700;
+  }
+  .card {
+    @apply rounded-xl border border-gray-200 bg-white shadow-sm;
+  }
+  .input {
+    @apply w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-gray-800 placeholder-gray-400 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20;
+  }
+  .label {
+    @apply mb-1 block text-xs font-semibold text-gray-600;
+  }
+  .badge {
+    @apply inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-semibold;
+  }
+  .link {
+    @apply text-primary underline-offset-2 hover:underline;
+  }
+  .table-th {
+    @apply whitespace-nowrap px-3 py-2 text-start text-xs font-semibold uppercase tracking-wide text-gray-500;
+  }
+  .table-td {
+    @apply px-3 py-2 align-middle text-sm;
+  }
+}
+
+@layer utilities {
+  .scrollbar-none {
+    scrollbar-width: none;
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+}
