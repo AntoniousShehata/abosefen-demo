@@ -96,7 +96,7 @@ jobs:
       - uses: actions/checkout@v4
         with: { path: production, persist-credentials: false, sparse-checkout: 'frontend' }
       - uses: actions/checkout@v4
-        with: { repository: <owner>/abosefen-demo, path: demo, persist-credentials: false }
+        with: { repository: AntoniousShehata/abosefen-demo, path: demo, persist-credentials: false }
       - uses: actions/setup-node@v4
         with: { node-version: 20 }
       - run: node demo/scripts/check-contracts.mjs production
@@ -171,5 +171,6 @@ npm test && npm run build
 - [ ] `npm test` green, `npm run build` green.
 - [ ] No new network call (`tests/no-network.test.js`), no real brand (`tests/catalog.test.js`), every visible word
       translated (`tests/i18n.test.js`).
-- [ ] Secret scan of the demo repository (see `docs/BUILD_REPORT.md` for the command).
+- [ ] Secret scan of the demo repository — every hit must be prose, never a value:
+      `grep -rniE "password\s*=|secret|token|bearer|connection ?string" --exclude-dir=node_modules --exclude-dir=dist --exclude-dir=.git .`
 - [ ] Bump `contractVersion` if the demo's served shapes changed.

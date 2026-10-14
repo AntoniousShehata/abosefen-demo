@@ -1,7 +1,7 @@
 # Abosefen — Demo
 
-[![CI](https://github.com/OWNER/abosefen-demo/actions/workflows/ci.yml/badge.svg)](https://github.com/OWNER/abosefen-demo/actions/workflows/ci.yml)
-[![Deploy](https://github.com/OWNER/abosefen-demo/actions/workflows/pages.yml/badge.svg)](https://github.com/OWNER/abosefen-demo/actions/workflows/pages.yml)
+[![CI](https://github.com/AntoniousShehata/abosefen-demo/actions/workflows/ci.yml/badge.svg)](https://github.com/AntoniousShehata/abosefen-demo/actions/workflows/ci.yml)
+[![Deploy](https://github.com/AntoniousShehata/abosefen-demo/actions/workflows/pages.yml/badge.svg)](https://github.com/AntoniousShehata/abosefen-demo/actions/workflows/pages.yml)
 
 A standalone, public demo of the **Abosefen** system — the online shop and back office of an Egyptian
 sanitaryware store (pipes and fittings, valves, mixers, showers, sanitary ceramics, kitchen sinks, accessories).
@@ -10,16 +10,20 @@ It runs **entirely in the browser**: no server, no database, no account to creat
 stock figure, order and person in it is **synthetic**. Nothing you do here is real — no payment is taken, no message
 is sent, and every change stays in your own browser until you press **Reset demo**.
 
-> **Live demo:** `https://OWNER.github.io/abosefen-demo/` — *placeholder until GitHub Pages is switched on (see «Deployment»).*
+> **Live demo: [antoniousshehata.github.io/abosefen-demo](https://antoniousshehata.github.io/abosefen-demo/)** — opens in Arabic;
+> switch to English or German from the header.
 
 The production system it is based on is a separate, private repository (.NET microservices + React). This repository
 contains no production code, data, photo or secret; see [docs/SYNC.md](docs/SYNC.md) for what is shared and how.
 
-| Storefront | Product with finishes | Back office |
-|---|---|---|
-| ![Home](docs/screenshots/home.png) | ![Product](docs/screenshots/product.png) | ![Bulk move preview](docs/screenshots/bulk-move.png) |
+| Storefront | Product with finishes |
+|---|---|
+| ![The storefront's home page](docs/screenshots/home.png) | ![A product page: the finish changes the code, the price and the stock](docs/screenshots/product.png) |
+| **Back office — a bulk move, previewed before anything changes** | **Arabic, right to left (the default)** |
+| ![The bulk-move preview: what moves, from where to where, and the categories' counts before and after](docs/screenshots/bulk-move.png) | ![The storefront in Arabic](docs/screenshots/home-ar.png) |
 
-*Screenshot placeholders — add the images under `docs/screenshots/` after the first deployment.*
+**Built with** React 18 · React Router 7 · Vite 6 · Tailwind CSS · Vitest 4 — tested and deployed by GitHub Actions to
+GitHub Pages.
 
 ---
 
@@ -130,7 +134,7 @@ src/
 contracts/      shapes.json — the versioned contract with production
 scripts/        check-contracts.mjs — compares production usage with the contract
 tests/          Vitest: API, rules, data guards, translations, contracts, page smoke tests
-docs/           SYNC.md (sync strategy), BUILD_REPORT.md
+docs/           SYNC.md (sync strategy), screenshots/
 ```
 
 ## Keeping in sync with production
@@ -184,4 +188,4 @@ read-only and reports fields added or removed since the snapshot. Details, limit
 
 ---
 
-*License: not yet chosen — all rights reserved by the owner until a license file is added.*
+© 2026 Antonious Shehata. All rights reserved — the code is published to be read and tried, not reused.
