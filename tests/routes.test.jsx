@@ -60,9 +60,9 @@ describe('storefront routes', () => {
   it('a product with finishes: picking one changes the code', async () => {
     renderAt(`/p/${mira.slug}`);
     expect(await screen.findByTestId('product-title')).toBeTruthy();
-    expect(screen.getByText('NIL-MIRA-B-CHR')).toBeTruthy();
+    expect(await screen.findByText('NIL-MIRA-B-CHR')).toBeTruthy();
     fireEvent.click(screen.getByRole('button', { name: /Matte black/ }));
-    expect(screen.getByText('NIL-MIRA-B-BLK')).toBeTruthy();
+    expect(await screen.findByText('NIL-MIRA-B-BLK')).toBeTruthy();
     fireEvent.click(screen.getByTestId('add-to-cart'));
     await waitFor(async () => expect((await api.getCart()).itemCount).toBe(1));
   });
