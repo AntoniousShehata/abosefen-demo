@@ -679,6 +679,10 @@
         "marketingMenu": {
           "title": "Werbung, Gutscheine und Punkte haben eine eigene Menügruppe",
           "text": "Auf Wunsch des Inhabers zogen die Marketing-Seiten aus „Verkauf“ in eine Gruppe „Marketing“ — und das Menü bleibt durch eine Prüfung geschützt, die keine Gruppe mit mehr als neun Links und keinen Link ohne Namen in drei Sprachen zulässt."
+        },
+        "categoryPricing": {
+          "title": "Jede Firma Kategorie für Kategorie bepreist — die zwei Wege des Inhabers, der Einkauf gespeichert",
+          "text": "Der Inhaber wählt eine Firma und sieht nur ihre Kategorien als Baum; er markiert einige und gibt ihnen einen Weg: „Rabatt auf die Liste“ (Einkauf = Liste minus sein Rabatt, Verkauf = Liste minus Kundenrabatt) oder „netto + Gewinn“. Eine Kategorie ohne eigenen Weg übernimmt den darüber, dann den der Firma. Der Listenpreis bleibt an jedem Produkt und jeder Farbe, also wird eine geänderte Regel neu berechnet, vor dem Übernehmen geprüft und rückgängig gemacht; das Firmenblatt geht als Excel hinaus und kommt bearbeitet zurück; die Einkaufsrechnung schlägt den Einkaufspreis aus der Liste vor. Den Einkauf sieht nur, wer Preise ändern oder einkaufen darf — geprobt auf einer Kopie des echten Katalogs: eine erste Neubepreisung änderte 0 von 3.921 Preisen."
         }
       }
     }
