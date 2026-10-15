@@ -691,6 +691,10 @@
         "shopDays": {
           "title": "The day is the shop’s — Cairo’s, not Greenwich’s",
           "text": "The books, the stock and the money totals cut the day at UTC midnight (02:00 or 03:00 in the shop): a sale at 00:30 landed on the day before, «to day X» lost the whole last day, and a stock card asked from a day began at zero. Now the day page, trial balance, income statement, balance sheet, debt ages, reports and revenue read Cairo’s day, the stock card opens with its opening balance, a coupon runs whole days and every document number takes the shop’s year. Done through the six gates: tests that failed on the old code, a five-direction review, a rehearsal on a copy of the data."
+        },
+        "reportsFromBooks": {
+          "title": "The dashboard and the reports read the books",
+          "text": "The dashboard read a separate tally nothing filled, so it showed zero while the books held the month’s invoices. Now the month’s revenue, the invoice count and average, and the sales, purchases and cash-flow reports are read from the books by the shop’s day: invoices after discounts, returns and cancellations, before VAT — the income statement’s figure to the piastre — and purchases on the day they were received. The owner was asked first; a test failed on the old code; a five-direction review; a rehearsal on a copy of the data."
         }
       }
     }

@@ -691,6 +691,10 @@
         "shopDays": {
           "title": "Der Tag ist der des Ladens — Kairo, nicht Greenwich",
           "text": "Bücher, Lager und Geldsummen schnitten den Tag um Mitternacht UTC (02:00 oder 03:00 im Laden): ein Verkauf um 00:30 landete am Vortag, „bis Tag X“ verlor den ganzen letzten Tag, und eine Lagerkarte ab einem Datum begann bei null. Jetzt lesen Tagesseite, Probebilanz, GuV, Bilanz, Altersstruktur der Forderungen, Berichte und Umsatz den Tag Kairos, die Lagerkarte beginnt mit dem Anfangsbestand, ein Gutschein läuft ganze Tage und jede Belegnummer nimmt das Jahr des Ladens. Über die sechs Prüfstufen: Tests, die am alten Code scheiterten, eine Prüfung aus fünf Richtungen, eine Probe auf einer Kopie der Daten."
+        },
+        "reportsFromBooks": {
+          "title": "Dashboard und Berichte lesen die Bücher",
+          "text": "Das Dashboard las einen eigenen Zähler, den niemand füllte — es zeigte null, während die Bücher die Rechnungen des Monats enthielten. Jetzt werden Monatsumsatz, Rechnungsanzahl und -durchschnitt sowie die Berichte zu Verkauf, Einkauf und Geldfluss aus den Büchern gelesen, nach dem Tag des Ladens: Rechnungen nach Rabatt, Retouren und Stornos, ohne MwSt. — auf den Piaster die Zahl der GuV — und Einkäufe am Tag des Wareneingangs. Zuerst wurde der Inhaber gefragt; ein Test scheiterte am alten Code; eine Prüfung aus fünf Richtungen; eine Probe auf einer Kopie der Daten."
         }
       }
     }
