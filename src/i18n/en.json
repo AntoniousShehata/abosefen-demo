@@ -703,6 +703,10 @@
         "marketFold": {
           "title": "The dollar and gold watch folds and opens",
           "text": "On the dashboard, the market card (dollar, euro, copper, gold) now has an arrow beside its title: folded it is one line with the title and the last update, and it opens back as it was. Each device remembers the choice. On the price-freshness page it stays open, since there it is the subject. And the big title card at the top of the dashboard is gone, at the owner’s word: the bar and the side menu already name the page, so it now opens on the shortcuts. The «back to the shop» button beside the search went too: the shop’s own bar always sits above the panel."
+        },
+        "panelStrip": {
+          "title": "The panel’s menu became a strip of icons",
+          "text": "On a laptop the long menu (14 groups and a block of pinned tiles) is now a narrow strip: «Pinned», then each group as its icon over its name. A press opens the group’s pages beside the strip, over the page; choosing a page, Escape or a press outside closes it, and the page keeps the width the old menu took. Groups went from 14 to 11; barcode printing stays one press. A phone keeps its drawer. The owner saw three ways, asked to see this one on the real screen, then approved it. The design audit now refuses a bottom bar that writes the side’s width as a number of its own."
         }
       }
     }
