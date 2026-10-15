@@ -687,6 +687,10 @@
         "priceListsPlain": {
           "title": "The price-lists committee: each list says what it waits for",
           "text": "The owner found the price lists hard, so a committee of the people who use them (purchasing, pricing, catalogue, accounts, sales, testing) read them end to end: each list now says its next step in words with «needs your decision» first, its lines in three plain groups (sure / to look at / no product found), an unsure line shows the product’s photo with «right / wrong» in one tap, a re-pricing that changes nothing makes no list, and «the lists still missing» per company."
+        },
+        "shopDays": {
+          "title": "The day is the shop’s — Cairo’s, not Greenwich’s",
+          "text": "The books, the stock and the money totals cut the day at UTC midnight (02:00 or 03:00 in the shop): a sale at 00:30 landed on the day before, «to day X» lost the whole last day, and a stock card asked from a day began at zero. Now the day page, trial balance, income statement, balance sheet, debt ages, reports and revenue read Cairo’s day, the stock card opens with its opening balance, a coupon runs whole days and every document number takes the shop’s year. Done through the six gates: tests that failed on the old code, a five-direction review, a rehearsal on a copy of the data."
         }
       }
     }

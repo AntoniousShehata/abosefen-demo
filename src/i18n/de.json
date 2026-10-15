@@ -687,6 +687,10 @@
         "priceListsPlain": {
           "title": "Der Preislisten-Ausschuss: jede Liste sagt, worauf sie wartet",
           "text": "Der Inhaber fand die Preislisten schwierig, also las ein Ausschuss derer, die sie nutzen (Einkauf, Preise, Katalog, Buchhaltung, Verkauf, Test), sie von vorn bis hinten: jede Liste sagt jetzt ihren nächsten Schritt in Worten, „wartet auf Sie“ zuerst, ihre Zeilen in drei klaren Gruppen (sicher / zu prüfen / kein Produkt gefunden), eine unsichere Zeile zeigt das Produktfoto mit „richtig / falsch“ auf einen Tipp, eine Neubepreisung ohne Änderung erzeugt keine Liste, und „noch fehlende Listen“ je Firma."
+        },
+        "shopDays": {
+          "title": "Der Tag ist der des Ladens — Kairo, nicht Greenwich",
+          "text": "Bücher, Lager und Geldsummen schnitten den Tag um Mitternacht UTC (02:00 oder 03:00 im Laden): ein Verkauf um 00:30 landete am Vortag, „bis Tag X“ verlor den ganzen letzten Tag, und eine Lagerkarte ab einem Datum begann bei null. Jetzt lesen Tagesseite, Probebilanz, GuV, Bilanz, Altersstruktur der Forderungen, Berichte und Umsatz den Tag Kairos, die Lagerkarte beginnt mit dem Anfangsbestand, ein Gutschein läuft ganze Tage und jede Belegnummer nimmt das Jahr des Ladens. Über die sechs Prüfstufen: Tests, die am alten Code scheiterten, eine Prüfung aus fünf Richtungen, eine Probe auf einer Kopie der Daten."
         }
       }
     }
