@@ -5,6 +5,7 @@ import { MemoryRouter } from 'react-router-dom';
 import { AppRoutes, Providers } from '../src/App.jsx';
 import { api } from '../src/api/index.js';
 import { PRODUCTS } from '../src/data/catalog.js';
+import { STATS } from '../src/data/engineering.js';
 
 const renderAt = (path, lang = 'en') =>
   render(
@@ -160,7 +161,7 @@ describe('«How it\'s built»', () => {
   it('shows the numbers, the architecture and the eight case studies, each with its code', async () => {
     renderAt('/engineering');
     expect(await screen.findByText('The production system behind this demo')).toBeTruthy();
-    expect(screen.getByText('5,098')).toBeTruthy();
+    expect(screen.getByText(STATS.find((s) => s.key === 'tests').value)).toBeTruthy();   // the figure the page shows, wherever it moves
     expect(screen.getByTestId('architecture-diagram')).toBeTruthy();
     const cases = screen.getAllByTestId('case-study');
     expect(cases).toHaveLength(8);
