@@ -670,7 +670,7 @@
         },
         "everyLevelSearch": {
           "title": "Suche auf jeder Ebene: was ein Mitarbeiter über etwas weiß, findet es",
-          "text": "Eine Rechnung über ihre Nummer ohne Bindestriche, die Telefonnummer des Kunden in jeder Schreibweise (010… oder +20…) oder ein Produkt darauf unter seinem heutigen Namen in jeder Sprache oder seinem Code — obwohl die Zeile den Namen behält, unter dem verkauft wurde. In Produktion: Rechnungen, Retouren, Einkäufe, Umlagerungen, Lieferungen und das Kassenbuch, und Strg K durchsucht alle Listen auf einmal. Hier im Backoffice bei den Bestellungen ausprobieren."
+          "text": "Eine Rechnung über ihre Nummer ohne Bindestriche, die Telefonnummer des Kunden in jeder Schreibweise (010… oder +20…) oder ein Produkt darauf unter seinem heutigen Namen in jeder Sprache oder seinem Code — obwohl die Zeile den Namen behält, unter dem verkauft wurde. In Produktion: Rechnungen, Preisanfragen, Retouren, Einkäufe, Umlagerungen, Lieferungen, das Kassenbuch, Forderungen und Verbindlichkeiten, und Strg K durchsucht alle Listen auf einmal. Hier im Backoffice bei den Bestellungen ausprobieren."
         },
         "hiddenOptions": {
           "title": "Eine ausgeblendete Option gehört dem Team — Kunden finden das Produkt nicht darüber",

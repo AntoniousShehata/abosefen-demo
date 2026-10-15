@@ -670,7 +670,7 @@
         },
         "everyLevelSearch": {
           "title": "Search at every level: whatever a worker knows of a thing finds it",
-          "text": "An invoice by its number typed without dashes, by the customer’s phone typed any way (010… or +20…), or by a product on it under today’s name in any language or its code — though the line keeps the name it was sold under. In production: invoices, returns, purchases, transfers, deliveries and the day-book, and Ctrl K searches every list at once. Try it here on the back office’s orders."
+          "text": "An invoice by its number typed without dashes, by the customer’s phone typed any way (010… or +20…), or by a product on it under today’s name in any language or its code — though the line keeps the name it was sold under. In production: invoices, price statement requests, returns, purchases, transfers, deliveries, the day-book, receivables and payables, and Ctrl K searches every list at once. Try it here on the back office’s orders."
         },
         "hiddenOptions": {
           "title": "A hidden option is the team’s — a shopper never finds the product by it",
