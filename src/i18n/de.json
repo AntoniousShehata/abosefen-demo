@@ -666,7 +666,7 @@
         },
         "jobs": {
           "title": "Stellen: der Inhaber schreibt eine Anzeige, Bewerber melden sich, das Team ruft an",
-          "text": "Der Inhaber schreibt die Stellenanzeige auf Arabisch, das Programm formuliert Englisch und Deutsch; auf der Seite „Stellenangebote“ bewirbt sich jeder in einer Minute (Name, ägyptische Mobilnummer, Gouvernement — keine Dateien), und eine Bewerbungsliste mit Zähler für neue, Anruf oder WhatsApp mit einem Tipp und dem Stand jeder Bewerbung. Was eine Maschine schickt, wird beantwortet und nirgends gespeichert; eine Nummer bewirbt sich einmal pro Stelle."
+          "text": "Der Inhaber schreibt die Stellenanzeige auf Arabisch, das Programm formuliert Englisch und Deutsch; auf der Seite „Stellenangebote“ bewirbt sich jeder in einer Minute — auch während der Laden geschlossen ist — mit Name, ägyptischer Mobilnummer und Gouvernement, dazu eine Bewerbungsliste mit Zähler für neue und Anruf oder WhatsApp mit einem Tipp. Fotos von Lebensläufen bleiben geschlossen, bis der Inhaber sie mit einem Schalter öffnet; dann werden sie vom selben Code von Kameradaten bereinigt, der die Fotos der Kunden bereinigt."
         },
         "everyLevelSearch": {
           "title": "Suche auf jeder Ebene: was ein Mitarbeiter über etwas weiß, findet es",
