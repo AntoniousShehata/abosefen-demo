@@ -683,6 +683,10 @@
         "categoryPricing": {
           "title": "Each company priced category by category — the owner’s two ways, its cost kept",
           "text": "The owner picks a company and sees only its categories, as a tree; he ticks some and gives them a way: «a discount on the list» (cost = the list less his discount, sale = the list less the customer’s) or «net + profit». A category without one takes the one above it, then the company’s. The list price is kept on every product and colour, so a changed rule is priced again, reviewed before it applies and undone at will; the company’s sheet goes out as Excel and comes back edited; the purchase invoice proposes the cost from the list. The cost is seen only by who may change prices or buy — rehearsed on a copy of the real catalogue: a first re-pricing changed 0 of 3,921 prices. A list may hold the 14 % VAT or not: each company has a switch and each list may say otherwise, and a purchase tax invoice is proposed the cost without the VAT, since it adds it below."
+        },
+        "priceListsPlain": {
+          "title": "The price-lists committee: each list says what it waits for",
+          "text": "The owner found the price lists hard, so a committee of the people who use them (purchasing, pricing, catalogue, accounts, sales, testing) read them end to end: each list now says its next step in words with «needs your decision» first, its lines in three plain groups (sure / to look at / no product found), an unsure line shows the product’s photo with «right / wrong» in one tap, a re-pricing that changes nothing makes no list, and «the lists still missing» per company."
         }
       }
     }
