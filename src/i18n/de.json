@@ -612,6 +612,14 @@
       "tryIt": "In der Demo ausprobieren →",
       "onlyThere": "Nur im Produktivsystem",
       "items": {
+        "threeLanguages": {
+          "title": "Eine Suche auf Arabisch, Englisch und Deutsch",
+          "text": "Dieselben Regeln in jeder Sprache: Arabisch wird nach seinem Artikel gefunden, ein deutscher Wortteil im Wort, das er bildet (⁨«Armatur»⁩ in ⁨«Waschtischarmatur»⁩), ein englisches Wort nur ganz (⁨«bath»⁩ nie in ⁨«bathroom»⁩). Im Produktivsystem kamen die deutschen Namen schrittweise in den Suchtext, die Suche antwortete die ganze Zeit."
+        },
+        "amazonOrder": {
+          "title": "Wie bei Amazon: das gesuchte Produkt zuerst",
+          "text": "Unter gleich gut gefundenen Produkten: die Wahl des Inhabers, dann das Produkt vor seinem Ersatzteil, die Kategorie der meisten Treffer, ein Angebot mit Foto und Preis, das meistgesehene — und derselbe Name nie zweimal hintereinander. Ein Name, der das Gegenteil eines getippten Wortes sagt, kommt danach."
+        },
         "searchWatch": {
           "title": "Die Suche wird am echten Katalog überwacht",
           "text": "Nach jedem Deployment und alle sechs Stunden durchsucht das Programm den eigenen Shop als Kunde: die Wörter des Handels mit der kleinsten und größten erlaubten Trefferzahl, jede Kundensuche, die etwas fand, die sortierte Liste und die Kategorien gegen die Suche, Codes und ausgeblendete Produkte. Ein Fehler steht sofort beim Inhaber, und ein Deployment wartet auf die erste Runde."

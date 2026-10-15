@@ -79,6 +79,30 @@ describe('the trade\'s own words (production SRCH-5)', () => {
   });
 });
 
+describe('one search in every language (production SRCH-8)', () => {
+  it('an English word stands alone: «bath» is never inside «bathroom»', () => {
+    expect(matchesQuery('bath', 'Lina bathroom set')).toBe(false);
+    expect(matchesQuery('bath', 'Nilora Mira bath mixer')).toBe(true);
+    expect(matchesQuery('بانيو', 'Lina bathroom set', 'Lina Badset')).toBe(false);
+  });
+
+  it('a German part is found inside the word it builds', () => {
+    expect(matchesQuery('Armatur', 'Nilora Duna Waschtischarmatur')).toBe(true);
+    expect(matchesQuery('mixer', 'Nilora Duna Waschtischarmatur')).toBe(true);
+    expect(matchesQuery('Dusche', 'Sefaro Vela Unterputz-Duscharmatur')).toBe(true);
+  });
+
+  it('a kitchen mixer\'s pull-out spray is no shower', () => {
+    expect(matchesQuery('Dusche', 'Nilora Sora Küchenarmatur mit Zugbrause')).toBe(false);
+    expect(matchesQuery('shower', 'Nilora Sora Küchenarmatur mit Zugbrause')).toBe(false);
+  });
+
+  it('a marked letter is typed with or without its mark', () => {
+    expect(matchesQuery('Kuchenarmatur', 'Nilora Sora Küchenarmatur mit Zugbrause')).toBe(true);
+    expect(matchesQuery('KÜCHENARMATUR', 'Nilora Sora Küchenarmatur mit Zugbrause')).toBe(true);
+  });
+});
+
 describe('a short word is the beginning of a word (production SRCH-4)', () => {
   it('«بان» finds بانيو and بالبانيو, never a word with بان inside it', () => {
     expect(matchesQuery('بان', 'خلاط بانيو')).toBe(true);

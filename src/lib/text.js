@@ -41,7 +41,7 @@ const SYNONYM_GROUPS = [
   ['خلاط', 'خلاطات', 'حنفيه', 'mixer', 'mixers', 'tap', 'faucet', 'armatur', 'armaturen'],
   ['قاعده', 'قواعد', 'مرحاض', 'كرسي', 'toilet', 'wc'],
   ['حوض', 'احواض', 'basin', 'sink', 'waschbecken', 'spule'],
-  ['دش', 'شاور', 'shower', 'dusche', 'brause'],
+  ['دش', 'شاور', 'shower', 'showers', 'dusche', 'dusch'],   // not «brause» alone: a kitchen mixer's pull-out spray is no shower
   ['ماسوره', 'مواسير', 'pipe', 'pipes', 'rohr'],
   ['محبس', 'محابس', 'valve', 'valves', 'ventil'],
   ['شطاف', 'شطافات', 'bidet'],
@@ -50,7 +50,15 @@ const SYNONYM_GROUPS = [
   // the trade's own spellings (production SRCH-5, the owner's words of 14 Oct 2026)
   ['نبل', 'نيبل', 'نبلات', 'نيبلات', 'nipple'],
   ['طقم', 'اطقم', 'set', 'sets'],
+  ['بانيو', 'بانيوهات', 'bathtub', 'bathtubs', 'bath', 'badewanne'],
 ].map((group) => group.map(fold));
+
+// One search in every language the shop speaks (production SRCH-8, 15 Oct 2026). Arabic writes «خلاط حوض» apart; German
+// builds one word of several — its parts are found INSIDE the word they build («armatur» in «Waschtischarmatur»). An
+// English word the vocabulary adds stands alone, with its plural: «bath» is never found inside «bathroom».
+const COMPOUND_PARTS = new Set(['armatur', 'dusch', 'waschbecken', 'waschtisch', 'badewanne', 'ventil', 'spiegel', 'rohr', 'winkel', 'edelstahl'].map(fold));
+const LATIN = /^[a-z]+$/;
+const standsAlone = (haystackWords, form) => haystackWords.some((w) => w === form || w === `${form}s` || w === `${form}es`);
 
 // A thing the trade names in more than one spoken word is read as the one word the catalogue writes («بي بي ار» = PPR).
 const PHRASES = [['بي بي ار', 'ppr']].map(([spoken, word]) => [fold(spoken), word]);
@@ -102,7 +110,15 @@ export function matchesQuery(query, ...fields) {
   if (words.length === 0) return false;
   const haystack = fields.flat().map(fold).join(' | ');
   const haystackWords = haystack.split(/[\s|]+/).filter(Boolean);
-  return words.every((w) => wordForms(w).some((form) => foundIn(haystack, haystackWords, form)));
+  return words.every((w) => {
+    const typed = new Set([w, ...ARTICLES.filter((a) => w.startsWith(a) && w.length - a.length >= 2).map((a) => w.slice(a.length))]);
+    return wordForms(w).some((form) => {
+      // a Latin word stands alone — unless it is a German part, or a word of five letters or more the shopper typed
+      if (LATIN.test(form) && !COMPOUND_PARTS.has(form) && !(typed.has(form) && form.length >= 5)) return form.length <= SHORT_WORD
+        ? foundIn(haystack, haystackWords, form) : standsAlone(haystackWords, form);
+      return foundIn(haystack, haystackWords, form);
+    });
+  });
 }
 
 /**

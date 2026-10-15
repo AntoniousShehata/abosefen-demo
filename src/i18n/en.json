@@ -612,6 +612,14 @@
       "tryIt": "Try it in the demo →",
       "onlyThere": "In production only",
       "items": {
+        "threeLanguages": {
+          "title": "One search in Arabic, English and German",
+          "text": "The same rules in every language: Arabic is found after its article, a German part inside the word it builds (⁨«Armatur»⁩ in ⁨«Waschtischarmatur»⁩), an English word only whole (⁨«bath»⁩ never inside ⁨«bathroom»⁩). In production the German names joined the search text gradually, the search answering all along."
+        },
+        "amazonOrder": {
+          "title": "Like Amazon: the product asked for first",
+          "text": "Among products found equally well: the owner’s pick, then a product before its spare part, the category most results are of, a listing with a photo and a price, the most viewed — and the same name never twice in a row. A name that says the opposite of a word typed comes after."
+        },
         "searchWatch": {
           "title": "The search is watched on the real catalogue",
           "text": "After every deploy and every six hours the program searches its own shop as a customer: the trade’s words with the fewest and the most results they may bring, every search a customer made that found products, the sorted list and the categories against the search, codes and hidden products. A failure is on the owner’s screen at once, and a deploy waits for the first round."
