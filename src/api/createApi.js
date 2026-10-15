@@ -11,6 +11,7 @@ import { FINISHES, GOVERNORATES } from '../data/catalog.js';
 import { computeTotals, lineTotal } from '../lib/money.js';
 import { fold, matchesQuery, scoreMatch, slugify } from '../lib/text.js';
 import { readKind } from '../lib/kinds.js';
+import { orderSearchFields } from '../lib/orderSearch.js';
 import { can, DEMO_ACCOUNTS, hasAnyAdmin, PERMISSIONS, ROLE_PERMISSIONS } from '../lib/permissions.js';
 import { canMove, NEXT_STATUSES, nextOnHappyPath, isOpenStatus, RESTOCKING_STATUSES } from '../lib/orderFlow.js';
 
@@ -1182,7 +1183,8 @@ export function createApi({ storage = browserStorage(), latency = [150, 450], no
         });
         const items = db.orders
           .filter((o) => !status || o.status === status)
-          .filter((o) => !q.trim() || matchesQuery(q, o.orderNumber, o.customerName, o.phone, o.customerEmail || ''))
+          // as production's SRCH-11: everything a worker knows of an order finds it (src/lib/orderSearch.js)
+          .filter((o) => !q.trim() || matchesQuery(q, orderSearchFields(o, db.products)))
           .map(orderOut);
         return { items, counts, total: db.orders.length };
       }),

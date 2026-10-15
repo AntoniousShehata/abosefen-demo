@@ -663,6 +663,22 @@
         "siteNumbers": {
           "title": "The site counts its own visits",
           "text": "Visits and purchases counted by the shop itself, with no cookie and nothing kept about the person; the owner decides what customers see."
+        },
+        "jobs": {
+          "title": "Jobs: the owner posts an ad, people apply, the team calls them",
+          "text": "The owner writes a job ad in Arabic and the program words its English and German; a «Jobs» page anyone applies from in a minute (a name, an Egyptian mobile, a governorate — no files), and an applications screen with a badge for the new ones, a call or WhatsApp in one tap and each applicant’s state. What a machine sends is answered like anyone and kept nowhere; one mobile applies once to a job."
+        },
+        "everyLevelSearch": {
+          "title": "Search at every level: whatever a worker knows of a thing finds it",
+          "text": "An invoice by its number typed without dashes, by the customer’s phone typed any way (010… or +20…), or by a product on it under today’s name in any language or its code — though the line keeps the name it was sold under. In production: invoices, returns, purchases, transfers, deliveries and the day-book, and Ctrl K searches every list at once. Try it here on the back office’s orders."
+        },
+        "hiddenOptions": {
+          "title": "A hidden option is the team’s — a shopper never finds the product by it",
+          "text": "A colour or size the team hid on a product was still in its search text: a shopper found the product by its colour, code or barcode. Now every product has two texts: the shown one everybody searches, the hidden one only the team — proved on a real PostgreSQL."
+        },
+        "marketingMenu": {
+          "title": "Ads, coupons and points are a menu group of their own",
+          "text": "On the owner’s word, the marketing screens left «Sales» for a «Marketing» group — and the menu is still guarded by a check that refuses a group of more than nine links or a link without its name in three languages."
         }
       }
     }

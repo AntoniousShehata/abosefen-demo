@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { api } from '../../api/index.js';
 import { useApi } from '../../hooks/useApi.js';
 import { useI18n } from '../../i18n/I18nProvider.jsx';
@@ -13,7 +14,8 @@ export default function AdminOrders() {
   const { t, money, date, number } = useI18n();
   const toast = useToast();
   const [status, setStatus] = useState('');
-  const [q, setQ] = useState('');
+  const [searchParams] = useSearchParams();
+  const [q, setQ] = useState(() => searchParams.get('q') || '');   // a link opens the list already searched
   const [selectedId, setSelectedId] = useState(null);
   const [confirming, setConfirming] = useState(null);
   const [problem, setProblem] = useState('');

@@ -147,6 +147,17 @@ describe('simulated checkout and orders', () => {
     expect(delivered.allowedNext).toEqual(['Completed', 'Returned']);
   });
 
+  it('the back office finds an order by everything a worker knows of it (as production SRCH-11)', async () => {
+    await api.signIn('cashier@demo');
+    const found = async (q) => (await api.adminOrders({ q })).items.map((o) => o.orderNumber);
+    expect(await found('demo1003')).toEqual(['DEMO-1003']);              // the number without its dash
+    expect(await found('01000000002')).toEqual(['DEMO-1003']);           // the phone run together…
+    expect(await found('+20 100 000 0002')).toEqual(['DEMO-1003']);      // …or with the country code
+    expect(await found('PN20')).toContain('DEMO-1003');                  // a line's code
+    expect(await found('عميل العرض')).toEqual(expect.arrayContaining(['DEMO-1001', 'DEMO-1002']));
+    expect(await found('zzzz-nothing')).toEqual([]);
+  });
+
   it('the customer page can simulate the next step', async () => {
     await api.signIn('customer@demo');
     const mine = await api.listMyOrders();

@@ -663,6 +663,22 @@
         "siteNumbers": {
           "title": "Die Seite zählt ihre Besuche selbst",
           "text": "Besuche und Käufe zählt der Laden selbst, ohne Cookie und ohne etwas über die Person zu behalten; der Inhaber entscheidet, was Kunden sehen."
+        },
+        "jobs": {
+          "title": "Stellen: der Inhaber schreibt eine Anzeige, Bewerber melden sich, das Team ruft an",
+          "text": "Der Inhaber schreibt die Stellenanzeige auf Arabisch, das Programm formuliert Englisch und Deutsch; auf der Seite „Stellenangebote“ bewirbt sich jeder in einer Minute (Name, ägyptische Mobilnummer, Gouvernement — keine Dateien), und eine Bewerbungsliste mit Zähler für neue, Anruf oder WhatsApp mit einem Tipp und dem Stand jeder Bewerbung. Was eine Maschine schickt, wird beantwortet und nirgends gespeichert; eine Nummer bewirbt sich einmal pro Stelle."
+        },
+        "everyLevelSearch": {
+          "title": "Suche auf jeder Ebene: was ein Mitarbeiter über etwas weiß, findet es",
+          "text": "Eine Rechnung über ihre Nummer ohne Bindestriche, die Telefonnummer des Kunden in jeder Schreibweise (010… oder +20…) oder ein Produkt darauf unter seinem heutigen Namen in jeder Sprache oder seinem Code — obwohl die Zeile den Namen behält, unter dem verkauft wurde. In Produktion: Rechnungen, Retouren, Einkäufe, Umlagerungen, Lieferungen und das Kassenbuch, und Strg K durchsucht alle Listen auf einmal. Hier im Backoffice bei den Bestellungen ausprobieren."
+        },
+        "hiddenOptions": {
+          "title": "Eine ausgeblendete Option gehört dem Team — Kunden finden das Produkt nicht darüber",
+          "text": "Eine Farbe oder Größe, die das Team ausgeblendet hatte, stand noch im Suchtext: Kunden fanden das Produkt über Farbe, Code oder Barcode. Jetzt hat jedes Produkt zwei Texte: den sichtbaren durchsuchen alle, den ausgeblendeten nur das Team — geprüft auf einem echten PostgreSQL."
+        },
+        "marketingMenu": {
+          "title": "Werbung, Gutscheine und Punkte haben eine eigene Menügruppe",
+          "text": "Auf Wunsch des Inhabers zogen die Marketing-Seiten aus „Verkauf“ in eine Gruppe „Marketing“ — und das Menü bleibt durch eine Prüfung geschützt, die keine Gruppe mit mehr als neun Links und keinen Link ohne Namen in drei Sprachen zulässt."
         }
       }
     }
