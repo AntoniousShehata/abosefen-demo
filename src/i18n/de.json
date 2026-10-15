@@ -695,6 +695,10 @@
         "reportsFromBooks": {
           "title": "Dashboard und Berichte lesen die Bücher",
           "text": "Das Dashboard las einen eigenen Zähler, den niemand füllte — es zeigte null, während die Bücher die Rechnungen des Monats enthielten. Jetzt werden Monatsumsatz, Rechnungsanzahl und -durchschnitt sowie die Berichte zu Verkauf, Einkauf und Geldfluss aus den Büchern gelesen, nach dem Tag des Ladens: Rechnungen nach Rabatt, Retouren und Stornos, ohne MwSt. — auf den Piaster die Zahl der GuV — und Einkäufe am Tag des Wareneingangs. Zuerst wurde der Inhaber gefragt; ein Test scheiterte am alten Code; eine Prüfung aus fünf Richtungen; eine Probe auf einer Kopie der Daten."
+        },
+        "phoneMenu": {
+          "title": "Das Handy-Menü passt auf einen Bildschirm",
+          "text": "Es waren elf Zeilen untereinander. Jetzt: ein Gruß mit Ihrem Namen, das Team-Panel als ein Knopf, die Seiten Ihres Kontos als Kacheln, drei pro Reihe (Bestellungen, Preisanfragen, Favoriten mit Zähler, Punkte, E-Mail-Einstellungen), darunter „Einkaufen“ mit vier Links. Es öffnet sich direkt unter der Leiste statt unter dem Sprachknopf. Der Inhaber hat es vorher auf zwei Bildschirmfotos gesehen."
         }
       }
     }

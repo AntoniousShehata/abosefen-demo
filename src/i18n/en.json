@@ -695,6 +695,10 @@
         "reportsFromBooks": {
           "title": "The dashboard and the reports read the books",
           "text": "The dashboard read a separate tally nothing filled, so it showed zero while the books held the month’s invoices. Now the month’s revenue, the invoice count and average, and the sales, purchases and cash-flow reports are read from the books by the shop’s day: invoices after discounts, returns and cancellations, before VAT — the income statement’s figure to the piastre — and purchases on the day they were received. The owner was asked first; a test failed on the old code; a five-direction review; a rehearsal on a copy of the data."
+        },
+        "phoneMenu": {
+          "title": "The phone menu fits one screen",
+          "text": "It was eleven rows one under the other. Now: a greeting with your name, the team’s panel as one button, your account’s pages as tiles three a row (orders, price statements, favourites with their count, points, e-mail settings), then «Shop» with four links. It opens right under the bar instead of under the language button. The owner saw it in two screenshots before it went live."
         }
       }
     }
