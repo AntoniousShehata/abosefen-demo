@@ -699,6 +699,10 @@
         "phoneMenu": {
           "title": "Das Handy-Menü passt auf einen Bildschirm",
           "text": "Es waren elf Zeilen untereinander. Jetzt: ein Gruß mit Ihrem Namen, das Team-Panel als ein Knopf, die Seiten Ihres Kontos als Kacheln, drei pro Reihe (Bestellungen, Preisanfragen, Favoriten mit Zähler, Punkte, E-Mail-Einstellungen), darunter „Einkaufen“ mit vier Links. Es öffnet sich direkt unter der Leiste statt unter dem Sprachknopf. Der Inhaber hat es vorher auf zwei Bildschirmfotos gesehen."
+        },
+        "marketFold": {
+          "title": "Die Dollar- und Goldbeobachtung klappt auf und zu",
+          "text": "Im Dashboard hat die Marktkarte (Dollar, Euro, Kupfer, Gold) jetzt einen Pfeil neben dem Titel: eingeklappt ist sie eine Zeile mit Titel und letzter Aktualisierung, aufgeklappt wieder wie vorher. Jedes Gerät merkt sich die Wahl. Auf der Seite zur Preisaktualität bleibt sie offen, denn dort ist sie das Thema."
         }
       }
     }

@@ -699,6 +699,10 @@
         "phoneMenu": {
           "title": "The phone menu fits one screen",
           "text": "It was eleven rows one under the other. Now: a greeting with your name, the team’s panel as one button, your account’s pages as tiles three a row (orders, price statements, favourites with their count, points, e-mail settings), then «Shop» with four links. It opens right under the bar instead of under the language button. The owner saw it in two screenshots before it went live."
+        },
+        "marketFold": {
+          "title": "The dollar and gold watch folds and opens",
+          "text": "On the dashboard, the market card (dollar, euro, copper, gold) now has an arrow beside its title: folded it is one line with the title and the last update, and it opens back as it was. Each device remembers the choice. On the price-freshness page it stays open, since there it is the subject."
         }
       }
     }
