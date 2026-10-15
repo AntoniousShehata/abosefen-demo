@@ -21,7 +21,7 @@ The same content, in Arabic, English and German, is on the demo's own page: **[H
 | Back-end services behind one gateway | **10** (9 in .NET, 1 in Node) + 2 Python workers |
 | C# (without generated migrations) | **≈ 103,000 lines** in 890 files |
 | React front end | **≈ 68,000 lines**, 121 pages (storefront, back office, drivers) |
-| Automated tests | **5,098 cases** in one run: ≈ 2,000 xUnit methods (facts and theories) plus Testcontainers integration tests |
+| Automated tests | **5,314 cases** in one run: ≈ 2,000 xUnit methods (facts and theories) plus Testcontainers integration tests |
 | Business rules written down | **200**, of which **180** are enforced in code and name what enforces them |
 | History | **1,000+ commits** since February 2026 |
 

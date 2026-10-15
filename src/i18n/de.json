@@ -583,7 +583,7 @@
       },
       "tests": {
         "title": "Tests auf drei Ebenen",
-        "text": "Rund 2.000 Unit-Test-Methoden (xUnit), die 5.098 Fälle ergeben; Integrationstests auf echtem PostgreSQL und RabbitMQ in Containern (Testcontainers); und Proben auf einer Kopie der Produktivdaten für alles, was Geld berührt."
+        "text": "Rund 2.000 Unit-Test-Methoden (xUnit), die 5.314 Fälle ergeben; Integrationstests auf echtem PostgreSQL und RabbitMQ in Containern (Testcontainers); und Proben auf einer Kopie der Produktivdaten für alles, was Geld berührt."
       },
       "security": {
         "title": "Sicher von Grund auf",
@@ -612,6 +612,10 @@
       "tryIt": "In der Demo ausprobieren →",
       "onlyThere": "Nur im Produktivsystem",
       "items": {
+        "understoodSearch": {
+          "title": "Die Suche weiß, wonach gefragt wird — das Gesuchte zuerst",
+          "text": "Jedes Produkt wird gelesen wie ein Händler es liest: nach dem, womit sein Name beginnt (⁨«حوض مطبخ»⁩ ist eine Spüle, ⁨«مصفاة حوض مطبخ»⁩ ein Siebkorb, obwohl beide Wörter darin stehen). Eine Suche wird genauso gelesen, auf Arabisch, Englisch und Deutsch, und die Produkte, die das Gesuchte SIND, kommen zuerst. In Produktion: rund 150 Arten in allen Abteilungen, die Lesung jedes Produkts gespeichert und von selbst neu gelesen, wenn sich Produkt oder Wissen ändern — ⁨«Toilette»⁩ beginnt jetzt mit WCs statt mit einem Papierhalter."
+        },
         "threeLanguages": {
           "title": "Eine Suche auf Arabisch, Englisch und Deutsch",
           "text": "Dieselben Regeln in jeder Sprache: Arabisch wird nach seinem Artikel gefunden, ein deutscher Wortteil im Wort, das er bildet (⁨«Armatur»⁩ in ⁨«Waschtischarmatur»⁩), ein englisches Wort nur ganz (⁨«bath»⁩ nie in ⁨«bathroom»⁩). Im Produktivsystem kamen die deutschen Namen schrittweise in den Suchtext, die Suche antwortete die ganze Zeit."

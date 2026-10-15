@@ -10,11 +10,14 @@ import { buildSeed, SEED_VERSION, stockUnitsOf, variantLabelOf } from '../data/s
 import { FINISHES, GOVERNORATES } from '../data/catalog.js';
 import { computeTotals, lineTotal } from '../lib/money.js';
 import { fold, matchesQuery, scoreMatch, slugify } from '../lib/text.js';
+import { readKind } from '../lib/kinds.js';
 import { can, DEMO_ACCOUNTS, hasAnyAdmin, PERMISSIONS, ROLE_PERMISSIONS } from '../lib/permissions.js';
 import { canMove, NEXT_STATUSES, nextOnHappyPath, isOpenStatus, RESTOCKING_STATUSES } from '../lib/orderFlow.js';
 
 export const STORAGE_KEY = 'abosefen-demo:state';
 export const LOW_STOCK = 3;
+// A product that IS the kind of thing a search asks for (SRCH-9) — more than a word at a name's start, less than a word.
+const KIND_WEIGHT = 15;
 
 export class ApiError extends Error {
   constructor(status, code, details = {}) {
@@ -719,9 +722,13 @@ export function createApi({ storage = browserStorage(), latency = [150, 450], no
       }),
     search: (q, { lang = 'en' } = {}) =>
       respond(() => {
+        // as production's SRCH-9: the search is read as a product is, and the things asked for come first — after
+        // the words found in the name (20 each), before a word at a name's start (5)
+        const asked = readKind(q);
         const scored = activeProducts()
           .map((p) => ({ p, score: scoreMatch(q, searchFields(p)) }))
           .filter((x) => x.score > 0)
+          .map((x) => ({ ...x, score: x.score + (asked && readKind(x.p.nameAr) === asked ? KIND_WEIGHT : 0) }))
           .sort((a, b) => b.score - a.score || a.p.id.localeCompare(b.p.id));
         const categories = db.categories.filter((c) => matchesQuery(q, c.nameAr, c.name, c.nameDe || ''));
         void lang;

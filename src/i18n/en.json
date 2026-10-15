@@ -583,7 +583,7 @@
       },
       "tests": {
         "title": "Tests at three levels",
-        "text": "About 2,000 unit test methods (xUnit) that run to 5,098 cases; integration tests on real PostgreSQL and RabbitMQ in containers (Testcontainers); and rehearsals on a copy of the production data for anything that touches money."
+        "text": "About 2,000 unit test methods (xUnit) that run to 5,314 cases; integration tests on real PostgreSQL and RabbitMQ in containers (Testcontainers); and rehearsals on a copy of the production data for anything that touches money."
       },
       "security": {
         "title": "Secure by default",
@@ -612,6 +612,10 @@
       "tryIt": "Try it in the demo →",
       "onlyThere": "In production only",
       "items": {
+        "understoodSearch": {
+          "title": "The search knows what it asks for — the thing itself first",
+          "text": "Every product is read as a merchant reads it: by the thing its name begins with (⁨«حوض مطبخ»⁩ is a sink; ⁨«مصفاة حوض مطبخ»⁩ a strainer, though it holds both words). A search is read the same way in Arabic, English and German, and the products that ARE the thing asked for come first. In production: about 150 kinds across every department, each product’s reading kept and read again by itself when the product or the knowledge changes — ⁨«Toilette»⁩ now opens with toilets, not a paper holder."
+        },
         "threeLanguages": {
           "title": "One search in Arabic, English and German",
           "text": "The same rules in every language: Arabic is found after its article, a German part inside the word it builds (⁨«Armatur»⁩ in ⁨«Waschtischarmatur»⁩), an English word only whole (⁨«bath»⁩ never inside ⁨«bathroom»⁩). In production the German names joined the search text gradually, the search answering all along."

@@ -39,7 +39,7 @@ export function fold(text) {
 // vocabulary from searches; the demo only shows the idea.
 const SYNONYM_GROUPS = [
   ['خلاط', 'خلاطات', 'حنفيه', 'mixer', 'mixers', 'tap', 'faucet', 'armatur', 'armaturen'],
-  ['قاعده', 'قواعد', 'مرحاض', 'كرسي', 'toilet', 'wc'],
+  ['قاعده', 'قواعد', 'مرحاض', 'كرسي', 'toilet', 'wc', 'toilette'],
   ['حوض', 'احواض', 'basin', 'sink', 'waschbecken', 'spule'],
   ['دش', 'شاور', 'shower', 'showers', 'dusche', 'dusch'],   // not «brause» alone: a kitchen mixer's pull-out spray is no shower
   ['ماسوره', 'مواسير', 'pipe', 'pipes', 'rohr'],
@@ -51,6 +51,7 @@ const SYNONYM_GROUPS = [
   ['نبل', 'نيبل', 'نبلات', 'نيبلات', 'nipple'],
   ['طقم', 'اطقم', 'set', 'sets'],
   ['بانيو', 'بانيوهات', 'bathtub', 'bathtubs', 'bath', 'badewanne'],
+  ['مطبخ', 'مطابخ', 'kitchen', 'kitchens', 'kuche'],
 ].map((group) => group.map(fold));
 
 // One search in every language the shop speaks (production SRCH-8, 15 Oct 2026). Arabic writes «خلاط حوض» apart; German
