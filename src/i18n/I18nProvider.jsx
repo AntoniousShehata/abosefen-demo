@@ -5,13 +5,17 @@ import de from './de.json';
 
 // Every visible word comes from one translation file per language (ar.json, en.json, de.json).
 // Data (product and category names) carries its own three names and is read through pick().
+// The demo opens in English and offers English and German only. The Arabic words stay in ar.json — every share from
+// the production system brings all three languages — but Arabic is not offered, and an earlier Arabic choice opens in
+// English.
 
 export const LOCALES = { ar, en, de };
 export const LANGUAGES = [
-  { code: 'ar', label: 'العربية', short: 'ع', dir: 'rtl', numberLocale: 'ar-EG-u-nu-latn' },
   { code: 'en', label: 'English', short: 'EN', dir: 'ltr', numberLocale: 'en-GB' },
   { code: 'de', label: 'Deutsch', short: 'DE', dir: 'ltr', numberLocale: 'de-DE' },
 ];
+export const DEFAULT_LANGUAGE = 'en';
+const offered = (code) => LANGUAGES.some((l) => l.code === code);
 
 const STORAGE_KEY = 'abosefen-demo:lang';
 const ISO3_TO_ISO2 = { EGY: 'EG', ITA: 'IT', TUR: 'TR', CHN: 'CN', KOR: 'KR', DEU: 'DE', ESP: 'ES' };
@@ -31,7 +35,7 @@ export function translate(lang, key, vars) {
 function readStoredLanguage() {
   try {
     const stored = window.localStorage.getItem(STORAGE_KEY);
-    return LOCALES[stored] ? stored : null;
+    return offered(stored) ? stored : null;
   } catch {
     return null;
   }
@@ -40,7 +44,7 @@ function readStoredLanguage() {
 const I18nContext = createContext(null);
 
 export function I18nProvider({ children, initialLanguage }) {
-  const [lang, setLangState] = useState(() => initialLanguage || readStoredLanguage() || 'ar');
+  const [lang, setLangState] = useState(() => (offered(initialLanguage) ? initialLanguage : readStoredLanguage() || DEFAULT_LANGUAGE));
   const meta = LANGUAGES.find((l) => l.code === lang) || LANGUAGES[0];
 
   useEffect(() => {
@@ -50,7 +54,7 @@ export function I18nProvider({ children, initialLanguage }) {
   }, [lang, meta.dir]);
 
   const setLang = useCallback((code) => {
-    if (!LOCALES[code]) return;
+    if (!offered(code)) return;
     setLangState(code);
     try {
       window.localStorage.setItem(STORAGE_KEY, code);

@@ -7,7 +7,7 @@ system: its shape, eight hard problems it solves, and how each solution is prove
 Every figure was counted in the private repository in October 2026, and every excerpt is shortened from one of its
 files (paths are given relative to its `src/`). No data of the shop, its customers or its suppliers appears here.
 
-The same content, in Arabic, English and German, is on the demo's own page: **[How it's built](https://antoniousshehata.github.io/abosefen-demo/#/engineering)**.
+The same content, in English and German, is on the demo's own page: **[How it's built](https://antoniousshehata.github.io/abosefen-demo/#/engineering)**.
 
 **Contents:** [In numbers](#in-numbers) · [Architecture](#architecture) · [Case studies](#case-studies) ·
 [How the work is done](#how-the-work-is-done) · [Technology](#technology)

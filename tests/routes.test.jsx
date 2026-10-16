@@ -6,6 +6,7 @@ import { AppRoutes, Providers } from '../src/App.jsx';
 import { api } from '../src/api/index.js';
 import { PRODUCTS } from '../src/data/catalog.js';
 import { STATS } from '../src/data/engineering.js';
+import { translate } from '../src/i18n/I18nProvider.jsx';
 
 const renderAt = (path, lang = 'en') =>
   render(
@@ -34,12 +35,34 @@ describe('storefront routes', () => {
     expect(screen.getAllByTestId('product-card').length).toBeGreaterThan(5);
   });
 
-  it('home in Arabic: right-to-left with the Arabic banner', async () => {
+  it('opens in English and offers English and German only — an earlier Arabic choice opens in English', async () => {
+    window.localStorage.setItem('abosefen-demo:lang', 'ar');
+    try {
+      render(
+        <MemoryRouter initialEntries={['/']}>
+          <Providers>
+            <AppRoutes />
+          </Providers>
+        </MemoryRouter>,
+      );
+      expect(await screen.findByText('Everything for the bathroom and the kitchen — from the first pipe to the last towel bar')).toBeTruthy();
+      expect(document.documentElement.lang).toBe('en');
+      expect(document.documentElement.dir).toBe('ltr');
+      const picker = screen.getByTestId('language-picker');
+      expect([...picker.options].map((o) => o.value)).toEqual(['en', 'de']);
+      fireEvent.change(picker, { target: { value: 'de' } });
+      await waitFor(() => expect(document.documentElement.lang).toBe('de'));
+      expect(screen.getByTestId('demo-banner').textContent).toContain(translate('de', 'banner.text'));
+      expect(window.localStorage.getItem('abosefen-demo:lang')).toBe('de');
+    } finally {
+      window.localStorage.removeItem('abosefen-demo:lang');
+    }
+  });
+
+  it('an Arabic start is not offered: it opens in English', async () => {
     renderAt('/', 'ar');
-    expect(await screen.findByText('اخترناها لك')).toBeTruthy();
-    expect(screen.getByTestId('demo-banner').textContent).toContain('نسخة عرض — بيانات وهمية');
-    expect(document.documentElement.dir).toBe('rtl');
-    expect(document.documentElement.lang).toBe('ar');
+    expect(await screen.findByText('Everything for the bathroom and the kitchen — from the first pipe to the last towel bar')).toBeTruthy();
+    expect(document.documentElement.lang).toBe('en');
   });
 
   it('all categories', async () => {
@@ -169,12 +192,12 @@ describe('«How it\'s built»', () => {
     expect(screen.getByText("Money can't be booked twice")).toBeTruthy();
   });
 
-  it('in Arabic: right to left, while the code and the diagram read left to right', async () => {
-    renderAt('/engineering', 'ar');
-    expect(await screen.findByText('النظام الحقيقي اللي ورا نسخة العرض دي')).toBeTruthy();
-    expect(document.documentElement.dir).toBe('rtl');
-    expect(screen.getAllByTestId('case-study')[0].querySelector('pre').getAttribute('dir')).toBe('ltr');
-    expect(screen.getByTestId('architecture-diagram').closest('[dir]').getAttribute('dir')).toBe('ltr');
+  it('in German: the page, its eight cases and the diagram', async () => {
+    renderAt('/engineering', 'de');
+    expect(await screen.findByText(translate('de', 'engineering.title'))).toBeTruthy();
+    expect(document.documentElement.lang).toBe('de');
+    expect(screen.getAllByTestId('case-study')).toHaveLength(8);
+    expect(screen.getByTestId('architecture-diagram')).toBeTruthy();
   });
 
   it('is linked from the demo banner on every page', async () => {

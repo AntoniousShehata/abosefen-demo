@@ -10,8 +10,8 @@ It runs **entirely in the browser**: no server, no database, no account to creat
 stock figure, order and person in it is **synthetic**. Nothing you do here is real — no payment is taken, no message
 is sent, and every change stays in your own browser until you press **Reset demo**.
 
-> **Live demo: [antoniousshehata.github.io/abosefen-demo](https://antoniousshehata.github.io/abosefen-demo/)** — opens in Arabic;
-> switch to English or German from the header.
+> **Live demo: [antoniousshehata.github.io/abosefen-demo](https://antoniousshehata.github.io/abosefen-demo/)** — opens in English;
+> switch to German from the header.
 
 The production system it is based on is a separate, private repository (.NET microservices + React). This repository
 contains no production code, data, photo or secret; see [docs/SYNC.md](docs/SYNC.md) for what is shared and how.
@@ -31,13 +31,13 @@ Eight hard problems it solves — money that can't be booked twice, closing a mo
 audit log that can't publish a refused change, Arabic search the way people really type, search by photo with no paid
 AI, and more — each with its code and how it is proved:
 **[docs/ENGINEERING.md](docs/ENGINEERING.md)** · or on the demo itself:
-**[How it's built](https://antoniousshehata.github.io/abosefen-demo/#/engineering)** (Arabic, English, German).
+**[How it's built](https://antoniousshehata.github.io/abosefen-demo/#/engineering)** (English, German).
 
 | Storefront | Product with finishes |
 |---|---|
 | ![The storefront's home page](docs/screenshots/home.png) | ![A product page: the finish changes the code, the price and the stock](docs/screenshots/product.png) |
-| **Back office — a bulk move, previewed before anything changes** | **Arabic, right to left (the default)** |
-| ![The bulk-move preview: what moves, from where to where, and the categories' counts before and after](docs/screenshots/bulk-move.png) | ![The storefront in Arabic](docs/screenshots/home-ar.png) |
+| **Back office — a bulk move, previewed before anything changes** | **The storefront in German** |
+| ![The bulk-move preview: what moves, from where to where, and the categories' counts before and after](docs/screenshots/bulk-move.png) | ![The storefront in German](docs/screenshots/home-de.png) |
 
 **Built with** React 18 · React Router 7 · Vite 6 · Tailwind CSS · Vitest 4 — tested and deployed by GitHub Actions to
 GitHub Pages.
@@ -135,8 +135,10 @@ flowchart LR
 - **Rules** are small, pure modules shared by the API, the pages and the tests: money (VAT), search folding, the
   order road, role permissions.
 - **Routing** uses `HashRouter` and a relative `base`, so the same build works on GitHub Pages or from any folder.
-- **Languages:** Arabic (default, right-to-left), English and German. Every visible word comes from
-  `src/i18n/{ar,en,de}.json`; the Cairo font is used for Arabic, Inter / Plus Jakarta Sans for Latin text.
+- **Languages:** English (default) and German. Every visible word comes from `src/i18n/{en,de}.json`; the Arabic
+  words stay in `src/i18n/ar.json`, because every share from the production system (Arabic first) brings all three,
+  but Arabic is not offered and an earlier Arabic choice opens in English. Inter / Plus Jakarta Sans for Latin text,
+  Cairo for the Arabic examples.
 - **No network:** the built page carries a Content-Security-Policy that only allows itself and Google Fonts;
   `tests/no-network.test.js` guards the code. The one outward link (to this repository, on *How it's built*) is read
   from `package.json` at build time — a page the visitor opens, not a request.
@@ -177,7 +179,8 @@ read-only and reports fields added or removed since the snapshot. Details, limit
   naming a newly used field or a missing source, exit 2 without a path;
 - `no-network.test.js` — no fetch/XHR/WebSocket and no remote URL in the code; CSP allows only the fonts;
 - `routes.test.jsx` — smoke renders of every storefront and back-office route, plus a full simulated checkout, and
-  *How it's built* in English and Arabic (eight case studies, each with its code; code and diagram left to right).
+  *How it's built* in English and German (eight case studies, each with its code), and the language rule: English
+  first, English and German offered, an Arabic choice opens in English.
 
 ## Deployment
 
@@ -201,7 +204,7 @@ read-only and reports fields added or removed since the snapshot. Details, limit
 - ادخل كـ `owner@demo` وانقل منتجات بين الأقسام مع معاينة لما سيتغيّر قبل التنفيذ، وسجّل حركات مخزون.
 - ادخل كـ `cashier@demo`: شاشة الطلبات فقط.
 
-اللغات: العربية (الافتراضية، من اليمين لليسار)، الإنجليزية، الألمانية.
+اللغات: نسخة العرض تفتح بالإنجليزية، وتتحوّل للألمانية من أعلى الصفحة (العربية مش معروضة فيها).
 التشغيل: `npm ci` ثم `npm run dev`. الاختبارات: `npm test`.
 المزامنة مع النظام الأصلى: [docs/SYNC.md](docs/SYNC.md).
 
