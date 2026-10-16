@@ -450,6 +450,19 @@
     "title": "Seite nicht gefunden",
     "text": "Die angeforderte Seite gibt es in der Demo nicht."
   },
+  "outage": {
+    "note": "Diese Seite sieht ein Besucher, wenn das Geschäft seine Seite pausiert — oder wenn Rechner, Tunnel oder Seite gar nicht antworten und Cloudflare sie zeigt. In der Demo wird sie absichtlich gezeigt; die Nummern sind erfunden und wählen nichts.",
+    "language": "Sprache",
+    "title": "Wir aktualisieren die Seite — gleich wieder da",
+    "paused": "Die Seite ist für einige Minuten angehalten. Diese Seite bringt Sie von selbst zurück, sobald sie wieder läuft.",
+    "needSomething": "Brauchen Sie jetzt etwas? Bestellen oder fragen Sie per Telefon oder WhatsApp:",
+    "call": "Jetzt anrufen",
+    "invented": "Eine erfundene Nummer — die Demo wählt nichts",
+    "mobile": "Mobil",
+    "landline": "Festnetz",
+    "address": "Demostraße 1, Innenstadt, Kairo",
+    "back": "← So ist es gebaut"
+  },
   "engineering": {
     "kicker": "Wie es gebaut ist",
     "title": "Das Produktivsystem hinter dieser Demo",
@@ -614,7 +627,7 @@
       "items": {
         "outagePage": {
           "title": "Bei jedem Ausfall erscheint etwas — selbst wenn der Rechner des Geschäfts aus ist",
-          "text": "Eine pausierte Seite zeigte schon die «gleich wieder da»-Seite des Geschäfts, eine offene Seite einen Streifen, wenn der Server schwieg. Jetzt, wenn Rechner, Tunnel oder Docker ausfallen und nichts vom Geschäft antworten kann, beantwortet ein kleiner Cloudflare-Worker vor der Domain einen Seitenaufruf mit genau dieser Seite — aus ihr gebaut, das Logo darin, nie zwischengespeichert —, während ein Aufruf des Programms den Fehler unverändert erhält. Eine Build-Prüfung schlägt fehl, wenn sich die Seite ändert und der Worker nicht; eine Prüfung führt ihn gegen eine erreichbare, eine für Cloudflare unerreichbare und eine verschwundene Seite aus. Live erprobt: Tunnel 16 Sekunden aus, die Seite des Geschäfts erschien."
+          "text": "Eine pausierte Seite zeigte schon die «gleich wieder da»-Seite des Geschäfts, eine offene Seite einen Streifen, wenn der Server schwieg. Jetzt, wenn Rechner, Tunnel oder Docker ausfallen und nichts vom Geschäft antworten kann, beantwortet ein kleiner Cloudflare-Worker vor der Domain einen Seitenaufruf mit genau dieser Seite — aus ihr gebaut, das Logo darin, nie zwischengespeichert —, während ein Aufruf des Programms den Fehler unverändert erhält. Eine Build-Prüfung schlägt fehl, wenn sich die Seite ändert und der Worker nicht; eine Prüfung führt ihn gegen eine erreichbare, eine für Cloudflare unerreichbare und eine verschwundene Seite aus. Live erprobt: Tunnel 16 Sekunden aus, die Seite des Geschäfts erschien. Danach bekam die Seite oben eine Sprachwahl — Arabisch, Englisch und Deutsch in der Produktion, hier Englisch und Deutsch —, die auch ihr eigenes Neuladen übersteht."
         },
         "shopIdentity": {
           "title": "Wer das Geschäft ist, wurde eine Einstellung — der erste Schritt, ein weiteres Geschäft zu bedienen",

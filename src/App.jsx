@@ -15,6 +15,7 @@ import OrderPage from './pages/OrderPage.jsx';
 import MyOrders from './pages/MyOrders.jsx';
 import SignIn from './pages/SignIn.jsx';
 import NotFound from './pages/NotFound.jsx';
+import OutagePage from './pages/OutagePage.jsx';
 import Engineering from './pages/Engineering.jsx';
 import AdminLayout, { RequirePermission } from './pages/admin/AdminLayout.jsx';
 import AdminHome from './pages/admin/AdminHome.jsx';
@@ -40,6 +41,7 @@ export function AppRoutes() {
         <Route path="my-orders" element={<MyOrders />} />
         <Route path="signin" element={<SignIn />} />
         <Route path="engineering" element={<Engineering />} />
+        <Route path="outage" element={<OutagePage />} />
         <Route path="admin" element={<AdminLayout />}>
           <Route index element={<AdminHome />} />
           <Route path="products" element={guarded(PERMISSIONS.products, <AdminProducts />)} />

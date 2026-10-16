@@ -450,6 +450,19 @@
     "title": "Page not found",
     "text": "The page you asked for does not exist in the demo."
   },
+  "outage": {
+    "note": "This is the page a visitor sees when the shop pauses its site — or when the shop’s computer, its tunnel or the site does not answer at all and Cloudflare shows it. In the demo it is shown on purpose; the numbers are invented and dial nothing.",
+    "language": "Language",
+    "title": "We are updating the site — back shortly",
+    "paused": "The site is paused for a few minutes. This page will bring you back by itself as soon as it returns.",
+    "needSomething": "Need something now? Order or ask by phone or WhatsApp:",
+    "call": "Call now",
+    "invented": "An invented number — the demo dials nothing",
+    "mobile": "Mobile",
+    "landline": "Landline",
+    "address": "Demo Street 1, Downtown, Cairo",
+    "back": "← How it’s built"
+  },
   "engineering": {
     "kicker": "How it's built",
     "title": "The production system behind this demo",
@@ -614,7 +627,7 @@
       "items": {
         "outagePage": {
           "title": "Something shows in every outage — even when the shop’s computer is off",
-          "text": "A paused site already showed the shop’s «back shortly» page, and an open page a strip when the server went silent. Now, when the computer, its tunnel or Docker is down and nothing of the shop can answer, a small Cloudflare Worker in front of the domain answers a page visit with that same page — built from it, the logo inside, never cached — while a call of the program gets the error as it is. A build check fails if the page changes and the Worker does not; a check runs it against a site that answers, one Cloudflare cannot reach and one that is gone. Tried live: the tunnel off for 16 seconds, the shop’s page shown."
+          "text": "A paused site already showed the shop’s «back shortly» page, and an open page a strip when the server went silent. Now, when the computer, its tunnel or Docker is down and nothing of the shop can answer, a small Cloudflare Worker in front of the domain answers a page visit with that same page — built from it, the logo inside, never cached — while a call of the program gets the error as it is. A build check fails if the page changes and the Worker does not; a check runs it against a site that answers, one Cloudflare cannot reach and one that is gone. Tried live: the tunnel off for 16 seconds, the shop’s page shown. The page then got a language choice at its top — Arabic, English and German in production, English and German here — kept across its own refresh."
         },
         "shopIdentity": {
           "title": "Who the shop is became a setting — the first step to serving another shop",

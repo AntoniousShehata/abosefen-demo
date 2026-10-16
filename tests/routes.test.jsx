@@ -207,6 +207,20 @@ describe('«How it\'s built»', () => {
   });
 });
 
+describe('the paused-site page (production\'s OUT-1 / OUT-2)', () => {
+  it('opens in English, offers English and German only, and switches the page to German', async () => {
+    renderAt('/outage');
+    expect(await screen.findByText('We are updating the site — back shortly')).toBeTruthy();
+    const choices = within(screen.getByTestId('outage-languages')).getAllByRole('button');
+    expect(choices.map((b) => b.textContent)).toEqual(['English', 'Deutsch']);
+    expect(choices[0].getAttribute('aria-pressed')).toBe('true');
+    fireEvent.click(choices[1]);
+    expect(await screen.findByText('Wir aktualisieren die Seite — gleich wieder da')).toBeTruthy();
+    expect(document.documentElement.lang).toBe('de');
+    window.localStorage.removeItem('abosefen-demo:lang');
+  });
+});
+
 describe('«Latest in production»', () => {
   it('lists the newest changes; one the demo can show links to its own version', async () => {
     renderAt('/engineering');
