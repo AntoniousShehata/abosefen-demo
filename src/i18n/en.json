@@ -706,7 +706,7 @@
         },
         "panelStrip": {
           "title": "The panel’s menu became a strip of icons",
-          "text": "On a laptop the long menu (14 groups and a block of pinned tiles) is now a narrow strip: «Pinned», then each group as its icon over its name. A press opens the group’s pages beside the strip, over the page; choosing a page, Escape or a press outside closes it, and the page keeps the width the old menu took. Groups went from 14 to 11; barcode printing stays one press. A phone keeps its drawer. The owner saw three ways, asked to see this one on the real screen, then approved it. The design audit now refuses a bottom bar that writes the side’s width as a number of its own."
+          "text": "On a laptop the long menu (14 groups and a block of pinned tiles) is now a narrow strip: «Pinned», then each group as its icon over its name. A press opens the group’s pages beside the strip, over the page; choosing a page, Escape or a press outside closes it, and the page keeps the width the old menu took. Groups went from 14 to 11; barcode printing stays one press. A phone keeps its drawer. The owner saw three ways, asked to see this one on the real screen, then approved it. The design audit now refuses a bottom bar that writes the side’s width as a number of its own. And on the phone: ☰ opens the eleven sections as tiles, three a row, on one screen; a section shows its pages with «All sections» to go back, and the pinned pages stay in the bottom bar."
         }
       }
     }
