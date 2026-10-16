@@ -625,6 +625,10 @@
       "tryIt": "Try it in the demo →",
       "onlyThere": "In production only",
       "items": {
+        "attendance": {
+          "title": "Attendance by the shop’s QR code, and leave — shown first, never charged",
+          "text": "Each employee scans the code on the shop’s wall with his phone — with the page’s button, or with the phone’s own camera, since the code is the page’s address. A day’s scans alternate in, out, in again (he may step out and come back); the phone’s place is compared with the shop’s and a far scan is shown, never refused. The owner’s board reads each day: present, still in, absent, on leave, late and early against that person’s own hours, the times he stepped out; a forgotten scan is written with its reason, a wrong one cancelled, never deleted. Leave is asked, answered and counted against the Labour Law of 2025 (15 / 21 / 30 days). The first phase only shows — nothing touches a salary until the owner asks — and the board and leave answers are his until he grants them."
+        },
         "outagePage": {
           "title": "Something shows in every outage — even when the shop’s computer is off",
           "text": "A paused site already showed the shop’s «back shortly» page, and an open page a strip when the server went silent. Now, when the computer, its tunnel or Docker is down and nothing of the shop can answer, a small Cloudflare Worker in front of the domain answers a page visit with that same page — built from it, the logo inside, never cached — while a call of the program gets the error as it is. A build check fails if the page changes and the Worker does not; a check runs it against a site that answers, one Cloudflare cannot reach and one that is gone. Tried live: the tunnel off for 16 seconds, the shop’s page shown. The page then got a language choice at its top — Arabic, English and German in production, English and German here — kept across its own refresh."
