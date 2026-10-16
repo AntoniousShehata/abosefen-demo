@@ -707,6 +707,10 @@
         "panelStrip": {
           "title": "The panel’s menu became a strip of icons",
           "text": "On a laptop the long menu (14 groups and a block of pinned tiles) is now a narrow strip: «Pinned», then each group as its icon over its name. A press opens the group’s pages beside the strip, over the page; choosing a page, Escape or a press outside closes it, and the page keeps the width the old menu took. Groups went from 14 to 11; barcode printing stays one press. A phone keeps its drawer. The owner saw three ways, asked to see this one on the real screen, then approved it. The design audit now refuses a bottom bar that writes the side’s width as a number of its own. And on the phone: ☰ opens the eleven sections as tiles, three a row, on one screen; a section shows its pages with «All sections» to go back, and the pinned pages stay in the bottom bar."
+        },
+        "stockCounts": {
+          "title": "Stock counts in sessions: workers count blind, only the owner writes",
+          "text": "A supervisor opens a count on a warehouse's shelves. A worker counts on his phone by pictures: the shelf's big number in its room's colour, scan the shelf label (a wrong shelf turns red with a buzz), every scanned piece shows the product's photo and a big number, with − / + and a digits-only pad. He never sees the books (a blind count). Finishing a shelf writes the books' quantity beside each line; what the books hold but nobody found counts as zero. «Count differences» are priced at today's cost, and «Approve» is the owner's alone: written shelf by shelf, each shelf whole or not at all, and sales made after the count are not counted twice. An independent review found 2 blockers and 7 fixes — all fixed — and a rehearsal on a database copy found two more (one in the stock door itself), fixed with tests."
         }
       }
     }
