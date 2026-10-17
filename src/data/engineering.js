@@ -29,6 +29,7 @@ export const PRACTICES = ['ai', 'tests', 'security', 'arabic', 'oneShop'];
 // «Latest in production» — newest first. A change the demo can show with invented data carries tryIt: the demo's
 // own page where its version of it can be tried (docs/SYNC.md, «Every production change reaches the demo»).
 export const LATEST = [
+  { id: 'taxInvoiceOnRequest', date: '2026-10-17' },
   { id: 'priceGate', date: '2026-10-17' },
   { id: 'feedbackQueue', date: '2026-10-17' },
   { id: 'attendanceDevices', date: '2026-10-17' },

@@ -764,6 +764,10 @@
         "priceGate": {
           "title": "A price from a supplier’s list reaches the shop only as the owner saw it",
           "text": "Reading a price list is now checked end to end. Every line of a file is counted — read, or left with its reason (on request, a number that reads two ways, a total line, another currency); hidden sheets, rows and columns are never read, a table beside a table is read too, and the column each price came from is named. A number is read one way or not at all: «1.250» is 1,250 only where its column has no decimals, «350 400» is two prices, not 350,400. Nothing risky ticks itself — a first price, a product «on request», a change of 25 % or more, an unsure match, a market-price list. Before anything changes, the apply window shows what the server works out on the live prices: every risky line one by one (with a price typed over the file’s shown beside it), and the lines it holds back, which one tap unticks; it applies exactly what was shown, or nothing. Only the owner approves; undoing a list never takes back a price a newer list set, and a list that ever priced something is kept as its history."
+        },
+        "taxInvoiceOnRequest": {
+          "title": "An online order is a regular invoice — the customer asks for a tax invoice, and the shop issues it from the Tax Authority",
+          "text": "In Egypt the official tax invoice comes out of the Tax Authority’s e-invoice system, so a website order is now a regular invoice with no VAT. At checkout the customer may tick «I need a tax invoice» for a company (its name and tax number) or a person (a name and the national ID); the 14 % VAT is added and shown in the total before he confirms, and the page says the shop issues the invoice and gets in touch. The team finds those orders under one filter, sees for whom on the order, and marks the tax invoice sent with its number in the authority’s system once the order is paid; the customer’s «My orders» says it was asked for, then sent. A switch for «tax invoices issued directly» stays locked until the direct link with the Tax Authority works."
         }
       }
     }
