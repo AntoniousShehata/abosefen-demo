@@ -768,6 +768,18 @@
         "taxInvoiceOnRequest": {
           "title": "Eine Online-Bestellung ist eine normale Rechnung — der Kunde fordert eine Steuerrechnung an, das Geschäft stellt sie bei der Steuerbehörde aus",
           "text": "In Ägypten kommt die offizielle Steuerrechnung aus dem E-Rechnungssystem der Steuerbehörde, deshalb ist eine Website-Bestellung jetzt eine normale Rechnung ohne MwSt. An der Kasse kann der Kunde «Ich brauche eine Steuerrechnung» ankreuzen, für ein Unternehmen (Name und Steuernummer) oder eine Person (Name und nationale ID-Nummer); die 14 % MwSt. kommen hinzu und stehen in der Summe, bevor er bestätigt, und die Seite sagt, dass das Geschäft die Rechnung ausstellt und sich meldet. Das Team findet diese Bestellungen unter einem Filter, sieht an der Bestellung, für wen, und markiert die Steuerrechnung mit ihrer Nummer im System der Behörde als gesendet, sobald bezahlt ist; «Meine Bestellungen» des Kunden sagt, dass sie angefordert und dann gesendet wurde. Ein Schalter für «direkt ausgestellte Steuerrechnungen» bleibt gesperrt, bis die direkte Verbindung mit der Steuerbehörde steht."
+        },
+        "etaLinkScreen": {
+          "title": "Die Verbindung mit der Steuerbehörde wird auf einem Bildschirm gepflegt — ihr Geheimnis versiegelt, nichts Unsigniertes wird gesendet",
+          "text": "Der Inhaber pflegt die Verbindung des Geschäfts mit dem ägyptischen E-Rechnungssystem jetzt auf einem Bildschirm: Test- oder echtes System, die Zugangsdaten der Behörde und das Geschäft, wie die Behörde es kennt. Das Client Secret ist nur schreibbar — mit AES-GCM versiegelt, unter einem Schlüssel aus dem eigenen Geheimnis der Dienste abgeleitet, nie zurückgezeigt, nie im Log oder im Audit; ein leeres Feld behält es. «Verbindung testen» meldet sich an der festen Adresse des Systems an und merkt sich die Antwort. Der Bestelldienst liest die Verbindung alle fünf Minuten über eine interne Tür und legt sie ohne Neustart über seine eigenen Einstellungen. Der Bildschirm zeigt jeden Schritt, das echte System und die elektronische Signatur zuletzt: Auf dem Testsystem oder solange das Signaturprogramm mit dem USB-Token des Inhabers fehlt, gilt die Verbindung nie als funktionierend und kein Dokument wird gesendet, denn die Behörde lehnt eine unsignierte Rechnung ab."
+        },
+        "payTheShop": {
+          "title": "InstaPay-Link, -Adresse und Wallet des Geschäfts — vom Inhaber eingetragen, dem Kunden gezeigt, dessen Bestellung auf Zahlung wartet",
+          "text": "In «Geschäftsdaten» trägt der Inhaber ein, wo Kunden selbst an das Geschäft zahlen können: einen InstaPay-Zahlungslink (nur InstaPays eigene https-Adressen werden gespeichert), eine InstaPay-Adresse (name@instapay) und eine Wallet-Nummer (eine ägyptische Mobilnummer). Ein Kunde, dessen Bestellung auf Zahlung wartet, sieht sie nach der Bestellung und in «Meine Bestellungen»: ein Tippen öffnet InstaPay, eines kopiert Adresse oder Nummer. Das Team bestätigt die Zahlung bei Eingang wie bisher; ein Kartengateway folgt auf demselben Bildschirm."
+        },
+        "filesSection": {
+          "title": "Ein Menübereich für Dateien, Preise und Automatisierung",
+          "text": "Alles, was aus einer Datei Daten macht — Preislisten, Produkte aus Fotos, die Datenprüfung, das Produktverständnis, die gelernten Regeln und die Automatisierungsjobs — steht jetzt in einem Bereich des Admin-Menüs, «Dateien & Automatisierung», statt über drei verteilt. Die eigene Prüfung des Menüs hält jeden Bereich bei höchstens acht Links, jeder mit seiner Seite und seinen drei Namen."
         }
       }
     }

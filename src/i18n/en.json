@@ -768,6 +768,18 @@
         "taxInvoiceOnRequest": {
           "title": "An online order is a regular invoice — the customer asks for a tax invoice, and the shop issues it from the Tax Authority",
           "text": "In Egypt the official tax invoice comes out of the Tax Authority’s e-invoice system, so a website order is now a regular invoice with no VAT. At checkout the customer may tick «I need a tax invoice» for a company (its name and tax number) or a person (a name and the national ID); the 14 % VAT is added and shown in the total before he confirms, and the page says the shop issues the invoice and gets in touch. The team finds those orders under one filter, sees for whom on the order, and marks the tax invoice sent with its number in the authority’s system once the order is paid; the customer’s «My orders» says it was asked for, then sent. A switch for «tax invoices issued directly» stays locked until the direct link with the Tax Authority works."
+        },
+        "etaLinkScreen": {
+          "title": "The link with the Tax Authority is kept from a screen — its secret sealed, and nothing unsigned is ever sent",
+          "text": "The owner now keeps the shop’s link with Egypt’s e-invoice system on one screen: the trial or the real system, the login details the authority gave the shop, and the shop as the authority knows it. The client secret is write-only — sealed with AES-GCM under a key derived from the services’ own secret, never shown back, never in a log or the audit; an empty field keeps it. «Test the connection» logs in at the system’s fixed address and remembers the answer. The orders service reads the link through an internal door every five minutes and lays it over its own settings without a restart. The screen lists every step, the real system and the e-signature last: on the trial system, or until the signer with the owner’s USB token exists, the link never counts as working and no document is sent, because the authority refuses an unsigned invoice."
+        },
+        "payTheShop": {
+          "title": "The shop’s own InstaPay link, address and wallet — written by the owner, shown to a customer whose order waits for payment",
+          "text": "In «Shop details» the owner writes where customers can pay the shop by themselves: an InstaPay payment link (only InstaPay’s own https addresses are kept), an InstaPay address (name@instapay) and a mobile wallet number (an Egyptian mobile). A customer whose order waits for its payment sees them after ordering and in «My orders»: one tap opens InstaPay, one tap copies the address or the number. The team confirms the payment when it arrives, as before; a card gateway comes next, on the same screen."
+        },
+        "filesSection": {
+          "title": "One menu section for files, prices and automation",
+          "text": "Everything that turns a file into data — price lists, products from photos, the data review queue, the product understanding, the learned rules and the automation jobs — now sits in one section of the admin menu, «Files & automation», instead of being spread over three. The menu’s own audit keeps every section at eight links at most, each with its page and its three names."
         }
       }
     }
