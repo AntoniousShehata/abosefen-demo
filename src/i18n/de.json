@@ -625,6 +625,10 @@
       "tryIt": "In der Demo ausprobieren →",
       "onlyThere": "Nur im Produktivsystem",
       "items": {
+        "menuSections": {
+          "title": "Anwesenheit und Personalsuche — jede ein eigener Bereich im Panel",
+          "text": "Auf Wunsch des Inhabers verließen Anwesenheit und Personalsuche die Personalgruppe: «Anwesenheit» hat jetzt ein eigenes Symbol und acht Türen — meine Anwesenheit, heute, der Monat, Arbeitszeiten, Urlaub, der Urlaubskalender, die Prüfung und die Einstellungen des Inhabers —, jede unter eigener Adresse, und «Personalsuche» enthält die Stellenanzeigen und die Bewerbungen. Jede Seite eines Bereichs trägt dessen eigene Türenreihe, gezeichnet aus der einen Menüliste: Jeder sieht nur, was er öffnen darf, die aktuelle Seite ist hervorgehoben und wird auf dem Handy ins Bild gerückt, und ein Mitarbeiter sieht nur seine eigene Seite."
+        },
         "attendancePhone": {
           "title": "Ein altes Handy an der Tür wird zum Anwesenheitsgerät des Geschäfts — Namen tippen, lächeln, fertig",
           "text": "Die Idee des Inhabers: statt eines Tablets oder eines Gesichtserkennungsgeräts ein Handy, das das Geschäft nie verlässt. Jeder Name steht in einer großen Kachel, grün fürs Kommen, orange fürs Gehen; ein Tippen öffnet die Frontkamera, zählt 3-2-1 und macht ein Bild, und der Bildschirm füllt sich grün oder orange mit Namen, Uhrzeit und eigenem Ton. Niemand ist darauf angemeldet: Der Inhaber gibt dem Handy einmal angemeldet einen eigenen Schlüssel — auf dem Handy gespeichert, auf dem Server nur sein Fingerabdruck — und seine Anmeldung verlässt das Handy; seine drei Türen nehmen nur diesen Schlüssel und bleiben offen, auch wenn das Geschäft für Besucher geschlossen ist. Fällt die Verbindung aus, bleiben die Einträge auf dem Handy und gehen zu ihrer eigenen Zeit hinaus, sobald sie zurück ist, für den Inhaber als «verspätet gesendet» markiert. Kein Gesicht wird erkannt: Das Bild liegt für den Inhaber neben dem Eintrag, wird nach 30 Tagen gelöscht, und das Einrichten des Handys lässt jeden Mitarbeiter den Datenschutzhinweis erneut lesen."

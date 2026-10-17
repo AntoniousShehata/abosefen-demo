@@ -625,6 +625,10 @@
       "tryIt": "Try it in the demo →",
       "onlyThere": "In production only",
       "items": {
+        "menuSections": {
+          "title": "Attendance and hiring, each a section of its own in the panel",
+          "text": "At the owner’s word, attendance and hiring left the staff group: «Attendance» now has its own icon and eight doors — my attendance, today, the month, working hours, leave, the leave calendar, the owner’s review and settings — each at its own address, and «Hiring» holds the job ads and the applications. Every page of a section carries the section’s own row of doors, drawn from the one menu list: each person sees only what he may open, the page he is on is lit and brought into view on a phone, and a worker sees just his own page."
+        },
         "attendancePhone": {
           "title": "An old phone at the door becomes the shop’s attendance device — tap your name, smile, done",
           "text": "The owner’s idea: instead of a tablet or face-recognition hardware, a phone that never leaves the shop. Every worker’s name stands in a big tile, green for coming in, orange for going out; a tap opens the front camera, counts 3-2-1 and takes his picture, and the screen fills green or orange with his name, the time and a sound of its own. Nobody is signed in on it: the owner, signed in once, gives the phone its own key — kept on the phone, only a fingerprint of it on the server — and his session leaves the phone; its three doors take only that key and stay open while the shop is closed to visitors. When the line drops, taps are kept on the phone and sent at their own time when it returns, marked «sent late» for the owner. No face is recognised: the picture sits beside the mark for the owner, erased after 30 days, and setting the phone up makes every worker read the privacy notice again."
