@@ -625,6 +625,10 @@
       "tryIt": "Try it in the demo →",
       "onlyThere": "In production only",
       "items": {
+        "attendanceDevices": {
+          "title": "The owner picks each attendance device by a six-digit code — and the attendance pages show only the way he chose",
+          "text": "Any phone can become an attendance device without anyone signing in on it: it opens the attendance screen, keeps a key of its own and shows a six-digit code for ten minutes; the owner types that code and a name («the shop’s phone», «my phone») on his settings page, and within seconds the device shows the workers’ names. Each device is renamed or removed in one tap, and every record carries the name of the device it was taken on. The owner also chooses how his workers record — on these devices with a picture, by scanning the code on the wall with their own phones, or both — and what he did not choose disappears everywhere and is refused by the server: no scan button, no distance figures, no device tiles that would only fail. The door camera stays out of sight until it is set up, a leave is written in one place only, and the menu keeps each worker’s own page apart from the owner’s attendance management."
+        },
         "menuSections": {
           "title": "Attendance and hiring, each a section of its own in the panel",
           "text": "At the owner’s word, attendance and hiring left the staff group: «Attendance» now has its own icon and eight doors — my attendance, today, the month, working hours, leave, the leave calendar, the owner’s review and settings — each at its own address, and «Hiring» holds the job ads and the applications. Every page of a section carries the section’s own row of doors, drawn from the one menu list: each person sees only what he may open, the page he is on is lit and brought into view on a phone, and a worker sees just his own page."

@@ -625,6 +625,10 @@
       "tryIt": "In der Demo ausprobieren →",
       "onlyThere": "Nur im Produktivsystem",
       "items": {
+        "attendanceDevices": {
+          "title": "Der Inhaber wählt jedes Anwesenheitsgerät per sechsstelligem Code — und die Seiten zeigen nur den gewählten Weg",
+          "text": "Jedes Handy kann zum Anwesenheitsgerät werden, ohne dass sich jemand darauf anmeldet: Es öffnet die Anwesenheitsseite, behält einen eigenen Schlüssel und zeigt zehn Minuten lang einen sechsstelligen Code; der Inhaber tippt diesen Code und einen Namen («Handy des Geschäfts», «mein Handy») in seine Einstellungen, und Sekunden später zeigt das Gerät die Namen der Mitarbeiter. Jedes Gerät wird mit einem Tippen umbenannt oder entfernt, und jeder Eintrag trägt den Namen des Geräts, auf dem er entstand. Der Inhaber wählt auch, wie erfasst wird — auf diesen Geräten mit Bild, per Scan des Codes an der Wand mit dem eigenen Handy, oder beides — und was nicht gewählt ist, verschwindet überall und wird vom Server abgelehnt: kein Scan-Knopf, keine Entfernungszahlen, keine Gerätekacheln, die nur scheitern würden. Die Türkamera bleibt unsichtbar, bis sie eingerichtet ist, Urlaub wird an nur einer Stelle eingetragen, und das Menü trennt die eigene Seite jedes Mitarbeiters von der Anwesenheitsverwaltung des Inhabers."
+        },
         "menuSections": {
           "title": "Anwesenheit und Personalsuche — jede ein eigener Bereich im Panel",
           "text": "Auf Wunsch des Inhabers verließen Anwesenheit und Personalsuche die Personalgruppe: «Anwesenheit» hat jetzt ein eigenes Symbol und acht Türen — meine Anwesenheit, heute, der Monat, Arbeitszeiten, Urlaub, der Urlaubskalender, die Prüfung und die Einstellungen des Inhabers —, jede unter eigener Adresse, und «Personalsuche» enthält die Stellenanzeigen und die Bewerbungen. Jede Seite eines Bereichs trägt dessen eigene Türenreihe, gezeichnet aus der einen Menüliste: Jeder sieht nur, was er öffnen darf, die aktuelle Seite ist hervorgehoben und wird auf dem Handy ins Bild gerückt, und ein Mitarbeiter sieht nur seine eigene Seite."
