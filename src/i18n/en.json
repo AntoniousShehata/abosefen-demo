@@ -631,7 +631,7 @@
         },
         "menuSections": {
           "title": "Attendance and hiring, each a section of its own in the panel",
-          "text": "At the owner’s word, attendance and hiring left the staff group: «Attendance» now has its own icon and eight doors — my attendance, today, the month, working hours, leave, the leave calendar, the owner’s review and settings — each at its own address, and «Hiring» holds the job ads and the applications. Every page of a section carries the section’s own row of doors, drawn from the one menu list: each person sees only what he may open, the page he is on is lit and brought into view on a phone, and a worker sees just his own page."
+          "text": "At the owner’s word, attendance and hiring left the staff group. «My attendance» — every worker’s own page — stands alone in the menu; «Attendance management» holds the owner’s seven pages — today, the month, working hours, leave, the leave calendar, the review and the settings — each at its own address; «Hiring» holds the job ads and the applications. Each person sees only what he may open, and the page on screen is lit in the menu. A link lives once: the menu is the one way between the pages, and no page repeats its section’s links on top (the panel’s check refuses one that does)."
         },
         "attendancePhone": {
           "title": "An old phone at the door becomes the shop’s attendance device — tap your name, smile, done",

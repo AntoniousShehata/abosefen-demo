@@ -631,7 +631,7 @@
         },
         "menuSections": {
           "title": "Anwesenheit und Personalsuche — jede ein eigener Bereich im Panel",
-          "text": "Auf Wunsch des Inhabers verließen Anwesenheit und Personalsuche die Personalgruppe: «Anwesenheit» hat jetzt ein eigenes Symbol und acht Türen — meine Anwesenheit, heute, der Monat, Arbeitszeiten, Urlaub, der Urlaubskalender, die Prüfung und die Einstellungen des Inhabers —, jede unter eigener Adresse, und «Personalsuche» enthält die Stellenanzeigen und die Bewerbungen. Jede Seite eines Bereichs trägt dessen eigene Türenreihe, gezeichnet aus der einen Menüliste: Jeder sieht nur, was er öffnen darf, die aktuelle Seite ist hervorgehoben und wird auf dem Handy ins Bild gerückt, und ein Mitarbeiter sieht nur seine eigene Seite."
+          "text": "Auf Wunsch des Inhabers verließen Anwesenheit und Personalsuche die Personalgruppe. «Meine Anwesenheit» — die eigene Seite jedes Mitarbeiters — steht allein im Menü; «Anwesenheitsverwaltung» enthält die sieben Seiten des Inhabers — heute, der Monat, Arbeitszeiten, Urlaub, der Urlaubskalender, die Prüfung und die Einstellungen —, jede unter eigener Adresse; «Personalsuche» enthält die Stellenanzeigen und die Bewerbungen. Jeder sieht nur, was er öffnen darf, und die aktuelle Seite ist im Menü hervorgehoben. Ein Link steht nur einmal: Das Menü ist der einzige Weg zwischen den Seiten, und keine Seite wiederholt oben die Links ihres Bereichs (die Prüfung des Panels lehnt eine solche Seite ab)."
         },
         "attendancePhone": {
           "title": "Ein altes Handy an der Tür wird zum Anwesenheitsgerät des Geschäfts — Namen tippen, lächeln, fertig",
