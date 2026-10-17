@@ -780,6 +780,10 @@
         "filesSection": {
           "title": "One menu section for files, prices and automation",
           "text": "Everything that turns a file into data — price lists, products from photos, the data review queue, the product understanding, the learned rules and the automation jobs — now sits in one section of the admin menu, «Files & automation», instead of being spread over three. The menu’s own audit keeps every section at eight links at most, each with its page and its three names."
+        },
+        "cardGateway": {
+          "title": "A card gateway behind one seam — keys sealed, every result signed, checked, kept and acted on once",
+          "text": "Card payment goes through one interface for any payment company, with Paymob (Egypt) as the first adapter. The owner keeps the gateway on one screen: the secret key and the HMAC secret are write-only and sealed with AES-GCM, and a key of the other system (trial / real) is refused even when it is the one already kept. «Test the connection» opens a payment nobody pays; «Test payment» is paid with the trial system’s test card. The customer pays on the company’s own page, and the result comes back signed (HMAC-SHA512) both to the server and with the browser. Each result is checked, kept (a forged one keeps only a kilobyte), matched by the company’s signed order number rather than the unsigned reference, and acted on once whichever way it came, with a unique database rule as the last guard. The amount and currency are compared with what was asked, and only a plain sale counts as paid: a refund, void or authorisation never does. The results’ doors have their own rate limit and size cap at the gateway. The switch stays locked until the order’s own payment, the books and refunds are built."
         }
       }
     }

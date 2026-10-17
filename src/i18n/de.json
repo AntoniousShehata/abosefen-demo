@@ -780,6 +780,10 @@
         "filesSection": {
           "title": "Ein Menübereich für Dateien, Preise und Automatisierung",
           "text": "Alles, was aus einer Datei Daten macht — Preislisten, Produkte aus Fotos, die Datenprüfung, das Produktverständnis, die gelernten Regeln und die Automatisierungsjobs — steht jetzt in einem Bereich des Admin-Menüs, «Dateien & Automatisierung», statt über drei verteilt. Die eigene Prüfung des Menüs hält jeden Bereich bei höchstens acht Links, jeder mit seiner Seite und seinen drei Namen."
+        },
+        "cardGateway": {
+          "title": "Ein Kartengateway hinter einer Schnittstelle — Schlüssel versiegelt, jedes Ergebnis signiert, geprüft, gespeichert und einmal verarbeitet",
+          "text": "Kartenzahlung läuft über eine Schnittstelle für jeden Zahlungsanbieter, mit Paymob (Ägypten) als erstem Adapter. Der Inhaber pflegt das Gateway auf einem Bildschirm: Der geheime Schlüssel und das HMAC-Geheimnis sind nur schreibbar und mit AES-GCM versiegelt, und ein Schlüssel des anderen Systems (Test / echt) wird abgelehnt, auch wenn es der bereits gespeicherte ist. «Verbindung testen» öffnet eine Zahlung, die niemand bezahlt; «Testzahlung» wird mit der Testkarte des Testsystems bezahlt. Der Kunde zahlt auf der eigenen Seite des Anbieters, und das Ergebnis kommt signiert (HMAC-SHA512) zum Server und mit dem Browser zurück. Jedes Ergebnis wird geprüft, gespeichert (ein gefälschtes behält nur ein Kilobyte), über die signierte Bestellnummer des Anbieters statt der unsignierten Referenz zugeordnet und einmal verarbeitet, egal auf welchem Weg es kam, mit einer eindeutigen Datenbankregel als letzter Wache. Betrag und Währung werden mit dem Verlangten verglichen, und nur ein einfacher Verkauf zählt als bezahlt: eine Rückerstattung, Stornierung oder Autorisierung nie. Die Türen der Ergebnisse haben am Gateway ihr eigenes Limit und ihre eigene Größengrenze. Der Schalter bleibt gesperrt, bis die Zahlung der Bestellung selbst, die Bücher und Rückerstattungen gebaut sind."
         }
       }
     }
