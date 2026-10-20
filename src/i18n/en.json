@@ -478,7 +478,7 @@
       "csharp": "lines of C#",
       "react": "lines of React",
       "tests": "automated tests in one run",
-      "rules": "business rules written down, 180 enforced in code",
+      "rules": "business rules written down, 224 enforced in code",
       "commits": "commits since February 2026"
     },
     "archTitle": "Architecture",
@@ -582,7 +582,7 @@
       "rules": {
         "title": "Rules the code enforces, and changes rehearsed before they ship",
         "problem": "The owner's business rules lived in conversations. A rule that lives only in someone's head is broken by the next change, and a money bug found after release is found by a customer.",
-        "s1": "200 rules are written down, each naming the class or test that refuses a violation. Guard tests read the code itself: for example, only one service may write stock movements, and every message the server sends exists in Arabic, English and German.",
+        "s1": "249 rules are written down, each naming the class or test that refuses a violation. Guard tests read the code itself: for example, only one service may write stock movements, and every message the server sends exists in Arabic, English and German.",
         "s2": "A change to money, stock or the books passes six gates: agreed first, a failing test first, an independent review on file, a rehearsal on a copy of the data, a walk through the screens in Arabic on phone and desktop, and a books check after the deploy.",
         "s3": "Deploys are built from a clean archive of one commit. Every image carries its commit, and a check lists any service still running older code.",
         "proof": "The gates catch real faults. On 14 October 2026 the review found a cheque that could be cashed while it was being cancelled, and the books check on the rehearsal copy found a supplier's opening balance counted wrongly. Both were fixed, with tests, before release."
@@ -592,11 +592,11 @@
     "practices": {
       "ai": {
         "title": "How AI is used",
-        "text": "I own the product: the requirements, the 200 business rules, the priorities, the reviews on screen and every release decision. AI pair-programming (Claude Code) writes and checks code under that direction, the way modern teams work — and the guardrails on this page (written rules, guard tests, six gates, rehearsals on a copy of the data) are how its work is held to the standard before anything reaches the shop."
+        "text": "I own the product: the requirements, the 249 business rules, the priorities, the reviews on screen and every release decision. AI pair-programming (Claude Code) writes and checks code under that direction, the way modern teams work — and the guardrails on this page (written rules, guard tests, six gates, rehearsals on a copy of the data) are how its work is held to the standard before anything reaches the shop."
       },
       "tests": {
         "title": "Tests at three levels",
-        "text": "About 2,000 unit test methods (xUnit) that run to 5,314 cases; integration tests on real PostgreSQL and RabbitMQ in containers (Testcontainers); and rehearsals on a copy of the production data for anything that touches money."
+        "text": "About 2,400 unit test methods (xUnit) that run to 5,788 cases; integration tests on real PostgreSQL and RabbitMQ in containers (Testcontainers); and rehearsals on a copy of the production data for anything that touches money."
       },
       "security": {
         "title": "Secure by default",
@@ -625,6 +625,18 @@
       "tryIt": "Try it in the demo →",
       "onlyThere": "In production only",
       "items": {
+        "ownerSwitches": {
+          "title": "Every on / off switch of the shop on one page — the owner’s alone",
+          "text": "The owner asked to decide himself what shows, what works and what is switched off. One page now gathers the shop’s 21 switches in six groups, each with what it does and its state read from its own service; a read that fails shows «—», never a guess. A simple switch is pressed right there, through the same door its own page uses, so the server’s checks stay in one place; the others open the page that holds them. Three that lived in server settings or in the code became buttons: the customers’ order e-mails (asked twice — they reach people outside the shop), the lock on product codes, and search by photo. Each is one row with who pressed it and when, read at every use so a press works at once; with no row the shop behaves exactly as before. The codes lock replaced two constants: every writer of a code (the re-code, a move, a category’s or brand’s new code, a product’s edit, the duplicate merges) asks the one switch, and the first close is kept as the day the project really started, so replaced codes stay findable for good even if he opens the codes again. Tests press each switch both ways, and a planted fault (the switch ignored) makes them fail."
+        },
+        "phoneSideways": {
+          "title": "A phone on its side, and an installed app that never jumps when it is turned",
+          "text": "From the owner’s photos of his iPhone turned sideways: the bars stay one slim line, the page uses the whole width, the colours reach the screen’s edges while the words keep clear of the notch, and the panel’s sheets open as a card in the middle. The app on the home screen used to start below the phone’s clock; turned and back, iOS kept the old height — a purple band at the top and the bottom bar floating up by the clock’s height. It now covers the whole screen and keeps clear of the clock itself (a translucent status bar and the safe-area insets in CSS). Static audits guard each piece, and each catches a planted fault."
+        },
+        "evidenceLedger": {
+          "title": "Every requirement in one register, and a ledger that says «verified» only for a check that ran",
+          "text": "Months of the owner’s directives were consolidated into one register of requirements — with the contradictions between them and his decision on each — a phased roadmap, and a verification ledger. A row reads VERIFIED only when its check was executed (or reuses a recorded run), otherwise FAILED or NEEDS VERIFICATION. The baseline was taken on a clean copy: the full build, every unit test, the front-end audits and the integration suite on PostgreSQL. It surfaced two guards that had gone unchecked while CI was paused; both were fixed and green again the same night."
+        },
         "feedbackQueue": {
           "title": "One queue for every problem and idea — what people report and what the program catches by itself",
           "text": "The site says it is being tried and asks for help: a slim bar on every shop page, a link in the footer and a bug button in the team’s panel open one sheet — a problem, an idea or a note, in the person’s own words, with one screenshot from the camera or the gallery; the page, the kind of device and the site’s version go with it by themselves, and nothing else. A visitor may leave a mobile or an email; a signed-in person reads the shop’s answer under «My reports». The pages also report by themselves, quietly and once a visit: a screen that crashed (the crash screen says the shop already knows and asks what the person was doing) and any call the server failed. The same fault is one line that counts how often it happened — its fingerprint ignores the build’s file names, line numbers and ids — and a fault marked fixed that happens again opens again by itself. The owner works one queue with what waits first, a note for the team and an answer for the person; screenshots stay private and are erased sixty days after an item is closed. The same day the shop’s own words put its standing and its technical know-how first, with the year it began said only once the owner writes it."

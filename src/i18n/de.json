@@ -478,7 +478,7 @@
       "csharp": "Zeilen C#",
       "react": "Zeilen React",
       "tests": "automatisierte Tests pro Lauf",
-      "rules": "schriftliche Geschäftsregeln, 180 davon im Code erzwungen",
+      "rules": "schriftliche Geschäftsregeln, 224 davon im Code erzwungen",
       "commits": "Commits seit Februar 2026"
     },
     "archTitle": "Architektur",
@@ -582,7 +582,7 @@
       "rules": {
         "title": "Regeln, die der Code erzwingt, und Änderungen, die vor dem Release geprobt werden",
         "problem": "Die Geschäftsregeln des Inhabers lebten in Gesprächen. Eine Regel, die nur in einem Kopf lebt, bricht die nächste Änderung, und einen Geldfehler nach dem Release findet ein Kunde.",
-        "s1": "200 Regeln sind aufgeschrieben, jede mit der Klasse oder dem Test, der einen Verstoß ablehnt. Wächtertests lesen den Code selbst: zum Beispiel darf nur ein Dienst Lagerbewegungen schreiben, und jede Nachricht des Servers gibt es auf Arabisch, Englisch und Deutsch.",
+        "s1": "249 Regeln sind aufgeschrieben, jede mit der Klasse oder dem Test, der einen Verstoß ablehnt. Wächtertests lesen den Code selbst: zum Beispiel darf nur ein Dienst Lagerbewegungen schreiben, und jede Nachricht des Servers gibt es auf Arabisch, Englisch und Deutsch.",
         "s2": "Eine Änderung an Geld, Bestand oder Büchern durchläuft sechs Tore: zuerst abgestimmt, zuerst ein fehlschlagender Test, ein unabhängiges Review in den Akten, eine Probe auf einer Kopie der Daten, ein Gang durch die Bildschirme auf Arabisch an Handy und Desktop und eine Prüfung der Bücher nach dem Deployment.",
         "s3": "Deployments werden aus einem sauberen Archiv eines einzelnen Commits gebaut. Jedes Image trägt seinen Commit, und eine Prüfung listet jeden Dienst, der noch älteren Code ausführt.",
         "proof": "Die Tore finden echte Fehler. Am 14. Oktober 2026 fand das Review einen Scheck, der eingelöst werden konnte, während er storniert wurde, und die Prüfung der Bücher auf der Probekopie fand einen falsch gezählten Eröffnungssaldo eines Lieferanten. Beides wurde vor dem Release behoben, mit Tests."
@@ -592,11 +592,11 @@
     "practices": {
       "ai": {
         "title": "Wie KI eingesetzt wird",
-        "text": "Ich verantworte das Produkt: die Anforderungen, die 200 Geschäftsregeln, die Prioritäten, die Prüfung am Bildschirm und jede Release-Entscheidung. KI-Pair-Programming (Claude Code) schreibt und prüft Code unter dieser Führung, so wie moderne Teams arbeiten — und die Leitplanken auf dieser Seite (schriftliche Regeln, Wächtertests, sechs Tore, Proben auf einer Kopie der Daten) halten diese Arbeit auf dem Standard, bevor etwas den Laden erreicht."
+        "text": "Ich verantworte das Produkt: die Anforderungen, die 249 Geschäftsregeln, die Prioritäten, die Prüfung am Bildschirm und jede Release-Entscheidung. KI-Pair-Programming (Claude Code) schreibt und prüft Code unter dieser Führung, so wie moderne Teams arbeiten — und die Leitplanken auf dieser Seite (schriftliche Regeln, Wächtertests, sechs Tore, Proben auf einer Kopie der Daten) halten diese Arbeit auf dem Standard, bevor etwas den Laden erreicht."
       },
       "tests": {
         "title": "Tests auf drei Ebenen",
-        "text": "Rund 2.000 Unit-Test-Methoden (xUnit), die 5.314 Fälle ergeben; Integrationstests auf echtem PostgreSQL und RabbitMQ in Containern (Testcontainers); und Proben auf einer Kopie der Produktivdaten für alles, was Geld berührt."
+        "text": "Rund 2.400 Unit-Test-Methoden (xUnit), die 5.788 Fälle ergeben; Integrationstests auf echtem PostgreSQL und RabbitMQ in Containern (Testcontainers); und Proben auf einer Kopie der Produktivdaten für alles, was Geld berührt."
       },
       "security": {
         "title": "Sicher von Grund auf",
@@ -625,6 +625,18 @@
       "tryIt": "In der Demo ausprobieren →",
       "onlyThere": "Nur im Produktivsystem",
       "items": {
+        "ownerSwitches": {
+          "title": "Jeder Ein-/Aus-Schalter des Geschäfts auf einer Seite — nur für den Inhaber",
+          "text": "Der Inhaber wollte selbst entscheiden, was sichtbar ist, was läuft und was abgeschaltet ist. Eine Seite bündelt jetzt die 21 Schalter des Geschäfts in sechs Gruppen, jeder mit seiner Wirkung und seinem Zustand, gelesen aus dem eigenen Dienst; schlägt das Lesen fehl, steht dort «—», nie eine Vermutung. Ein einfacher Schalter wird direkt dort betätigt, über dieselbe Tür wie auf seiner eigenen Seite, damit die Prüfungen des Servers an einer Stelle bleiben; die übrigen öffnen die Seite, die sie hält. Drei, die in Servereinstellungen oder im Code steckten, wurden zu Knöpfen: die Bestell-E-Mails an Kunden (mit Rückfrage — sie erreichen Menschen außerhalb des Geschäfts), die Sperre der Produktcodes und die Suche per Foto. Jeder ist eine Zeile mit wer und wann, bei jeder Nutzung gelesen, sodass ein Druck sofort wirkt; ohne Zeile verhält sich das Geschäft genau wie vorher. Die Code-Sperre ersetzte zwei Konstanten: Jeder Schreiber eines Codes (die Neucodierung, ein Verschieben, ein neuer Kategorie- oder Markencode, die Bearbeitung eines Produkts, das Zusammenführen von Duplikaten) fragt den einen Schalter, und die erste Sperre gilt als der Tag, an dem das Projekt wirklich begann — ersetzte Codes bleiben danach für immer auffindbar, auch wenn er die Codes wieder öffnet. Tests betätigen jeden Schalter in beide Richtungen, und ein eingebauter Fehler (Schalter ignoriert) lässt sie scheitern."
+        },
+        "phoneSideways": {
+          "title": "Ein Handy im Querformat — und eine installierte App, die beim Drehen nicht mehr springt",
+          "text": "Aus den Fotos des Inhabers von seinem gedrehten iPhone: Die Leisten bleiben eine schlanke Zeile, die Seite nutzt die ganze Breite, die Farben reichen bis an den Bildschirmrand, während die Wörter der Notch ausweichen, und die Blätter des Verwaltungsbereichs öffnen sich als Karte in der Mitte. Die App auf dem Home-Bildschirm begann früher unter der Uhr; nach dem Drehen behielt iOS die alte Höhe — ein lila Streifen oben und die untere Leiste um die Höhe der Uhr nach oben verrutscht. Jetzt deckt sie den ganzen Bildschirm ab und weicht der Uhr selbst aus (durchscheinende Statusleiste und Safe-Area-Abstände in CSS). Statische Prüfungen bewachen jedes Teil, und jede erkennt einen eingebauten Fehler."
+        },
+        "evidenceLedger": {
+          "title": "Jede Anforderung in einem Register — und ein Nachweisbuch, das «verifiziert» nur für ausgeführte Prüfungen sagt",
+          "text": "Monate an Vorgaben des Inhabers wurden zu einem Register der Anforderungen zusammengeführt — mit den Widersprüchen zwischen ihnen und seiner Entscheidung zu jedem —, zu einem Fahrplan in Phasen und zu einem Nachweisbuch. Eine Zeile heißt VERIFIZIERT nur, wenn ihre Prüfung ausgeführt wurde (oder einen festgehaltenen Lauf wiederverwendet), sonst FEHLGESCHLAGEN oder ZU PRÜFEN. Die Ausgangsbasis entstand auf einer sauberen Kopie: der ganze Build, alle Unit-Tests, die Frontend-Prüfungen und die Integrationstests auf PostgreSQL. Dabei kamen zwei Wächter ans Licht, die während der CI-Pause ungeprüft geblieben waren; beide waren noch in derselben Nacht repariert und wieder grün."
+        },
         "feedbackQueue": {
           "title": "Eine Liste für jedes Problem und jede Idee — was Menschen melden und was das Programm selbst bemerkt",
           "text": "Die Seite sagt, dass sie erprobt wird, und bittet um Hilfe: Eine schmale Leiste über jeder Shopseite, ein Link in der Fußzeile und ein Käfer-Knopf im Teambereich öffnen ein Formular — ein Problem, eine Idee oder ein Hinweis in eigenen Worten, mit einem Bildschirmfoto aus Kamera oder Galerie; die Seite, die Geräteart und die Version der Seite gehen von selbst mit, sonst nichts. Ein Besucher kann eine Handynummer oder E-Mail hinterlassen; wer angemeldet ist, liest die Antwort des Geschäfts unter «Meine Meldungen». Die Seiten melden auch selbst, leise und einmal pro Besuch: einen Absturz (der Fehlerbildschirm sagt, dass das Geschäft schon Bescheid weiß, und fragt, was die Person gerade tat) und jeden Aufruf, an dem der Server scheiterte. Derselbe Fehler ist eine Zeile, die zählt, wie oft er auftrat — sein Fingerabdruck übergeht Dateinamen des Builds, Zeilennummern und IDs —, und ein als behoben markierter Fehler, der wiederkommt, öffnet sich von selbst wieder. Der Inhaber arbeitet eine Liste ab, das Wartende zuerst, mit einer Notiz fürs Team und einer Antwort für die Person; Bildschirmfotos bleiben privat und werden sechzig Tage nach dem Abschluss gelöscht. Am selben Tag stellten die Worte des Geschäfts seine Tradition und sein Fachwissen an den Anfang — das Gründungsjahr erst, wenn der Inhaber es einträgt."
