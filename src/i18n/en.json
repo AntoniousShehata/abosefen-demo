@@ -596,7 +596,7 @@
       },
       "tests": {
         "title": "Tests at three levels",
-        "text": "About 2,400 unit test methods (xUnit) that run to 5,788 cases; integration tests on real PostgreSQL and RabbitMQ in containers (Testcontainers); and rehearsals on a copy of the production data for anything that touches money."
+        "text": "About 2,400 unit test methods (xUnit) that run to 5,988 cases; integration tests on real PostgreSQL and RabbitMQ in containers (Testcontainers); and rehearsals on a copy of the production data for anything that touches money."
       },
       "security": {
         "title": "Secure by default",
@@ -625,6 +625,10 @@
       "tryIt": "Try it in the demo →",
       "onlyThere": "In production only",
       "items": {
+        "pdfPriceLists": {
+          "title": "Supplier price lists in PDF, read here from their own words — and checked by nine reviews",
+          "text": "The owner could not upload his 79-page Ideal Standard list: a PDF was read only by an AI service, out of credit, and a file that size filled the server’s memory. The shop now reads a PDF itself: each page’s words and where they stand become a table — its columns from the strips most lines leave empty, one set for the whole page, cut where a table of its own leaves a gap; prices per colour, stacked and side-by-side tables, Arabic tables laid out right to left, a header on two rows, a band of price words over a lower table. The rule is the owner’s: a price never goes to the wrong code, colour or item, and no line vanishes — a line the reader is not sure of is left, counted, with its reason. Nine independent reviews attacked it with constructed layouts; each finding became a test (about 300 now), and a rehearsal on his 11 real lists reads the same after every round — Ideal Standard 974 → 1,270 lines. No line read from a PDF, or from a sheet holding more than one table, ticks itself: the owner sees each beside the original page before any price changes."
+        },
         "ownerSwitches": {
           "title": "Every on / off switch of the shop on one page — the owner’s alone",
           "text": "The owner asked to decide himself what shows, what works and what is switched off. One page now gathers the shop’s 21 switches in six groups, each with what it does and its state read from its own service; a read that fails shows «—», never a guess. A simple switch is pressed right there, through the same door its own page uses, so the server’s checks stay in one place; the others open the page that holds them. Three that lived in server settings or in the code became buttons: the customers’ order e-mails (asked twice — they reach people outside the shop), the lock on product codes, and search by photo. Each is one row with who pressed it and when, read at every use so a press works at once; with no row the shop behaves exactly as before. The codes lock replaced two constants: every writer of a code (the re-code, a move, a category’s or brand’s new code, a product’s edit, the duplicate merges) asks the one switch, and the first close is kept as the day the project really started, so replaced codes stay findable for good even if he opens the codes again. Tests press each switch both ways, and a planted fault (the switch ignored) makes them fail."

@@ -596,7 +596,7 @@
       },
       "tests": {
         "title": "Tests auf drei Ebenen",
-        "text": "Rund 2.400 Unit-Test-Methoden (xUnit), die 5.788 Fälle ergeben; Integrationstests auf echtem PostgreSQL und RabbitMQ in Containern (Testcontainers); und Proben auf einer Kopie der Produktivdaten für alles, was Geld berührt."
+        "text": "Rund 2.400 Unit-Test-Methoden (xUnit), die 5.988 Fälle ergeben; Integrationstests auf echtem PostgreSQL und RabbitMQ in Containern (Testcontainers); und Proben auf einer Kopie der Produktivdaten für alles, was Geld berührt."
       },
       "security": {
         "title": "Sicher von Grund auf",
@@ -625,6 +625,10 @@
       "tryIt": "In der Demo ausprobieren →",
       "onlyThere": "Nur im Produktivsystem",
       "items": {
+        "pdfPriceLists": {
+          "title": "Preislisten der Lieferanten als PDF, hier aus ihren eigenen Wörtern gelesen — und von neun Prüfungen geprüft",
+          "text": "Der Inhaber konnte seine 79-seitige Ideal-Standard-Liste nicht hochladen: Ein PDF las nur ein KI-Dienst, dessen Guthaben aufgebraucht war, und eine Datei dieser Größe füllte den Speicher des Servers. Das Geschäft liest ein PDF jetzt selbst: Die Wörter jeder Seite und ihre Lage werden zur Tabelle — die Spalten aus den Streifen, die die meisten Zeilen frei lassen, ein Satz für die ganze Seite, geteilt, wo eine eigene Tabelle eine Lücke lässt; Preise je Farbe, gestapelte und nebeneinanderliegende Tabellen, arabische Tabellen von rechts nach links, ein Kopf über zwei Zeilen, eine Zeile mit Preiswörtern über einer unteren Tabelle. Die Regel ist die des Inhabers: Ein Preis landet nie beim falschen Code, der falschen Farbe oder dem falschen Artikel, und keine Zeile verschwindet — eine Zeile, bei der der Leser unsicher ist, bleibt liegen, gezählt, mit ihrem Grund. Neun unabhängige Prüfungen griffen ihn mit konstruierten Layouts an; jeder Befund wurde ein Test (jetzt rund 300), und eine Probe mit seinen 11 echten Listen liest nach jeder Runde dasselbe — Ideal Standard 974 → 1.270 Zeilen. Keine Zeile aus einem PDF oder aus einem Blatt mit mehr als einer Tabelle hakt sich selbst an: Der Inhaber sieht jede neben der Originalseite, bevor sich ein Preis ändert."
+        },
         "ownerSwitches": {
           "title": "Jeder Ein-/Aus-Schalter des Geschäfts auf einer Seite — nur für den Inhaber",
           "text": "Der Inhaber wollte selbst entscheiden, was sichtbar ist, was läuft und was abgeschaltet ist. Eine Seite bündelt jetzt die 21 Schalter des Geschäfts in sechs Gruppen, jeder mit seiner Wirkung und seinem Zustand, gelesen aus dem eigenen Dienst; schlägt das Lesen fehl, steht dort «—», nie eine Vermutung. Ein einfacher Schalter wird direkt dort betätigt, über dieselbe Tür wie auf seiner eigenen Seite, damit die Prüfungen des Servers an einer Stelle bleiben; die übrigen öffnen die Seite, die sie hält. Drei, die in Servereinstellungen oder im Code steckten, wurden zu Knöpfen: die Bestell-E-Mails an Kunden (mit Rückfrage — sie erreichen Menschen außerhalb des Geschäfts), die Sperre der Produktcodes und die Suche per Foto. Jeder ist eine Zeile mit wer und wann, bei jeder Nutzung gelesen, sodass ein Druck sofort wirkt; ohne Zeile verhält sich das Geschäft genau wie vorher. Die Code-Sperre ersetzte zwei Konstanten: Jeder Schreiber eines Codes (die Neucodierung, ein Verschieben, ein neuer Kategorie- oder Markencode, die Bearbeitung eines Produkts, das Zusammenführen von Duplikaten) fragt den einen Schalter, und die erste Sperre gilt als der Tag, an dem das Projekt wirklich begann — ersetzte Codes bleiben danach für immer auffindbar, auch wenn er die Codes wieder öffnet. Tests betätigen jeden Schalter in beide Richtungen, und ein eingebauter Fehler (Schalter ignoriert) lässt sie scheitern."
