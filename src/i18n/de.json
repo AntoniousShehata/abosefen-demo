@@ -596,7 +596,7 @@
       },
       "tests": {
         "title": "Tests auf drei Ebenen",
-        "text": "Rund 2.400 Unit-Test-Methoden (xUnit), die 6.109 Fälle ergeben; Integrationstests auf echtem PostgreSQL und RabbitMQ in Containern (Testcontainers); und Proben auf einer Kopie der Produktivdaten für alles, was Geld berührt."
+        "text": "Rund 2.400 Unit-Test-Methoden (xUnit), die 6.158 Fälle ergeben; Integrationstests auf echtem PostgreSQL und RabbitMQ in Containern (Testcontainers); und Proben auf einer Kopie der Produktivdaten für alles, was Geld berührt."
       },
       "security": {
         "title": "Sicher von Grund auf",
@@ -625,6 +625,14 @@
       "tryIt": "In der Demo ausprobieren →",
       "onlyThere": "Nur im Produktivsystem",
       "items": {
+        "companyGroups": {
+          "title": "Ein Hersteller, mehrere Rabatte: die Produktgruppen einer Firma getrennt bepreist",
+          "text": "Ein Hersteller verkauft seine Einstiegslinie zum Nettopreis und die übrigen Linien mit Listenrabatt — das Geschäft kauft und verkauft sie also mit verschiedenen Rabatten. Eine Firma hat jetzt Gruppen, jede über ihre Serien benannt (Duravits eigene ägyptische Liste nennt drei: Einstieg zum Nettopreis, lokal, importiert), und jede Gruppe trägt die zwei Preisarten des Inhabers: sein Rabatt von der Firma und der des Kunden, oder netto plus Gewinn. Ein Produkt findet seine Gruppe über einen Seriennamen in seinem eigenen Namen, arabisch oder englisch, als ganzes Wort; bevor ein Rabatt gesetzt wird, sieht der Inhaber genau, welche Produkte eine Gruppe nimmt, und kann eines von Hand herausnehmen (eine Acrylwanne mit dem Seriennamen eines Keramiksets). Die Regel der Gruppe geht der Kategorie vor; alles andere wird wie bisher bepreist, und kein Preis ändert sich, bevor eine Prüfung angewendet wird. Ein Prüfgremium las es zweimal, und es wurde an einer Kopie des Katalogs geprobt."
+        },
+        "pdfArabicFonts": {
+          "title": "Ein Lieferanten-PDF, dessen arabische Schrift ihre Buchstaben versteckt, richtig gelesen",
+          "text": "Die Preisliste eines Herstellers zeichnet arabische Buchstaben unter lateinischen Codes («%» für «ح», «T» für «ف») und manche Ziffern als Akzente. Der Leser gibt die Codes jeder Schrift zurück — je Schrift, denn zwei Schnitte derselben Schrift codieren anders — und nur, was die eigenen Wörter der Datei belegen. Beschädigte Namen auf dieser Liste fielen von 225 auf 7; kein Code, keine Farbe, kein Preis änderte sich auf den elf echten Listen."
+        },
         "colourOptions": {
           "title": "Ein Hersteller bepreist ein Waschbecken in Weiß und in Pergamon — der Laden verkauft es jetzt in beiden",
           "text": "Die Liste eines Herstellers bepreist einen Code je Farbe, während der Katalog das Produkt ohne Farben führte: beide Preise fielen auf ein Produkt, und jemand musste Zeile für Zeile einen streichen — 797 Zeilen auf der Ideal-Standard-Liste. Eine Karte in der Prüfung gibt jedem solchen Produkt nun seine Farben aus der Farbtabelle, jede mit eigenem Preis, eigenem Code und eigenem Barcode; die erste Farbe behält den Barcode des Produkts, damit gedruckte Etiketten weiter scannen. Sie berührt nur Produkte, die nichts bindet: vor jeder Änderung fragt der Katalog das Lager (Bestand, Reservierungen, Einkäufe, Umlagerungen, Inventuren) und die Rechnungen (Angebote, Entwürfe, offene Rechnungen, Retouren), und antwortet eines nicht, geschieht nichts. Der Inhaber sieht zuerst, was geschehen wird; was er sah, wird getan; das Zurücknehmen lässt jedes seither bepreiste oder gebundene Produkt stehen. Das Team sieht die Vorschau, der Inhaber drückt. Ein Prüfgremium hielt die erste Fassung wegen Bestand an, den sie bewegt hätte; die zweite bewegt keinen, wurde zweimal gelesen und an Kopien der Bücher dreier Dienste geprobt: 797 Zeilen auf 208, der Rest bewusst mit Gründen belassen."

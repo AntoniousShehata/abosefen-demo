@@ -596,7 +596,7 @@
       },
       "tests": {
         "title": "Tests at three levels",
-        "text": "About 2,400 unit test methods (xUnit) that run to 6,109 cases; integration tests on real PostgreSQL and RabbitMQ in containers (Testcontainers); and rehearsals on a copy of the production data for anything that touches money."
+        "text": "About 2,400 unit test methods (xUnit) that run to 6,158 cases; integration tests on real PostgreSQL and RabbitMQ in containers (Testcontainers); and rehearsals on a copy of the production data for anything that touches money."
       },
       "security": {
         "title": "Secure by default",
@@ -625,6 +625,14 @@
       "tryIt": "Try it in the demo →",
       "onlyThere": "In production only",
       "items": {
+        "companyGroups": {
+          "title": "One maker, several discounts: a company's product groups priced apart",
+          "text": "A maker sells its economy line at a final price and its other lines at a list discount — so the shop buys and sells them at different discounts. A company now has groups, each named by its series (Duravit's own Egyptian list gives three: economy at a final price, local, imported), and each group carries the owner's two ways of pricing: his discount from the company and the customer's, or net plus his profit. A product finds its group by a series name in its own name, Arabic or English, as whole words; before a discount is set the owner sees exactly which products a group takes, and can take one out by hand (an acrylic bath that shares a ceramic set's series name). A group's rule comes before its category's; everything else is priced as before, and nothing changes a price until a review is applied. A review board read it twice — money changes pass every gate — and it was rehearsed on a copy of the catalogue: an economy basin priced at net + 15 %, a local toilet at 30 % / 25 %, the economy group priced again alone."
+        },
+        "pdfArabicFonts": {
+          "title": "A supplier PDF whose Arabic font hides its letters, read right",
+          "text": "One maker's price list draws Arabic letters under Latin codes («%» for «ح», «T» for «ف») and some digits as accents, so «لحوض» came out as «ل%وض» and «58» as «٥̕». The reader now gives each font's codes back — per font, because two weights of the same font code them differently — and only what the file's own words prove: a code is mapped when the words it sits in become real words of the catalogue, a digit when the English beside it says which. Damaged names on that list fell from 225 to 7; no code, colour or price changed on any of the eleven real lists read again."
+        },
         "colourOptions": {
           "title": "A supplier prices a basin in white and in pergamon — the shop now sells it in both",
           "text": "A maker's list prices one code in each colour, while the catalogue held the product without colours: both prices fell on one product, and someone had to drop one, line by line — 797 lines on the Ideal Standard list. One card on the review now gives each such product its colours from the colours table, each its own price, its own code and its own barcode; the first colour keeps the product's barcode, so labels already printed still scan. It touches only products nothing holds: before any change the catalogue asks the warehouse (stock, reservations, purchases, transfers, counts) and the invoices (quotes, drafts, open invoices, returns), and when either cannot answer it does nothing. The owner sees first what it will do; what he saw is what is done; taking it back leaves any product priced or held since. The team previews, the owner presses. A review board held the first version over stock it would have moved; the second moves none, was read twice, and was rehearsed on copies of three services' books: 797 lines down to 208, the rest left on purpose with their reasons."
