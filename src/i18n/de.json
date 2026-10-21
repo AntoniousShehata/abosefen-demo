@@ -596,7 +596,7 @@
       },
       "tests": {
         "title": "Tests auf drei Ebenen",
-        "text": "Rund 2.400 Unit-Test-Methoden (xUnit), die 5.988 Fälle ergeben; Integrationstests auf echtem PostgreSQL und RabbitMQ in Containern (Testcontainers); und Proben auf einer Kopie der Produktivdaten für alles, was Geld berührt."
+        "text": "Rund 2.400 Unit-Test-Methoden (xUnit), die 6.057 Fälle ergeben; Integrationstests auf echtem PostgreSQL und RabbitMQ in Containern (Testcontainers); und Proben auf einer Kopie der Produktivdaten für alles, was Geld berührt."
       },
       "security": {
         "title": "Sicher von Grund auf",
@@ -625,6 +625,14 @@
       "tryIt": "In der Demo ausprobieren →",
       "onlyThere": "Nur im Produktivsystem",
       "items": {
+        "priceListScreens": {
+          "title": "Die Preislisten vom Hochladen bis zum Zurücknehmen, wie ein Ladeninhaber sie liest — und eine Zeile ganz gelesen",
+          "text": "Der Inhaber wollte den ganzen Weg einer Lieferantenliste einfach haben und gab das Design frei, bevor es gebaut wurde. Hochladen ist ein Knopf, in der Reihenfolge, in der er liest: die Datei, die Firma, das Datum auf der Liste (nie von selbst heute), der Verkaufspreis in einem Satz, dann «hochladen und lesen». Während ein 79-seitiges PDF gelesen wird, sagt der Bildschirm, welche Seite. Die Prüfung öffnet mit drei Kacheln und einem nächsten Schritt; ein Handy bekommt eine Karte je Zeile mit fingergroßen Knöpfen; jede Frage ist ein eigenes Fenster des Geschäfts, die Antwort in Worten. Eine Liste kann aus ihrer gespeicherten Datei erneut gelesen werden — ein vom Inhaber eingetippter Preis oder ein von Hand gewähltes Produkt bleibt an seiner Zeile. Der Leser lernte, die Wörter zwischen einer englischen und einer arabischen Namensspalte zu behalten (eine graue und eine Nussbaum-Einheit lesen sich nicht mehr als eine), die verbundenen arabischen Buchstaben zurückzugeben, die eine Schrift unlesbar lässt, und eine Zeile nie nach ihrem Namen einem Produkt mit einem anderen Herstellercode zuzuordnen — er nennt stattdessen den Verwandten des Modells. Zwei unabhängige Prüfungen lasen die Änderung; jeder Befund wurde ein Test."
+        },
+        "priceLookup": {
+          "title": "Ein Suchfeld über alle Lieferantenlisten und ein Link, den der Kunde öffnen kann",
+          "text": "Das Team durchsucht jede hochgeladene Preisliste — nach Code, Name oder Farbe — und sieht den Preis der Firma, den Verkaufspreis des Geschäfts, die Änderung zur Liste davor und den Preis eines Produkts über die Jahre. Für Kunden gibt es einen Link, aus, bis der Inhaber ihn einschaltet: jede übernommene Liste nach Datum, die neueste zuerst, als schlichte Tabelle und als PDF mit der Identität des Geschäfts — nur die bestätigten Verkaufspreise des Geschäfts, nie die der Firma. Der Inhaber kann jede Liste ausblenden; eine ausgeblendete verweigert der Server, nicht nur die Seite."
+        },
         "pdfPriceLists": {
           "title": "Preislisten der Lieferanten als PDF, hier aus ihren eigenen Wörtern gelesen — und von neun Prüfungen geprüft",
           "text": "Der Inhaber konnte seine 79-seitige Ideal-Standard-Liste nicht hochladen: Ein PDF las nur ein KI-Dienst, dessen Guthaben aufgebraucht war, und eine Datei dieser Größe füllte den Speicher des Servers. Das Geschäft liest ein PDF jetzt selbst: Die Wörter jeder Seite und ihre Lage werden zur Tabelle — die Spalten aus den Streifen, die die meisten Zeilen frei lassen, ein Satz für die ganze Seite, geteilt, wo eine eigene Tabelle eine Lücke lässt; Preise je Farbe, gestapelte und nebeneinanderliegende Tabellen, arabische Tabellen von rechts nach links, ein Kopf über zwei Zeilen, eine Zeile mit Preiswörtern über einer unteren Tabelle. Die Regel ist die des Inhabers: Ein Preis landet nie beim falschen Code, der falschen Farbe oder dem falschen Artikel, und keine Zeile verschwindet — eine Zeile, bei der der Leser unsicher ist, bleibt liegen, gezählt, mit ihrem Grund. Neun unabhängige Prüfungen griffen ihn mit konstruierten Layouts an; jeder Befund wurde ein Test (jetzt rund 300), und eine Probe mit seinen 11 echten Listen liest nach jeder Runde dasselbe — Ideal Standard 974 → 1.270 Zeilen. Keine Zeile aus einem PDF oder aus einem Blatt mit mehr als einer Tabelle hakt sich selbst an: Der Inhaber sieht jede neben der Originalseite, bevor sich ein Preis ändert."

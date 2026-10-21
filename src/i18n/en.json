@@ -596,7 +596,7 @@
       },
       "tests": {
         "title": "Tests at three levels",
-        "text": "About 2,400 unit test methods (xUnit) that run to 5,988 cases; integration tests on real PostgreSQL and RabbitMQ in containers (Testcontainers); and rehearsals on a copy of the production data for anything that touches money."
+        "text": "About 2,400 unit test methods (xUnit) that run to 6,057 cases; integration tests on real PostgreSQL and RabbitMQ in containers (Testcontainers); and rehearsals on a copy of the production data for anything that touches money."
       },
       "security": {
         "title": "Secure by default",
@@ -625,6 +625,14 @@
       "tryIt": "Try it in the demo →",
       "onlyThere": "In production only",
       "items": {
+        "priceListScreens": {
+          "title": "The price lists, from upload to undo, as a shop owner reads them — and a line read whole",
+          "text": "The owner asked for the whole way of a supplier's list to be easy, and approved the design before it was built. Upload is one button, in the order he reads: the file, the company, the date written on the list (never today by itself), the selling price in one sentence, then «upload and read». While a 79-page PDF is read the screen says which page. The review opens on three tiles and one next step; a phone gets a card per line with buttons a finger hits; every question is the shop's own window, its answer in words. A list can be read again from its kept file — a price the owner typed or a product he chose by hand stays on its line. The reader learned to keep the words between an English and an Arabic name column (a grey and a walnut unit no longer read as one), to give back the joined Arabic letters a font leaves unreadable, and never to put a line, by its name, on a product that carries another maker's code — it names the model's relative instead. Two independent reviews read the change; each finding became a test."
+        },
+        "priceLookup": {
+          "title": "One search box over every supplier list, and a link the customer can open",
+          "text": "The team searches every price list the owner uploaded — by code, name or colour — and sees the company's price, the shop's selling price, the change from the list before, and a product's price through the years. For customers there is one link, off until the owner switches it on: every applied list by its date, newest first, as a plain table and a PDF with the shop's identity — the shop's confirmed selling prices only, never the company's. The owner can hide any list; a hidden one is refused by the server, not only hidden on the page."
+        },
         "pdfPriceLists": {
           "title": "Supplier price lists in PDF, read here from their own words — and checked by nine reviews",
           "text": "The owner could not upload his 79-page Ideal Standard list: a PDF was read only by an AI service, out of credit, and a file that size filled the server’s memory. The shop now reads a PDF itself: each page’s words and where they stand become a table — its columns from the strips most lines leave empty, one set for the whole page, cut where a table of its own leaves a gap; prices per colour, stacked and side-by-side tables, Arabic tables laid out right to left, a header on two rows, a band of price words over a lower table. The rule is the owner’s: a price never goes to the wrong code, colour or item, and no line vanishes — a line the reader is not sure of is left, counted, with its reason. Nine independent reviews attacked it with constructed layouts; each finding became a test (about 300 now), and a rehearsal on his 11 real lists reads the same after every round — Ideal Standard 974 → 1,270 lines. No line read from a PDF, or from a sheet holding more than one table, ticks itself: the owner sees each beside the original page before any price changes."
