@@ -596,7 +596,7 @@
       },
       "tests": {
         "title": "Tests at three levels",
-        "text": "About 2,400 unit test methods (xUnit) that run to 6,214 cases; integration tests on real PostgreSQL and RabbitMQ in containers (Testcontainers); and rehearsals on a copy of the production data for anything that touches money."
+        "text": "About 2,400 unit test methods (xUnit) that run to 6,272 cases; integration tests on real PostgreSQL and RabbitMQ in containers (Testcontainers); and rehearsals on a copy of the production data for anything that touches money."
       },
       "security": {
         "title": "Secure by default",
@@ -625,6 +625,10 @@
       "tryIt": "Try it in the demo →",
       "onlyThere": "In production only",
       "items": {
+        "makersOwnList": {
+          "title": "A maker's own price list read as its page shows it — and nothing it holds vanishes",
+          "text": "A maker's list prints an item's name over several lines with its code and price on the last, its column titles over several rows, its sizes in front of its codes and its notes across the page. The reader now finds the page's own two spacings — the lines of one item and the gap between items — and gives each priced line the name lines of its own block, above it or around it; a name over several variants names each of them. One maker's 88-page list went from 139 lines read to 605, covering 430 of its 443 article numbers, with no AI. On the way, an older class was closed: a second code beside the first, a price that had run into a name, and a price under a colour the reader does not know are now counted and left for a person, never passed by. On the eleven real lists read again, no code's price changed. A review board read it twice — prices pass every gate — and every rule has a test that fails without it."
+        },
         "newFromList": {
           "title": "A maker's new products from its own price list — with the maker's own picture, or none",
           "text": "A maker's list arrives with products the shop has never carried. One card on the list's review now groups those codes by kind, each group in the category where the maker's own products of that kind already sit (offered as sure only when most of them, and at least three, do); the owner confirms a group with one press. The products are made hidden and with no price, through the same door as every product (code, barcode, names in each language), and the list then prices them when it is applied. A code already in the catalogue — even filed under a shorter model code, archived, or another maker's — is never made twice. Each product's picture comes only from the maker's own website, and only when the site's model, kind and placement (wall-hung, floor, above counter…) all match the line; otherwise there is no picture rather than a guessed one. Products changed since are never taken back. A review board read it before it went live."

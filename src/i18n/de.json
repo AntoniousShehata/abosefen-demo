@@ -596,7 +596,7 @@
       },
       "tests": {
         "title": "Tests auf drei Ebenen",
-        "text": "Rund 2.400 Unit-Test-Methoden (xUnit), die 6.214 Fälle ergeben; Integrationstests auf echtem PostgreSQL und RabbitMQ in Containern (Testcontainers); und Proben auf einer Kopie der Produktivdaten für alles, was Geld berührt."
+        "text": "Rund 2.400 Unit-Test-Methoden (xUnit), die 6.272 Fälle ergeben; Integrationstests auf echtem PostgreSQL und RabbitMQ in Containern (Testcontainers); und Proben auf einer Kopie der Produktivdaten für alles, was Geld berührt."
       },
       "security": {
         "title": "Sicher von Grund auf",
@@ -625,6 +625,10 @@
       "tryIt": "In der Demo ausprobieren →",
       "onlyThere": "Nur im Produktivsystem",
       "items": {
+        "makersOwnList": {
+          "title": "Die eigene Preisliste eines Herstellers so gelesen, wie ihre Seite sie zeigt — und nichts darin geht verloren",
+          "text": "Die Liste eines Herstellers druckt den Namen eines Artikels über mehrere Zeilen, Code und Preis auf der letzten, die Spaltentitel über mehrere Zeilen, die Maße vor den Codes und die Hinweise quer über die Seite. Der Leser findet jetzt die beiden Abstände der Seite selbst — die Zeilen eines Artikels und den Abstand zwischen Artikeln — und gibt jeder Preiszeile die Namenszeilen ihres eigenen Blocks, darüber oder darum herum; ein Name über mehreren Varianten benennt jede. Die 88-seitige Liste eines Herstellers stieg von 139 gelesenen Zeilen auf 605 (430 ihrer 443 Artikelnummern), ohne KI. Unterwegs wurde eine ältere Klasse geschlossen: ein zweiter Code neben dem ersten, ein in den Namen gerutschter Preis und ein Preis unter einer unbekannten Farbe werden jetzt gezählt und einer Person überlassen, nie übergangen. Auf den elf echten Listen änderte sich kein Preis eines Codes. Ein Prüfgremium las es zweimal, und jede Regel hat einen Test, der ohne sie fehlschlägt."
+        },
         "newFromList": {
           "title": "Neue Produkte eines Herstellers aus seiner eigenen Preisliste — mit dem Bild des Herstellers, oder keinem",
           "text": "Die Liste eines Herstellers bringt Produkte, die das Geschäft nie geführt hat. Eine Karte in der Prüfung der Liste gruppiert diese Codes nach Art, jede Gruppe in der Kategorie, in der die Produkte des Herstellers dieser Art schon liegen (als sicher nur angeboten, wenn die meisten, mindestens drei, dort liegen); der Inhaber bestätigt eine Gruppe mit einem Druck. Die Produkte werden verborgen und ohne Preis angelegt, über dieselbe Tür wie jedes Produkt, und die Liste bepreist sie beim Anwenden. Ein Code, den der Katalog schon hat — auch unter einem kürzeren Modellcode, archiviert oder eines anderen Herstellers — wird nie doppelt angelegt. Das Bild kommt nur von der eigenen Website des Herstellers und nur, wenn Modell, Art und Einbau zur Zeile passen; sonst gibt es kein Bild statt eines geratenen. Ein Prüfgremium las es, bevor es live ging."
