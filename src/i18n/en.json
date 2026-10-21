@@ -596,7 +596,7 @@
       },
       "tests": {
         "title": "Tests at three levels",
-        "text": "About 2,400 unit test methods (xUnit) that run to 6,057 cases; integration tests on real PostgreSQL and RabbitMQ in containers (Testcontainers); and rehearsals on a copy of the production data for anything that touches money."
+        "text": "About 2,400 unit test methods (xUnit) that run to 6,109 cases; integration tests on real PostgreSQL and RabbitMQ in containers (Testcontainers); and rehearsals on a copy of the production data for anything that touches money."
       },
       "security": {
         "title": "Secure by default",
@@ -625,6 +625,10 @@
       "tryIt": "Try it in the demo →",
       "onlyThere": "In production only",
       "items": {
+        "colourOptions": {
+          "title": "A supplier prices a basin in white and in pergamon — the shop now sells it in both",
+          "text": "A maker's list prices one code in each colour, while the catalogue held the product without colours: both prices fell on one product, and someone had to drop one, line by line — 797 lines on the Ideal Standard list. One card on the review now gives each such product its colours from the colours table, each its own price, its own code and its own barcode; the first colour keeps the product's barcode, so labels already printed still scan. It touches only products nothing holds: before any change the catalogue asks the warehouse (stock, reservations, purchases, transfers, counts) and the invoices (quotes, drafts, open invoices, returns), and when either cannot answer it does nothing. The owner sees first what it will do; what he saw is what is done; taking it back leaves any product priced or held since. The team previews, the owner presses. A review board held the first version over stock it would have moved; the second moves none, was read twice, and was rehearsed on copies of three services' books: 797 lines down to 208, the rest left on purpose with their reasons."
+        },
         "priceListScreens": {
           "title": "The price lists, from upload to undo, as a shop owner reads them — and a line read whole",
           "text": "The owner asked for the whole way of a supplier's list to be easy, and approved the design before it was built. Upload is one button, in the order he reads: the file, the company, the date written on the list (never today by itself), the selling price in one sentence, then «upload and read». While a 79-page PDF is read the screen says which page. The review opens on three tiles and one next step; a phone gets a card per line with buttons a finger hits; every question is the shop's own window, its answer in words. A list can be read again from its kept file — a price the owner typed or a product he chose by hand stays on its line. The reader learned to keep the words between an English and an Arabic name column (a grey and a walnut unit no longer read as one), to give back the joined Arabic letters a font leaves unreadable, and never to put a line, by its name, on a product that carries another maker's code — it names the model's relative instead. Two independent reviews read the change; each finding became a test."

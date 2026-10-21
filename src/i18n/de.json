@@ -596,7 +596,7 @@
       },
       "tests": {
         "title": "Tests auf drei Ebenen",
-        "text": "Rund 2.400 Unit-Test-Methoden (xUnit), die 6.057 Fälle ergeben; Integrationstests auf echtem PostgreSQL und RabbitMQ in Containern (Testcontainers); und Proben auf einer Kopie der Produktivdaten für alles, was Geld berührt."
+        "text": "Rund 2.400 Unit-Test-Methoden (xUnit), die 6.109 Fälle ergeben; Integrationstests auf echtem PostgreSQL und RabbitMQ in Containern (Testcontainers); und Proben auf einer Kopie der Produktivdaten für alles, was Geld berührt."
       },
       "security": {
         "title": "Sicher von Grund auf",
@@ -625,6 +625,10 @@
       "tryIt": "In der Demo ausprobieren →",
       "onlyThere": "Nur im Produktivsystem",
       "items": {
+        "colourOptions": {
+          "title": "Ein Hersteller bepreist ein Waschbecken in Weiß und in Pergamon — der Laden verkauft es jetzt in beiden",
+          "text": "Die Liste eines Herstellers bepreist einen Code je Farbe, während der Katalog das Produkt ohne Farben führte: beide Preise fielen auf ein Produkt, und jemand musste Zeile für Zeile einen streichen — 797 Zeilen auf der Ideal-Standard-Liste. Eine Karte in der Prüfung gibt jedem solchen Produkt nun seine Farben aus der Farbtabelle, jede mit eigenem Preis, eigenem Code und eigenem Barcode; die erste Farbe behält den Barcode des Produkts, damit gedruckte Etiketten weiter scannen. Sie berührt nur Produkte, die nichts bindet: vor jeder Änderung fragt der Katalog das Lager (Bestand, Reservierungen, Einkäufe, Umlagerungen, Inventuren) und die Rechnungen (Angebote, Entwürfe, offene Rechnungen, Retouren), und antwortet eines nicht, geschieht nichts. Der Inhaber sieht zuerst, was geschehen wird; was er sah, wird getan; das Zurücknehmen lässt jedes seither bepreiste oder gebundene Produkt stehen. Das Team sieht die Vorschau, der Inhaber drückt. Ein Prüfgremium hielt die erste Fassung wegen Bestand an, den sie bewegt hätte; die zweite bewegt keinen, wurde zweimal gelesen und an Kopien der Bücher dreier Dienste geprobt: 797 Zeilen auf 208, der Rest bewusst mit Gründen belassen."
+        },
         "priceListScreens": {
           "title": "Die Preislisten vom Hochladen bis zum Zurücknehmen, wie ein Ladeninhaber sie liest — und eine Zeile ganz gelesen",
           "text": "Der Inhaber wollte den ganzen Weg einer Lieferantenliste einfach haben und gab das Design frei, bevor es gebaut wurde. Hochladen ist ein Knopf, in der Reihenfolge, in der er liest: die Datei, die Firma, das Datum auf der Liste (nie von selbst heute), der Verkaufspreis in einem Satz, dann «hochladen und lesen». Während ein 79-seitiges PDF gelesen wird, sagt der Bildschirm, welche Seite. Die Prüfung öffnet mit drei Kacheln und einem nächsten Schritt; ein Handy bekommt eine Karte je Zeile mit fingergroßen Knöpfen; jede Frage ist ein eigenes Fenster des Geschäfts, die Antwort in Worten. Eine Liste kann aus ihrer gespeicherten Datei erneut gelesen werden — ein vom Inhaber eingetippter Preis oder ein von Hand gewähltes Produkt bleibt an seiner Zeile. Der Leser lernte, die Wörter zwischen einer englischen und einer arabischen Namensspalte zu behalten (eine graue und eine Nussbaum-Einheit lesen sich nicht mehr als eine), die verbundenen arabischen Buchstaben zurückzugeben, die eine Schrift unlesbar lässt, und eine Zeile nie nach ihrem Namen einem Produkt mit einem anderen Herstellercode zuzuordnen — er nennt stattdessen den Verwandten des Modells. Zwei unabhängige Prüfungen lasen die Änderung; jeder Befund wurde ein Test."
