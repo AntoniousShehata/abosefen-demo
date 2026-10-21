@@ -596,7 +596,7 @@
       },
       "tests": {
         "title": "Tests at three levels",
-        "text": "About 2,400 unit test methods (xUnit) that run to 6,158 cases; integration tests on real PostgreSQL and RabbitMQ in containers (Testcontainers); and rehearsals on a copy of the production data for anything that touches money."
+        "text": "About 2,400 unit test methods (xUnit) that run to 6,177 cases; integration tests on real PostgreSQL and RabbitMQ in containers (Testcontainers); and rehearsals on a copy of the production data for anything that touches money."
       },
       "security": {
         "title": "Secure by default",
@@ -625,6 +625,10 @@
       "tryIt": "Try it in the demo →",
       "onlyThere": "In production only",
       "items": {
+        "groupKinds": {
+          "title": "Discounts by kind of goods, with exceptions: the nearest rule wins",
+          "text": "A maker discounts its mixers, baths, ceramics, shower enclosures and spare parts differently. A company's discount groups can now be made from the shop's own categories (mixers = the mixers category and everything under it), beside the groups by series, and a single product can carry a discount of its own. A product takes the nearest discount: the product alone, then its model, then its kind, then its category, then the company's one discount — and one category never carries two discounts (the screen refuses the second and says which group prices it). One press can give every group the same discount, but a group with a discount of its own is changed only when ticked. One maker's 1,855 products fell into nine groups with none left over; made with no discount of their own, they moved no price — a whole re-pricing on a copy of the catalogue ticked nothing. A review board read it before it went live."
+        },
         "companyGroups": {
           "title": "One maker, several discounts: a company's product groups priced apart",
           "text": "A maker sells its economy line at a final price and its other lines at a list discount — so the shop buys and sells them at different discounts. A company now has groups, each named by its series (Duravit's own Egyptian list gives three: economy at a final price, local, imported), and each group carries the owner's two ways of pricing: his discount from the company and the customer's, or net plus his profit. A product finds its group by a series name in its own name, Arabic or English, as whole words; before a discount is set the owner sees exactly which products a group takes, and can take one out by hand (an acrylic bath that shares a ceramic set's series name). A group's rule comes before its category's; everything else is priced as before, and nothing changes a price until a review is applied. A review board read it twice — money changes pass every gate — and it was rehearsed on a copy of the catalogue: an economy basin priced at net + 15 %, a local toilet at 30 % / 25 %, the economy group priced again alone."

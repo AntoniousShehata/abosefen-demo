@@ -596,7 +596,7 @@
       },
       "tests": {
         "title": "Tests auf drei Ebenen",
-        "text": "Rund 2.400 Unit-Test-Methoden (xUnit), die 6.158 Fälle ergeben; Integrationstests auf echtem PostgreSQL und RabbitMQ in Containern (Testcontainers); und Proben auf einer Kopie der Produktivdaten für alles, was Geld berührt."
+        "text": "Rund 2.400 Unit-Test-Methoden (xUnit), die 6.177 Fälle ergeben; Integrationstests auf echtem PostgreSQL und RabbitMQ in Containern (Testcontainers); und Proben auf einer Kopie der Produktivdaten für alles, was Geld berührt."
       },
       "security": {
         "title": "Sicher von Grund auf",
@@ -625,6 +625,10 @@
       "tryIt": "In der Demo ausprobieren →",
       "onlyThere": "Nur im Produktivsystem",
       "items": {
+        "groupKinds": {
+          "title": "Rabatte nach Warenart, mit Ausnahmen: die nächste Regel gilt",
+          "text": "Ein Hersteller rabattiert Armaturen, Wannen, Keramik, Duschkabinen und Ersatzteile verschieden. Die Rabattgruppen einer Firma lassen sich jetzt aus den eigenen Kategorien des Geschäfts bilden (Armaturen = die Kategorie Armaturen und alles darunter), neben den Gruppen nach Serien, und ein einzelnes Produkt kann einen eigenen Rabatt tragen. Ein Produkt nimmt den nächsten Rabatt: das Produkt allein, dann sein Modell, dann seine Warenart, dann seine Kategorie, dann den einen Rabatt der Firma — und eine Kategorie trägt nie zwei Rabatte. Ein Druck gibt allen Gruppen denselben Rabatt, eine Gruppe mit eigenem Rabatt aber nur, wenn sie angekreuzt ist. Die 1.855 Produkte eines Herstellers fielen in neun Gruppen, keines blieb übrig; ohne eigenen Rabatt angelegt, bewegten sie keinen Preis. Ein Prüfgremium las es, bevor es live ging."
+        },
         "companyGroups": {
           "title": "Ein Hersteller, mehrere Rabatte: die Produktgruppen einer Firma getrennt bepreist",
           "text": "Ein Hersteller verkauft seine Einstiegslinie zum Nettopreis und die übrigen Linien mit Listenrabatt — das Geschäft kauft und verkauft sie also mit verschiedenen Rabatten. Eine Firma hat jetzt Gruppen, jede über ihre Serien benannt (Duravits eigene ägyptische Liste nennt drei: Einstieg zum Nettopreis, lokal, importiert), und jede Gruppe trägt die zwei Preisarten des Inhabers: sein Rabatt von der Firma und der des Kunden, oder netto plus Gewinn. Ein Produkt findet seine Gruppe über einen Seriennamen in seinem eigenen Namen, arabisch oder englisch, als ganzes Wort; bevor ein Rabatt gesetzt wird, sieht der Inhaber genau, welche Produkte eine Gruppe nimmt, und kann eines von Hand herausnehmen (eine Acrylwanne mit dem Seriennamen eines Keramiksets). Die Regel der Gruppe geht der Kategorie vor; alles andere wird wie bisher bepreist, und kein Preis ändert sich, bevor eine Prüfung angewendet wird. Ein Prüfgremium las es zweimal, und es wurde an einer Kopie des Katalogs geprobt."
