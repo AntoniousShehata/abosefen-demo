@@ -596,7 +596,7 @@
       },
       "tests": {
         "title": "Tests auf drei Ebenen",
-        "text": "Rund 2.400 Unit-Test-Methoden (xUnit), die 6.177 Fälle ergeben; Integrationstests auf echtem PostgreSQL und RabbitMQ in Containern (Testcontainers); und Proben auf einer Kopie der Produktivdaten für alles, was Geld berührt."
+        "text": "Rund 2.400 Unit-Test-Methoden (xUnit), die 6.214 Fälle ergeben; Integrationstests auf echtem PostgreSQL und RabbitMQ in Containern (Testcontainers); und Proben auf einer Kopie der Produktivdaten für alles, was Geld berührt."
       },
       "security": {
         "title": "Sicher von Grund auf",
@@ -625,6 +625,10 @@
       "tryIt": "In der Demo ausprobieren →",
       "onlyThere": "Nur im Produktivsystem",
       "items": {
+        "newFromList": {
+          "title": "Neue Produkte eines Herstellers aus seiner eigenen Preisliste — mit dem Bild des Herstellers, oder keinem",
+          "text": "Die Liste eines Herstellers bringt Produkte, die das Geschäft nie geführt hat. Eine Karte in der Prüfung der Liste gruppiert diese Codes nach Art, jede Gruppe in der Kategorie, in der die Produkte des Herstellers dieser Art schon liegen (als sicher nur angeboten, wenn die meisten, mindestens drei, dort liegen); der Inhaber bestätigt eine Gruppe mit einem Druck. Die Produkte werden verborgen und ohne Preis angelegt, über dieselbe Tür wie jedes Produkt, und die Liste bepreist sie beim Anwenden. Ein Code, den der Katalog schon hat — auch unter einem kürzeren Modellcode, archiviert oder eines anderen Herstellers — wird nie doppelt angelegt. Das Bild kommt nur von der eigenen Website des Herstellers und nur, wenn Modell, Art und Einbau zur Zeile passen; sonst gibt es kein Bild statt eines geratenen. Ein Prüfgremium las es, bevor es live ging."
+        },
         "groupKinds": {
           "title": "Rabatte nach Warenart, mit Ausnahmen: die nächste Regel gilt",
           "text": "Ein Hersteller rabattiert Armaturen, Wannen, Keramik, Duschkabinen und Ersatzteile verschieden. Die Rabattgruppen einer Firma lassen sich jetzt aus den eigenen Kategorien des Geschäfts bilden (Armaturen = die Kategorie Armaturen und alles darunter), neben den Gruppen nach Serien, und ein einzelnes Produkt kann einen eigenen Rabatt tragen. Ein Produkt nimmt den nächsten Rabatt: das Produkt allein, dann sein Modell, dann seine Warenart, dann seine Kategorie, dann den einen Rabatt der Firma — und eine Kategorie trägt nie zwei Rabatte. Ein Druck gibt allen Gruppen denselben Rabatt, eine Gruppe mit eigenem Rabatt aber nur, wenn sie angekreuzt ist. Die 1.855 Produkte eines Herstellers fielen in neun Gruppen, keines blieb übrig; ohne eigenen Rabatt angelegt, bewegten sie keinen Preis. Ein Prüfgremium las es, bevor es live ging."

@@ -596,7 +596,7 @@
       },
       "tests": {
         "title": "Tests at three levels",
-        "text": "About 2,400 unit test methods (xUnit) that run to 6,177 cases; integration tests on real PostgreSQL and RabbitMQ in containers (Testcontainers); and rehearsals on a copy of the production data for anything that touches money."
+        "text": "About 2,400 unit test methods (xUnit) that run to 6,214 cases; integration tests on real PostgreSQL and RabbitMQ in containers (Testcontainers); and rehearsals on a copy of the production data for anything that touches money."
       },
       "security": {
         "title": "Secure by default",
@@ -625,6 +625,10 @@
       "tryIt": "Try it in the demo →",
       "onlyThere": "In production only",
       "items": {
+        "newFromList": {
+          "title": "A maker's new products from its own price list — with the maker's own picture, or none",
+          "text": "A maker's list arrives with products the shop has never carried. One card on the list's review now groups those codes by kind, each group in the category where the maker's own products of that kind already sit (offered as sure only when most of them, and at least three, do); the owner confirms a group with one press. The products are made hidden and with no price, through the same door as every product (code, barcode, names in each language), and the list then prices them when it is applied. A code already in the catalogue — even filed under a shorter model code, archived, or another maker's — is never made twice. Each product's picture comes only from the maker's own website, and only when the site's model, kind and placement (wall-hung, floor, above counter…) all match the line; otherwise there is no picture rather than a guessed one. Products changed since are never taken back. A review board read it before it went live."
+        },
         "groupKinds": {
           "title": "Discounts by kind of goods, with exceptions: the nearest rule wins",
           "text": "A maker discounts its mixers, baths, ceramics, shower enclosures and spare parts differently. A company's discount groups can now be made from the shop's own categories (mixers = the mixers category and everything under it), beside the groups by series, and a single product can carry a discount of its own. A product takes the nearest discount: the product alone, then its model, then its kind, then its category, then the company's one discount — and one category never carries two discounts (the screen refuses the second and says which group prices it). One press can give every group the same discount, but a group with a discount of its own is changed only when ticked. One maker's 1,855 products fell into nine groups with none left over; made with no discount of their own, they moved no price — a whole re-pricing on a copy of the catalogue ticked nothing. A review board read it before it went live."
