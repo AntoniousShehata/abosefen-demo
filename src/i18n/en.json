@@ -596,7 +596,7 @@
       },
       "tests": {
         "title": "Tests at three levels",
-        "text": "About 2,400 unit test methods (xUnit) that run to 6,272 cases; integration tests on real PostgreSQL and RabbitMQ in containers (Testcontainers); and rehearsals on a copy of the production data for anything that touches money."
+        "text": "About 2,400 unit test methods (xUnit) that run to 6,329 cases; integration tests on real PostgreSQL and RabbitMQ in containers (Testcontainers); and rehearsals on a copy of the production data for anything that touches money."
       },
       "security": {
         "title": "Secure by default",
@@ -625,6 +625,10 @@
       "tryIt": "Try it in the demo →",
       "onlyThere": "In production only",
       "items": {
+        "sameThing": {
+          "title": "A maker's price reaches a product only when it is the same thing — and never by itself when it is twice the shop's price or half",
+          "text": "A check of the live catalogue against the newest list found lines priced on the wrong thing: a whole toilet or a bathroom set reached by the line of the bowl alone, a bowl carrying the code of its tank, a set of three mixers reached by one mixer. Now the program reads what a line and a product are — a bowl, a toilet, a close-coupled toilet, a tank, a seat, a basin, a pedestal, a shower tray, a bath, a mixer, a set — from the words the maker's list and the shop's own names both use. A line of another thing is held back from the prices, with the reason beside it, until a person chooses the product by hand; a new price twice the shop's or half of it waits for a person's tick, line by line. A thing not named is never called different: on a copy of the live catalogue the guard held exactly the fifteen wrong lines and no right one. A review board read it, and it was walked on a phone and a desktop, before it went live."
+        },
         "makersOwnList": {
           "title": "A maker's own price list read as its page shows it — and nothing it holds vanishes",
           "text": "A maker's list prints an item's name over several lines with its code and price on the last, its column titles over several rows, its sizes in front of its codes and its notes across the page. The reader now finds the page's own two spacings — the lines of one item and the gap between items — and gives each priced line the name lines of its own block, above it or around it; a name over several variants names each of them. One maker's 88-page list went from 139 lines read to 605, covering 430 of its 443 article numbers, with no AI. On the way, an older class was closed: a second code beside the first, a price that had run into a name, and a price under a colour the reader does not know are now counted and left for a person, never passed by. On the eleven real lists read again, no code's price changed. A review board read it twice — prices pass every gate — and every rule has a test that fails without it."
