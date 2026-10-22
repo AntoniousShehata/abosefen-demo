@@ -17,6 +17,7 @@ import SignIn from './pages/SignIn.jsx';
 import NotFound from './pages/NotFound.jsx';
 import OutagePage from './pages/OutagePage.jsx';
 import Engineering from './pages/Engineering.jsx';
+import ReelsPage from './pages/ReelsPage.jsx';
 import AdminLayout, { RequirePermission } from './pages/admin/AdminLayout.jsx';
 import AdminHome from './pages/admin/AdminHome.jsx';
 import AdminProducts from './pages/admin/AdminProducts.jsx';
@@ -41,6 +42,8 @@ export function AppRoutes() {
         <Route path="my-orders" element={<MyOrders />} />
         <Route path="signin" element={<SignIn />} />
         <Route path="engineering" element={<Engineering />} />
+        <Route path="reels" element={<ReelsPage />} />
+        <Route path="reels/:id" element={<ReelsPage />} />
         <Route path="outage" element={<OutagePage />} />
         <Route path="admin" element={<AdminLayout />}>
           <Route index element={<AdminHome />} />

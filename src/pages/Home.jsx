@@ -4,6 +4,7 @@ import { useApi } from '../hooks/useApi.js';
 import { useI18n } from '../i18n/I18nProvider.jsx';
 import ProductArt from '../components/ProductArt.jsx';
 import ProductCard, { ProductGrid } from '../components/ProductCard.jsx';
+import ReelStrip from '../components/ReelStrip.jsx';
 import { ErrorState, Loading, SectionTitle } from '../components/ui.jsx';
 
 function Scenario({ n, to, children }) {
@@ -87,6 +88,8 @@ export default function Home() {
           </div>
         </section>
       )}
+
+      <ReelStrip />
 
       <section>
         <SectionTitle

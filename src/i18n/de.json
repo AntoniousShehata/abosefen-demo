@@ -596,7 +596,7 @@
       },
       "tests": {
         "title": "Tests auf drei Ebenen",
-        "text": "Rund 2.400 Unit-Test-Methoden (xUnit), die 6.497 Fälle ergeben; Integrationstests auf echtem PostgreSQL und RabbitMQ in Containern (Testcontainers); und Proben auf einer Kopie der Produktivdaten für alles, was Geld berührt."
+        "text": "Rund 2.400 Unit-Test-Methoden (xUnit), die 6.569 Fälle ergeben; Integrationstests auf echtem PostgreSQL und RabbitMQ in Containern (Testcontainers); und Proben auf einer Kopie der Produktivdaten für alles, was Geld berührt."
       },
       "security": {
         "title": "Sicher von Grund auf",
@@ -868,8 +868,37 @@
         "cardGateway": {
           "title": "Ein Kartengateway hinter einer Schnittstelle — Schlüssel versiegelt, jedes Ergebnis signiert, geprüft, gespeichert und einmal verarbeitet",
           "text": "Kartenzahlung läuft über eine Schnittstelle für jeden Zahlungsanbieter, mit Paymob (Ägypten) als erstem Adapter. Der Inhaber pflegt das Gateway auf einem Bildschirm: Der geheime Schlüssel und das HMAC-Geheimnis sind nur schreibbar und mit AES-GCM versiegelt, und ein Schlüssel des anderen Systems (Test / echt) wird abgelehnt, auch wenn es der bereits gespeicherte ist. «Verbindung testen» öffnet eine Zahlung, die niemand bezahlt; «Testzahlung» wird mit der Testkarte des Testsystems bezahlt. Der Kunde zahlt auf der eigenen Seite des Anbieters, und das Ergebnis kommt signiert (HMAC-SHA512) zum Server und mit dem Browser zurück. Jedes Ergebnis wird geprüft, gespeichert (ein gefälschtes behält nur ein Kilobyte), über die signierte Bestellnummer des Anbieters statt der unsignierten Referenz zugeordnet und einmal verarbeitet, egal auf welchem Weg es kam, mit einer eindeutigen Datenbankregel als letzter Wache. Betrag und Währung werden mit dem Verlangten verglichen, und nur ein einfacher Verkauf zählt als bezahlt: eine Rückerstattung, Stornierung oder Autorisierung nie. Die Türen der Ergebnisse haben am Gateway ihr eigenes Limit und ihre eigene Größengrenze. Der Schalter bleibt gesperrt, bis die Zahlung der Bestellung selbst, die Bücher und Rückerstattungen gebaut sind."
+        },
+        "reels": {
+          "title": "Die eigenen Kurzvideos des Geschäfts, jedes mit seinen Produkten — veröffentlicht nur vom Inhaber",
+          "text": "Reels aus dem Ausstellungsraum, so wie man sie kennt: ein Video pro Bildschirm, nach oben gewischt für das nächste, stumm bis zum Antippen, mit Doppeltipp gelikt. Neu ist das Geschäft drumherum: Das Produkt im Video erscheint genau in der Sekunde, in der es zu sehen ist, die Produkte stehen darunter mit der eigenen Karte und dem eigenen Knopf des Geschäfts, und die Produktseite bietet «im Video ansehen» an seiner Sekunde. Das Marketing-Team lädt vom Handy hoch (in 8-MB-Stücken, eine schwache Leitung schickt nur ein Stück neu), ein Medien-Worker mit ffmpeg macht auf dem eigenen Rechner des Geschäfts eine leichte 720p-Kopie und drei Titelbilder, und nichts erreicht einen Kunden, bevor der Inhaber es freigibt und die Funktion einschaltet. Aufrufe zählen einmal pro Handy und Tag, Likes einmal pro Handy, und Kunden sehen die Zahlen ab 100 Aufrufen."
         }
       }
+    }
+  },
+  "reels": {
+    "title": "Reels",
+    "close": "Schließen",
+    "previous": "Vorheriges Video",
+    "next": "Nächstes Video",
+    "like": "Gefällt mir",
+    "now": "Jetzt im Video",
+    "views": "{count} Aufrufe",
+    "sound": {
+      "on": "Ton an",
+      "off": "Für Ton tippen",
+      "turnOn": "Ton einschalten",
+      "turnOff": "Ton ausschalten"
+    },
+    "strip": {
+      "title": "Reels",
+      "subtitle": "Sehen Sie es in Betrieb, bevor Sie kaufen",
+      "all": "Alle Reels"
+    },
+    "products": {
+      "button": "Produkte in diesem Video",
+      "title": "Produkte in diesem Video",
+      "count": "{count} Produkte"
     }
   }
 }

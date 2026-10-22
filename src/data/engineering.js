@@ -12,7 +12,7 @@ export const STATS = [
   { key: 'services', value: '10' },
   { key: 'csharp', value: '103k' },
   { key: 'react', value: '68k' },
-  { key: 'tests', value: '6,497' },
+  { key: 'tests', value: '6,569' },
   { key: 'rules', value: '249' },
   { key: 'commits', value: '1,000+' },
 ];
@@ -20,7 +20,7 @@ export const STATS = [
 export const STACK = [
   { key: 'backend', items: ['.NET 10', 'ASP.NET Core minimal APIs', 'EF Core 10', 'PostgreSQL 16', 'RabbitMQ', 'YARP', 'JWT'] },
   { key: 'frontend', items: ['React 19', 'Vite 6', 'Tailwind CSS', 'React Router 7', 'RTL · ar / en / de'] },
-  { key: 'workers', items: ['Python', 'Flask', 'ONNX Runtime · DINOv2', 'Tesseract · EasyOCR'] },
+  { key: 'workers', items: ['Python', 'Flask', 'ONNX Runtime · DINOv2', 'Tesseract · EasyOCR', 'FFmpeg'] },
   { key: 'quality', items: ['xUnit', 'FluentAssertions', 'Testcontainers', 'GitHub Actions', 'gitleaks', 'Trivy', 'Docker'] },
 ];
 
@@ -29,6 +29,7 @@ export const PRACTICES = ['ai', 'tests', 'security', 'arabic', 'oneShop'];
 // «Latest in production» — newest first. A change the demo can show with invented data carries tryIt: the demo's
 // own page where its version of it can be tried (docs/SYNC.md, «Every production change reaches the demo»).
 export const LATEST = [
+  { id: 'reels', date: '2026-10-22', tryIt: '/reels' },
   { id: 'newIndeed', date: '2026-10-22' },
   { id: 'deliveryWays', date: '2026-10-22' },
   { id: 'searchOpen', date: '2026-10-22' },
