@@ -596,7 +596,7 @@
       },
       "tests": {
         "title": "Tests at three levels",
-        "text": "About 2,400 unit test methods (xUnit) that run to 6,329 cases; integration tests on real PostgreSQL and RabbitMQ in containers (Testcontainers); and rehearsals on a copy of the production data for anything that touches money."
+        "text": "About 2,400 unit test methods (xUnit) that run to 6,380 cases; integration tests on real PostgreSQL and RabbitMQ in containers (Testcontainers); and rehearsals on a copy of the production data for anything that touches money."
       },
       "security": {
         "title": "Secure by default",
@@ -625,6 +625,10 @@
       "tryIt": "Try it in the demo →",
       "onlyThere": "In production only",
       "items": {
+        "listsAsPrinted": {
+          "title": "Two more makers' price lists read as printed — their colours, their series, their Arabic letters, a fittings maker's families — and nothing read before goes uncounted",
+          "text": "A sanitaryware maker's luxury list prints colours the reader did not know (calacatta, platinum, special colours, wood), writes each series name turned up the side of its table, and sets some Arabic letters as one shape or inside the letter before them. A pipe-fittings maker prints no name column at all: each table is named by the family printed over it, with its sizes in a column of their own. The reader now reads the colours (a wood beside a material is no colour), the turned series as the section of its table's lines, the Arabic letters in their order and an Arabic line right to left with its numbers and English kept in theirs, and each fitting by its family with its size apart, so a family can become one product with its sizes as options. A review board of three read it and set ten musts; each was answered with a test that fails without its fix. Every list the shop has uploaded was read again: the spreadsheets read exactly as before, and every price read before is read or counted now."
+        },
         "sameThing": {
           "title": "A maker's price reaches a product only when it is the same thing — and never by itself when it is twice the shop's price or half",
           "text": "A check of the live catalogue against the newest list found lines priced on the wrong thing: a whole toilet or a bathroom set reached by the line of the bowl alone, a bowl carrying the code of its tank, a set of three mixers reached by one mixer. Now the program reads what a line and a product are — a bowl, a toilet, a close-coupled toilet, a tank, a seat, a basin, a pedestal, a shower tray, a bath, a mixer, a set — from the words the maker's list and the shop's own names both use. A line of another thing is held back from the prices, with the reason beside it, until a person chooses the product by hand; a new price twice the shop's or half of it waits for a person's tick, line by line. A thing not named is never called different: on a copy of the live catalogue the guard held exactly the fifteen wrong lines and no right one. A review board read it, and it was walked on a phone and a desktop, before it went live."

@@ -596,7 +596,7 @@
       },
       "tests": {
         "title": "Tests auf drei Ebenen",
-        "text": "Rund 2.400 Unit-Test-Methoden (xUnit), die 6.329 Fälle ergeben; Integrationstests auf echtem PostgreSQL und RabbitMQ in Containern (Testcontainers); und Proben auf einer Kopie der Produktivdaten für alles, was Geld berührt."
+        "text": "Rund 2.400 Unit-Test-Methoden (xUnit), die 6.380 Fälle ergeben; Integrationstests auf echtem PostgreSQL und RabbitMQ in Containern (Testcontainers); und Proben auf einer Kopie der Produktivdaten für alles, was Geld berührt."
       },
       "security": {
         "title": "Sicher von Grund auf",
@@ -625,6 +625,10 @@
       "tryIt": "In der Demo ausprobieren →",
       "onlyThere": "Nur im Produktivsystem",
       "items": {
+        "listsAsPrinted": {
+          "title": "Zwei weitere Herstellerlisten so gelesen, wie sie gedruckt sind — Farben, Serien, arabische Buchstaben, die Familien eines Fittingherstellers — und nichts zuvor Gelesenes bleibt ungezählt",
+          "text": "Die Luxusliste eines Sanitärherstellers druckt Farben, die der Leser nicht kannte (Calacatta, Platin, Sonderfarben, Holz), schreibt jeden Seriennamen gedreht an die Seite seiner Tabelle und setzt manche arabischen Buchstaben als eine Form oder in den Buchstaben davor. Ein Hersteller von Rohrfittings druckt gar keine Namensspalte: jede Tabelle heißt nach der Familie über ihr, ihre Maße stehen in einer eigenen Spalte. Der Leser liest jetzt die Farben (Holz neben einem Material ist keine Farbe), die gedrehte Serie als Abschnitt der Zeilen ihrer Tabelle, die arabischen Buchstaben in ihrer Reihenfolge und eine arabische Zeile von rechts nach links, Zahlen und Englisch in ihrer eigenen, und jedes Fitting nach seiner Familie mit dem Maß für sich, damit eine Familie ein Produkt mit ihren Maßen als Optionen werden kann. Ein Prüfgremium aus drei las es und stellte zehn Pflichtpunkte; jeder wurde mit einem Test beantwortet, der ohne seine Korrektur fehlschlägt. Jede Liste, die das Geschäft hochgeladen hat, wurde neu gelesen: die Tabellen genau wie zuvor, und jeder zuvor gelesene Preis wird gelesen oder gezählt."
+        },
         "sameThing": {
           "title": "Ein Herstellerpreis erreicht ein Produkt nur, wenn es dasselbe Ding ist — und nie von selbst, wenn er doppelt oder halb so hoch ist",
           "text": "Eine Prüfung des Live-Katalogs gegen die neueste Liste fand Zeilen am falschen Ding: ein ganzes WC oder ein Badset von der Zeile des Beckens allein erreicht, ein Becken mit dem Code seines Spülkastens, ein Set aus drei Armaturen von einer Armatur erreicht. Jetzt liest das Programm, was eine Zeile und ein Produkt sind — Becken, WC, Stand-WC-Kombination, Spülkasten, Sitz, Waschtisch, Standsäule, Duschwanne, Badewanne, Armatur, Set — aus den Wörtern, die die Liste des Herstellers und die eigenen Namen des Geschäfts verwenden. Eine Zeile eines anderen Dings wird von den Preisen zurückgehalten, mit dem Grund daneben, bis eine Person das Produkt von Hand wählt; ein neuer Preis doppelt oder halb so hoch wartet auf das Häkchen einer Person, Zeile für Zeile. Ein nicht genanntes Ding gilt nie als verschieden: auf einer Kopie des Live-Katalogs hielt der Wächter genau die fünfzehn falschen Zeilen und keine richtige. Ein Prüfgremium las es, und es wurde auf Telefon und Desktop durchgegangen, bevor es live ging."
