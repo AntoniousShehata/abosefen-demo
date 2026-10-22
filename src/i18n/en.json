@@ -596,7 +596,7 @@
       },
       "tests": {
         "title": "Tests at three levels",
-        "text": "About 2,400 unit test methods (xUnit) that run to 6,415 cases; integration tests on real PostgreSQL and RabbitMQ in containers (Testcontainers); and rehearsals on a copy of the production data for anything that touches money."
+        "text": "About 2,400 unit test methods (xUnit) that run to 6,419 cases; integration tests on real PostgreSQL and RabbitMQ in containers (Testcontainers); and rehearsals on a copy of the production data for anything that touches money."
       },
       "security": {
         "title": "Secure by default",
@@ -625,6 +625,10 @@
       "tryIt": "Try it in the demo →",
       "onlyThere": "In production only",
       "items": {
+        "ownCodeFirst": {
+          "title": "A code typed brings the product it belongs to first — before one that only carries it on an option",
+          "text": "The search watch, which tries the real search every six hours, caught a jacuzzi's own code bringing a same-named twin first: the twin's colour option carried the same maker's code, both stood on the line «found by its code», and the tie-breaks chose the twin. The code line now has two steps — first the product's own codes (its SKU, model, maker's code, its own barcode), then the codes it answers to through another record (an option's code or barcode, a SKU it carried before); the start of a code the same way. The twin is still found, and still before everything found by its words. Measured read-only on the live catalogue: of 57 searches, only the jacuzzi codes changed, each now opening with its own product, in the same time. The watch now types every such code each round. A review board read it, and each step of the rule has a test on a real database that fails without it."
+        },
         "oneFamily": {
           "title": "A maker's fitting in sixteen sizes becomes one product with its sizes inside — not sixteen products of one name",
           "text": "A pipe-fittings maker prints one table per fitting: an elbow in sixteen diameters, a saddle in eighteen pipe-and-thread sizes, each size its own article code. Made one code at a time, that list would have been five hundred products, many with the same name. Now the codes of one table — the same name, the code printed over the table, every size read by the shop's own size reader — become one product, each size an option carrying the maker's code, so the next list prices each size where it belongs. A size the shop's sizes table lacks is added through the table's own door, and the card says which before anything is made. The size reader learned two things on the way: «1 1/4\"» is one size, and «20*1/2\"» is a 20 mm pipe with a half-inch thread, never twenty inches. On a copy of the live catalogue the list's 513 codes became 108 products, none refused. A review board read it before it went live."

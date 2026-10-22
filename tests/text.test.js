@@ -55,6 +55,14 @@ describe('search normalisation', () => {
     expect(byName).toBeGreaterThan(0);
     expect(scoreMatch('toilet', { codes: ['X'], names: ['Nilora Mira basin mixer'] })).toBe(0);
   });
+
+  it('ranks the product whose own code was typed before one that carries it only on an option (production SRCH-12)', () => {
+    const own = scoreMatch('NIL-MIRA-B', { codes: ['NIL-MIRA-B'], names: ['Nilora Mira basin mixer'] });
+    const twin = scoreMatch('NIL-MIRA-B', { codes: ['NIL-MIRA-2'], optionCodes: ['NIL-MIRA-B'], names: ['Nilora Mira basin mixer'] });
+    const byName = scoreMatch('mira', { codes: ['NIL-MIRA-B'], names: ['Nilora Mira basin mixer'] });
+    expect(own).toBeGreaterThan(twin);
+    expect(twin).toBeGreaterThan(byName + 15); // still before every product found by its words, even of the kind asked for
+  });
 });
 
 describe('the trade\'s own words (production SRCH-5)', () => {

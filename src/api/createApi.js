@@ -405,7 +405,8 @@ export function createApi({ storage = browserStorage(), latency = [150, 450], no
     const brand = db.brands.find((b) => b.code === p.brandCode);
     const path = pathOf(p.categoryId);
     return {
-      codes: [p.sku, p.modelCode, ...p.variants.map((v) => v.sku)],
+      codes: [p.sku, p.modelCode],
+      optionCodes: p.variants.map((v) => v.sku),
       names: [p.nameAr, p.name, p.nameDe || '', brand?.name || '', brand?.nameAr || ''],
       others: [
         ...path.flatMap((c) => [c.nameAr, c.name, c.nameDe || '']),

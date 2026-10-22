@@ -124,14 +124,16 @@ export function matchesQuery(query, ...fields) {
 
 /**
  * A score for ordering results: an exact code beats a name, a name beats a category, a word at the start of a
- * name beats a word inside it. 0 = no match.
+ * name beats a word inside it. 0 = no match. As production's SRCH-12, the product's own code (its SKU, its model)
+ * comes before a code it carries only on one of its options.
  */
-export function scoreMatch(query, { codes = [], names = [], others = [] }) {
+export function scoreMatch(query, { codes = [], optionCodes = [], names = [], others = [] }) {
   const words = queryWords(query);
   if (words.length === 0) return 0;
   const wholeQuery = fold(query);
   if (codes.some((c) => fold(c) === wholeQuery)) return 1000;
-  if (!matchesQuery(query, codes, names, others)) return 0;
+  if (optionCodes.some((c) => fold(c) === wholeQuery)) return 900;
+  if (!matchesQuery(query, codes, optionCodes, names, others)) return 0;
   let score = 10;
   const nameText = names.map(fold).join(' | ');
   for (const w of words) {
