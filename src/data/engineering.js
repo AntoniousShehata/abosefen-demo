@@ -12,7 +12,7 @@ export const STATS = [
   { key: 'services', value: '10' },
   { key: 'csharp', value: '103k' },
   { key: 'react', value: '68k' },
-  { key: 'tests', value: '6,432' },
+  { key: 'tests', value: '6,434' },
   { key: 'rules', value: '249' },
   { key: 'commits', value: '1,000+' },
 ];
@@ -29,6 +29,7 @@ export const PRACTICES = ['ai', 'tests', 'security', 'arabic', 'oneShop'];
 // «Latest in production» — newest first. A change the demo can show with invented data carries tryIt: the demo's
 // own page where its version of it can be tried (docs/SYNC.md, «Every production change reaches the demo»).
 export const LATEST = [
+  { id: 'searchOpen', date: '2026-10-22' },
   { id: 'sharedLink', date: '2026-10-22' },
   { id: 'fittingsTree', date: '2026-10-22' },
   { id: 'ownCodeFirst', date: '2026-10-22' },
