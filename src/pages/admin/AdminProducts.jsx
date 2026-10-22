@@ -95,7 +95,7 @@ export default function AdminProducts() {
   const [busy, setBusy] = useState(false);
   const [problem, setProblem] = useState('');
 
-  const categories = useApi(() => api.listCategories(), []);
+  const categories = useApi(() => api.listCategories({ includeHidden: true }), []);
   const products = useApi(() => api.adminProducts({ q, categoryId: categoryId || null }), [q, categoryId]);
   const shown = useMemo(() => products.data || [], [products.data]);
 

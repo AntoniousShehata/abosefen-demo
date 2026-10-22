@@ -14,7 +14,7 @@ const EMPTY_FORM = { nameAr: '', nameEn: '', nameDe: '', parentId: '' };
 export default function AdminCategories() {
   const { t, pick, number } = useI18n();
   const toast = useToast();
-  const { data: categories, error, loading, reload } = useApi(() => api.listCategories(), []);
+  const { data: categories, error, loading, reload } = useApi(() => api.listCategories({ includeHidden: true }), []);
   const [dialog, setDialog] = useState(null); // { mode: 'add' | 'rename' | 'move', category }
   const [form, setForm] = useState(EMPTY_FORM);
   const [problem, setProblem] = useState(null);

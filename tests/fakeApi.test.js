@@ -293,14 +293,14 @@ describe('category tree management', () => {
   it('adds, renames and moves categories', async () => {
     const added = await api.addCategory({ parentId: 'c-valves', nameAr: 'محبس عوامة', nameEn: 'Float valves' });
     expect(added.slug).toBe('float-valves');
-    expect((await api.getCategory('float-valves')).path.map((c) => c.slug)).toEqual(['rough-in', 'valves', 'float-valves']);
+    expect((await api.getCategory('float-valves', { includeHidden: true })).path.map((c) => c.slug)).toEqual(['rough-in', 'valves', 'float-valves']);
 
     const renamed = await api.renameCategory(added.id, { nameAr: 'محبس عوامه', nameEn: 'Float valves', nameDe: 'Schwimmerventile' });
     expect(renamed.name.de).toBe('Schwimmerventile');
 
     const moved = await api.moveCategory('c-valves', 'c-mixers');
     expect(moved.parentCategoryId).toBe('c-mixers');
-    expect((await api.getCategory('float-valves')).path.map((c) => c.slug)).toEqual(['mixers', 'valves', 'float-valves']);
+    expect((await api.getCategory('float-valves', { includeHidden: true })).path.map((c) => c.slug)).toEqual(['mixers', 'valves', 'float-valves']);
   });
 
   it('keeps products on final categories and the tree free of loops', async () => {
@@ -315,6 +315,18 @@ describe('category tree management', () => {
   });
 });
 
+describe('CAT-50: a department with nothing shown', () => {
+  it('is left out of what customers see and kept in the panel', async () => {
+    await api.signIn('owner@demo');
+    await api.addCategory({ parentId: null, nameAr: 'قسم فاضى', nameEn: 'Empty department' });
+    expect((await api.listCategories()).some((c) => c.slug === 'empty-department')).toBe(false);
+    expect((await api.listCategories()).every((c) => c.productCount > 0)).toBe(true);
+    await expect(api.getCategory('empty-department')).rejects.toMatchObject({ code: 'categoryNotFound' });
+    expect((await api.listCategories({ includeHidden: true })).some((c) => c.slug === 'empty-department')).toBe(true);
+    expect((await api.getCategory('empty-department', { includeHidden: true })).category.productCount).toBe(0);
+  });
+});
+
 describe('persistence', () => {
   it('keeps the data in the given storage and resets to the seed', async () => {
     await api.signIn('owner@demo');
@@ -322,10 +334,10 @@ describe('persistence', () => {
     expect(JSON.parse(storage.getItem(STORAGE_KEY)).version).toBe(SEED_VERSION);
 
     const again = createApi({ storage, latency: [0, 0] });
-    expect((await again.listCategories()).some((c) => c.slug === 'trial-department')).toBe(true);
+    expect((await again.listCategories({ includeHidden: true })).some((c) => c.slug === 'trial-department')).toBe(true);
 
     await again.reset();
-    expect((await again.listCategories()).some((c) => c.slug === 'trial-department')).toBe(false);
+    expect((await again.listCategories({ includeHidden: true })).some((c) => c.slug === 'trial-department')).toBe(false);
     expect(await again.getSession()).toBeNull();
   });
 

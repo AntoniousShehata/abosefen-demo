@@ -633,12 +633,15 @@ export function createApi({ storage = browserStorage(), latency = [150, 450], no
       }),
 
     // Catalogue — GET /api/categories, /api/categories/{slug}, /api/products, /api/products/{slug}
-    listCategories: () => respond(() => categoriesInTreeOrder()),
-    getCategory: (slug) =>
+    // Production's CAT-50: a department with nothing shown is not shown to customers (its page answers like a missing
+    // one) and comes back by itself when a product in it is shown; the team's panel asks for every department.
+    listCategories: ({ includeHidden = false } = {}) =>
+      respond(() => categoriesInTreeOrder().filter((c) => includeHidden || c.productCount > 0)),
+    getCategory: (slug, { includeHidden = false } = {}) =>
       respond(() => {
         const c = db.categories.find((x) => x.slug === slug);
-        if (!c) throw new ApiError(404, 'categoryNotFound');
-        const children = childrenOf(c.id).map(categoryOut);
+        if (!c || (!includeHidden && branchCount(c.id) === 0)) throw new ApiError(404, 'categoryNotFound');
+        const children = childrenOf(c.id).filter((k) => includeHidden || branchCount(k.id) > 0).map(categoryOut);
         return { category: { ...categoryOut(c), subCategories: children }, path: pathOut(c.id), children };
       }),
     listBrands: () => respond(() => db.brands.map((b) => brandOut(b.code))),
