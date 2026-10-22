@@ -596,7 +596,7 @@
       },
       "tests": {
         "title": "Tests at three levels",
-        "text": "About 2,400 unit test methods (xUnit) that run to 6,434 cases; integration tests on real PostgreSQL and RabbitMQ in containers (Testcontainers); and rehearsals on a copy of the production data for anything that touches money."
+        "text": "About 2,400 unit test methods (xUnit) that run to 6,456 cases; integration tests on real PostgreSQL and RabbitMQ in containers (Testcontainers); and rehearsals on a copy of the production data for anything that touches money."
       },
       "security": {
         "title": "Secure by default",
@@ -625,6 +625,10 @@
       "tryIt": "Try it in the demo →",
       "onlyThere": "In production only",
       "items": {
+        "deliveryWays": {
+          "title": "Three ways to receive an order, each the owner’s to open — and a label that shows the product to someone who cannot read",
+          "text": "Customers will choose between collecting from the showroom (free, held for the hours the owner sets, paid there), a driver at his own price for the governorate (the system that already ran, untouched), or the shop’s own fixed price per governorate — light parcel or heavy, promised in so many days, free from an amount worked out from the share of an order the owner agrees to pay for delivery, with stepped discounts on the way. Each way is his switch; until he opens one, the checkout runs exactly as before, which the tests hold. On the warehouse side, every printed barcode label can now carry the product’s picture beside its name: the product’s outline in black with its body in light dots, made at the label printer’s own 8 dots a millimetre, so a worker who does not read knows the box at a glance — and the labels check still reads every barcode back."
+        },
         "searchOpen": {
           "title": "The shop opened to search engines — and the list of its pages is the catalogue itself, never a file that grows old",
           "text": "While the shop was a closed trial, robots.txt kept every search engine out and the sitemap was a placeholder: seven pages and the words «SITE_ORIGIN» where the address belonged. The owner opened the site to everyone, then asked for it to be found. Now search engines may read the shop — never the team's panel, a customer's own pages or the sign-in — and /sitemap.xml is written by the catalogue service each time it is asked: the shop's pages, every department and every product a customer can see, at the real address, with the day each product last changed. A product hidden is out of it at once; 16,668 addresses on the first day. Beside «install the app» the menus now offer «add us as a preferred source on Google»."

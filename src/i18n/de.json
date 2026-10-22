@@ -596,7 +596,7 @@
       },
       "tests": {
         "title": "Tests auf drei Ebenen",
-        "text": "Rund 2.400 Unit-Test-Methoden (xUnit), die 6.434 Fälle ergeben; Integrationstests auf echtem PostgreSQL und RabbitMQ in Containern (Testcontainers); und Proben auf einer Kopie der Produktivdaten für alles, was Geld berührt."
+        "text": "Rund 2.400 Unit-Test-Methoden (xUnit), die 6.456 Fälle ergeben; Integrationstests auf echtem PostgreSQL und RabbitMQ in Containern (Testcontainers); und Proben auf einer Kopie der Produktivdaten für alles, was Geld berührt."
       },
       "security": {
         "title": "Sicher von Grund auf",
@@ -625,6 +625,10 @@
       "tryIt": "In der Demo ausprobieren →",
       "onlyThere": "Nur im Produktivsystem",
       "items": {
+        "deliveryWays": {
+          "title": "Drei Wege, eine Bestellung zu erhalten, jeder vom Inhaber geöffnet — und ein Etikett, das das Produkt auch dem zeigt, der nicht liest",
+          "text": "Kunden wählen künftig zwischen Abholung im Ausstellungsraum (kostenlos, für die vom Inhaber festgelegten Stunden reserviert, dort bezahlt), einem Fahrer zu seinem eigenen Preis je Gouvernement (das bestehende System, unverändert) oder dem Festpreis des Geschäfts je Gouvernement — leichtes Paket oder schwer, in so vielen Tagen zugesagt, kostenlos ab einem Betrag, der aus dem Anteil berechnet wird, den der Inhaber für die Lieferung trägt, mit gestaffelten Rabatten auf dem Weg dorthin. Jeder Weg ist sein Schalter; solange er keinen öffnet, läuft der Checkout genau wie bisher, was die Tests festhalten. Im Lager kann jedes gedruckte Barcode-Etikett nun das Bild des Produkts neben dem Namen tragen: die Umrisse schwarz, der Körper in hellen Punkten, mit den 8 Punkten pro Millimeter des Etikettendruckers — ein Arbeiter, der nicht liest, erkennt den Karton auf einen Blick, und die Etikettenprüfung liest jeden Barcode weiterhin zurück."
+        },
         "searchOpen": {
           "title": "Der Shop ist für Suchmaschinen geöffnet — und die Liste seiner Seiten ist der Katalog selbst, nie eine Datei, die veraltet",
           "text": "Solange der Shop ein geschlossener Test war, hielt robots.txt jede Suchmaschine fern, und die Sitemap war ein Platzhalter: sieben Seiten und die Worte «SITE_ORIGIN», wo die Adresse stehen sollte. Der Inhaber öffnete die Seite für alle und wollte dann, dass sie gefunden wird. Jetzt dürfen Suchmaschinen den Shop lesen — nie das Team-Panel, die eigenen Seiten eines Kunden oder die Anmeldung —, und /sitemap.xml schreibt der Katalogdienst bei jeder Anfrage: die Seiten des Shops, jede Abteilung und jedes Produkt, das ein Kunde sehen kann, unter der echten Adresse, mit dem Tag der letzten Änderung. Ein verborgenes Produkt ist sofort draußen; 16.668 Adressen am ersten Tag. Neben «App installieren» bieten die Menüs nun «Uns als bevorzugte Quelle bei Google hinzufügen»."
