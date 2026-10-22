@@ -596,7 +596,7 @@
       },
       "tests": {
         "title": "Tests auf drei Ebenen",
-        "text": "Rund 2.400 Unit-Test-Methoden (xUnit), die 6.419 Fälle ergeben; Integrationstests auf echtem PostgreSQL und RabbitMQ in Containern (Testcontainers); und Proben auf einer Kopie der Produktivdaten für alles, was Geld berührt."
+        "text": "Rund 2.400 Unit-Test-Methoden (xUnit), die 6.431 Fälle ergeben; Integrationstests auf echtem PostgreSQL und RabbitMQ in Containern (Testcontainers); und Proben auf einer Kopie der Produktivdaten für alles, was Geld berührt."
       },
       "security": {
         "title": "Sicher von Grund auf",
@@ -625,6 +625,14 @@
       "tryIt": "In der Demo ausprobieren →",
       "onlyThere": "Nur im Produktivsystem",
       "items": {
+        "sharedLink": {
+          "title": "Ein per WhatsApp gesendetes Produkt kommt als das Produkt an — Bild, Name, Code — und die Nachricht sagt, wer schreibt und warum",
+          "text": "Ein Link zu einem Produkt kam im Chat als Logo und Name des Geschäfts an, egal was gesendet wurde. Chat-Apps lesen einen Link, bevor ihn jemand öffnet, und ein Single-Page-Shop hat ihnen nichts zu zeigen, bevor seine Skripte laufen. Jetzt schreibt der Server eine kleine Vorschau für die Robots von WhatsApp, Facebook, Telegram und den anderen — das erste eigene Bild des Produkts, Name, Marke, Abteilung und Code, den Preis nur, wenn Kunden ihn sehen dürfen — und das Frontend schickt nur diese Robots, und nur auf der Adresse eines Produkts oder einer Abteilung, dorthin; ein Mensch bekommt immer die Seite. Ein verborgenes Produkt oder die Startseite erscheint weiter als das Geschäft mit seinem Logo. Die WhatsApp-Knöpfe änderten sich mit: Jeder, von der unteren Leiste bis zur Fußzeile, öffnet jetzt mit dem Namen des Schreibenden (aus dem Konto oder einmal eingegeben), dem Anlass (ein Produkt, eine Preisaufstellung, eine Bestellung, eine Planung) und den Angaben der Seite mit ihrem Link. Ein Hook baut sie alle, und das UI-Audit lehnt einen anders geschriebenen WhatsApp-Link ab."
+        },
+        "fittingsTree": {
+          "title": "Rohrformteile so sortiert, wie ein Installateur danach fragt: erst die Art, dann das Material",
+          "text": "Sechshundert Formteile lagen in wenigen überfüllten Abteilungen, Versorgung und Abwasser gemischt, ein Winkel neben einem T-Stück neben einer Kappe. Der Inhaber wollte einen Baum, durch den ein Kunde gehen kann: Winkel für sich, T-Stücke für sich, Verschraubungen für sich, Kappen für sich, und die Versorgungsteile nie mit den Abwasserteilen verwechselt. Versorgungsteile öffnen jetzt nach Art, jede Art nach Material — PPR, Druck-UPVC, Druck-Polypropylen, verzinktes Eisen; Abwasserteile nach Art; jeder Name sagt «Versorgung» oder «Abwasser». Der Plan ging dem Inhaber Produkt für Produkt zu, bevor sich etwas bewegte; eine Transaktion legte dann 32 Abteilungen an, benannte 22 um und ordnete 585 Produkte ein, mit eigenen Prüfungen (kein Produkt auf einer Oberabteilung, ein Bild je Abteilung, drei Namen je Abteilung) und einem zuvor auf einer Kopie geprobten Rückweg."
+        },
         "ownCodeFirst": {
           "title": "Ein eingegebener Code bringt zuerst das Produkt, dem er gehört — vor einem, das ihn nur an einer Option trägt",
           "text": "Die Suchwache, die alle sechs Stunden die echte Suche prüft, fand den eigenen Code eines Whirlpools, der einen gleichnamigen Zwilling zuerst brachte: Die Farboption des Zwillings trug denselben Herstellercode, beide standen auf der Zeile «über seinen Code gefunden», und die Gleichstandsregeln wählten den Zwilling. Die Code-Zeile hat jetzt zwei Stufen — zuerst die eigenen Codes des Produkts (Artikelnummer, Modell, Herstellercode, eigener Barcode), dann die Codes, die es über einen anderen Datensatz trägt (Code oder Barcode einer Option, eine frühere Artikelnummer); der Anfang eines Codes ebenso. Der Zwilling wird weiter gefunden, und weiter vor allem, was über Wörter gefunden wird. Nur lesend auf dem echten Katalog gemessen: Von 57 Suchen änderten sich nur die Whirlpool-Codes, jede beginnt jetzt mit ihrem eigenen Produkt, in derselben Zeit. Die Wache gibt jetzt jede Runde jeden solchen Code ein. Ein Prüfgremium las es, und jede Stufe der Regel hat einen Test auf einer echten Datenbank, der ohne sie fehlschlägt."

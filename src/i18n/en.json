@@ -596,7 +596,7 @@
       },
       "tests": {
         "title": "Tests at three levels",
-        "text": "About 2,400 unit test methods (xUnit) that run to 6,419 cases; integration tests on real PostgreSQL and RabbitMQ in containers (Testcontainers); and rehearsals on a copy of the production data for anything that touches money."
+        "text": "About 2,400 unit test methods (xUnit) that run to 6,431 cases; integration tests on real PostgreSQL and RabbitMQ in containers (Testcontainers); and rehearsals on a copy of the production data for anything that touches money."
       },
       "security": {
         "title": "Secure by default",
@@ -625,6 +625,14 @@
       "tryIt": "Try it in the demo →",
       "onlyThere": "In production only",
       "items": {
+        "sharedLink": {
+          "title": "A product sent on WhatsApp arrives as the product — its picture, name and code — and the message says who writes and why",
+          "text": "A link to a product used to arrive in a chat as the shop's logo and name, whatever was sent. Chat apps read a link before anybody opens it, and a single-page shop has nothing to show them until its scripts run. Now the server writes a small preview for the robots of WhatsApp, Facebook, Telegram and the rest — the product's own first picture, its name, brand, department and code, and its price only when customers may read it — and the front sends only those robots, and only on a product's or a department's address, to it; a person always gets the page. A hidden product, or the home page, still reads as the shop with its logo. The WhatsApp buttons changed with it: every one of them, from the bottom bar to the footer, now opens with who is writing (the account's name, or one the visitor typed once), why (a product, a price statement, an order, a design) and the page's details with its link. One hook makes all of them, and the UI audit refuses a WhatsApp link written any other way."
+        },
+        "fittingsTree": {
+          "title": "Pipe fittings sorted the way a plumber asks for them: the kind first, then the material",
+          "text": "Six hundred pipe fittings sat in a few crowded departments, supply and drain mixed, an elbow beside a tee beside a cap. The owner asked for a tree a customer can walk: elbows apart, tees apart, unions apart, caps apart, and the supply fittings never confused with the drain ones. Supply fittings now open by kind, and each kind by its material — PPR, pressure UPVC, pressure polypropylene, galvanised iron; drain fittings by kind; every name says «supply» or «drain». The plan went to the owner product by product before anything moved; one transaction then made 32 departments, renamed 22 and placed 585 products, with its own checks inside (no product on a parent, a picture for every department, three names each) and an undo rehearsed on a copy first."
+        },
         "ownCodeFirst": {
           "title": "A code typed brings the product it belongs to first — before one that only carries it on an option",
           "text": "The search watch, which tries the real search every six hours, caught a jacuzzi's own code bringing a same-named twin first: the twin's colour option carried the same maker's code, both stood on the line «found by its code», and the tie-breaks chose the twin. The code line now has two steps — first the product's own codes (its SKU, model, maker's code, its own barcode), then the codes it answers to through another record (an option's code or barcode, a SKU it carried before); the start of a code the same way. The twin is still found, and still before everything found by its words. Measured read-only on the live catalogue: of 57 searches, only the jacuzzi codes changed, each now opening with its own product, in the same time. The watch now types every such code each round. A review board read it, and each step of the rule has a test on a real database that fails without it."

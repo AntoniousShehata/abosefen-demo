@@ -24,7 +24,7 @@ The demo is the visible tip. The system it is based on runs a real shop every da
 |---|---|
 | **10 back-end services** behind one YARP gateway | .NET 10, EF Core, PostgreSQL per service, RabbitMQ with an outbox |
 | **≈ 103k lines of C#** · **≈ 68k lines of React** | storefront, back office, drivers — Arabic first, three languages |
-| **6,419 automated tests** in the unit run | xUnit, Testcontainers, rehearsals on a copy of the real data |
+| **6,431 automated tests** in the unit run | xUnit, Testcontainers, rehearsals on a copy of the real data |
 | **249 business rules** written down | 224 enforced in code, each naming what enforces it |
 
 Eight hard problems it solves — money that can't be booked twice, closing a month while the shop keeps selling, an
@@ -208,7 +208,7 @@ read-only and reports fields added or removed since the snapshot. Details, limit
 التشغيل: `npm ci` ثم `npm run dev`. الاختبارات: `npm test`.
 المزامنة مع النظام الأصلى: [docs/SYNC.md](docs/SYNC.md).
 
-**النظام الحقيقى اللى وراها:** عشر خدمات ‎.NET وراء بوابة واحدة، و6,419 اختبار آلى، و249 قاعدة شغل مكتوبة. تمن مشاكل صعبة
+**النظام الحقيقى اللى وراها:** عشر خدمات ‎.NET وراء بوابة واحدة، و6,431 اختبار آلى، و249 قاعدة شغل مكتوبة. تمن مشاكل صعبة
 وإزاى اتحلّت، كل واحدة بالكود بتاعها: صفحة [«إزاى اتبنى»](https://antoniousshehata.github.io/abosefen-demo/#/engineering)
 فى نسخة العرض، أو [docs/ENGINEERING.md](docs/ENGINEERING.md).
 
