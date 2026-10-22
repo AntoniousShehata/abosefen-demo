@@ -596,7 +596,7 @@
       },
       "tests": {
         "title": "Tests at three levels",
-        "text": "About 2,400 unit test methods (xUnit) that run to 6,380 cases; integration tests on real PostgreSQL and RabbitMQ in containers (Testcontainers); and rehearsals on a copy of the production data for anything that touches money."
+        "text": "About 2,400 unit test methods (xUnit) that run to 6,415 cases; integration tests on real PostgreSQL and RabbitMQ in containers (Testcontainers); and rehearsals on a copy of the production data for anything that touches money."
       },
       "security": {
         "title": "Secure by default",
@@ -625,6 +625,10 @@
       "tryIt": "Try it in the demo →",
       "onlyThere": "In production only",
       "items": {
+        "oneFamily": {
+          "title": "A maker's fitting in sixteen sizes becomes one product with its sizes inside — not sixteen products of one name",
+          "text": "A pipe-fittings maker prints one table per fitting: an elbow in sixteen diameters, a saddle in eighteen pipe-and-thread sizes, each size its own article code. Made one code at a time, that list would have been five hundred products, many with the same name. Now the codes of one table — the same name, the code printed over the table, every size read by the shop's own size reader — become one product, each size an option carrying the maker's code, so the next list prices each size where it belongs. A size the shop's sizes table lacks is added through the table's own door, and the card says which before anything is made. The size reader learned two things on the way: «1 1/4\"» is one size, and «20*1/2\"» is a 20 mm pipe with a half-inch thread, never twenty inches. On a copy of the live catalogue the list's 513 codes became 108 products, none refused. A review board read it before it went live."
+        },
         "listsAsPrinted": {
           "title": "Two more makers' price lists read as printed — their colours, their series, their Arabic letters, a fittings maker's families — and nothing read before goes uncounted",
           "text": "A sanitaryware maker's luxury list prints colours the reader did not know (calacatta, platinum, special colours, wood), writes each series name turned up the side of its table, and sets some Arabic letters as one shape or inside the letter before them. A pipe-fittings maker prints no name column at all: each table is named by the family printed over it, with its sizes in a column of their own. The reader now reads the colours (a wood beside a material is no colour), the turned series as the section of its table's lines, the Arabic letters in their order and an Arabic line right to left with its numbers and English kept in theirs, and each fitting by its family with its size apart, so a family can become one product with its sizes as options. A review board of three read it and set ten musts; each was answered with a test that fails without its fix. Every list the shop has uploaded was read again: the spreadsheets read exactly as before, and every price read before is read or counted now."

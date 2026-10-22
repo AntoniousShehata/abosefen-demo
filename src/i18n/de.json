@@ -596,7 +596,7 @@
       },
       "tests": {
         "title": "Tests auf drei Ebenen",
-        "text": "Rund 2.400 Unit-Test-Methoden (xUnit), die 6.380 Fälle ergeben; Integrationstests auf echtem PostgreSQL und RabbitMQ in Containern (Testcontainers); und Proben auf einer Kopie der Produktivdaten für alles, was Geld berührt."
+        "text": "Rund 2.400 Unit-Test-Methoden (xUnit), die 6.415 Fälle ergeben; Integrationstests auf echtem PostgreSQL und RabbitMQ in Containern (Testcontainers); und Proben auf einer Kopie der Produktivdaten für alles, was Geld berührt."
       },
       "security": {
         "title": "Sicher von Grund auf",
@@ -625,6 +625,10 @@
       "tryIt": "In der Demo ausprobieren →",
       "onlyThere": "Nur im Produktivsystem",
       "items": {
+        "oneFamily": {
+          "title": "Ein Formteil eines Herstellers in sechzehn Größen wird ein Produkt mit seinen Größen — nicht sechzehn Produkte eines Namens",
+          "text": "Ein Hersteller von Rohrformteilen druckt eine Tabelle je Formteil: einen Winkel in sechzehn Durchmessern, eine Anbohrschelle in achtzehn Rohr- und Gewindegrößen, jede Größe mit eigener Artikelnummer. Code für Code angelegt, wären es fünfhundert Produkte gewesen, viele mit demselben Namen. Jetzt werden die Codes einer Tabelle — derselbe Name, der Code über der Tabelle, jede Größe vom eigenen Größenleser des Geschäfts gelesen — ein Produkt, jede Größe eine Option mit der Artikelnummer des Herstellers, sodass die nächste Liste jede Größe dort bepreist, wo sie hingehört. Eine Größe, die der Größentabelle fehlt, kommt über deren eigene Tür hinein, und die Karte sagt vorher, welche. Der Größenleser lernte dabei zweierlei: «1 1/4\"» ist eine Größe, und «20*1/2\"» ist ein 20-mm-Rohr mit Halbzoll-Gewinde, nie zwanzig Zoll. Auf einer Kopie des Live-Katalogs wurden aus den 513 Codes der Liste 108 Produkte, keines abgelehnt. Ein Prüfgremium las es, bevor es live ging."
+        },
         "listsAsPrinted": {
           "title": "Zwei weitere Herstellerlisten so gelesen, wie sie gedruckt sind — Farben, Serien, arabische Buchstaben, die Familien eines Fittingherstellers — und nichts zuvor Gelesenes bleibt ungezählt",
           "text": "Die Luxusliste eines Sanitärherstellers druckt Farben, die der Leser nicht kannte (Calacatta, Platin, Sonderfarben, Holz), schreibt jeden Seriennamen gedreht an die Seite seiner Tabelle und setzt manche arabischen Buchstaben als eine Form oder in den Buchstaben davor. Ein Hersteller von Rohrfittings druckt gar keine Namensspalte: jede Tabelle heißt nach der Familie über ihr, ihre Maße stehen in einer eigenen Spalte. Der Leser liest jetzt die Farben (Holz neben einem Material ist keine Farbe), die gedrehte Serie als Abschnitt der Zeilen ihrer Tabelle, die arabischen Buchstaben in ihrer Reihenfolge und eine arabische Zeile von rechts nach links, Zahlen und Englisch in ihrer eigenen, und jedes Fitting nach seiner Familie mit dem Maß für sich, damit eine Familie ein Produkt mit ihren Maßen als Optionen werden kann. Ein Prüfgremium aus drei las es und stellte zehn Pflichtpunkte; jeder wurde mit einem Test beantwortet, der ohne seine Korrektur fehlschlägt. Jede Liste, die das Geschäft hochgeladen hat, wurde neu gelesen: die Tabellen genau wie zuvor, und jeder zuvor gelesene Preis wird gelesen oder gezählt."
