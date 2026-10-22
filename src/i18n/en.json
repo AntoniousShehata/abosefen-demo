@@ -596,7 +596,7 @@
       },
       "tests": {
         "title": "Tests at three levels",
-        "text": "About 2,400 unit test methods (xUnit) that run to 6,456 cases; integration tests on real PostgreSQL and RabbitMQ in containers (Testcontainers); and rehearsals on a copy of the production data for anything that touches money."
+        "text": "About 2,400 unit test methods (xUnit) that run to 6,497 cases; integration tests on real PostgreSQL and RabbitMQ in containers (Testcontainers); and rehearsals on a copy of the production data for anything that touches money."
       },
       "security": {
         "title": "Secure by default",
@@ -625,6 +625,10 @@
       "tryIt": "Try it in the demo →",
       "onlyThere": "In production only",
       "items": {
+        "newIndeed": {
+          "title": "Before a price list adds a product, it makes sure the product is new — and a new product’s picture is the maker’s own, found by its own code",
+          "text": "A supplier’s list no longer creates a product the shop already holds under another code or another name. Each new code is checked against the whole catalogue: the same code with its zeros written otherwise, the shop’s own SKU ending with it, the code written in a product’s name, a model the company’s own products share, or the same name of the same kind and size. A look-alike is shown beside the line with its picture and waits for the owner’s word: «the same» links the line to that product (each size or colour to its own option, never one price for all), «new indeed» lets it be made. For one maker’s fittings, the picture comes from the maker’s own site only where the page states that very code; a family page alone is offered unticked."
+        },
         "deliveryWays": {
           "title": "Three ways to receive an order, each the owner’s to open — and a label that shows the product to someone who cannot read",
           "text": "Customers will choose between collecting from the showroom (free, held for the hours the owner sets, paid there), a driver at his own price for the governorate (the system that already ran, untouched), or the shop’s own fixed price per governorate — light parcel or heavy, promised in so many days, free from an amount worked out from the share of an order the owner agrees to pay for delivery, with stepped discounts on the way. Each way is his switch; until he opens one, the checkout runs exactly as before, which the tests hold. On the warehouse side, every printed barcode label can now carry the product’s picture beside its name: the product’s outline in black with its body in light dots, made at the label printer’s own 8 dots a millimetre, so a worker who does not read knows the box at a glance — and the labels check still reads every barcode back."

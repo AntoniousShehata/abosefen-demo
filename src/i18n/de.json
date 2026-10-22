@@ -596,7 +596,7 @@
       },
       "tests": {
         "title": "Tests auf drei Ebenen",
-        "text": "Rund 2.400 Unit-Test-Methoden (xUnit), die 6.456 Fälle ergeben; Integrationstests auf echtem PostgreSQL und RabbitMQ in Containern (Testcontainers); und Proben auf einer Kopie der Produktivdaten für alles, was Geld berührt."
+        "text": "Rund 2.400 Unit-Test-Methoden (xUnit), die 6.497 Fälle ergeben; Integrationstests auf echtem PostgreSQL und RabbitMQ in Containern (Testcontainers); und Proben auf einer Kopie der Produktivdaten für alles, was Geld berührt."
       },
       "security": {
         "title": "Sicher von Grund auf",
@@ -625,6 +625,10 @@
       "tryIt": "In der Demo ausprobieren →",
       "onlyThere": "Nur im Produktivsystem",
       "items": {
+        "newIndeed": {
+          "title": "Bevor eine Preisliste ein Produkt anlegt, prüft sie, dass es wirklich neu ist — und das Bild eines neuen Produkts ist das des Herstellers, gefunden über seinen eigenen Code",
+          "text": "Die Liste eines Lieferanten legt kein Produkt mehr an, das der Laden schon unter einem anderen Code oder Namen führt. Jeder neue Code wird mit dem ganzen Katalog verglichen: derselbe Code mit anders geschriebenen Nullen, die eigene Artikelnummer, die auf ihn endet, der Code im Namen eines Produkts, ein Modell der eigenen Produkte der Firma oder derselbe Name derselben Art und Größe. Ein ähnliches Produkt erscheint mit Bild neben der Zeile und wartet auf das Wort des Inhabers: «dasselbe» verknüpft die Zeile mit diesem Produkt (jede Größe oder Farbe mit ihrer eigenen Option, nie ein Preis für alle), «wirklich neu» lässt es anlegen. Für die Fittings eines Herstellers kommt das Bild nur dann von dessen eigener Seite, wenn die Seite genau diesen Code nennt; eine reine Familienseite wird ohne Haken angeboten."
+        },
         "deliveryWays": {
           "title": "Drei Wege, eine Bestellung zu erhalten, jeder vom Inhaber geöffnet — und ein Etikett, das das Produkt auch dem zeigt, der nicht liest",
           "text": "Kunden wählen künftig zwischen Abholung im Ausstellungsraum (kostenlos, für die vom Inhaber festgelegten Stunden reserviert, dort bezahlt), einem Fahrer zu seinem eigenen Preis je Gouvernement (das bestehende System, unverändert) oder dem Festpreis des Geschäfts je Gouvernement — leichtes Paket oder schwer, in so vielen Tagen zugesagt, kostenlos ab einem Betrag, der aus dem Anteil berechnet wird, den der Inhaber für die Lieferung trägt, mit gestaffelten Rabatten auf dem Weg dorthin. Jeder Weg ist sein Schalter; solange er keinen öffnet, läuft der Checkout genau wie bisher, was die Tests festhalten. Im Lager kann jedes gedruckte Barcode-Etikett nun das Bild des Produkts neben dem Namen tragen: die Umrisse schwarz, der Körper in hellen Punkten, mit den 8 Punkten pro Millimeter des Etikettendruckers — ein Arbeiter, der nicht liest, erkennt den Karton auf einen Blick, und die Etikettenprüfung liest jeden Barcode weiterhin zurück."
