@@ -596,7 +596,7 @@
       },
       "tests": {
         "title": "Tests auf drei Ebenen",
-        "text": "Rund 2.400 Unit-Test-Methoden (xUnit), die 6.431 Fälle ergeben; Integrationstests auf echtem PostgreSQL und RabbitMQ in Containern (Testcontainers); und Proben auf einer Kopie der Produktivdaten für alles, was Geld berührt."
+        "text": "Rund 2.400 Unit-Test-Methoden (xUnit), die 6.432 Fälle ergeben; Integrationstests auf echtem PostgreSQL und RabbitMQ in Containern (Testcontainers); und Proben auf einer Kopie der Produktivdaten für alles, was Geld berührt."
       },
       "security": {
         "title": "Sicher von Grund auf",
@@ -627,7 +627,7 @@
       "items": {
         "sharedLink": {
           "title": "Ein per WhatsApp gesendetes Produkt kommt als das Produkt an — Bild, Name, Code — und die Nachricht sagt, wer schreibt und warum",
-          "text": "Ein Link zu einem Produkt kam im Chat als Logo und Name des Geschäfts an, egal was gesendet wurde. Chat-Apps lesen einen Link, bevor ihn jemand öffnet, und ein Single-Page-Shop hat ihnen nichts zu zeigen, bevor seine Skripte laufen. Jetzt schreibt der Server eine kleine Vorschau für die Robots von WhatsApp, Facebook, Telegram und den anderen — das erste eigene Bild des Produkts, Name, Marke, Abteilung und Code, den Preis nur, wenn Kunden ihn sehen dürfen — und das Frontend schickt nur diese Robots, und nur auf der Adresse eines Produkts oder einer Abteilung, dorthin; ein Mensch bekommt immer die Seite. Ein verborgenes Produkt oder die Startseite erscheint weiter als das Geschäft mit seinem Logo. Die WhatsApp-Knöpfe änderten sich mit: Jeder, von der unteren Leiste bis zur Fußzeile, öffnet jetzt mit dem Namen des Schreibenden (aus dem Konto oder einmal eingegeben), dem Anlass (ein Produkt, eine Preisaufstellung, eine Bestellung, eine Planung) und den Angaben der Seite mit ihrem Link. Ein Hook baut sie alle, und das UI-Audit lehnt einen anders geschriebenen WhatsApp-Link ab."
+          "text": "Ein Link zu einem Produkt kam im Chat als Logo und Name des Geschäfts an, egal was gesendet wurde. Chat-Apps lesen einen Link, bevor ihn jemand öffnet, und ein Single-Page-Shop hat ihnen nichts zu zeigen, bevor seine Skripte laufen. Jetzt schreibt der Server eine kleine Vorschau für die Robots von WhatsApp, Facebook, Telegram und den anderen — das erste eigene Bild des Produkts, Name, Marke, Abteilung und Code, den Preis nur, wenn Kunden ihn sehen dürfen — und das Frontend schickt nur diese Robots, und nur auf der Adresse eines Produkts oder einer Abteilung, dorthin; ein Mensch bekommt immer die Seite. Ein verborgenes Produkt oder die Startseite erscheint weiter als das Geschäft mit seinem Logo. Die WhatsApp-Knöpfe änderten sich mit: Jeder, von der unteren Leiste bis zur Fußzeile, öffnet jetzt mit Name und Handynummer des Schreibenden (aus dem Konto oder einmal eingegeben), ohne Begrüßung, dann dem Anlass (ein Produkt, eine Preisaufstellung, eine Bestellung, eine Planung) und den Angaben der Seite mit ihrem Link. Ein Hook baut sie alle, und das UI-Audit lehnt einen anders geschriebenen WhatsApp-Link ab."
         },
         "fittingsTree": {
           "title": "Rohrformteile so sortiert, wie ein Installateur danach fragt: erst die Art, dann das Material",

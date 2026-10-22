@@ -596,7 +596,7 @@
       },
       "tests": {
         "title": "Tests at three levels",
-        "text": "About 2,400 unit test methods (xUnit) that run to 6,431 cases; integration tests on real PostgreSQL and RabbitMQ in containers (Testcontainers); and rehearsals on a copy of the production data for anything that touches money."
+        "text": "About 2,400 unit test methods (xUnit) that run to 6,432 cases; integration tests on real PostgreSQL and RabbitMQ in containers (Testcontainers); and rehearsals on a copy of the production data for anything that touches money."
       },
       "security": {
         "title": "Secure by default",
@@ -627,7 +627,7 @@
       "items": {
         "sharedLink": {
           "title": "A product sent on WhatsApp arrives as the product — its picture, name and code — and the message says who writes and why",
-          "text": "A link to a product used to arrive in a chat as the shop's logo and name, whatever was sent. Chat apps read a link before anybody opens it, and a single-page shop has nothing to show them until its scripts run. Now the server writes a small preview for the robots of WhatsApp, Facebook, Telegram and the rest — the product's own first picture, its name, brand, department and code, and its price only when customers may read it — and the front sends only those robots, and only on a product's or a department's address, to it; a person always gets the page. A hidden product, or the home page, still reads as the shop with its logo. The WhatsApp buttons changed with it: every one of them, from the bottom bar to the footer, now opens with who is writing (the account's name, or one the visitor typed once), why (a product, a price statement, an order, a design) and the page's details with its link. One hook makes all of them, and the UI audit refuses a WhatsApp link written any other way."
+          "text": "A link to a product used to arrive in a chat as the shop's logo and name, whatever was sent. Chat apps read a link before anybody opens it, and a single-page shop has nothing to show them until its scripts run. Now the server writes a small preview for the robots of WhatsApp, Facebook, Telegram and the rest — the product's own first picture, its name, brand, department and code, and its price only when customers may read it — and the front sends only those robots, and only on a product's or a department's address, to it; a person always gets the page. A hidden product, or the home page, still reads as the shop with its logo. The WhatsApp buttons changed with it: every one of them, from the bottom bar to the footer, now opens with who is writing — the name and mobile number from the account, or typed once — with no greeting, then why (a product, a price statement, an order, a design) and the page's details with its link. One hook makes all of them, and the UI audit refuses a WhatsApp link written any other way."
         },
         "fittingsTree": {
           "title": "Pipe fittings sorted the way a plumber asks for them: the kind first, then the material",

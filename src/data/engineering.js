@@ -12,7 +12,7 @@ export const STATS = [
   { key: 'services', value: '10' },
   { key: 'csharp', value: '103k' },
   { key: 'react', value: '68k' },
-  { key: 'tests', value: '6,431' },
+  { key: 'tests', value: '6,432' },
   { key: 'rules', value: '249' },
   { key: 'commits', value: '1,000+' },
 ];
