@@ -625,6 +625,14 @@
       "tryIt": "Try it in the demo →",
       "onlyThere": "In production only",
       "items": {
+        "reviewOnGoogle": {
+          "title": "Customers are asked for a Google review where it helps — and the printed QR always matches the link",
+          "text": "The owner keeps one Google review link in the shop's profile, accepted only as an https link on Google's own hosts. From it the site shows a «review us on Google» button in the footer and on the contact page, a delivered order's page and its delivery mail ask the customer, and the printed invoice carries a small QR of the link in its footer. The panel prints a counter sign in A5 or A4 with a large QR. Every QR is drawn from the saved link, never from an image someone uploaded, and a unit test decodes it back to the link. Nothing shows until the link is set."
+        },
+        "wayPricedOnServer": {
+          "title": "The customer picks how the order reaches him — and the server, not the page, decides what that costs",
+          "text": "The checkout now offers only the ways the owner opened for that order: collect from the showroom (free, the goods held for his hours, paid there), a driver at his own price, or the shop’s fixed price with its promised days and its discount. The page sends the choice and nothing else; the Orders service asks Shipping what that way costs by the very rule the page showed, before any stock is held — a closed way, a price that changed since it was shown, or no answer refuses the order instead of charging a guess. A made-up fee table that had sat in the code since the start went with it. On the order page the owner sees a pickup’s hold run out, and takes a fixed-price order himself on a day the server keeps within what the customer was promised."
+        },
         "newIndeed": {
           "title": "Before a price list adds a product, it makes sure the product is new — and a new product’s picture is the maker’s own, found by its own code",
           "text": "A supplier’s list no longer creates a product the shop already holds under another code or another name. Each new code is checked against the whole catalogue: the same code with its zeros written otherwise, the shop’s own SKU ending with it, the code written in a product’s name, a model the company’s own products share, or the same name of the same kind and size. A look-alike is shown beside the line with its picture and waits for the owner’s word: «the same» links the line to that product (each size or colour to its own option, never one price for all), «new indeed» lets it be made. For one maker’s fittings, the picture comes from the maker’s own site only where the page states that very code; a family page alone is offered unticked."
