@@ -16,6 +16,13 @@ import { ErrorState, Loading } from '../components/ui.jsx';
 
 const slugOf = (modelCode) => PRODUCTS.find((p) => p.modelCode === modelCode)?.slug;
 
+// As production: the player scrolls only its own box. On an iPhone scrollIntoView inside a fixed layer also moves the
+// page beneath, and once the player closes the bottom bar stands mid-screen.
+const showSlide = (box, slide, behavior = 'auto') => {
+  if (!box || !slide) return;
+  box.scrollTo?.({ top: slide.getBoundingClientRect().top - box.getBoundingClientRect().top + box.scrollTop, behavior });
+};
+
 function Slide({ reel, products, active, muted, onMute, liked, onLike, onProducts }) {
   const { t, pick, number } = useI18n();
   const [time, setTime] = useState(0);
@@ -111,7 +118,7 @@ export default function ReelsPage() {
   const { data, error, loading, reload } = useApi(() => Promise.all(slugs.map((slug) => api.getProduct(slug))), [slugs]);
   const productsOf = useCallback((reel) => (data || []).filter((p) => reel.products.some((x) => x.modelCode === p.modelCode)), [data]);
 
-  useEffect(() => { slides.current[first]?.scrollIntoView?.({ block: 'start' }); }, [first, data]);
+  useEffect(() => { showSlide(scroller.current, slides.current[first]); }, [first, data]);
 
   useEffect(() => {
     const root = scroller.current;
@@ -125,7 +132,7 @@ export default function ReelsPage() {
 
   useEffect(() => { setSheet(null); }, [active]);
 
-  const go = (i) => { if (i >= 0 && i < REELS.length) slides.current[i]?.scrollIntoView?.({ behavior: 'smooth', block: 'start' }); };
+  const go = (i) => { if (i >= 0 && i < REELS.length) showSlide(scroller.current, slides.current[i], 'smooth'); };
   const close = () => navigate(-1);
 
   useEffect(() => {

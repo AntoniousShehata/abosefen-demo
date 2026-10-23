@@ -625,6 +625,10 @@
       "tryIt": "Try it in the demo →",
       "onlyThere": "In production only",
       "items": {
+        "reelsOnPhones": {
+          "title": "The reels on an iPhone, the team's reel editor, and a Facebook share that works from a phone",
+          "text": "On the owner's iPhone the bottom bar stood in the middle of the screen after watching reels: the player moved between videos with scrollIntoView inside its full-screen layer, which on iOS also shifts the page beneath it. The player now scrolls only itself, and a check refuses that call in any full-screen layer. In the team's reel editor each product is a card with its name and code whole, and the time button says what it sets («show it from 0:12»). Sharing on Facebook from a phone now goes through the phone's share sheet with the link alone (Facebook's web share page opens the app and drops the post), and a kit hands the team the video file and a ready caption, because Facebook plays only videos uploaded to it."
+        },
         "googleReads": {
           "title": "What Google reads about every page — and a free product feed that never shows a price the shop has not confirmed",
           "text": "Each page now tells Google what it is, in schema.org data built from the same answers the page shows: the home page the shop itself (its address on the map, opening hours, phones, its pages), a product page the product with its maker's code and a GTIN only when the barcode is the maker's own with a valid check digit, and the price offer only when customers can read that price — most products are still «price on request», so most pages offer none. Product and department pages carry their breadcrumbs, every page its own title (a product's with its maker's code: about 2,400 names are shared) and a canonical address without filters, and search results stay out of the index. A Google Merchant Center feed lists the same products for free, read from the catalogue every 30 minutes. Found live and fixed the same night: a stock call that timed out read as «in stock» — an unread count now never says so."
