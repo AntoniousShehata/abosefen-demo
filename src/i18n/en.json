@@ -625,6 +625,10 @@
       "tryIt": "Try it in the demo →",
       "onlyThere": "In production only",
       "items": {
+        "iphoneInstallSteps": {
+          "title": "The iPhone «install the app» steps follow the Safari in the visitor's hand",
+          "text": "iPhones have no install button, so the site shows steps. On iOS 26 Safari keeps Share inside «⋯» beside the address, so «tap Share» pointed at a button a first-time visitor could not see. The site now reads Safari's own version, the iPad's touch screen and the phone's language. On iOS 26 it shows four steps with Safari's bar drawn, «⋯» ringed and an arrow at that corner, mirrored on an Arabic phone. Older iPhones and the iPad get Share where they keep it. WhatsApp, Facebook and Instagram's built-in browsers, which cannot install at all, are told to open the site in Safari, with a copy-link button. On the Arabic page, Safari's English button names sit isolated beside the Arabic ones, so the right-to-left line stays in order. A check runs sample browser identities through it."
+        },
         "reelsOnPhones": {
           "title": "The reels on an iPhone, the team's reel editor, and a Facebook share that works from a phone",
           "text": "On the owner's iPhone the bottom bar stood in the middle of the screen after watching reels: the player moved between videos with scrollIntoView inside its full-screen layer, which on iOS also shifts the page beneath it. The player now scrolls only itself, and a check refuses that call in any full-screen layer. In the team's reel editor each product is a card with its name and code whole, and the time button says what it sets («show it from 0:12»). Sharing on Facebook from a phone now goes through the phone's share sheet with the link alone (Facebook's web share page opens the app and drops the post), and a kit hands the team the video file and a ready caption, because Facebook plays only videos uploaded to it."
