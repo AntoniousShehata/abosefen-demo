@@ -30,6 +30,7 @@ export const PRACTICES = ['ai', 'tests', 'security', 'arabic', 'oneShop'];
 // own page where its version of it can be tried (docs/SYNC.md, «Every production change reaches the demo»).
 export const LATEST = [
   { id: 'googleReads', date: '2026-10-23' },
+  { id: 'saleUnit', date: '2026-10-23' },
   { id: 'listFamilies', date: '2026-10-23' },
   { id: 'reviewOnGoogle', date: '2026-10-23' },
   { id: 'wayPricedOnServer', date: '2026-10-22' },
