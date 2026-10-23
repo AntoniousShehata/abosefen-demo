@@ -625,6 +625,10 @@
       "tryIt": "Try it in the demo →",
       "onlyThere": "In production only",
       "items": {
+        "listFamilies": {
+          "title": "A supplier’s sizes written three ways still make one product per family — and the maker’s pictures load as you scroll",
+          "text": "A fittings maker prints an adaptor’s size as «20*25*1/2\"», a reducing piece’s as «25*32*20MM» and a valve’s as a bare «75». The size reader now reads all three — a pipe pair before a thread, three diameters, a bare pipe diameter in a list measured in millimetres — so each block of the list becomes one product with its sizes inside: one maker’s 513 codes make 57 products instead of 108. Two products the list names alike are told apart in their names by their sizes’ system, as the maker writes it (metric / BS), and a code made on its own shows its size. The maker’s pictures are fetched as they come into view, four at a time, and the server keeps each for six hours — a phone asking for a hundred at once had shown none. Rehearsed on a copy of the real catalogue before it went live."
+        },
         "reviewOnGoogle": {
           "title": "Customers are asked for a Google review where it helps — and the printed QR always matches the link",
           "text": "The owner keeps one Google review link in the shop's profile, accepted only as an https link on Google's own hosts. From it the site shows a «review us on Google» button in the footer and on the contact page, a delivered order's page and its delivery mail ask the customer, and the printed invoice carries a small QR of the link in its footer. The panel prints a counter sign in A5 or A4 with a large QR. Every QR is drawn from the saved link, never from an image someone uploaded, and a unit test decodes it back to the link. Nothing shows until the link is set."

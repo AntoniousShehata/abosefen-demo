@@ -625,6 +625,10 @@
       "tryIt": "In der Demo ausprobieren →",
       "onlyThere": "Nur im Produktivsystem",
       "items": {
+        "listFamilies": {
+          "title": "Maße eines Lieferanten in drei Schreibweisen ergeben trotzdem ein Produkt je Familie — und die Bilder des Herstellers laden beim Scrollen",
+          "text": "Ein Hersteller von Formstücken druckt das Maß eines Übergangsstücks als «20*25*1/2\"», eines Reduzierstücks als «25*32*20MM» und eines Ventils als blanke «75». Der Maßleser liest jetzt alle drei — ein Rohrpaar vor einem Gewinde, drei Durchmesser, einen blanken Rohrdurchmesser in einer Liste in Millimetern —, sodass jeder Block der Liste ein Produkt mit seinen Maßen wird: 513 Codes eines Herstellers ergeben 57 Produkte statt 108. Zwei Produkte, die die Liste gleich nennt, werden im Namen nach dem System ihrer Maße unterschieden, so wie der Hersteller es schreibt (metrisch / BS), und ein einzeln angelegter Code zeigt sein Maß. Die Bilder des Herstellers werden geholt, sobald sie ins Bild kommen, vier auf einmal, und der Server behält jedes sechs Stunden — ein Telefon, das hundert auf einmal anfragte, hatte keines gezeigt. Vor dem Livegang auf einer Kopie des echten Katalogs geprobt."
+        },
         "reviewOnGoogle": {
           "title": "Kunden werden dort um eine Google-Bewertung gebeten, wo es hilft — und der gedruckte QR-Code passt immer zum Link",
           "text": "Der Inhaber hinterlegt einen Google-Bewertungslink im Geschäftsprofil, der nur als https-Link auf Googles eigenen Hosts angenommen wird. Daraus zeigt die Seite einen Knopf «Bewerten Sie uns bei Google» in der Fußzeile und auf der Kontaktseite, die Seite einer zugestellten Bestellung und ihre Zustell-E-Mail fragen den Kunden, und die gedruckte Rechnung trägt in der Fußzeile einen kleinen QR-Code des Links. Das Panel druckt einen Aufsteller in A5 oder A4 mit großem QR-Code. Jeder QR-Code wird aus dem gespeicherten Link erzeugt, nie aus einem hochgeladenen Bild, und ein Unit-Test liest ihn zurück zum Link. Solange kein Link gesetzt ist, erscheint nichts."
