@@ -928,6 +928,10 @@
         "reels": {
           "title": "The shop’s own short videos, each with the products in it — published only by the owner",
           "text": "Reels from the showroom, in the way people already watch them: one video a screen, swiped up for the next, silent until a tap, liked with a double tap. What is new is the shop around it: the product in the video pops up on the video at the second it shows, the products are listed under it with the shop’s own card and button, and a product’s page offers «see it in a video», opened at its second. The marketing team uploads from a phone (in 8 MB pieces, so a weak line resends one piece), a media worker with ffmpeg makes a light 720p copy and three covers on the shop’s own computer, and nothing reaches a customer until the owner approves it and turns the feature on. Views count once a phone a day, likes once a phone, and customers see the numbers from 100 views on."
+        },
+        "reelsToFacebook": {
+          "title": "A reel goes to the shop’s Facebook Page with one press — as a real Facebook Reel",
+          "text": "A link pasted on Facebook shows only as a card; an uploaded reel plays. So the owner connects the shop’s Facebook Page once: he pastes the Page’s ID and its access token himself, the server seals the token the moment it arrives (AES-GCM, with a key derived from the services’ own secret) and never shows it again, and «Test the connection» asks Facebook whose token it is — it passes only for that Page. On any reel live on the site he presses «Publish to Facebook»: the words are drafted from the reel’s own title, products and link, he edits them, and a background worker carries Meta’s three steps (start, upload, finish), then reads the video’s status until Facebook publishes it or says why not. Each press carries its own id, so a repeated request is one post; the database allows one post in flight per reel; the publish call is marked before it goes and never sent twice; Facebook’s refusals come back in plain words. A dry run checks everything and sends nothing, and the switch arrives off."
         }
       }
     }
