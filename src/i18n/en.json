@@ -135,6 +135,18 @@
       "send": "Notify me",
       "asked": "We will tell you as soon as it is back.",
       "cancel": "Cancel"
+    },
+    "cheaper": {
+      "button": "Found it cheaper?",
+      "title": "Found it cheaper? Tell us",
+      "place": "Where did you find it?",
+      "price": "At what price? (EGP)",
+      "link": "A link to the offer",
+      "name": "Name",
+      "mobile": "Mobile",
+      "send": "Send to the shop",
+      "sent": "The shop has it — we will answer you soon.",
+      "who": "The shop's owner reads it and answers you on WhatsApp."
     }
   },
   "cart": {
@@ -293,7 +305,9 @@
       "categoryRename": "Category renamed: {before} → {after}",
       "categoryMove": "Category moved: {before} → {after}",
       "stockMovement": "Stock movement #{number} ({type}) — {sku}",
-      "orderStatus": "Order {orderNumber}: {from} → {to}"
+      "orderStatus": "Order {orderNumber}: {from} → {to}",
+      "stockAlert": "Asked to be told when it is back — {sku}",
+      "priceReport": "Found it cheaper elsewhere — {sku}"
     },
     "productsPage": {
       "search": "Search name or code…",
@@ -414,7 +428,18 @@
       "copied": "The message is copied — paste it in WhatsApp.",
       "markSent": "Mark sent",
       "notSent": "Not sent yet",
-      "message": "Hello {{name}}, {{product}}, which you asked about, is back in stock."
+      "message": "Hello {name}, {product}, which you asked about, is back in stock."
+    },
+    "priceReports": {
+      "title": "Found it cheaper",
+      "intro": "Customers who saw one of our products for less elsewhere. Our price is the one the page showed them; answer on WhatsApp, then mark it answered. Nothing here changes a price.",
+      "empty": "No reports yet.",
+      "prices": "Ours {ours} · theirs {theirs} · {less} less ({share}%)",
+      "where": "Where: {place}",
+      "link": "Open the link",
+      "markAnswered": "Mark answered",
+      "answered": "Answered",
+      "notAnswered": "Not answered yet"
     }
   },
   "governorates": {
@@ -464,7 +489,9 @@
       "sameWarehouse": "Choose a different warehouse."
     },
     "inStockNow": "This option is in stock now — you can order it.",
-    "alertNotFound": "This request no longer exists."
+    "alertNotFound": "This request no longer exists.",
+    "notCheaper": "This price is not lower than ours.",
+    "reportNotFound": "This report no longer exists."
   },
   "footer": {
     "about": "A standalone demo of the Abosefen sanitaryware shop system. Every product, brand, price, stock figure, order and person in it is invented.",
@@ -966,6 +993,10 @@
         "backInStock": {
           "title": "«Notify me when it is back» — the customer is told the moment stock arrives, off until the owner turns it on",
           "text": "On a product that is out of stock, a customer leaves a name and a mobile (an email and his phone's notifications if he wants them). The stock service says by itself when a product goes from nothing to sell to some — it watches the save, so a receipt, a count, a return or a cancelled order all count — and puts that news on the message bus in the same save. The notification service then tells each waiting customer once, by email and a free phone notification, and gives the owner a list with a WhatsApp message ready for each; the program never sends WhatsApp itself. Rehearsed end to end on copies of the databases with a message bus of its own before it went live."
+        },
+        "foundCheaper": {
+          "title": "«Found it cheaper?» — a customer tells the owner where they saw a product for less, off until the owner turns it on",
+          "text": "Under a product's price, a customer says where they saw it for less, at what price, with a link or a photo of it, and leaves a name and a mobile. The server reads the shop's own price from the catalogue — the price the page shows, never one sent from the form — and refuses a price that is not lower, a report without proof, a file that is not a picture, or too many from one mobile in a day. The report reaches the owner's list with both prices and the difference; the customer joins the shop's contacts and the owner answers on WhatsApp. Nothing in it changes a price. Rehearsed on a copy of its database before it went live."
         }
       }
     }

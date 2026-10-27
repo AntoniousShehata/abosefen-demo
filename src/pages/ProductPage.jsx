@@ -8,6 +8,7 @@ import Breadcrumb from '../components/Breadcrumb.jsx';
 import ProductArt from '../components/ProductArt.jsx';
 import ProductCard from '../components/ProductCard.jsx';
 import NotifyWhenBack from '../components/NotifyWhenBack.jsx';
+import FoundItCheaper from '../components/FoundItCheaper.jsx';
 import { EmptyState, ErrorState, Loading, Price, QuantityStepper, SectionTitle, StockBadge } from '../components/ui.jsx';
 import { errorText } from '../lib/errorText.js';
 
@@ -121,6 +122,10 @@ export default function ProductPage() {
 
           <div className="mt-5 space-y-2">
             <Price pricing={pricing} size="lg" showFrom={hasVariants && !selected} />
+            {/* production's PRC-2: the customer saw it for less elsewhere */}
+            {(!hasVariants || selected) && !product.bundle && (
+              <FoundItCheaper key={selected?.id || product.id} productId={product.id} variantId={selected?.id || null} />
+            )}
             {product.promotion && (
               <p className="text-sm font-medium text-secondary">
                 {t('home.promoBadge')}: {pick(product.promotion.title)}

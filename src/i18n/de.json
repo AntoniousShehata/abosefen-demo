@@ -135,6 +135,18 @@
       "send": "Benachrichtigen",
       "asked": "Wir benachrichtigen Sie, sobald es wieder da ist.",
       "cancel": "Abbestellen"
+    },
+    "cheaper": {
+      "button": "Woanders günstiger gesehen?",
+      "title": "Woanders günstiger gesehen? Sagen Sie es uns",
+      "place": "Wo haben Sie es gesehen?",
+      "price": "Zu welchem Preis? (EGP)",
+      "link": "Ein Link zum Angebot",
+      "name": "Name",
+      "mobile": "Handy",
+      "send": "An den Laden senden",
+      "sent": "Der Laden hat es erhalten – wir antworten Ihnen bald.",
+      "who": "Der Inhaber liest es und antwortet Ihnen per WhatsApp."
     }
   },
   "cart": {
@@ -293,7 +305,9 @@
       "categoryRename": "Kategorie umbenannt: {before} → {after}",
       "categoryMove": "Kategorie verschoben: {before} → {after}",
       "stockMovement": "Lagerbewegung Nr. {number} ({type}) — {sku}",
-      "orderStatus": "Bestellung {orderNumber}: {from} → {to}"
+      "orderStatus": "Bestellung {orderNumber}: {from} → {to}",
+      "stockAlert": "Benachrichtigung gewünscht, wenn wieder verfügbar – {sku}",
+      "priceReport": "Woanders günstiger gesehen – {sku}"
     },
     "productsPage": {
       "search": "Name oder Code suchen…",
@@ -414,7 +428,18 @@
       "copied": "Die Nachricht ist kopiert – fügen Sie sie in WhatsApp ein.",
       "markSent": "Als gesendet markieren",
       "notSent": "Noch nicht gesendet",
-      "message": "Hallo {{name}}, {{product}}, nach dem Sie gefragt haben, ist wieder verfügbar."
+      "message": "Hallo {name}, {product}, nach dem Sie gefragt haben, ist wieder verfügbar."
+    },
+    "priceReports": {
+      "title": "Woanders günstiger",
+      "intro": "Kunden, die eines unserer Produkte woanders günstiger gesehen haben. Unser Preis ist der, den ihnen die Seite gezeigt hat; antworten Sie per WhatsApp und markieren Sie es dann als beantwortet. Hier wird kein Preis geändert.",
+      "empty": "Noch keine Meldungen.",
+      "prices": "Unserer {ours} · deren {theirs} · {less} weniger ({share} %)",
+      "where": "Wo: {place}",
+      "link": "Link öffnen",
+      "markAnswered": "Als beantwortet markieren",
+      "answered": "Beantwortet",
+      "notAnswered": "Noch nicht beantwortet"
     }
   },
   "governorates": {
@@ -464,7 +489,9 @@
       "sameWarehouse": "Bitte ein anderes Lager wählen."
     },
     "inStockNow": "Diese Variante ist jetzt verfügbar – Sie können sie bestellen.",
-    "alertNotFound": "Diese Anfrage gibt es nicht mehr."
+    "alertNotFound": "Diese Anfrage gibt es nicht mehr.",
+    "notCheaper": "Dieser Preis ist nicht niedriger als unserer.",
+    "reportNotFound": "Diese Meldung gibt es nicht mehr."
   },
   "footer": {
     "about": "Eine eigenständige Demo des Abosefen-Systems für einen Sanitärhandel. Jedes Produkt, jede Marke, jeder Preis, jeder Bestand, jede Bestellung und jede Person darin ist erfunden.",
@@ -966,6 +993,10 @@
         "backInStock": {
           "title": "„Benachrichtigen, wenn wieder verfügbar“ – der Kunde erfährt es, sobald Ware eintrifft; ausgeschaltet, bis der Inhaber es einschaltet",
           "text": "Bei einem ausverkauften Produkt hinterlässt der Kunde Name und Handynummer (auf Wunsch eine E-Mail und Benachrichtigungen aufs Handy). Der Lagerdienst meldet selbst, wenn ein Produkt von „nichts zu verkaufen“ auf „etwas“ wechselt – er beobachtet das Speichern, also zählen Wareneingang, Inventur, Rückgabe oder stornierte Bestellung – und legt diese Nachricht im selben Speichervorgang auf den Nachrichtenbus. Der Benachrichtigungsdienst informiert dann jeden wartenden Kunden einmal, per E-Mail und kostenloser Handy-Benachrichtigung, und gibt dem Inhaber eine Liste mit einer fertigen WhatsApp-Nachricht für jeden; das Programm sendet nie selbst WhatsApp. Vor dem Livegang auf Kopien der Datenbanken mit eigenem Nachrichtenbus durchgespielt."
+        },
+        "foundCheaper": {
+          "title": "„Woanders günstiger gesehen?“ – ein Kunde sagt dem Inhaber, wo er ein Produkt günstiger gesehen hat; ausgeschaltet, bis der Inhaber es einschaltet",
+          "text": "Unter dem Preis eines Produkts sagt ein Kunde, wo er es günstiger gesehen hat, zu welchem Preis, mit einem Link oder einem Foto davon, und hinterlässt Name und Handynummer. Der Server liest den eigenen Preis des Ladens aus dem Katalog – den Preis, den die Seite zeigt, nie einen aus dem Formular – und lehnt einen Preis ab, der nicht niedriger ist, eine Meldung ohne Beleg, eine Datei, die kein Bild ist, oder zu viele von einer Handynummer an einem Tag. Die Meldung erreicht die Liste des Inhabers mit beiden Preisen und dem Unterschied; der Kunde kommt in die Kontakte des Ladens, und der Inhaber antwortet per WhatsApp. Kein Preis wird dadurch geändert. Vor dem Livegang auf einer Kopie seiner Datenbank durchgespielt."
         }
       }
     }

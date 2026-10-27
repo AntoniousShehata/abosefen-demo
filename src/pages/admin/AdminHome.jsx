@@ -5,6 +5,7 @@ import { useI18n } from '../../i18n/I18nProvider.jsx';
 import { useSession } from '../../context/SessionContext.jsx';
 import { PERMISSIONS } from '../../lib/permissions.js';
 import { ErrorState, Loading } from '../../components/ui.jsx';
+import PriceReportsPanel from './PriceReportsPanel.jsx';
 
 export const pathText = (pick, path) => (path || []).map((c) => pick(c.name)).join(' / ');
 
@@ -56,6 +57,8 @@ export default function AdminHome() {
         {s.openOrders !== undefined && <Card label={t('admin.cards.openOrders')} value={number(s.openOrders)} to="/admin/orders" tone="secondary" />}
         {s.salesTotal !== undefined && <Card label={t('admin.cards.salesTotal')} value={money(s.salesTotal)} to="/admin/orders" tone="secondary" />}
       </div>
+
+      {can(PERMISSIONS.products) && <PriceReportsPanel />}
 
       {can(PERMISSIONS.activity) && (
         <section className="card p-5">

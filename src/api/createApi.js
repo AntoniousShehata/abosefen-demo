@@ -229,6 +229,11 @@ export function createApi({ storage = browserStorage(), latency = [150, 450], no
   const stockAlerts = () => (db.stockAlerts = db.stockAlerts || []);
   const namesOfProduct = (p) => ({ ar: p.nameAr, en: p.name, de: p.nameDe || p.name });
 
+  // ── «Found it cheaper?» (production's PRC-2) ───────────────────────────────────────────────────
+  // A customer says where they saw one of the shop's products for less. The shop's price is the one the page shows (its
+  // offer included), read here and never taken from the form; a price that is not lower is refused.
+  const priceReports = () => (db.priceReports = db.priceReports || []);
+
   function tellArrivals(key, before) {
     if (before > 0 || qtyOf(key) <= 0) return;
     const at = new Date(now()).toISOString();
@@ -1236,6 +1241,64 @@ export function createApi({ storage = browserStorage(), latency = [150, 450], no
         alert.messagedBy = messaged ? db.session.email : null;
         changed();
         return { id: alert.id, state: alert.state };
+      }),
+    sendPriceReport: ({ productId, variantId = null, place = '', price = null, link = '', name = '', mobile = '' } = {}) =>
+      respond(() => {
+        const p = productById(productId);
+        if (!p || !p.isActive) throw new ApiError(404, 'productNotFound');
+        const v = p.variants.length ? p.variants.find((x) => x.id === variantId) : null;
+        const fields = {};
+        const where = cleanName(place).slice(0, 120);
+        const theirs = Number(String(price ?? '').trim());
+        const url = String(link ?? '').trim();
+        const who = cleanName(name).slice(0, 60);
+        const phone = String(mobile ?? '').replace(/[\s-]/g, '');
+        if (p.variants.length && !v) fields.variantId = 'required';
+        if (where.length < 2) fields.place = 'required';
+        if (!(theirs > 0)) fields.price = 'invalid';
+        if (!/^https?:\/\/[^\s/]+\.[^\s]+$/i.test(url) || url.length > 500) fields.link = 'invalid';
+        if (!who) fields.name = 'required';
+        if (!/^01[0125]\d{8}$/.test(phone)) fields.mobile = 'invalid';
+        if (Object.keys(fields).length) throw new ApiError(422, 'validation', { fields });
+        const ours = priceOf(p, v).salePrice;
+        if (theirs >= ours) throw new ApiError(409, 'notCheaper');
+        db.counters.priceReport = (db.counters.priceReport || 0) + 1;
+        const report = {
+          id: `cheaper-${db.counters.priceReport}`,
+          productId: p.id,
+          unit: v ? v.id : p.id,
+          place: where,
+          ourPrice: ours,
+          theirPrice: theirs,
+          link: url,
+          name: who,
+          mobile: phone,
+          state: 'new',
+          at: new Date(now()).toISOString(),
+        };
+        priceReports().unshift(report);
+        logActivity('priceReport', { sku: skuOfUnit(report.unit) });
+        changed();
+        return { id: report.id };
+      }),
+    adminPriceReports: () =>
+      respond(() => {
+        requirePermission(PERMISSIONS.products);
+        return priceReports().map((r) => {
+          const p = productById(r.productId);
+          const v = p && r.unit !== p.id ? p.variants.find((x) => x.id === r.unit) : null;
+          return { ...r, product: p ? namesOfProduct(p) : null, variantLabel: v ? variantLabelOf(v) : null, sku: skuOfUnit(r.unit) };
+        });
+      }),
+    markPriceReportAnswered: (id, answered = true) =>
+      respond(() => {
+        requirePermission(PERMISSIONS.products);
+        const report = priceReports().find((r) => r.id === id);
+        if (!report) throw new ApiError(404, 'reportNotFound');
+        report.state = answered ? 'answered' : 'new';
+        report.answeredBy = answered ? db.session.email : null;
+        changed();
+        return { id: report.id, state: report.state };
       }),
     listMovements: ({ limit = 50 } = {}) =>
       respond(() => {

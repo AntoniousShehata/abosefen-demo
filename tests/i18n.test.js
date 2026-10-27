@@ -52,6 +52,24 @@ describe('translations', () => {
     expect(missing).toEqual([]);
   });
 
+  it('words every activity the fake API logs, so the owner never reads a key', () => {
+    const source = readFileSync(join(__dirname, '..', 'src', 'api', 'createApi.js'), 'utf8');
+    const logged = [...new Set([...source.matchAll(/logActivity\('(\w+)'/g)].map((m) => m[1]))];
+    expect(logged.length).toBeGreaterThan(0);
+    for (const [name, table] of Object.entries({ ar, en, de })) {
+      for (const type of logged) expect(table.admin.activityTypes[type], `${name}:${type}`).toBeTypeOf('string');
+    }
+  });
+
+  it('uses single-brace placeholders only — {{name}} would reach the reader with its braces', () => {
+    for (const [name, table] of Object.entries({ ar, en, de })) {
+      for (const key of keysOf(table)) {
+        const value = key.split('.').reduce((n, p) => n[p], table);
+        expect(/\{\{|\}\}/.test(value), `${name}:${key}`).toBe(false);
+      }
+    }
+  });
+
   it('fills placeholders and falls back to English, then to the key', () => {
     expect(translate('en', 'cart.each', { price: '5 EGP' })).toBe('5 EGP each');
     expect(translate('ar', 'checkout.simulation')).toBe('محاكاة — لا يتم دفع حقيقى');
