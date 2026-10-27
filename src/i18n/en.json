@@ -625,6 +625,10 @@
       "tryIt": "Try it in the demo →",
       "onlyThere": "In production only",
       "items": {
+        "listsCellByCell": {
+          "title": "Price lists read cell by cell, the way the owner reads them",
+          "text": "A supplier's price list is now read like a sheet: the sizes across the top and each size's price under it; a cell of digits is a price and a name has a letter; «2 inch / 4 inch» in one cell is one size, from a size to a size. Pipe lists name the pipe by its colour (white and grey drainage, green feed), a grey header's right-hand and left-hand codes are two products, and a maker's colour groups are each a price. The rules sit in one reference that every upload opens. Before it went live, every list the shop had uploaded was read by the old reader and the new one, row by row: one maker's catalogue had fallen from 605 lines to 418 and a model number had been glued into a size — both fixed first, so no line the old reader read was lost. The review now opens on four decisions: a small sure change, a first price or a big change, a new product, or a line that needs the owner."
+        },
         "shopContacts": {
           "title": "One list of the shop's contacts, each with his own consent — off until the owner turns it on",
           "text": "A visitor who does not register still gives a name and a mobile somewhere: the WhatsApp message to the shop, a price statement, an order or a showroom pickup, a design request. Each of these now writes one list — one row a mobile, however it was typed, with a trail of where and when he gave it. Under each form sits one tick, «the shop may contact me with offers», empty until he ticks it (Egypt's personal data law asks his consent); it holds until he asks the shop to stop, and a later form left unticked is no «no». The list is the owner's alone: he stops the offers when someone asks, or erases a person with his whole trail. The other services send their part in the same save as the request or the order; the WhatsApp door is limited per visitor. It arrives switched off — nothing is kept and no form asks — until the owner turns it on."
