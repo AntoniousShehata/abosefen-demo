@@ -3,8 +3,8 @@
   "about": "The data shapes this demo mirrors from the production Abosefen frontend. For each shape: how the production usage is extracted (read-only, grep-based), what production used at the snapshot, what the demo's fake API serves, and the gaps the demo leaves on purpose. Checked by scripts/check-contracts.mjs; served shapes are checked by tests/contracts.test.js. See docs/SYNC.md.",
   "snapshot": {
     "repository": "production (AbosefenWeb)",
-    "commit": "d011fd94",
-    "takenAt": "2026-10-25"
+    "commit": "0b644e37",
+    "takenAt": "2026-10-27"
   },
   "shapes": {
     "product": {
@@ -98,6 +98,7 @@
       "productionUses": [
         "_id",
         "averageRating",
+        "bundle",
         "bundle.availableAsBundle",
         "bundle.components",
         "category",

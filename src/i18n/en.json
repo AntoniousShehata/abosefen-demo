@@ -126,7 +126,16 @@
     "options": "{count} options",
     "finishes": "{count} finishes",
     "save": "−{percent}%",
-    "illustration": "Illustration drawn for the demo — not a product photo"
+    "illustration": "Illustration drawn for the demo — not a product photo",
+    "notify": {
+      "button": "Notify me when it is back",
+      "hint": "We tell you the moment this option is in stock again.",
+      "name": "Name",
+      "mobile": "Mobile",
+      "send": "Notify me",
+      "asked": "We will tell you as soon as it is back.",
+      "cancel": "Cancel"
+    }
   },
   "cart": {
     "title": "Your cart",
@@ -391,6 +400,21 @@
       "changed": "Order {number} is now {status}.",
       "empty": "No order matches.",
       "selectHint": "Choose an order to see it here."
+    },
+    "stockAlerts": {
+      "title": "Waiting for stock",
+      "intro": "Customers who asked to be told when an option is back. A receipt that brings the option back turns their request «back in stock»; your WhatsApp is the last step.",
+      "empty": "Nobody is waiting for an option right now.",
+      "states": {
+        "waiting": "Waiting",
+        "arrived": "Back in stock",
+        "messaged": "Messaged"
+      },
+      "copy": "Copy the message",
+      "copied": "The message is copied — paste it in WhatsApp.",
+      "markSent": "Mark sent",
+      "notSent": "Not sent yet",
+      "message": "Hello {{name}}, {{product}}, which you asked about, is back in stock."
     }
   },
   "governorates": {
@@ -438,7 +462,9 @@
       "invalid": "Not valid.",
       "tooLong": "Too long (60 characters at most).",
       "sameWarehouse": "Choose a different warehouse."
-    }
+    },
+    "inStockNow": "This option is in stock now — you can order it.",
+    "alertNotFound": "This request no longer exists."
   },
   "footer": {
     "about": "A standalone demo of the Abosefen sanitaryware shop system. Every product, brand, price, stock figure, order and person in it is invented.",
@@ -932,6 +958,10 @@
         "reelsToFacebook": {
           "title": "A reel goes to the shop’s Facebook Page with one press — as a real Facebook Reel",
           "text": "A link pasted on Facebook shows only as a card; an uploaded reel plays. So the owner connects the shop’s Facebook Page once: he pastes the Page’s ID and its access token himself, the server seals the token the moment it arrives (AES-GCM, with a key derived from the services’ own secret) and never shows it again, and «Test the connection» asks Facebook whose token it is — it passes only for that Page. On any reel live on the site he presses «Publish to Facebook»: the words are drafted from the reel’s own title, products and link, he edits them, and a background worker carries Meta’s three steps (start, upload, finish), then reads the video’s status until Facebook publishes it or says why not. Each press carries its own id, so a repeated request is one post; the database allows one post in flight per reel; the publish call is marked before it goes and never sent twice; Facebook’s refusals come back in plain words. A dry run checks everything and sends nothing, and the switch arrives off."
+        },
+        "backInStock": {
+          "title": "«Notify me when it is back» — the customer is told the moment stock arrives, off until the owner turns it on",
+          "text": "On a product that is out of stock, a customer leaves a name and a mobile (an email and his phone's notifications if he wants them). The stock service says by itself when a product goes from nothing to sell to some — it watches the save, so a receipt, a count, a return or a cancelled order all count — and puts that news on the message bus in the same save. The notification service then tells each waiting customer once, by email and a free phone notification, and gives the owner a list with a WhatsApp message ready for each; the program never sends WhatsApp itself. Rehearsed end to end on copies of the databases with a message bus of its own before it went live."
         }
       }
     }

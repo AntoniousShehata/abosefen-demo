@@ -4,6 +4,7 @@ import { useApi } from '../../hooks/useApi.js';
 import { useI18n } from '../../i18n/I18nProvider.jsx';
 import { useToast } from '../../context/ToastContext.jsx';
 import ProductArt from '../../components/ProductArt.jsx';
+import StockAlertsPanel from './StockAlertsPanel.jsx';
 import { ErrorState, Loading } from '../../components/ui.jsx';
 import { errorText, fieldError } from '../../lib/errorText.js';
 import { matchesQuery } from '../../lib/text.js';
@@ -255,6 +256,8 @@ export default function AdminStock() {
         </table>
         {shown.length === 0 && <p className="p-6 text-center text-sm text-gray-500">{t('admin.stockPage.empty')}</p>}
       </div>
+
+      <StockAlertsPanel />
 
       <section className="card p-4">
         <h2 className="mb-3 text-base">{t('admin.stockPage.movements')}</h2>

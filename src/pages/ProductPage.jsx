@@ -7,6 +7,7 @@ import { useToast } from '../context/ToastContext.jsx';
 import Breadcrumb from '../components/Breadcrumb.jsx';
 import ProductArt from '../components/ProductArt.jsx';
 import ProductCard from '../components/ProductCard.jsx';
+import NotifyWhenBack from '../components/NotifyWhenBack.jsx';
 import { EmptyState, ErrorState, Loading, Price, QuantityStepper, SectionTitle, StockBadge } from '../components/ui.jsx';
 import { errorText } from '../lib/errorText.js';
 
@@ -189,6 +190,10 @@ export default function ProductPage() {
           <div className="mt-6 flex flex-wrap items-center gap-3">
             <StockBadge quantity={stock} threshold={product.inventory.lowStockThreshold} />
           </div>
+          {/* production's STK-13: told when this option is back */}
+          {(!hasVariants || selected) && stock <= 0 && !product.bundle && (
+            <NotifyWhenBack key={selected?.id || product.id} productId={product.id} variantId={selected?.id || null} />
+          )}
 
           <div className="mt-4 flex flex-wrap items-center gap-3">
             <label className="flex items-center gap-2 text-sm">

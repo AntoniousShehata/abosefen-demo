@@ -223,6 +223,23 @@ export function createApi({ storage = browserStorage(), latency = [150, 450], no
     return qtyOf(product.id);
   }
 
+  // ── «Notify me when it's back» (production's STK-13) ─────────────────────────────────────────
+  // A request waits on one stock unit (an option, or the product itself). The moment that unit goes from nothing to sell
+  // to some — a receipt, a transfer, a count, a cancelled order — its waiting requests are told, once.
+  const stockAlerts = () => (db.stockAlerts = db.stockAlerts || []);
+  const namesOfProduct = (p) => ({ ar: p.nameAr, en: p.name, de: p.nameDe || p.name });
+
+  function tellArrivals(key, before) {
+    if (before > 0 || qtyOf(key) <= 0) return;
+    const at = new Date(now()).toISOString();
+    for (const alert of stockAlerts()) {
+      if (alert.state === 'waiting' && alert.unit === key) {
+        alert.state = 'arrived';
+        alert.arrivedAt = at;
+      }
+    }
+  }
+
   /** What a list of cart/order lines needs from the shelves, per stock unit (a set needs its parts). */
   function demandOf(lines) {
     const need = {};
@@ -512,8 +529,10 @@ export function createApi({ storage = browserStorage(), latency = [150, 450], no
   function putBack(order) {
     const need = demandOf(order.items.map((i) => ({ productId: i.productId, variantId: i.variantId, quantity: i.quantity })));
     for (const [key, quantity] of Object.entries(need)) {
+      const before = qtyOf(key);
       db.stock[key] = db.stock[key] || { 'w-main': 0, 'w-show': 0 };
       db.stock[key]['w-main'] = (db.stock[key]['w-main'] || 0) + quantity;
+      tellArrivals(key, before);
       recordMovement({
         type: 'return',
         productId: productIdOfUnit(key),
@@ -1114,6 +1133,7 @@ export function createApi({ storage = browserStorage(), latency = [150, 450], no
         if (!['receive', 'issue', 'transfer', 'adjust'].includes(type)) throw new ApiError(422, 'validation', { fields: { type: 'required' } });
         db.stock[key] = db.stock[key] || Object.fromEntries(warehouseIds.map((w) => [w, 0]));
         const row = db.stock[key];
+        const before = qtyOf(key);
         const note = cleanName(input.note).slice(0, 140);
         const from = input.fromWarehouseId;
         const to = input.toWarehouseId;
@@ -1160,9 +1180,62 @@ export function createApi({ storage = browserStorage(), latency = [150, 450], no
             note,
           });
         }
+        tellArrivals(key, before);
         logActivity('stockMovement', { number: movement.number, type, sku: movement.sku, delta: movement.delta });
         changed();
         return { movement, balance: { ...row }, total: qtyOf(key) };
+      }),
+    askStockAlert: ({ productId, variantId = null, name = '', mobile = '' } = {}) =>
+      respond(() => {
+        const p = productById(productId);
+        if (!p || !p.isActive) throw new ApiError(404, 'productNotFound');
+        if (p.productType === 'bundle') throw new ApiError(409, 'bundleHasNoStock');
+        const unit = p.variants.length ? p.variants.find((v) => v.id === variantId)?.id : p.id;
+        const fields = {};
+        const who = cleanName(name).slice(0, 60);
+        const phone = String(mobile ?? '').replace(/[\s-]/g, '');
+        if (!unit) fields.variantId = 'required';
+        if (!who) fields.name = 'required';
+        if (!/^01[0125]\d{8}$/.test(phone)) fields.mobile = 'invalid';
+        if (Object.keys(fields).length) throw new ApiError(422, 'validation', { fields });
+        if (qtyOf(unit) > 0) throw new ApiError(409, 'inStockNow');
+        let alert = stockAlerts().find((a) => a.state === 'waiting' && a.unit === unit && a.mobile === phone);
+        if (!alert) {
+          db.counters.stockAlert = (db.counters.stockAlert || 0) + 1;
+          alert = { id: `alert-${db.counters.stockAlert}`, productId: p.id, unit, mobile: phone, state: 'waiting', at: new Date(now()).toISOString() };
+          stockAlerts().unshift(alert);
+        }
+        alert.name = who;
+        logActivity('stockAlert', { sku: skuOfUnit(unit) });
+        changed();
+        return { id: alert.id, state: alert.state };
+      }),
+    cancelStockAlert: (id) =>
+      respond(() => {
+        const before = stockAlerts().length;
+        db.stockAlerts = stockAlerts().filter((a) => !(a.id === id && a.state === 'waiting'));
+        if (db.stockAlerts.length === before) throw new ApiError(404, 'alertNotFound');
+        changed();
+        return true;
+      }),
+    adminStockAlerts: () =>
+      respond(() => {
+        requirePermission(PERMISSIONS.stock);
+        return stockAlerts().map((a) => {
+          const p = productById(a.productId);
+          const v = p && a.unit !== p.id ? p.variants.find((x) => x.id === a.unit) : null;
+          return { ...a, product: p ? namesOfProduct(p) : null, variantLabel: v ? variantLabelOf(v) : null, sku: skuOfUnit(a.unit) };
+        });
+      }),
+    markStockAlertMessaged: (id, messaged = true) =>
+      respond(() => {
+        requirePermission(PERMISSIONS.stock);
+        const alert = stockAlerts().find((a) => a.id === id && a.state !== 'waiting');
+        if (!alert) throw new ApiError(404, 'alertNotFound');
+        alert.state = messaged ? 'messaged' : 'arrived';
+        alert.messagedBy = messaged ? db.session.email : null;
+        changed();
+        return { id: alert.id, state: alert.state };
       }),
     listMovements: ({ limit = 50 } = {}) =>
       respond(() => {
