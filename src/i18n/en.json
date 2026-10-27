@@ -997,6 +997,10 @@
         "foundCheaper": {
           "title": "«Found it cheaper?» — a customer tells the owner where they saw a product for less, off until the owner turns it on",
           "text": "Under a product's price, a customer says where they saw it for less, at what price, with a link or a photo of it, and leaves a name and a mobile. The server reads the shop's own price from the catalogue — the price the page shows, never one sent from the form — and refuses a price that is not lower, a report without proof, a file that is not a picture, or too many from one mobile in a day. The report reaches the owner's list with both prices and the difference; the customer joins the shop's contacts and the owner answers on WhatsApp. Nothing in it changes a price. Rehearsed on a copy of its database before it went live."
+        },
+        "shopVoice": {
+          "title": "The shop speaks in one voice — a copy guide, and the customer’s screens rewritten to it",
+          "text": "The owner asked for words that read like a respected sanitaryware house: correct, clear, confident, short. A copy guide now sets the register — who reads a sentence decides it: customers get simplified Modern Standard Arabic, while the team’s panel keeps its Egyptian colloquial — together with the trade’s terms in Arabic, English and German, and how buttons, empty states and errors are built: say what happened, then what to do next, and blame no one. The owner approved a 29-sentence sample; then search, the departments, the product page, the site’s frame and the report sheet were rewritten screen by screen, keys unchanged, with English and German written fresh in the same register rather than translated word by word. Counts go through one helper so the Arabic noun agrees with its number, the search page no longer shows its milliseconds, and two promises nobody can keep now say what the shop does instead."
         }
       }
     }
