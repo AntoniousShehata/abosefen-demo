@@ -1009,6 +1009,10 @@
         "shopVoice": {
           "title": "Das Geschäft spricht mit einer Stimme — ein Sprachleitfaden, und die Seiten der Kunden danach neu geschrieben",
           "text": "Der Inhaber wollte Worte, die wie ein angesehenes Sanitärhaus klingen: korrekt, klar, sicher, kurz. Ein Sprachleitfaden legt jetzt die Sprachebene fest — wer einen Satz liest, entscheidet: Kunden lesen vereinfachtes Hocharabisch, das Verwaltungsportal des Teams behält sein ägyptisches Umgangsarabisch —, dazu die Fachbegriffe auf Arabisch, Englisch und Deutsch und wie Schaltflächen, leere Ansichten und Fehlermeldungen gebaut werden: sagen, was passiert ist, dann, was als Nächstes zu tun ist, und niemandem die Schuld geben. Der Inhaber hat eine Probe von 29 Sätzen freigegeben; danach wurden Suche, Abteilungen, Produktseite, der Rahmen der Website und das Meldeformular Seite für Seite neu geschrieben, die Schlüssel unverändert, Englisch und Deutsch in derselben Sprachebene neu verfasst statt Wort für Wort übersetzt. Zahlen laufen über eine Hilfsfunktion, damit das arabische Nomen zur Zahl passt, die Suchseite zeigt keine Millisekunden mehr, und zwei Versprechen, die niemand halten kann, sagen jetzt, was das Geschäft tatsächlich tut."
+        },
+        "linesKeepTheirUnit": {
+          "title": "Jede Warenkorb- und Auftragszeile behält die Einheit, in der verkauft wurde — „2 Rohre = 12 m“ auf der Rechnung",
+          "text": "Ein Produkt kann je Stück, Rohr, Meter, Karton oder Kilo verkauft werden. Eine Warenkorbzeile behält jetzt die Einheit, in der ihr Produkt beim Hinzufügen verkauft wurde, so wie sie ihren Preis behält; verkauft der Laden das Produkt später anders, sagt die Zeile das, und die Bestellung lehnt sie ab, bis sie entfernt und neu hinzugefügt wurde — eine Menge wird nie in einer Einheit gelesen, in der sie nicht gezählt wurde. Die Belege der Theke nehmen die Einheit aus dem Katalog, nie vom Bildschirm, und die gedruckte Rechnung ergänzt unter einer solchen Zeile, was ihre Menge ergibt, und den Preis auf beide Arten. Auf Kopien der Datenbanken durchgespielt; nach dem Livegang wurden die Bücher geprüft."
         }
       }
     }
