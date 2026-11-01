@@ -525,13 +525,13 @@
     "readOnGithub": "Full write-up on GitHub",
     "tryDemo": "Try the demo",
     "numbersTitle": "The system in numbers",
-    "numbersNote": "Counted in the private repository in October 2026. C# lines leave out generated database migrations; tests are the cases of one full run.",
+    "numbersNote": "Counted in the private repository on 1 November 2026. C# lines leave out generated database migrations; tests are the cases of one full run.",
     "stats": {
       "services": "back-end services behind one gateway",
       "csharp": "lines of C#",
       "react": "lines of React",
       "tests": "automated tests in one run",
-      "rules": "business rules written down, 224 enforced in code",
+      "rules": "business rules written down, 244 enforced in code",
       "commits": "commits since February 2026"
     },
     "archTitle": "Architecture",
@@ -635,7 +635,7 @@
       "rules": {
         "title": "Rules the code enforces, and changes rehearsed before they ship",
         "problem": "The owner's business rules lived in conversations. A rule that lives only in someone's head is broken by the next change, and a money bug found after release is found by a customer.",
-        "s1": "249 rules are written down, each naming the class or test that refuses a violation. Guard tests read the code itself: for example, only one service may write stock movements, and every message the server sends exists in Arabic, English and German.",
+        "s1": "296 rules are written down, each naming the class or test that refuses a violation. Guard tests read the code itself: for example, only one service may write stock movements, and every message the server sends exists in Arabic, English and German.",
         "s2": "A change to money, stock or the books passes six gates: agreed first, a failing test first, an independent review on file, a rehearsal on a copy of the data, a walk through the screens in Arabic on phone and desktop, and a books check after the deploy.",
         "s3": "Deploys are built from a clean archive of one commit. Every image carries its commit, and a check lists any service still running older code.",
         "proof": "The gates catch real faults. On 14 October 2026 the review found a cheque that could be cashed while it was being cancelled, and the books check on the rehearsal copy found a supplier's opening balance counted wrongly. Both were fixed, with tests, before release."
@@ -645,7 +645,7 @@
     "practices": {
       "ai": {
         "title": "How AI is used",
-        "text": "I own the product: the requirements, the 249 business rules, the priorities, the reviews on screen and every release decision. AI pair-programming (Claude Code) writes and checks code under that direction, the way modern teams work — and the guardrails on this page (written rules, guard tests, six gates, rehearsals on a copy of the data) are how its work is held to the standard before anything reaches the shop."
+        "text": "I own the product: the requirements, the 296 business rules, the priorities, the reviews on screen and every release decision. AI pair-programming (Claude Code) writes and checks code under that direction, the way modern teams work — and the guardrails on this page (written rules, guard tests, six gates, rehearsals on a copy of the data) are how its work is held to the standard before anything reaches the shop."
       },
       "tests": {
         "title": "Tests at three levels",
@@ -678,6 +678,30 @@
       "tryIt": "Try it in the demo →",
       "onlyThere": "In production only",
       "items": {
+        "stockAfterFirstCount": {
+          "title": "A counted product never sells past its stock",
+          "text": "After a product’s first count, an order for more than is there is refused, on the website and at the counter. A product nobody has counted yet still sells, and what the shelves did not hold is owed until the goods come."
+        },
+        "colourPriceRule": {
+          "title": "A colour can take its price from another colour",
+          "text": "A company’s colour can now be its base colour’s price plus a fixed amount, so a price list that changes the white changes the black with it. It does nothing until the owner gives a company such a rule."
+        },
+        "copiesFromPanel": {
+          "title": "Copies of the databases, listed and made from the panel",
+          "text": "The panel can list every copy of the databases, say what each holds and what failed, and make a new one. It arrived switched off, and no role holds the right until the owner grants it."
+        },
+        "orderDeductedOnce": {
+          "title": "An order takes its stock once",
+          "text": "Two confirmations of the same paid order at the same moment could take its stock twice. Now the second finds the work done and takes nothing. No real order had been hit. The demo’s checkout keeps the same promise, and a test holds it."
+        },
+        "paymentReachesItsAccount": {
+          "title": "A payment lands on its own account and its own day",
+          "text": "Every customer’s receipt used to go to the cash on the day it was recorded. Now an InstaPay, wallet or bank payment goes to where the money really went, on the day typed for it, and a cancellation or a return gives the money back from there."
+        },
+        "journalAnyPeriod": {
+          "title": "The journal reads any day and any period",
+          "text": "Any day can be typed or picked, and a period is one choice: this week, counted from Monday, last quarter, or any two days. Filters reach the account, the journal and the source; totals cover the whole filter; Excel and PDF carry what the screen shows."
+        },
         "listsCellByCell": {
           "title": "Price lists read cell by cell, the way the owner reads them",
           "text": "A supplier's price list is now read like a sheet: the sizes across the top and each size's price under it; a cell of digits is a price and a name has a letter; «2 inch / 4 inch» in one cell is one size, from a size to a size. Pipe lists name the pipe by its colour (white and grey drainage, green feed), a grey header's right-hand and left-hand codes are two products, and a maker's colour groups are each a price. The rules sit in one reference that every upload opens. Before it went live, every list the shop had uploaded was read by the old reader and the new one, row by row: one maker's catalogue had fallen from 605 lines to 418 and a model number had been glued into a size — both fixed first, so no line the old reader read was lost. The review now opens on four decisions: a small sure change, a first price or a big change, a new product, or a line that needs the owner."

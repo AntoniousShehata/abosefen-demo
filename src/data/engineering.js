@@ -1,7 +1,7 @@
 // «How it's built» — the production system behind the demo. The words are in src/i18n/*.json (engineering.*);
 // this file holds what is not translated: the figures, the technology names and the code excerpts.
 //
-// Every figure was counted in the private repository in October 2026 (docs/ENGINEERING.md says how), and every
+// Every figure was counted in the private repository on 1 November 2026 (docs/ENGINEERING.md says how), and every
 // excerpt is shortened from a real file of it — names of the shop's data, people and figures are left out.
 
 /** The repository's own address, taken from package.json at build time (the app's code holds no remote address). */
@@ -10,10 +10,10 @@ export const REPO_URL = typeof __REPO_URL__ === 'string' ? __REPO_URL__ : '';
 
 export const STATS = [
   { key: 'services', value: '10' },
-  { key: 'csharp', value: '103k' },
-  { key: 'react', value: '68k' },
-  { key: 'tests', value: '6,767' },
-  { key: 'rules', value: '249' },
+  { key: 'csharp', value: '143k' },
+  { key: 'react', value: '88k' },
+  { key: 'tests', value: '7,479' },
+  { key: 'rules', value: '296' },
   { key: 'commits', value: '1,000+' },
 ];
 
@@ -29,6 +29,12 @@ export const PRACTICES = ['ai', 'tests', 'security', 'arabic', 'oneShop'];
 // «Latest in production» — newest first. A change the demo can show with invented data carries tryIt: the demo's
 // own page where its version of it can be tried (docs/SYNC.md, «Every production change reaches the demo»).
 export const LATEST = [
+  { id: 'stockAfterFirstCount', date: '2026-11-01' },
+  { id: 'colourPriceRule', date: '2026-11-01' },
+  { id: 'copiesFromPanel', date: '2026-11-01' },
+  { id: 'orderDeductedOnce', date: '2026-11-01' },
+  { id: 'paymentReachesItsAccount', date: '2026-11-01' },
+  { id: 'journalAnyPeriod', date: '2026-11-01' },
   { id: 'cashPurchaseAdvance', date: '2026-10-28' },
   { id: 'failedIssueGivesBack', date: '2026-10-28' },
   { id: 'taxAnswerKept', date: '2026-10-28' },

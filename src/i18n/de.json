@@ -525,13 +525,13 @@
     "readOnGithub": "Ausführlich auf GitHub",
     "tryDemo": "Demo ausprobieren",
     "numbersTitle": "Das System in Zahlen",
-    "numbersNote": "Gezählt im privaten Repository im Oktober 2026. C#-Zeilen ohne generierte Datenbankmigrationen; Tests sind die Fälle eines vollständigen Laufs.",
+    "numbersNote": "Gezählt im privaten Repository am 1. November 2026. C#-Zeilen ohne generierte Datenbankmigrationen; Tests sind die Fälle eines vollständigen Laufs.",
     "stats": {
       "services": "Backend-Dienste hinter einem Gateway",
       "csharp": "Zeilen C#",
       "react": "Zeilen React",
       "tests": "automatisierte Tests pro Lauf",
-      "rules": "schriftliche Geschäftsregeln, 224 davon im Code erzwungen",
+      "rules": "schriftliche Geschäftsregeln, 244 davon im Code erzwungen",
       "commits": "Commits seit Februar 2026"
     },
     "archTitle": "Architektur",
@@ -635,7 +635,7 @@
       "rules": {
         "title": "Regeln, die der Code erzwingt, und Änderungen, die vor dem Release geprobt werden",
         "problem": "Die Geschäftsregeln des Inhabers lebten in Gesprächen. Eine Regel, die nur in einem Kopf lebt, bricht die nächste Änderung, und einen Geldfehler nach dem Release findet ein Kunde.",
-        "s1": "249 Regeln sind aufgeschrieben, jede mit der Klasse oder dem Test, der einen Verstoß ablehnt. Wächtertests lesen den Code selbst: zum Beispiel darf nur ein Dienst Lagerbewegungen schreiben, und jede Nachricht des Servers gibt es auf Arabisch, Englisch und Deutsch.",
+        "s1": "296 Regeln sind aufgeschrieben, jede mit der Klasse oder dem Test, der einen Verstoß ablehnt. Wächtertests lesen den Code selbst: zum Beispiel darf nur ein Dienst Lagerbewegungen schreiben, und jede Nachricht des Servers gibt es auf Arabisch, Englisch und Deutsch.",
         "s2": "Eine Änderung an Geld, Bestand oder Büchern durchläuft sechs Tore: zuerst abgestimmt, zuerst ein fehlschlagender Test, ein unabhängiges Review in den Akten, eine Probe auf einer Kopie der Daten, ein Gang durch die Bildschirme auf Arabisch an Handy und Desktop und eine Prüfung der Bücher nach dem Deployment.",
         "s3": "Deployments werden aus einem sauberen Archiv eines einzelnen Commits gebaut. Jedes Image trägt seinen Commit, und eine Prüfung listet jeden Dienst, der noch älteren Code ausführt.",
         "proof": "Die Tore finden echte Fehler. Am 14. Oktober 2026 fand das Review einen Scheck, der eingelöst werden konnte, während er storniert wurde, und die Prüfung der Bücher auf der Probekopie fand einen falsch gezählten Eröffnungssaldo eines Lieferanten. Beides wurde vor dem Release behoben, mit Tests."
@@ -645,7 +645,7 @@
     "practices": {
       "ai": {
         "title": "Wie KI eingesetzt wird",
-        "text": "Ich verantworte das Produkt: die Anforderungen, die 249 Geschäftsregeln, die Prioritäten, die Prüfung am Bildschirm und jede Release-Entscheidung. KI-Pair-Programming (Claude Code) schreibt und prüft Code unter dieser Führung, so wie moderne Teams arbeiten — und die Leitplanken auf dieser Seite (schriftliche Regeln, Wächtertests, sechs Tore, Proben auf einer Kopie der Daten) halten diese Arbeit auf dem Standard, bevor etwas den Laden erreicht."
+        "text": "Ich verantworte das Produkt: die Anforderungen, die 296 Geschäftsregeln, die Prioritäten, die Prüfung am Bildschirm und jede Release-Entscheidung. KI-Pair-Programming (Claude Code) schreibt und prüft Code unter dieser Führung, so wie moderne Teams arbeiten — und die Leitplanken auf dieser Seite (schriftliche Regeln, Wächtertests, sechs Tore, Proben auf einer Kopie der Daten) halten diese Arbeit auf dem Standard, bevor etwas den Laden erreicht."
       },
       "tests": {
         "title": "Tests auf drei Ebenen",
@@ -678,6 +678,30 @@
       "tryIt": "In der Demo ausprobieren →",
       "onlyThere": "Nur im Produktivsystem",
       "items": {
+        "stockAfterFirstCount": {
+          "title": "Ein gezähltes Produkt wird nie über seinen Bestand hinaus verkauft",
+          "text": "Nach der ersten Zählung eines Produkts wird eine Bestellung über den vorhandenen Bestand hinaus abgelehnt, im Webshop und an der Kasse. Ein noch nie gezähltes Produkt wird weiter verkauft, und was im Regal fehlte, bleibt offen, bis die Ware kommt."
+        },
+        "colourPriceRule": {
+          "title": "Eine Farbe kann ihren Preis von einer anderen Farbe nehmen",
+          "text": "Die Farbe einer Firma kann jetzt der Preis ihrer Grundfarbe plus ein fester Betrag sein; eine Preisliste, die Weiß ändert, ändert damit auch Schwarz. Das wirkt erst, wenn der Inhaber einer Firma eine solche Regel gibt."
+        },
+        "copiesFromPanel": {
+          "title": "Kopien der Datenbanken, im Verwaltungsportal aufgelistet und erstellt",
+          "text": "Das Portal kann jede Kopie der Datenbanken auflisten, sagen, was sie enthält und was fehlgeschlagen ist, und eine neue erstellen. Es kam ausgeschaltet an, und keine Rolle hat das Recht, bis der Inhaber es erteilt."
+        },
+        "orderDeductedOnce": {
+          "title": "Eine Bestellung nimmt ihren Bestand nur einmal",
+          "text": "Zwei gleichzeitige Bestätigungen derselben bezahlten Bestellung konnten ihren Bestand zweimal abziehen. Jetzt findet die zweite die Arbeit erledigt vor und nimmt nichts. Keine echte Bestellung war betroffen. Der Checkout der Demo hält dasselbe Versprechen, und ein Test sichert es."
+        },
+        "paymentReachesItsAccount": {
+          "title": "Eine Zahlung landet auf ihrem eigenen Konto und an ihrem eigenen Tag",
+          "text": "Jeder Kundeneingang ging früher an dem Tag in die Kasse, an dem er erfasst wurde. Jetzt geht eine InstaPay-, Wallet- oder Bankzahlung dorthin, wo das Geld wirklich ankam, an dem für sie eingegebenen Tag, und eine Stornierung oder Rückgabe zahlt von dort zurück."
+        },
+        "journalAnyPeriod": {
+          "title": "Das Journal liest jeden Tag und jeden Zeitraum",
+          "text": "Jeder Tag lässt sich eingeben oder auswählen, und ein Zeitraum ist eine einzige Wahl: diese Woche, ab Montag gezählt, das letzte Quartal oder zwei beliebige Tage. Filter reichen bis zu Konto, Journal und Quelle; die Summen gelten für den ganzen Filter; Excel und PDF enthalten, was der Bildschirm zeigt."
+        },
         "listsCellByCell": {
           "title": "Preislisten Zelle für Zelle gelesen – so, wie der Inhaber sie liest",
           "text": "Die Preisliste eines Lieferanten wird jetzt wie eine Tabelle gelesen: die Größen oben, der Preis jeder Größe darunter; eine Zelle aus Ziffern ist ein Preis, ein Name hat einen Buchstaben; «2 Zoll / 4 Zoll» in einer Zelle ist eine Größe, von einer Größe zur anderen. Rohrlisten benennen das Rohr nach seiner Farbe (Weiß und Grau Abwasser, Grün Zuleitung), die Codes für rechts und links unter einer grauen Kopfzeile sind zwei Produkte, und die Farbgruppen eines Herstellers sind je ein Preis. Die Regeln stehen in einem Nachschlagewerk, das jeder Upload öffnet. Bevor es live ging, wurde jede Liste, die der Laden je hochgeladen hatte, mit dem alten und dem neuen Leser Zeile für Zeile gelesen: Der Katalog eines Herstellers war von 605 auf 418 Zeilen gefallen, und eine Modellnummer war in eine Größe geklebt worden – beides wurde zuerst behoben, sodass keine Zeile des alten Lesers verloren ging. Die Prüfung öffnet jetzt mit vier Entscheidungen: eine kleine sichere Änderung, ein erster Preis oder eine große Änderung, ein neues Produkt oder eine Zeile, die den Inhaber braucht."

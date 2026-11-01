@@ -4,7 +4,7 @@ This repository holds a **standalone demo**. The system it shows runs a real san
 store, the counter, the warehouse and the books) and lives in a **private repository**. This document describes that
 system: its shape, eight hard problems it solves, and how each solution is proved.
 
-Every figure was counted in the private repository in October 2026, and every excerpt is shortened from one of its
+Every figure was counted in the private repository on 1 November 2026, and every excerpt is shortened from one of its
 files (paths are given relative to its `src/`). No data of the shop, its customers or its suppliers appears here.
 
 The same content, in English and German, is on the demo's own page: **[How it's built](https://antoniousshehata.github.io/abosefen-demo/#/engineering)**.
@@ -19,10 +19,10 @@ The same content, in English and German, is on the demo's own page: **[How it's 
 | | |
 |---|---|
 | Back-end services behind one gateway | **10** (9 in .NET, 1 in Node) + 2 Python workers |
-| C# (without generated migrations) | **≈ 103,000 lines** in 890 files |
-| React front end | **≈ 68,000 lines**, 121 pages (storefront, back office, drivers) |
-| Automated tests | **6,767 cases** in the unit run (25 Oct 2026): ≈ 2,400 xUnit methods (facts and theories), plus 128 Testcontainers integration tests on PostgreSQL |
-| Business rules written down | **249**, of which **224** are enforced in code and name what enforces them |
+| C# (without generated migrations) | **≈ 143,000 lines** in 1,114 files |
+| React front end | **≈ 88,000 lines**, 167 pages (storefront, back office, drivers) |
+| Automated tests | **7,479 cases** in the unit run (1 Nov 2026): ≈ 3,700 xUnit methods (facts and theories), plus 221 Testcontainers integration tests on PostgreSQL |
+| Business rules written down | **296**, of which **244** are enforced in code and name what enforces them |
 | History | **1,000+ commits** since February 2026 |
 
 ---
@@ -395,7 +395,7 @@ is retried a day later, the library is rebuilt only when it would differ) and `P
 by the next change, and a money bug found after release is found by a customer.
 
 **How it works**
-- **249 rules are written down** (`docs/BUSINESS_RULES.md` in the private repository), each with what enforces it:
+- **296 rules are written down** (`docs/BUSINESS_RULES.md` in the private repository), each with what enforces it:
 
   ```markdown
   ### CAT-1 · Leaf-only products ✅
@@ -430,7 +430,7 @@ Both were fixed, each with a test, before release.
 
 ## How the work is done
 
-- **How AI is used.** I own the product: the requirements, the 249 business rules, the priorities, the reviews on
+- **How AI is used.** I own the product: the requirements, the 296 business rules, the priorities, the reviews on
   screen and every release decision. AI pair-programming (Claude Code) writes and checks code under that direction,
   the way modern teams work — and the guardrails described above (written rules, guard tests, six gates, rehearsals on
   a copy of the data) are how its work is held to the standard before anything reaches the shop.
