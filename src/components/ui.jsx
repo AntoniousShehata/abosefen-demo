@@ -119,8 +119,9 @@ export function Price({ pricing, size = 'md', showFrom = false }) {
   );
 }
 
-export function StockBadge({ quantity, threshold = 3 }) {
+export function StockBadge({ quantity, threshold = 3, neverCounted = false }) {
   const { t } = useI18n();
+  if (neverCounted) return <span className="badge bg-primary/10 text-primary">{t('product.orderWhenItArrives')}</span>;
   if (quantity <= 0) return <span className="badge bg-gray-100 text-gray-500">{t('product.outOfStock')}</span>;
   if (quantity <= threshold) return <span className="badge bg-amber-50 text-amber-700">{t('product.lowStock', { count: quantity })}</span>;
   return <span className="badge bg-emerald-50 text-emerald-700">{t('product.inStock')}</span>;

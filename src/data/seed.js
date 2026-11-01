@@ -7,7 +7,7 @@ import { computeTotals, lineTotal } from '../lib/money.js';
 import { HAPPY_PATH } from '../lib/orderFlow.js';
 
 /** Raise when the shape of the stored state changes: a browser holding an older state is re-seeded. */
-export const SEED_VERSION = 1;
+export const SEED_VERSION = 2;
 
 function sequence(seed) {
   let s = seed >>> 0;
@@ -46,6 +46,9 @@ function seedStock(products) {
   }
   return stock;
 }
+
+// Products no count has reached yet (production's STK-9): they sell even past the shelves until their first count.
+const NEVER_COUNTED_MODELS = ['DUNA-K', 'G2'];
 
 const DAY = 24 * 60 * 60 * 1000;
 
@@ -167,6 +170,7 @@ export function buildSeed(now = Date.now()) {
     promotions: JSON.parse(JSON.stringify(PROMOTIONS)),
     coupons: JSON.parse(JSON.stringify(COUPONS)),
     stock: seedStock(products),
+    neverCounted: products.filter((p) => NEVER_COUNTED_MODELS.includes(p.modelCode)).map((p) => p.id),
     movements: seedMovements(products, now),
     orders: seedOrders(products, now),
     activity: [

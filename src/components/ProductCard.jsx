@@ -37,7 +37,7 @@ export default function ProductCard({ product }) {
         {swatches.length <= 1 && sizes.size > 1 && <span className="text-xs text-gray-500">{t('product.options', { count: sizes.size })}</span>}
         <div className="mt-auto space-y-1.5">
           <Price pricing={product.pricing} showFrom={product.variantCount > 1} />
-          <StockBadge quantity={product.inventory.stockQuantity} threshold={product.inventory.lowStockThreshold} />
+          <StockBadge quantity={product.inventory.stockQuantity} threshold={product.inventory.lowStockThreshold} neverCounted={product.inventory.neverCounted} />
         </div>
       </div>
     </Link>

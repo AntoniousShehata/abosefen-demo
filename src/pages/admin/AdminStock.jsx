@@ -80,7 +80,7 @@ export default function AdminStock() {
   const err = (field) => fieldError(t, problem, field);
   const deltaText = (delta) =>
     Object.entries(delta || {})
-      .map(([w, d]) => `${whName(w)} ${d > 0 ? '+' : '−'}${number(Math.abs(d))}`)
+      .map(([w, d]) => `${whName(w)} ${d > 0 ? '+' : d < 0 ? '−' : ''}${number(Math.abs(d))}`)
       .join(' · ');
 
   return (
@@ -187,6 +187,11 @@ export default function AdminStock() {
             {warehouses.data.map((w) => `${pick(w.name)}: ${number(unit.quantities[w.id])}`).join(' · ')} · {t('admin.stockPage.total')}: {number(unit.total)}
           </p>
         )}
+        {unit?.neverCounted && (
+          <p className="text-sm text-gray-600" data-testid="first-count-hint">
+            {t('admin.stockPage.firstCountHint')}
+          </p>
+        )}
         <div className="flex flex-wrap items-center gap-3">
           <button type="submit" className="btn-primary" disabled={busy || !form.productId} data-testid="movement-submit">
             {t('admin.stockPage.record')}
@@ -236,6 +241,11 @@ export default function AdminStock() {
                         {r.variantLabel ? `${pick(r.variantLabel)} · ` : ''}
                         <span className="num-ltr">{r.sku}</span>
                       </p>
+                      {r.neverCounted && (
+                        <span className="badge mt-1 bg-primary/10 text-primary" data-testid="never-counted">
+                          {t('admin.stockPage.neverCounted')}
+                        </span>
+                      )}
                     </div>
                   </div>
                 </td>
