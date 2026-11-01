@@ -210,17 +210,19 @@ export function createApi({ storage = browserStorage(), latency = [150, 450], no
     return row ? Object.values(row).reduce((a, b) => a + b, 0) : 0;
   };
 
+  // What a customer can be told is there: what is owed never shows as a figure below zero.
   function availableOf(product, variantId = null) {
+    const onShelves = (key) => Math.max(0, qtyOf(key));
     if (product.productType === 'bundle') {
       return Math.min(
-        ...product.bundle.components.map((c) => Math.floor(qtyOf(unitKey(c.productId, c.variantId)) / c.quantity)),
+        ...product.bundle.components.map((c) => Math.floor(onShelves(unitKey(c.productId, c.variantId)) / c.quantity)),
       );
     }
     if (product.variants.length) {
-      if (variantId) return qtyOf(variantId);
-      return product.variants.reduce((sum, v) => sum + qtyOf(v.id), 0);
+      if (variantId) return onShelves(variantId);
+      return product.variants.reduce((sum, v) => sum + onShelves(v.id), 0);
     }
-    return qtyOf(product.id);
+    return onShelves(product.id);
   }
 
   // ── «Notify me when it's back» (production's STK-13) ─────────────────────────────────────────
@@ -289,6 +291,11 @@ export function createApi({ storage = browserStorage(), latency = [150, 450], no
   const productIdOfUnit = (key) =>
     db.products.find((p) => p.id === key || p.variants.some((v) => v.id === key))?.id || null;
 
+  // Production's STK-9: a product no count has reached sells even past the shelves, and what they did not hold is owed.
+  // Its first count, of any option in any warehouse, makes the whole product keep to its stock.
+  const isNeverCounted = (productId) => db.neverCounted.includes(productId);
+  const sellsPastStock = (key) => isNeverCounted(productIdOfUnit(key));
+
   // ── Pricing ───────────────────────────────────────────────────────────────────────────────────
   function promotionFor(product) {
     if (product.productType === 'bundle') return null;
@@ -339,6 +346,7 @@ export function createApi({ storage = browserStorage(), latency = [150, 450], no
   function productOut(p, { detail = false } = {}) {
     const category = categoryById(p.categoryId);
     const available = availableOf(p);
+    const neverCounted = isNeverCounted(p.id);
     const out = {
       id: p.id,
       _id: p.id,
@@ -354,7 +362,7 @@ export function createApi({ storage = browserStorage(), latency = [150, 450], no
       art: { ...p.art, finishHex: finishHexOf(p) },
       images: [], // the demo draws its own pictures (see `art`); production sends [{ url, isPrimary }]
       pricing: priceOf(p),
-      inventory: { inStock: available > 0, stockQuantity: available, quantity: available, lowStockThreshold: LOW_STOCK },
+      inventory: { inStock: available > 0 || neverCounted, stockQuantity: available, quantity: available, lowStockThreshold: LOW_STOCK, neverCounted },
       variantCount: p.variants.filter((v) => !v.isHidden).length,
       variants: p.variants
         .filter((v) => !v.isHidden)
@@ -374,7 +382,7 @@ export function createApi({ storage = browserStorage(), latency = [150, 450], no
             label: variantLabelOf(v),
             pricing: priceOf(p, v),
             stockQuantity: qty,
-            inStock: qty > 0,
+            inStock: qty > 0 || neverCounted,
           };
         }),
       isFeatured: p.isFeatured,
@@ -464,7 +472,7 @@ export function createApi({ storage = browserStorage(), latency = [150, 450], no
           isOnSale: pricing.isOnSale,
           quantity: line.quantity,
           lineTotal: lineTotal(pricing.salePrice, line.quantity),
-          inStock: available >= line.quantity,
+          inStock: available >= line.quantity || isNeverCounted(p.id),
           stockQuantity: available,
         };
       })
@@ -484,7 +492,7 @@ export function createApi({ storage = browserStorage(), latency = [150, 450], no
       product.productType === 'bundle'
         ? product.bundle.components.map((c) => unitKey(c.productId, c.variantId))
         : [unitKey(product.id, variantId)];
-    const short = keys.filter((k) => (need[k] || 0) > qtyOf(k));
+    const short = keys.filter((k) => (need[k] || 0) > qtyOf(k) && !sellsPastStock(k));
     if (short.length) {
       const inCart = db.cart.lines
         .filter((l) => l.productId === product.id && l.variantId === variantId)
@@ -517,6 +525,10 @@ export function createApi({ storage = browserStorage(), latency = [150, 450], no
         delta[w] = -take;
         left -= take;
       }
+    }
+    if (left > 0) {
+      db.stock[key]['w-main'] = (db.stock[key]['w-main'] || 0) - left;
+      delta['w-main'] = (delta['w-main'] || 0) - left;
     }
     recordMovement({
       type: 'sale',
@@ -862,7 +874,7 @@ export function createApi({ storage = browserStorage(), latency = [150, 450], no
         if (!db.cart.lines.length) throw new ApiError(409, 'cartEmpty');
 
         const need = demandOf(db.cart.lines);
-        const short = Object.entries(need).filter(([key, q]) => qtyOf(key) < q);
+        const short = Object.entries(need).filter(([key, q]) => qtyOf(key) < q && !sellsPastStock(key));
         if (short.length) {
           throw new ApiError(409, 'outOfStock', {
             items: short.map(([key, q]) => ({ sku: skuOfUnit(key), needed: q, available: qtyOf(key) })),
@@ -965,7 +977,7 @@ export function createApi({ storage = browserStorage(), latency = [150, 450], no
         if (can(db.session, PERMISSIONS.stock)) {
           const units = stockUnitsOf(activeProducts());
           out.lowStock = units.filter((u) => qtyOf(u.key) > 0 && qtyOf(u.key) <= LOW_STOCK).length;
-          out.outOfStock = units.filter((u) => qtyOf(u.key) === 0).length;
+          out.outOfStock = units.filter((u) => qtyOf(u.key) <= 0).length;
         }
         if (can(db.session, PERMISSIONS.orders)) {
           out.openOrders = db.orders.filter((o) => isOpenStatus(o.status)).length;
@@ -1112,7 +1124,8 @@ export function createApi({ storage = browserStorage(), latency = [150, 450], no
               quantities,
               total,
               isLow: total > 0 && total <= LOW_STOCK,
-              isOut: total === 0,
+              isOut: total <= 0,
+              neverCounted: isNeverCounted(p.id),
               searchText: [p.sku, v?.sku, p.nameAr, p.name, p.nameDe, ...Object.values(v ? variantLabelOf(v) : {})].filter(Boolean),
             });
           }
@@ -1151,8 +1164,9 @@ export function createApi({ storage = browserStorage(), latency = [150, 450], no
           if (!(Number.isInteger(counted) && counted >= 0 && counted <= 100000)) fields.countedQuantity = 'invalid';
           if (Object.keys(fields).length) throw new ApiError(422, 'validation', { fields });
           const delta = counted - (row[to] || 0);
-          if (delta === 0) throw new ApiError(409, 'noChange');
+          if (delta === 0 && !isNeverCounted(p.id)) throw new ApiError(409, 'noChange');
           row[to] = counted;
+          db.neverCounted = db.neverCounted.filter((id) => id !== p.id);
           movement = recordMovement({ type, productId: p.id, variantId, sku: skuOfUnit(key), fromWarehouseId: null, toWarehouseId: to, quantity: Math.abs(delta), delta: { [to]: delta }, note });
         } else {
           const quantity = Number(input.quantity);

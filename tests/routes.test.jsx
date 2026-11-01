@@ -91,6 +91,17 @@ describe('storefront routes', () => {
     await waitFor(async () => expect((await api.getCart()).itemCount).toBe(1));
   });
 
+  it('a product no count has reached offers more than its shelves hold', async () => {
+    const mixer = PRODUCTS.find((p) => p.modelCode === 'DUNA-K');
+    renderAt(`/p/${mixer.slug}`);
+    expect(await screen.findByText('Order it — we send it as soon as it arrives')).toBeTruthy();
+    expect(screen.queryByText('Only 2 left')).toBeNull();
+    const more = screen.getByRole('button', { name: 'Increase quantity' });
+    for (let i = 0; i < 4; i++) fireEvent.click(more);
+    fireEvent.click(screen.getByTestId('add-to-cart'));
+    await waitFor(async () => expect((await api.getCart()).itemCount).toBe(5));
+  });
+
   it('search tolerates Arabic letter variants', async () => {
     renderAt(`/search?q=${encodeURIComponent('قاعده')}`);
     const count = await screen.findByTestId('search-count');
@@ -168,6 +179,17 @@ describe('back-office routes', () => {
     renderAt('/admin/stock');
     expect(await screen.findByTestId('movement-form')).toBeTruthy();
     expect(await screen.findByTestId('movements-table')).toBeTruthy();
+  });
+
+  it('stock: a product no count has reached says so, until its first count', async () => {
+    await api.signIn('owner@demo');
+    const mixer = PRODUCTS.find((p) => p.modelCode === 'DUNA-K');
+    renderAt('/admin/stock');
+    const badges = await screen.findAllByTestId('never-counted');
+    expect(badges.length).toBeGreaterThan(0);
+    expect(badges[0].textContent).toBe('Not counted yet');
+    await api.recordStockMovement({ type: 'adjust', productId: mixer.id, toWarehouseId: 'w-show', countedQuantity: 2 });
+    await waitFor(() => expect(screen.getAllByTestId('never-counted').length).toBe(badges.length - 1));
   });
 
   it('cashier: orders open, products refused', async () => {

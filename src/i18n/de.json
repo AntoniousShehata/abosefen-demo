@@ -108,6 +108,7 @@
     "size": "Größe",
     "inStock": "Auf Lager",
     "lowStock": "Nur noch {count}",
+    "orderWhenItArrives": "Jetzt bestellen – wir liefern, sobald es da ist",
     "outOfStock": "Nicht auf Lager",
     "quantity": "Menge",
     "addToCart": "In den Warenkorb",
@@ -361,7 +362,9 @@
       "view": "Im Shop öffnen"
     },
     "stockPage": {
-      "intro": "Der Bestand wird je Variante und je Lager geführt. Sets haben keinen eigenen Bestand: Er ergibt sich aus den Teilen.",
+      "intro": "Der Bestand wird je Variante und je Lager geführt. Sets haben keinen eigenen Bestand: Er ergibt sich aus den Teilen. Ein Produkt ohne Zählung wird auch über den Regalbestand hinaus verkauft und steht dann unter null; seine erste Zählung bindet es an seinen Bestand.",
+      "neverCounted": "Noch nicht gezählt",
+      "firstCountHint": "Dieses Produkt wurde noch nie gezählt und wird deshalb auch über den Regalbestand hinaus verkauft. Eine hier erfasste Zählung, selbst mit derselben Zahl, bindet das ganze Produkt von nun an an seinen Bestand.",
       "search": "Name oder Code suchen…",
       "onlyLow": "Nur knapp oder ausverkauft",
       "total": "Gesamt",
@@ -680,7 +683,7 @@
       "items": {
         "stockAfterFirstCount": {
           "title": "Ein gezähltes Produkt wird nie über seinen Bestand hinaus verkauft",
-          "text": "Nach der ersten Zählung eines Produkts wird eine Bestellung über den vorhandenen Bestand hinaus abgelehnt, im Webshop und an der Kasse. Ein noch nie gezähltes Produkt wird weiter verkauft, und was im Regal fehlte, bleibt offen, bis die Ware kommt."
+          "text": "Nach der ersten Zählung eines Produkts wird eine Bestellung über den vorhandenen Bestand hinaus abgelehnt, im Webshop und an der Kasse. Ein noch nie gezähltes Produkt wird weiter verkauft, und was im Regal fehlte, bleibt offen, bis die Ware kommt. Die Demo macht es genauso: Diese Armatur wurde noch nicht gezählt. Bestellen Sie mehr, als sie hat, sehen Sie als Inhaber unter Bestand den Stand unter null, erfassen Sie dann eine Zählung und versuchen Sie es erneut."
         },
         "colourPriceRule": {
           "title": "Eine Farbe kann ihren Preis von einer anderen Farbe nehmen",

@@ -108,6 +108,7 @@
     "size": "Size",
     "inStock": "In stock",
     "lowStock": "Only {count} left",
+    "orderWhenItArrives": "Order it — we send it as soon as it arrives",
     "outOfStock": "Out of stock",
     "quantity": "Quantity",
     "addToCart": "Add to cart",
@@ -361,7 +362,9 @@
       "view": "Open in the shop"
     },
     "stockPage": {
-      "intro": "Stock is kept per variant and per warehouse. Sets have no stock of their own: they are counted from their parts.",
+      "intro": "Stock is kept per variant and per warehouse. Sets have no stock of their own: they are counted from their parts. A product no count has reached still sells past its shelves and shows below zero; its first count makes it keep to its stock.",
+      "neverCounted": "Not counted yet",
+      "firstCountHint": "No count has reached this product yet, so it sells even past what the shelves hold. Recording a count here, even of the same figure, makes the whole product keep to its stock from now on.",
       "search": "Search name or code…",
       "onlyLow": "Only low or out of stock",
       "total": "Total",
@@ -680,7 +683,7 @@
       "items": {
         "stockAfterFirstCount": {
           "title": "A counted product never sells past its stock",
-          "text": "After a product’s first count, an order for more than is there is refused, on the website and at the counter. A product nobody has counted yet still sells, and what the shelves did not hold is owed until the goods come."
+          "text": "After a product’s first count, an order for more than is there is refused, on the website and at the counter. A product nobody has counted yet still sells, and what the shelves did not hold is owed until the goods come. The demo does the same: this mixer has not been counted, so order more than it holds, see it below zero under Stock as the owner, then record a count and try again."
         },
         "colourPriceRule": {
           "title": "A colour can take its price from another colour",

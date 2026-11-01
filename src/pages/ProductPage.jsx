@@ -64,7 +64,8 @@ export default function ProductPage() {
   const selected = hasVariants ? variantFor(finish, size) : null;
   const pricing = selected ? selected.pricing : product.pricing;
   const stock = selected ? selected.stockQuantity : product.inventory.stockQuantity;
-  const canBuy = (!hasVariants || selected) && stock > 0;
+  const neverCounted = product.inventory.neverCounted;
+  const canBuy = (!hasVariants || selected) && (stock > 0 || neverCounted);
 
   const chooseFinish = (code) => {
     setFinish(code);
@@ -193,17 +194,17 @@ export default function ProductPage() {
           )}
 
           <div className="mt-6 flex flex-wrap items-center gap-3">
-            <StockBadge quantity={stock} threshold={product.inventory.lowStockThreshold} />
+            <StockBadge quantity={stock} threshold={product.inventory.lowStockThreshold} neverCounted={neverCounted} />
           </div>
           {/* production's STK-13: told when this option is back */}
-          {(!hasVariants || selected) && stock <= 0 && !product.bundle && (
+          {(!hasVariants || selected) && stock <= 0 && !neverCounted && !product.bundle && (
             <NotifyWhenBack key={selected?.id || product.id} productId={product.id} variantId={selected?.id || null} />
           )}
 
           <div className="mt-4 flex flex-wrap items-center gap-3">
             <label className="flex items-center gap-2 text-sm">
               <span className="text-gray-600">{t('product.quantity')}</span>
-              <QuantityStepper value={quantity} onChange={setQuantity} max={Math.max(1, stock)} disabled={!canBuy} />
+              <QuantityStepper value={quantity} onChange={setQuantity} max={neverCounted ? undefined : Math.max(1, stock)} disabled={!canBuy} />
             </label>
             <button type="button" className="btn-primary px-6 py-2.5" onClick={add} disabled={!canBuy || busy} data-testid="add-to-cart">
               {busy ? t('product.adding') : t('product.addToCart')}

@@ -29,7 +29,7 @@ export const PRACTICES = ['ai', 'tests', 'security', 'arabic', 'oneShop'];
 // «Latest in production» — newest first. A change the demo can show with invented data carries tryIt: the demo's
 // own page where its version of it can be tried (docs/SYNC.md, «Every production change reaches the demo»).
 export const LATEST = [
-  { id: 'stockAfterFirstCount', date: '2026-11-01' },
+  { id: 'stockAfterFirstCount', date: '2026-11-01', tryIt: '/p/nilora-duna-swivel-kitchen-mixer-31' },
   { id: 'colourPriceRule', date: '2026-11-01' },
   { id: 'copiesFromPanel', date: '2026-11-01' },
   { id: 'orderDeductedOnce', date: '2026-11-01' },
